@@ -72,6 +72,24 @@ input, select, textarea {
 	appearance: none;
 }
 
+/* The new stuff added */
+.team-members {
+    display: flex; /* Use flexbox */
+    justify-content: space-around; /* Space members evenly */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.member {
+    text-align: center; /* Center text under images */
+    margin: 20px; /* Adds space around each member */
+}
+
+.team-icon {
+    width: 100px; /* Set a specific width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Makes images circular */
+}
+
 /* Basic */
 
 	html {
