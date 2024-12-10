@@ -72,24 +72,6 @@ input, select, textarea {
 	appearance: none;
 }
 
-.team-members {
-    display: flex; /* Use flexbox to arrange members in a row */
-    justify-content: center; /* Center the members */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-}
-
-.member {
-    text-align: center; /* Center text within each member */
-    margin: 15px; /* Margin around each member */
-}
-
-.member img {
-    width: 100px; /* Set a fixed width for the images */
-    height: 100px; /* Set a fixed height for the images */
-    border-radius: 50%; /* Make the images circular */
-    object-fit: cover; /* Ensure the image covers the circle */
-    border: 2px solid #ccc; /* Optional: border around the images */
-
 /* Basic */
 
 	html {
