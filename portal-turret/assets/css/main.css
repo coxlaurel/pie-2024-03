@@ -72,27 +72,6 @@ input, select, textarea {
 	appearance: none;
 }
 
-/* The new stuff added */
-/* Team members container */
-.team-members {
-    display: flex; /* Use flexbox */
-    justify-content: space-around; /* Space members evenly */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-}
-
-/* Individual member styles */
-.member {
-    text-align: center; /* Center text under images */
-    margin: 10px; /* Adds space around each member */
-    flex: 1 1 200px; /* Flex-grow, flex-shrink, and base width */
-}
-
-/* Image styles */
-.member img {
-    width: 100px; /* Set a specific width for images */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 50%; /* Makes images circular */
-
 /* Basic */
 
 	html {
