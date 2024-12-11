@@ -2172,13 +2172,25 @@ input, select, textarea {
 		display: inline-block;
 		position: relative;
 	}
+		/* Mechanical Section */
+		.mechanical .image:after {
+		    background-image: url("images/mechanical_background.png"); /* Change to your desired image */
+		}
+		
+		/* Electrical Section */
+		.electrical .image:after {
+		    background-image: url("images/electrical_background.png"); /* Change to your desired image */
+		}
+		
+		/* Software Section */
+		.software .image:after {
+		    background-image: url("images/software_background.png"); /* Change to your desired image */
 
 		.image:after {
 			-moz-transition: opacity 0.25s ease-in-out;
 			-webkit-transition: opacity 0.25s ease-in-out;
 			-ms-transition: opacity 0.25s ease-in-out;
 			transition: opacity 0.25s ease-in-out;
-			background-image: url("images/portal_background.png");
 			content: '';
 			display: block;
 			height: 100%;
