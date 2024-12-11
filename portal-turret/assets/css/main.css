@@ -2252,26 +2252,6 @@ input, select, textarea {
 		cursor: default;
 	}
 
-/* Style subteam boxes */
-
-.mechanical {
-    background-image: url("images/mechanical_background.jpg");
-    background-size: cover; /* Adjust as needed */
-    background-position: center; /* Adjust as needed */
-}
-
-.electrical {
-    background-image: url("images/electrical_background.jpg");
-    background-size: cover; /* Adjust as needed */
-    background-position: center; /* Adjust as needed */
-}
-
-.software {
-    background-image: url("images/software_background.jpg");
-    background-size: cover; /* Adjust as needed */
-    background-position: center; /* Adjust as needed */
-}
-
 /* Icon */
 
 	.icon {
