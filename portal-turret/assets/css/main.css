@@ -190,10 +190,6 @@ input, select, textarea {
 		max-width: 100%;
 		width: 51em;
 		height: auto;
-		overflow: visible;
-		display: flex; 
-		justify-content: center; 
-		align-items: center; 
 	}
 
 		.container.medium {
