@@ -2062,6 +2062,12 @@ input, select, textarea {
 				bottom: 10px;
 			}
 
+.responsive-image {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the entire image is visible */
+}
+
 /* Form */
 
 	label {
