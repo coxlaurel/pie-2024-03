@@ -183,6 +183,13 @@ input, select, textarea {
 		padding: 1em 0 1em 2em;
 	}
 
+.responsive-image {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the entire image is visible */
+}
+
+
 /* Container */
 
 	.container {
