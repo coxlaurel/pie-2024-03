@@ -21,7 +21,7 @@
 			</div>
 
 			<div class="container medium">
-				<img src="images/data_flow_diagram.jpg" alt="Data Flow Diagram">
+				<img src="images/data_flow_diagram.jpg" alt="Data Flow Diagram" style="width: auto; height: auto;">
 			</div>
 	  		
 	  	<!-- Footer -->
@@ -83,6 +83,23 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+	  		<script>
+			    function resizeImage() {
+			        const image = document.getElementById('dataFlowImage');
+			        const screenHeight = window.innerHeight; // Get the height of the viewport
+			        const desiredHeight = screenHeight * 0.8; // Set desired height to 80% of the screen height
+			        image.style.height = desiredHeight + 'px'; // Set the image height
+			        image.style.width = 'auto'; // Maintain aspect ratio
+			    }
+			
+			    // Call the function on page load
+			    window.onload = resizeImage;
+			
+			    // Optional: Call the function on window resize
+			    window.onresize = resizeImage;
+			</script>
+
 
 	</body>
 </html>
