@@ -189,7 +189,6 @@ input, select, textarea {
 		margin: 0 auto;
 		max-width: 100%;
 		width: 51em;
-		height: auto;
 	}
 
 		.container.medium {
@@ -2062,12 +2061,6 @@ input, select, textarea {
 			footer.major:after {
 				bottom: 10px;
 			}
-
-.responsive-image {
-    max-width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Ensure the entire image is visible */
-}
 
 /* Form */
 
