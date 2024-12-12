@@ -191,6 +191,9 @@ input, select, textarea {
 		width: 51em;
 		height: auto;
 		overflow: visible;
+		display: flex; 
+		justify-content: center; 
+		align-items: center; 
 	}
 
 		.container.medium {
