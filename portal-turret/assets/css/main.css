@@ -189,6 +189,8 @@ input, select, textarea {
 		margin: 0 auto;
 		max-width: 100%;
 		width: 51em;
+		height: auto;
+		overflow: visible;
 	}
 
 		.container.medium {
