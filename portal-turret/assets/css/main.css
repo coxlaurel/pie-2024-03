@@ -190,28 +190,44 @@ input, select, textarea {
 }
 
 
+nav {
+    background-color: #333; /* Background color of the navbar */
+}
+
 .navbar {
+    display: flex; /* Use Flexbox */
+    justify-content: space-around; /* Evenly space out the items */
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: #333; /* Background color of the navbar */
-    overflow: hidden;
 }
 
 .navbar li {
-    float: left; /* Aligns the list items horizontally */
+    flex: 1; /* Allow each item to grow equally */
 }
 
 .navbar li a {
     display: block;
     color: white; /* Text color */
     text-align: center;
-    padding: 14px 16px; /* Padding for the links */
+    padding: 14px 0; /* Padding for the links */
     text-decoration: none; /* Removes underline from links */
 }
 
 .navbar li a:hover {
     background-color: #111; /* Background color on hover */
+}
+
+/* Fade effect at the bottom of the navbar */
+nav::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px; /* Height of the fade effect */
+    background: linear-gradient(to bottom, rgba(51, 51, 51, 0) 0%, rgba(51, 51, 51, 1) 100%);
+    pointer-events: none; /* Allows clicks to pass through */
 }
 
 /* Container */
