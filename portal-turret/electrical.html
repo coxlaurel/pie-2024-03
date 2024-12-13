@@ -78,10 +78,24 @@
 					</p>
 					<br>
 					<h3>Servos</h3>
+					<p>The two servos used in the circuit are TowerPro 9g SG90 Servos. These servos are controlled with PWM signals, which determine the angle of 
+					rotation. These servos are attached to the ends of the rack in the rack-and-pinion system and are responsible for moving the wings forward and 
+					backwards
+					<br>
+					The servos are each connected to a 5V source and ground. The left servo is connected to GPIO18 whereas the right serov is connected to GPIO16.
+					</p>
 					<br>
 					<h3>Button</h3>
+					<p>The button is mainly used for testing and troubleshooting when the IR remote control is not in use. When pressed, the switch inside is closed, 
+					allowing power through to the pin it is attached to. This pulls the pin's state to `HIGH`, which can be detected by the Raspberry Pi.
+					<br>
+					The button is connected to a 3.3V source and GPIO4. There is a 1kΩ resistor between the voltage source and the button.
+					</p>
 					<br>
 					<h3>Other Components</h3>
+					<p>The components listed above are all directly connected to the circuit, but there are some other components that need to be mentioned. There 
+					is a speaker connected to the Raspberry Pi 4 Model B via Bluetooth, which allows for audio to be played as an output. There is also an IR remote 
+					control as mentioned before, which can send codes to the IR receiver to trigger some sort of output.</p>
 				</footer>
 
 				<footer class="major container medium">
