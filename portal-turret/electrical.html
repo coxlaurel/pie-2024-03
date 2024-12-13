@@ -86,8 +86,10 @@
 					</p>
 					<br>
 					<h3>Button</h3>
-					<p>The button is mainly used for testing and troubleshooting when the IR remote control is not in use. When pressed, the switch inside is closed, 
-					allowing power through to the pin it is attached to. This pulls the pin's state to `HIGH`, which can be detected by the Raspberry Pi.
+					<p>The button is primarily used for testing and troubleshooting purposes when the IR remote control is not being used. When the button is pressed, 
+					it closes the internal switch, allowing power to flow to the connected pin. This action pulls the pin's state to `HIGH,` which can be detected by the 
+					Raspberry Pi. To do this, a pull-down resistor is used, as the pin is designed to detect changes from its default state of `LOW` to `HIGH`. With this 
+					in mind, a resistor value of 1kΩ was chosen.
 					<br>
 					The button is connected to a 3.3V source and GPIO4. There is a 1kΩ resistor between the voltage source and the button.
 					</p>
