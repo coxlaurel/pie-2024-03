@@ -190,6 +190,30 @@ input, select, textarea {
 }
 
 
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333; /* Background color of the navbar */
+    overflow: hidden;
+}
+
+.navbar li {
+    float: left; /* Aligns the list items horizontally */
+}
+
+.navbar li a {
+    display: block;
+    color: white; /* Text color */
+    text-align: center;
+    padding: 14px 16px; /* Padding for the links */
+    text-decoration: none; /* Removes underline from links */
+}
+
+.navbar li a:hover {
+    background-color: #111; /* Background color on hover */
+}
+
 /* Container */
 
 	.container {
