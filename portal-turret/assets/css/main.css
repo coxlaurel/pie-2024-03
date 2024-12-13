@@ -189,34 +189,37 @@ input, select, textarea {
     object-fit: contain; /* Ensure the entire image is visible */
 }
 
-
 nav {
-    background: linear-gradient(to bottom, rgba(51, 51, 51, 1) 0%, rgba(51, 51, 51, 0) 100%); /* Gradient from solid to transparent */
-    position: relative; /* Position relative for any future elements */
+    background: linear-gradient(to bottom, rgba(51, 51, 51, 1) 0%, rgba(51, 51, 51, 0) 100%);
+    position: absolute; /* Change to absolute positioning */
+    top: 0; /* Position at the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Stretch to the right */
+    z-index: 10; /* Ensure it appears above other content */
 }
 
 .navbar {
-    display: flex; /* Use Flexbox for layout */
-    justify-content: space-around; /* Evenly space out the items */
+    display: flex;
+    justify-content: space-around;
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
 .navbar li {
-    flex: 1; /* Allow each item to grow equally */
+    flex: 1;
 }
 
 .navbar li a {
     display: block;
-    color: white; /* Text color */
+    color: white;
     text-align: center;
-    padding: 14px 0; /* Padding for the links */
-    text-decoration: none; /* Removes underline from links */
+    padding: 14px 0;
+    text-decoration: none;
 }
 
 .navbar li a:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Background color on hover */
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Container */
