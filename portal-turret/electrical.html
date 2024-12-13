@@ -29,12 +29,36 @@
 				<footer class="major container medium">
 					<h2>Circuit Diagram</h2>
 					<img src="images/circuit_diagram.png" alt="Circuit Diagram" class="responsive-image">
-					The circuit contains the following components: an accelerometer/magnetometer, a sound sensing module, an IR receiver,
-					a PCF8591 ADC/DAC module, a button, a 9V DC motor, a L293D motor driver, and two 9g SG90 servos. Additionally, a speaker
-					is connected to the Raspberry Pi via Bluetooth and an IR remote control can be used to send IR codes to the IR receiver.
-					<h2>Sound Sensing Module</h2>
-					<p>
-					</p>
+					<p>The circuit contains the following components: an accelerometer/magnetometer, an IR receiver, a sound sensing module,
+					a PCF8591 ADC/DAC module, a 9V DC motor, a L293D motor driver, two 9g SG90 servos, and a button. Additionally, a speaker
+					is connected to the Raspberry Pi via Bluetooth so audio can be played, and an IR remote control can be used to send IR 
+					codes to the IR receiver.</p>
+					<br>
+					<h3>Accelerometer</h3>
+					<p> The accelerometer/magnetometer used is the LSM303AGR 3-axis accelerometer and 3-axis magnetometer. This measures the 
+					acceleration forces and magnetic field strength in three dimensions. In this case, it is only being used to measure the
+					acceleration of the Portal Turret so it can detect when is picked up or moved around.
+					<br>
+					The LSM303AGR is connected to a 3.3V source, ground, SDA1 I2C, and SCL2 I2C.</p>
+					<br>
+					<h3>IR Receiver</h3>
+					<p> The IR receiver can receive signals from an IR remote control. When buttons are pressed on the remote, an IR code is 
+					transmitted, which the IR receiver reads and sends to the Raspberry Pi. From there, the code is processed to trigger some sort
+					of output response.
+					<br>
+					The IR receiver is connected to a 3.3V power source, ground, and GPIO17.</p>
+					<br>
+					<h3>Sound Sensing</h3>
+					<p>To read the intensity of nearby sounds, two components are necessary: the sound sensing module and the PCF8951 ADC/DAC Module. 
+					The sound sensing module outputs analog values, with a lower number corresponding to a louder noise. However, the Raspberry Pi 4 
+					Model B does not built-in analog capabilities, making it unable to directly read the values outpuuted by the sound sensor. The 
+					PCF8951 ADC/DAC helps address this limitation, as it converts the analog signal the sound sensor outputs into a digital one that 
+					the Raspberry Pi can read. Both of these components come from Sunfounder.
+					<br>
+					The sound sensor is connected to a 3.3V source, ground, and the PCF8591 ADC/DAC while the PCF8591 is connected to 
+					the sound sensor, a 3.3V source, ground, SDA1 I2C, and SCL1 I2C. The `SIG` pin of the sound sensor is fed into the `AIN3` pin of 
+					the PCF8591 ADC/DAC.</p>
+					<br>
 				</footer>
 
 				<footer class="major container medium">
