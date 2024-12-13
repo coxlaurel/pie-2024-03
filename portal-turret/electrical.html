@@ -29,21 +29,21 @@
 				<footer class="major container medium">
 					<h2>Circuit Diagram</h2>
 					<img src="images/circuit_diagram.png" alt="Circuit Diagram" class="responsive-image">
-					<p>The circuit contains the following components: an accelerometer/magnetometer, an IR receiver, a sound sensing module,
-					a PCF8591 ADC/DAC module, a 9V DC motor, a L293D motor driver, two 9g SG90 servos, and a button. Additionally, a speaker
+					<p>The circuit contains the following components: an accelerometer/magnetometer, an IR receiver, a sound sensing module, 
+					a PCF8591 ADC/DAC module, a 9V DC motor, a L293D motor driver, two 9g SG90 servos, and a button. Additionally, a speaker 
 					is connected to the Raspberry Pi via Bluetooth so audio can be played, and an IR remote control can be used to send IR 
 					codes to the IR receiver.</p>
 					<br>
 					<h3>Accelerometer</h3>
 					<p> The accelerometer/magnetometer used is the LSM303AGR 3-axis accelerometer and 3-axis magnetometer. This measures the 
-					acceleration forces and magnetic field strength in three dimensions. In this case, it is only being used to measure the
+					acceleration forces and magnetic field strength in three dimensions. In this case, it is only being used to measure the 
 					acceleration of the Portal Turret so it can detect when is picked up or moved around.
 					<br>
 					The LSM303AGR is connected to a 3.3V source, ground, SDA1 I2C, and SCL2 I2C.</p>
 					<br>
 					<h3>IR Receiver</h3>
 					<p> The IR receiver can receive signals from an IR remote control. When buttons are pressed on the remote, an IR code is 
-					transmitted, which the IR receiver reads and sends to the Raspberry Pi. From there, the code is processed to trigger some sort
+					transmitted, which the IR receiver reads and sends to the Raspberry Pi. From there, the code is processed to trigger some sort 
 					of output response.
 					<br>
 					The IR receiver is connected to a 3.3V power source, ground, and GPIO17.</p>
@@ -59,6 +59,29 @@
 					the sound sensor, a 3.3V source, ground, SDA1 I2C, and SCL1 I2C. The `SIG` pin of the sound sensor is fed into the `AIN3` pin of 
 					the PCF8591 ADC/DAC.</p>
 					<br>
+					<h3>DC Motors</h3>
+					<p>To move the motors, two components are necessary: the 9V DC motor and the L293D Motor Driver. The Raspberry Pi 4 Model B can only 
+					supply a limited amount of current (16-20 mA per pin) and voltage (5V), which would not be able to successfully the power the 9V DC 
+					Motors. Attempting to power the motors via the Raspberry Pi could cause damage to it. The L293D motor drive helps address these limitations. 
+					It handles higher currents (around 600 mA per channel), allows for bidirectional movement of the motors, tolerates higher voltage (up to 36V), 
+					provides protection features that safeguard the Raspberry Pi from voltage spikes, and supports up to two motors concurrently. The L293D 
+					requires an external voltage sources, so a 9V battery was connected to it. When connected to the Raspberry Pi through the GPIO pins, the 
+					user can send signals to the driver to control the motor's speed and direction. The L293D motor driver also features PWM control, allowing 
+					for speed control of the motors.
+					<br>
+					The L293D has 16 different pins, with 8 pins dedicated to powering and control each motor. Pins 1 and 2 are the enable pins for controlling 
+					the operation of the two motor channels; pins 2, 7, 10, and 15 are the input pins that control the rotation direction of the motor; pins 3, 6, 
+					11, and 14 are the output pins connected to the motors; pins 4, 5, 12, and 13 are the ground pins; and pins 8 and 16 are the pins connected 
+					to the voltage source. In this case, pin 1 is connected to GPIO25, pin 2 is connected to GPIO24, pin 3 is connected to the ground terminal of 
+					the 9V DC motor, pins 4 and 12 are connected to ground terminal of the 9V battery, pin 6 is connected to the positive power supply of the 9V 
+					DC motor, pin 7 is connected to GPIO23, and pins 8 and 16 are connected to the positive power supply of the 9V battery.
+					</p>
+					<br>
+					<h3>Servos</h3>
+					<br>
+					<h3>Button</h3>
+					<br>
+					<h3>Other Components</h3>
 				</footer>
 
 				<footer class="major container medium">
