@@ -34,12 +34,27 @@
 
 	  		<div id=main>
 				
-				<header class="major container medium">
+				<footer class="major container medium">
 					<h2>Firmware</h2>
 					<p>The firmware is designed to manage the various components in the circuit. 
 					These components will be connected to various pins on the Raspberry Pi 4, 
 					which acts as a central processing unit for the whole system.</p>
-				</header>	
+
+					<h3>System Initialization</h3>
+					<p>Upon startup, the firmware will initialize different components, setting up
+					the necessary GPIO pins, I2C communication, and Bluetooth connections.
+					<br>
+					The GPIO set up configures the GPIO pins for the input and output system components.
+					The GPIO inputs include the sensors (accelerometer, sound sensing module, camera, IR 
+					receiver, and button) and the GPIO ouputs include motors (DC and servo motors) and LEDs.
+					<br>
+					The I2C set up intializes the I2C bus for communication with the PCF8591 ADC/DAC and 
+					the LSM303AGR accelerometer/magnetometer. 
+					<br>
+					The Bluetooth set up establishes a connection with the Bluetooth speaker, allowing 
+					audio to be played as an output.
+					</p>
+				</header>
 
 				<footer class="major container medium">
 					<h3>Subsystems</h3>
@@ -63,7 +78,7 @@
 				<footer class="major container medium">
 					<h3>A demonstration of the turret</h3>
 					<p>Watch the Portal Turret replica in action, featuring lively music, dynamic movement, responsive stimulus detection, and more.</p>
-					<ul class="actions special">
+					<ul class="actions special">	
 						<li><a href="demonstration.html" class="button">Watch now</a></li>
 					</ul>
 				</footer>
