@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Ghost Thrusters</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <style>
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 9999; /* High z-index to ensure it’s on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: auto;
+            max-width: 700px; /* Maximum width for the image */
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px; /* Positioning of the close button */
+            right: 35px;
+            color: white; /* Color of close button */
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: #ccc; /* Color change on hover */
+            text-decoration: none;
+            cursor: pointer; /* Cursor styling */
+        }
+        
+        #caption {
+            margin: auto;
+            display: block;
+            text-align: center;
+            color: #ccc; /* Color of caption */
+            padding: 10px 0; /* Padding */
+            width: 100%; /* Full width for caption */
+            max-width: 700px; /* Maximum width for caption */
+        }
+    </style>
+</head>
+
+<body class="is-preload">
+
+    <!-- wrapper -->
+    <div id="wrapper">
+
+        <!-- header -->
+        <header id="header">
+            <a href="index.html" class="logo">thrusters</a>
+        </header>
+
+        <!-- nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="index.html">overview</a></li>
+                <li><a href="system.html">our system</a></li>
+                <li class="active"><a href="sprints.html">sprints</a></li>
+                <li><a href="bom.html">bill of materials</a></li>
+                <li><a href="gallery.html">gallery</a></li>
+                <li><a href="team.html">team</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://github.com/rixhee/gas-thruster-stabilization" class="icon brands fa-github"><span
+                            class="label">github</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- Post -->
+            <section class="post">
+
+                <h3>Sprint 2 Overview</h3>
+
+                <p>
+                    In Sprint 2 of our drone development project, we successfully completed the full assembly of the gas thruster reaction control system, which is essential for stabilizing our drone using compressed air. This sprint involved the integration of various key components that included disconnects, fittings, tubing, and an air tank fabricated from a two-liter bottle. Additionally, we incorporated a compressor and a regulating valve to effectively manage the pressurized air, culminating in a carefully designed propelling nozzle.
+                </p>
+
+                <!-- Placeholder for completed drone image -->
+                <div style="text-align:center;">
+                    <div style="display:inline-block; margin: 5px; border: 1px solid lightgray; padding: 5px; background: #E0E0E0;">
+                        <p style="font-size: small; margin: 0;">3D CAD of drone</p>
+                        <img src="images/sprint2/caddy.png" alt="Caddy" onclick="showModal(this.src, this.alt)" style="width: 350px; height: 400px; cursor: pointer;">
+                    </div>
+                    <div style="display:inline-block; margin: 5px; border: 1px solid lightgray; padding: 5px; background: #E0E0E0;">
+                        <p style="font-size: small; margin: 0;">Drone</p>
+                        <img src="images/sprint2/drone.png" alt="Drone" onclick="showModal(this.src, this.alt)" style="width: 350px; height: 400px; cursor: pointer;">
+                    </div>
+                    <div style="display:inline-block; margin: 5px; border: 1px solid lightgray; padding: 5px; background: #E0E0E0;">
+                        <p style="font-size: small; margin: 0;">Nozzle Design</p>
+                        <img src="images/sprint2/part.png" alt="Part" onclick="showModal(this.src, this.alt)" style="width: 350px; height: 400px; cursor: pointer;">
+                    </div>
+                    <p>Completed assembly of the gas thruster reaction control system on the drone</p>
+                </div>
+
+                <p>
+                    Our project aims to design and build a system that utilizes cold gas thrusters—similar to rocket engines—to control the attitude and steering of a drone. The core components of our design include a fuel tank, a regulating valve, and a propelling nozzle, with our minimum viable product being a drone capable of self-stabilization using this thruster system.
+                </p>
+
+                <!-- Placeholder for sketches image -->
+                <div style="text-align:center;">
+                    <div style="display:inline-block; margin: 5px; border: 1px solid lightgray; padding: 5px; background: #E0E0E0;">
+                        <p style="font-size: small; margin: 0;">Nozzle Design</p>
+                        <img src="images/sprint2/sketch1.png" alt="Part" onclick="showModal(this.src, this.alt)" style="width: 450px; height: 400px; cursor: pointer;">
+                    </div>
+                    <div style="display:inline-block; margin: 5px; border: 1px solid lightgray; padding: 5px; background: #E0E0E0;">
+                        <p style="font-size: small; margin: 0;">Nozzle Design</p>
+                        <img src="images/sprint2/sketch2.png" alt="Part" onclick="showModal(this.src, this.alt)" style="width: 450px; height: 400px; cursor: pointer;">
+                    </div>
+                    <p>Design sketches illustrating the gas thruster system</p>
+                </div>
+
+                
+                <p>
+                    On demo day, we plan to implement four thrusters on a stationary drone. If the drone is perturbed from its stable position, the Inertial Measurement Unit (IMU) will detect the change, and the microcontroller will command the thrusters to respond accordingly to maintain stability. As an ambitious stretch goal, we aim to introduce a radio frequency (RF) component to allow for remote control of the thrusters, which would enable the drone to fly.
+                </p>
+                
+                <p>
+                    In preparation for this, our priorities for Sprint 2 included testing the controller software by mounting the IMU on our seesaw jig and assembling and electrically integrating the new four-thruster system. We are dedicated to our objective of delivering a fully functioning four-thruster drone for our final demo.
+                </p>
+                
+                <!-- Placeholder for seesaw simulation video -->
+                <div style="text-align:center;">
+                    <iframe src="https://drive.google.com/file/d/1NVuoQn-9b8QGc_UsUf5ONPqwBanEhQ3Z/preview" width="640" height="480" allow="autoplay"></iframe>
+                    <p>Seesaw simulation demonstrating the stabilization mechanism</p>
+                </div>
+                
+                <p>
+                    To further validate our design choices before finalizing the mechanical and electrical components, we created a simulation that tests various parameters for the control system. This allows us to ensure robustness and reliability in our drone's stability and response mechanisms.
+                </p>
+                
+                <!-- Placeholder for four-thruster drone simulation video -->
+                <div style="text-align:center;">
+                    <iframe src="https://drive.google.com/file/d/1tFq1Sxw_QKvmaXZ7i_EuQyFgjzJGKaqM/preview" width="640" height="480" allow="autoplay"></iframe>
+                    <p>Four-thruster drone simulation showcasing stabilization in action</p>
+                </div>
+                
+                <!-- Placeholder for testing results or images -->
+                <div style="text-align:center;">
+                    <iframe src="https://drive.google.com/file/d/1YrV5Hx67yauHFsMnurWTSiD5PHRPp90a/preview" width="640" height="480" allow="autoplay"></iframe>
+                    <p>Testing results demonstrating the functionality of the gas thruster system</p>
+                </div>
+                
+                <p>
+                    As we move forward, we are excited to refine our design, enhance functionality, and ensure that our four-thruster drone achieves the stabilization capabilities required for our final demonstration.
+                </p>
+
+            </section>
+
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+        </div>
+
+        <!-- Copyright -->
+        <div id="copyright">
+            <ul>
+                <li>&copy; Ghost Thrusters</li>
+                <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        function showModal(imageSrc, alt) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
+            captionText.innerHTML = alt; // add alt text to caption
+        }
+        
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>
