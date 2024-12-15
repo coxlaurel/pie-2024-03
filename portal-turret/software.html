@@ -33,6 +33,10 @@
 			</div>
 
 	  		<div id=main>
+				<header class="major container">
+					<a href="https://github.com/atealeaf/portal_turret"><img src=https://logos-world.net/wp-content/uploads/2020/11/GitHub-Symbol.png alt="GitHub" class="logo"/></a>
+
+				</header>
 				
 				<footer class="major container medium">
 					<h2>Firmware</h2>
@@ -100,6 +104,98 @@
 					actions, such as moving the motors or servos or playing audio. The main loop also tracks the 
 					mode the Portal Turret is in, which dictates which sensor inputs are read and what outputs 
 					can be given. This main loop is contained in `main.py`.</p>
+				</footer>
+
+				<footer class="major container medium">
+					<h2>The software is designed to take the various inputs to determine the state of the Portal 
+					Turret. Listed below are the various Python files used and a short description of what they do.</h2>
+
+					<h3>`acceleration.py`</h3>
+					This file contains functions that read the acceleration and magnetism via the LSM303AGR. There 
+					is also a function that dictates the type of output depending on the values read. There are 
+					various libraries used, including `board`, `busio`, `adafruit_lis2mdl`, `adafruit_lsm303_accel`, 
+					and `time`.
+					<br>
+					<b>get_acceleration()</b>: Gets the acceleration and magnetism read by the gyroscope.
+					<br>
+					<b>sounds_acceleratio()</b>: Determines if the acceleration is below a certain threshold. 
+					In this case, it is detecting whether the Portal Turret is picked up. If it is and playing 
+					a sound is not on cooldown, audio is played.
+
+					<h3>`ir_receiver.py`</h3>
+					This file contains functions that set up the IR remote control and allow signals sent to be 
+					read by the Raspberry Pi. Note that this requires LIRC to be set up on the Raspberry Pi before 
+					use, which includes installing `LIRC` and setting up the appropriate configs. It uses the 
+					`lirc` library.
+					<br>
+					<b>initialize_ir()</b>: Initializes the IR remote control.
+					<br>
+					<b>read_ir</b>: Reads signals from the IR client.
+
+					<h3>`main.py`</h3>
+					This file contains the main loop that will check the states of various components and respond to 
+					events. While running, it will set the Portal Turret to a specific mode depending on which button 
+					on the IR remote control is pressed. Depending on the mode, different buttons will elicit different 
+					outputs. There are four main modes: stimulus detection, play music while dancing, play music 
+					without dancing, and manual mode. There are various libraries used, including `os`, `sys`, `time`, 
+					`threading`, `RPi.GPIO`, and `queue`. Classes and functions from other files are imported as well, 
+					including `PlaySounds` from `play_sounds.py`, `PlayMusic` from `play_music.py`, `initialize_ir()` 
+					and `read_ir()` from `ir_receiver.py`, `sounds_acceleration()` from `sound_sensing.py`, 
+					`move_motors()` from `move_wings.py`, and `servo_backward()` and `servo_forward()` from `move_servos.py`.
+					<br>
+					<b>handle_ir_signals()</b>: Reads the IR signal sent and executes an action depending on the signal 
+					received.
+					
+					<h3>`move_servos.py`</h3>
+					This file controls servo movement using PWM. TThe libraries used are `RPi.GPIO` and `time`.
+					<br>
+					<b>servo_forward()</b>: Moves the servo forward 45 degrees, waits for a specified time, and then 
+					moves back to its original position.
+					<br>
+					<b>servo_backward()</b>: Moves the servo backward 45 degrees, waits for a specified time, and then 
+					moves back to its original position.
+
+					<h3>`move_wings.py`</h3>
+					This file includes a function that controls motor movement using the L293D motor driver. It uses 
+					the libraries `RPi.GPIO` and `time`.
+					<br>
+					<b>move_motors</b>: Moves the wings in or out with a motor.
+
+					<h3>`play_music.py`</h3>
+					This file contains the class `PlayMusic`, which is an object to play music similarly to how an MP3 
+					player would work. The class stores music files and plays them when commanded, even allowing the 
+					Portal Turret to dance with the music. This class contains many functions, including 
+					`get_music_files()`, `dance_to_song()`, `cycle_songs_button()`, `get_song_length()`, and 
+					`ir_play()`. There are various libraries used, including `os`, `glob`, `RPi.GPIO`, `time`, 
+					`audioplayer`, `threading`, and `mutagen`. It also imports functions from other files, such as 
+					`read_sound()` from `sound_sensing.py` and `read_ir()` from `ir_receiver.py`.
+					<br>
+					<b>PlayMusic</b>: A class to play music on the Raspberry Pi. To work, it needs to have a `music` 
+					folder which contains `.wav`, `.mp3`, or `.ogg` files.
+
+					<h3>`play_sounds.py`</h3>
+					This file contains the class `PlaySounds`, which is an object to play sounds. The class stores 
+					sound files and folders and plays them when commanded, even allowing motor movement alongside the 
+					audio output. This class contains many functions, including `directory_folders()`, `play()`, 
+					`play_sound()`, and `play_on_press()`. There are various libraries used, including `random`, 
+					`os`, `sys`, `glob`, `RPi.GPIO`, and `playsound`. Additionally, it imports `move_motors` from 
+					`move_wings.py`.
+					<br>
+					<b>PlaySounds</b>: A class to play sounds on the Raspberry Pi. To work, it needs to have a `sounds` 
+					folder, which contains subfolders that contain the sound files. The subfolders should be made 
+					according to sound category (e.g. sounds that play when turned on, turned off, etc.). 
+
+					<h3>`sound_sensing.py`</h3>
+					This file contains functions to detect sound and respond accordingly. There are various libraries 
+					used, including `adafruit_pcf8591.pcf8591`, `board`, `busio`, `RPi.GPIO`, and `time`. Additionally, 
+					the function `move_motors()` is imported from `move_wings.py`.
+					<br>
+					<b>sense_sound()</b>: Set up the sound sensing module, which includes the sound sensor and ADC.
+					<br>
+					<b>read_sound()</b>: Reads the sound values from the sensor. Depending on the threshold vaue and 
+					the flags used, different actions will be performed (e.g. triggering motor movement or audio to 
+					be played).
+
 				</footer>
 
 				<footer class="major container medium">
