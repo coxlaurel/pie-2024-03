@@ -42,16 +42,65 @@
 
 					<h3>System Initialization</h3>
 					<p>Upon startup, the firmware will initialize different components, setting up
-					the necessary GPIO pins, I2C communication, and Bluetooth connections.
-					<br>
-					The GPIO set up configures the GPIO pins for the input and output system components.
+					the necessary GPIO pins, I2C communication, and Bluetooth connections. The GPIO set 
+					up configures the GPIO pins for the input and output system components.
 					The GPIO inputs include the sensors (accelerometer, sound sensing module, camera, IR 
 					receiver, and button) and the GPIO ouputs include motors (DC and servo motors) and LEDs.
 					The I2C set up intializes the I2C bus for communication with the PCF8591 ADC/DAC and 
 					the LSM303AGR accelerometer/magnetometer. The Bluetooth set up establishes a connection 
-					with the Bluetooth speaker, allowing audio to be played as an output.
-					</p>
-				</header>
+					with the Bluetooth speaker, allowing audio to be played as an output.</p>
+
+					<h3>Accelerometer/Magnetometer (LSM303AGR)</h3>
+					<p>The firmware reads acceleration data from LSM303AGR to monitor the movement of the 
+					Portal Turret. It uses I2C to read acceleration and magnetic field data. In this case, it 
+					can detect when the Portal Turret is picked up or moved. If movement is detected, certain 
+					actions, such as motor movement or audio output, are performed. To get the acceleration 
+					data, functions in `acceleration.py` are called. It uses the `board`, `busio`, 
+					`adafruit_lis2mdl`, and `adafruit_lsm303_accel` libraries to work.</p>
+
+					<h3>IR Receiver</h3>
+					<p>The IR receiver listens for signals from the IR remote control. It is connected to 
+					GPIO17, which can be modified in `/boot/firmware/config.txt`. Each button on the IR remote 
+					control is mapped to an IR code via the `lircd.conf`, located in `/etc/lirc/lircd.conf`. 
+					To receive IR codes, the `lirc` library is used. The functions to receive the signals are 
+					located in `ir_receiver.py`.</p>
+
+					<h3>Sound Sensing Module</h3>
+					<p>The sound sensing module includes the sound sensor itself and a PCF8591 ADC/DAC. Ambient 
+					sound levels will be read by the sound sensor and then sent to the PCF8591 ADC/DAC, which 
+					wil then convert the analog output into a digital value. The sound sensing module is connected 
+					to the PCF8591 ADC/DAC, which is connected to SDA1 I2C and SCL1 I2C. Execeeding a certain 
+					sound level will trigger an output action, such as playing sound or moving the motors. The 
+					`sound_sensing.py` file contains functions to read the sound level. To work, it uses the 
+					`adafruit_pcf8591`, `board`, `busio`, and `RPi.GPIO` libraries.</p>
+					
+					<h3>DC Motor Control</h3>
+					<p>The firmware controls the 9V Motor motor through the L293D motor driver using PWM. PWM 
+					signals are sent from the Raspberry Pi to the L293D motor driver to control the speed and 
+					direction of the motor. The motors are controlled via functions contained in 
+					`move_wings.py`, which uses the `RPi.GPIO` library. The motor is connected to GPIO23, 24, 
+					and 25, with GPIO23 and 24 telling the motor which direction to spin and GPIO25 controlling 
+					whether the motor is on or not.</p>
+
+					<h3>Servo Control</h3>
+					<p>The firmware manages two SG90 servos which rotate the wings of the Portal Turret. PWM 
+					are generated to control the angle of rotation of each servo. The firmware defines the 
+					pulse width corresponding to the desired angle. The right servo is connected to GPIO16, 
+					and the left servo is connected to GPIO18. The file `move_servos.py` contain the 
+					functions used to move the servos. It uses the `RPi.GPIO` library.</p>
+
+					<h3>Button Input Handling</h3>
+					<p>The button is a manual input method primarily used for testing and troubleshooting. It
+					is connected to GPIO4. The pin detects state changes from `HIGH` to `LOW` when pressed. </p>
+
+					<h3>Main Loop and Event Handling</h3>
+					<p>The firmware operates within a main loop that continously checks the state of various 
+					components and responds to events. The main loop includes polling the IR receiver for 
+					incoming codes and reading sensor values. It also handles events by executing corresponding 
+					actions, such as moving the motors or servos or playing audio. The main loop also tracks the 
+					mode the Portal Turret is in, which dictates which sensor inputs are read and what outputs 
+					can be given. This main loop is contained in `main.py`.</p>
+				</footer>
 
 				<footer class="major container medium">
 					<h3>Subsystems</h3>
