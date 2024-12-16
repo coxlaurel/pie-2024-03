@@ -109,70 +109,96 @@ body, html {
   .bg-light{
     color:rgba(0, 0, 0, 0.5)
   }
-  /* mechanical page */
-  .section-header {
-      margin-top: 40px;
-      font-size: 2rem;
-      font-weight: bold;
-  }
-  .image-description {
-      margin-top: 10px;
-  }
-  .image-section {
-      margin-bottom: 40px;
-  }
+  
   footer {
     font-size: 0.9em;
   }
   
-
+  /* general page style */
   .section-header {
     margin-top: 40px;
     font-size: 2rem;
     font-weight: bold;
   }
+
+  /* mechanical page */
   .image-description {
     margin-top: 10px;
   }
   .image-section {
     margin-bottom: 40px;
   }
-
-  /* Gallery styling */
-  .gallery-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease-in-out;
-  }
-  .gallery-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Adjust the number of columns */
-    gap: 20px;
-  }
-
-   /* Make the grid responsive */
-   @media (max-width: 1200px) {
-    .gallery-container {
-      grid-template-columns: repeat(2, 1fr); /* 2 images per row for medium screens */
+    /* Gallery styling */
+    .gallery-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease-in-out;
     }
-  }
-  @media (max-width: 768px) {
     .gallery-container {
-      grid-template-columns: repeat(1, 1fr); /* 1 image per row for smaller screens */
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* Adjust the number of columns */
+        gap: 20px;
     }
-  }
 
-  .gallery-container img {
-    width: 100%;
-    height: 200px;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
+    /* Make the grid responsive */
+    @media (max-width: 1200px) {
+        .gallery-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 images per row for medium screens */
+        }
+    }
+    @media (max-width: 768px) {
+        .gallery-container {
+        grid-template-columns: repeat(1, 1fr); /* 1 image per row for smaller screens */
+        }
+    }
+
+    .gallery-container img {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+        transition: transform 0.3s ease-in-out;
+    }
+    .gallery-container img:hover {
+        transform: scale(1.2); /* Scale the image when hovered */
+    }
+    .gallery-container div {
+        overflow: hidden;
+        position: relative;
+    }
+
+  /* electrical page */
+  .component-description {
+    margin-top: 10px;
   }
-  .gallery-container img:hover {
-    transform: scale(1.2); /* Scale the image when hovered */
+  .component-section {
+    margin-bottom: 40px;
   }
-  .gallery-container div {
-    overflow: hidden;
-    position: relative;
-  }
+     /* Sub-section Styles */
+     .sub-section {
+        margin-top: 30px;
+      }
+  
+      /* Image styling */
+      .component-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+  
+      /* Add some space between component sections */
+      .sub-section img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+  
+      /* Optional: Styling for firmware section */
+      .firmware-section {
+        margin-top: 50px;
+      }
+  
+      .firmware-description {
+        margin-top: 15px;
+      }

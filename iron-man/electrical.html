@@ -27,13 +27,74 @@
   </nav>
 
   <!-- Electrical Section -->
-  <section class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Electrical Components</h2>
-      <p>This page includes details about wiring, circuits, and schematics used in the project.</p>
-      <img src="assets/electrical-diagram.png" alt="Electrical Diagram" class="img-fluid">
+  <!-- Page Container -->
+  <div class="container mt-5">
+
+    <!-- Electrical Components Overview -->
+    <div class="component-section">
+      <h2 class="section-header">Electrical Components Overview</h2>
+      <p>This section covers all the electrical components used in the project, including sensors, actuators, and displays, each with its own detailed description.</p>
     </div>
-  </section>
+
+    <!-- Touch Sensor Sub-section -->
+    <div class="sub-section">
+      <h3 class="section-header">Touch Sensor</h3>
+      <img src="touch-sensor-image.jpg" class="component-image" alt="Touch Sensor">
+      <p class="component-description">The touch sensor is used for detecting user input. It plays a crucial role in allowing interaction with the system, providing a simple and efficient way to trigger actions based on touch input.</p>
+    </div>
+
+    <!-- Servos Sub-section -->
+    <div class="sub-section">
+      <h3 class="section-header">Servos</h3>
+      <img src="servo-image.jpg" class="component-image" alt="Servos">
+      <p class="component-description">Servos are used for precise control of mechanical components, allowing for movement in response to user input or commands. They are essential for providing the required motion in the project.</p>
+    </div>
+
+    <!-- Microphone Sub-section -->
+    <div class="sub-section">
+      <h3 class="section-header">Microphone</h3>
+      <img src="microphone-image.jpg" class="component-image" alt="Microphone">
+      <p class="component-description">The microphone captures audio input from the environment. It is an essential part of any voice interaction system, enabling the project to respond to sound and spoken commands.</p>
+    </div>
+
+    <!-- Camera Sub-section -->
+    <div class="sub-section">
+      <h3 class="section-header">Camera</h3>
+      <img src="camera-image.jpg" class="component-image" alt="Camera">
+      <p class="component-description">The camera is used for visual input. It is critical for tasks that involve image processing or visual recognition, enabling the system to "see" its surroundings.</p>
+    </div>
+
+    <!-- Speaker Sub-section -->
+    <div class="sub-section">
+      <h3 class="section-header">Speaker</h3>
+      <img src="assets/images/elec_s2_speaker.jpg" class="component-image" alt="Speaker">
+      <p class="component-description">The speaker allows the system to output sound, such as voice feedback or alerts, creating an interactive experience with audio cues.</p>
+    </div>
+
+    <!-- OLED Display Sub-section -->
+    <div class="sub-section">
+      <h3 class="section-header">OLED Display</h3>
+      <img src="oled-display-image.jpg" class="component-image" alt="OLED Display">
+      <p class="component-description">The OLED display is used to provide visual feedback to the user. It can display text, icons, or images that are important for the operation and status of the system.</p>
+    </div>
+
+    <!-- Firmware Section -->
+    <div class="firmware-section">
+      <h2 class="section-header">Firmware</h2>
+      <p class="firmware-description">The firmware controls the interaction between the electrical components and the rest of the system. It is responsible for reading data from sensors, processing it, and controlling actuators like servos and speakers. The firmware is developed in [language/platform], and it manages the communication between each component.</p>
+      <p class="firmware-description">Key functionalities of the firmware include:</p>
+      <ul>
+        <li>Sensor data acquisition (e.g., touch sensor, microphone)</li>
+        <li>Control of output devices (e.g., servos, OLED display, speaker)</li>
+        <li>Real-time decision-making and response handling</li>
+        <li>Communication with the system's central control unit</li>
+      </ul>
+      <p>For a deeper look at the firmware code, visit the [GitHub repository link] to view the source code.</p>
+    </div>
+
+  </div>
+
+
 
   <!-- Footer -->
   <footer class="text-center py-4 bg-dark text-light">
