@@ -56,6 +56,32 @@ body, html {
     }
   }
   
+/* Typing Animation */
+.typing-text {
+    font-size: 2.5rem;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowing text */
+    border-right: 4px solid white; /* Cursor effect */
+    width: 0; /* Start width at 0 */
+    animation: typing 4s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
+  }
+  
+  /* Typing Keyframes */
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 25ch; /* Adjust to match the text length */
+    }
+  }
+  
+  /* Blinking Cursor Keyframes */
+  @keyframes blink-caret {
+    50% {
+      border-color: transparent;
+    }
+  }
   
   .navbar {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -68,6 +94,10 @@ body, html {
   
   .hero p {
     color: #f0f0f0;
+    z-index: 2;
+  }
+
+  .hero .btn{
     z-index: 2;
   }
   
