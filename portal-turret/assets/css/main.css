@@ -34,10 +34,10 @@ body {
 }
 
 ol {
-	list-style: circle;
+	list-style:upper-roman;
 }
 ul {
-	list-style:upper-roman;
+	list-style:circle;
 }
 
 blockquote, q {
