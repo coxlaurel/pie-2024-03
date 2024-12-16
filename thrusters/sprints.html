@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Ghost Thrusters</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- wrapper -->
+    <div id="wrapper">
+
+        <!-- header -->
+        <header id="header">
+            <a href="index.html" class="logo">thrusters</a>
+        </header>
+
+        <!-- nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="index.html">overview</a></li>
+                <li><a href="system.html">our system</a></li>
+                <li class="active"><a href="sprints.html">sprints</a></li>
+                <li><a href="bom.html">bill of materials</a></li>
+                <li><a href="gallery.html">gallery</a></li>
+                <li><a href="team.html">team</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://github.com/rixhee/gas-thruster-stabilization" class="icon brands fa-github"><span
+                            class="label">github</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- Post -->
+            <section class="post">
+
+                <h3>Sprint 1</h3>
+                <p><span class="image left"><img src="images/sprint1.png" alt="" /></span>
+                    In Sprint 1 of our drone development project, our team initially considered 
+                    creating a self-balancing drone with a single thruster designed to stabilize 
+                    the craft. However, recognizing the complexity of achieving balance with a 
+                    single thruster, we simplified our approach by implementing a seesaw mechanism 
+                    using two thrusters positioned at opposite ends. This design mimics a dynamic 
+                    balance system, allowing the drone to maintain stability while effectively 
+                    controlling its orientation. We created initial sketches featuring three 
+                    thrusters and tested our seesaw concept, successfully demonstrating its 
+                    viability. To enhance our prototype’s functionality, we integrated an 
+                    Inertial Measurement Unit (IMU) that provided real-time readings for a 
+                    single axis, effectively simulating pitch dynamics on a seesaw. 
+                    Our testing highlighted the principles of self-balancing, showcasing 
+                    our ability to adjust thrust in response to angular displacement, 
+                    setting a solid foundation for future developments.
+                    </p>
+                <div style="text-align: center;">
+                    <a href="sprint1.html" class="button">Learn More</a>
+                </div>
+                <h3>Sprint 2</h3>
+                <p><span class="image right"><img src="images/sprint2.png" alt="" /></span>
+                    In Sprint 2 of our drone development project, we successfully completed 
+                    the full mechanical assembly of the gas thruster reaction control system essential 
+                    for stabilizing the drone using compressed air. This involved integrating 
+                    key components such as disconnects, fittings, tubing, alongside a compressor 
+                    and a regulating 
+                    valve to effectively manage pressurized air, all culminating in a carefully 
+                    designed propelling nozzle. By mimicking the principles of rocket engines, 
+                    our project aims to develop a system that utilizes compressed air for attitude 
+                    and steering control, with our minimum viable product being a self-stabilizing 
+                    drone equipped with this thruster system. Additionally, we created a simulation 
+                    to test various parameters for the control system, allowing us to validate our 
+                    design choices before finalizing the mechanical and electrical components. 
+                    Looking ahead to demo day, we plan to implement four thrusters on a stationary 
+                    drone to enable it to maintain stability through IMU feedback and microcontroller commands.
+                   </p>
+                <div style="text-align: center;">
+                    <a href="sprint2.html" class="button">Learn More</a>
+                </div>
+                <h3>Sprint 3</h3>
+                <p><span class="image left"><img src="images/sprint3.png" alt="" /></span>
+                    In Sprint 3 of our drone development project, we finalized our electrical 
+                    design and successfully implemented it, addressing minor issues in the 
+                    mechanical design related to the nozzles. We established a testbed for 
+                    evaluating the drone's balancing capabilities using a hanging setup, 
+                    recognizing the need to adjust it for comprehensive testing across all axes. 
+                    Additionally, we focused on refining our control loop by tuning the PID 
+                    parameters to achieve smoother balancing, transitioning from a thrust 
+                    application solely based on angle to one that also factors in velocity. 
+                    This iterative approach aims to enhance the drone's stability and responsiveness 
+                    as we move forward in the final stages of our development process.</p>
+                <div style="text-align: center;">
+                    <a href="sprint3.html" class="button">Learn More</a>
+                </div>
+                <hr />
+
+            </section>
+
+        </div>
+
+
+
+        <!-- Copyright -->
+        <div id="copyright">
+            <ul>
+                <li>&copy; Ghost Thrusters</li>
+                <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

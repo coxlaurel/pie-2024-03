@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Ghost Thrusters</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- wrapper -->
+    <div id="wrapper">
+
+        <!-- header -->
+        <header id="header">
+            <a href="index.html" class="logo">thrusters</a>
+        </header>
+
+        <!-- nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="index.html">overview</a></li>
+                <li><a href="system.html">our system</a></li>
+                <li class="active"><a href="sprints.html">sprints</a></li>
+                <li><a href="bom.html">bill of materials</a></li>
+                <li><a href="gallery.html">gallery</a></li>
+                <li><a href="team.html">team</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://github.com/rixhee/gas-thruster-stabilization" class="icon brands fa-github"><span
+                            class="label">github</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- Post -->
+            <section class="post">
+
+                <h3>Sprint 1 Overview</h3>
+
+                <p>
+                    In the first sprint of our drone development project, our team began by exploring the concept of a self-balancing drone. Our initial idea was to design a drone equipped with a single thruster capable of stabilizing itself. However, as we delved deeper into the complexities associated with achieving balance using just one thruster, we decided to simplify our approach by implementing a seesaw mechanism utilizing two thrusters positioned at opposite ends.
+                </p>
+
+                <p>
+                    This seesaw design effectively mimics dynamic balance, allowing us to maintain stability while controlling the orientation of the drone. By angling either thruster, we could simulate pitching movements, enabling better maneuverability and responsiveness.
+                </p>
+
+                <p>
+                    We created initial sketches that featured a three-thruster configuration, which provided a clearer vision of our design concept. However, understanding the challenges associated with this approach, we shifted our focus to the dual-thruster seesaw mechanism. This reduction facilitated a more manageable prototype while allowing us to work out essential balancing principles.
+                </p>
+
+                <!-- Placeholder for initial sketches -->
+                <div style="text-align:center;">
+                    <img src="images/sprint1.png" alt="Initial sketches of the drone" style="max-width:100%; height:auto;">
+                    <p>Initial sketches featuring three thrusters</p>
+                </div>
+
+                <p>
+                    To enhance the drone's functionality, we integrated an Inertial Measurement Unit (IMU) into our prototype. The IMU enabled real-time monitoring of the drone's orientation, providing accurate readings for one axis and effectively simulating pitch dynamics. This integration was crucial for achieving the desired level of control in our self-balancing system.
+                </p>
+
+                <p>
+                    Our initial testing demonstrated the principles of self-balancing, illustrating our ability to adjust thrust in response to angular displacement on the seesaw model. The results were promising, indicating a solid foundation for future iterations of the drone, as we set out to refine our design and explore additional variations.
+                </p>
+
+                <!-- Placeholder for testing results or images -->
+                <div style="text-align:center;">
+                    <iframe src="https://drive.google.com/file/d/1YrV5Hx67yauHFsMnurWTSiD5PHRPp90a/preview" width="640" height="480" allow="autoplay"></iframe>
+                    <p>Testing results demonstrating self-balancing principles</p>
+                </div>
+
+                <p>
+                    As we move forward, our next steps will involve transitioning from this two-thruster seesaw design to a more complex four-thruster configuration, 
+                    which we aim to develop based on the findings and experiences gained in this sprint. This progression will further enhance the stability and 
+                    control of our drone, allowing for more advanced navigation and balancing capabilities.
+                </p>
+
+            </section>
+
+        </div>
+
+
+
+        <!-- Copyright -->
+        <div id="copyright">
+            <ul>
+                <li>&copy; Ghost Thrusters</li>
+                <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
