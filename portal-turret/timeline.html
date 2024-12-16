@@ -16,7 +16,7 @@
 	  	<nav>
 			<ul class="navbar">
 		        	<li><a href="index.html">Home</a></li>
-        <li><a href="timeline.html">Timeline</a></li>
+        			<li><a href="timeline.html">Timeline</a></li>
 		        	<li><a href="mechanical.html">Mechanical</a></li>
 				<li><a href="electrical.html">Electrical</a></li>
 				<li><a href="software.html">Software</a></li>
@@ -33,81 +33,98 @@
 				<p>A full overview of our project timeline.</a>
 			</div>
 	<!--Body-->
-	  <div id="main">
-				
-		<footer class="major container medium">
-		  <h2>Sprint 1</h2>
-      <h3>Mechanical Achievements</h3>
-      <ul>
-        <li>Got rack and pinion system fully functional</li>
-	      <li>CAD for main body started</li>
-      </ul>
-		  <h3>Electrical Achievements</h3>
-      <ul>
-        <li>Purchase components</li>
-        <li>Set up system for moving the rack and pinion system with a motor.</li>
-      </ul>
-      <h3>Software Achievements</h3>
-      <ul>
-        <li>Code for the rack and pinion system</li>
-      </ul>
-		</footer>
-      
-		<footer class="major container medium">
-		<h2>Sprint 2</h2>
-			<h3>Mechanical Achievements</h3>
-      <ul>
-        <li>Made rack and pinion system more stable</li>
-	      <li>CAD for main body finished and fabricated</li>
-      </ul>
-		  <h3>Electrical Achievements</h3>
-      <ul>
-        <li>Purchase components</li>
-        <li>Set up system for moving the rack and pinion system with a motor.</li>
-      </ul>
-      <h3>Software Achievements</h3>
-      <ul>
-        <li>Code for the rack and pinion system</li>
-      </ul>
-		</footer>
-      
-		  <footer class="major container medium">
-			<h2>Sprint 3</h2>
-			<p>
-				<h3>Mechanical Achievements</h3>
-      <ul>
-        <li>CAD for legs done and fully functional (after 2 iterations)</li>
-	      <li>Shell materials started - cut out foam pieces to fit around body (proved to not be the move)</li>
-      </ul>
-		  <h3>Electrical Achievements</h3>
-      <ul>
-        <li>Purchase components</li>
-        <li>Set up system for moving the rack and pinion system with a motor.</li>
-      </ul>
-      <h3>Software Achievements</h3>
-      <ul>
-        <li>Code for the rack and pinion system</li>
-      </ul>
-		</footer>
-		  <footer class="major container medium">
-			  <h2>Final Stretch - Demo Day!</h2>
-			  <h3>Mechanical Achievements</h3>
-      <ul>
-        <li>Pivoted to wire and fabric for shell material</li>
-	      <li>Body fully built, fully stable</li>
-      </ul>
-		  <h3>Electrical Achievements</h3>
-      <ul>
-        <li>Purchase components</li>
-        <li>Set up system for moving the rack and pinion system with a motor.</li>
-      </ul>
-      <h3>Software Achievements</h3>
-      <ul>
-        <li>Code for the rack and pinion system</li>
-      </ul>
-		  </footer>
+			<div id="main">
+						
+				<footer class="major container medium">
+					<h2>Sprint 1</h2>
+					<h3>Mechanical Achievements</h3>
+						<ul>
+							<li>Got rack and pinion system fully functional</li>
+							<li>CAD for main body started.</li>
+						</ul>
+					<h3>Electrical Achievements</h3>
+						<ul>
+							<li>Purchase components.</li>
+							<li>Get motors connected to the L293D motor driver and 9V battery.
+							<li>Set up system for moving the rack and pinion system with a motor.</li>
+							<li>Connect a button to test the different features.</li>
+						</ul>
+					<h3>Software Achievements</h3>
+						<ul>
+							<li>Set up SSH and GitHub on the Raspberry Pi.</li>
+							<li>Set up the Raspberry Pi to run Python.</li>
+							<li>Create Python class to play sound.</li>
+							<li>Create Python function to move motors.</li>
+						</ul>
+				</footer>
+				      
+				<footer class="major container medium">
+					<h2>Sprint 2</h2>
+					<h3>Mechanical Achievements</h3>
+						<ul>
+							<li>Made rack and pinion system more stable</li>
+							<li>CAD for main body finished and fabricated</li>
+						</ul>
+					<h3>Electrical Achievements</h3>
+						<ul>
+							<li>Cleaned up wiring using a GPIO breakout board and removing loopy wires.</li>
+							<li>Implemented a sound sensing module with a sound sensor and PCF8591 ADC/DAC.</li>
+							<li>Implemented an accelerometer to measure acceleration and magnetism.</li>
+						</ul>
+					<h3>Software Achievements</h3>
+						<ul>
+							<li>Broke down functionality into more functions and classes.</li>
+							<li>Created a class to play music.</li>
+							<li>Created functions to read sound input and measure acceleration.</li>
+							<li>Added code to take sound input and command motor movement.</li>
+							<li>Implement a rudimentary MP3 player feature.</li>
+							<li>Set up LIRC on the Raspberry Pi.</li>
+						</ul>
+				</footer>
+		      
+				<footer class="major container medium">
+					<h2>Sprint 3</h2>
+					<h3>Mechanical Achievements</h3>
+						<ul>
+		        				<li>CAD for legs done and fully functional (after 2 iterations)</li>
+							<li>Shell materials started - cut out foam pieces to fit around body (proved to not be the move)</li>
+						</ul>
+				  	<h3>Electrical Achievements</h3>
+					        <ul>
+						        <li>Integrate electrical components with mechanical.</li>
+						        <li>Add servos to the circuit to control wing rotation.</li>
+							<li>Cleaned up wiring.</li>
+							<li>Added IR receiver to the circuit in order to receive IR codes from a remote control.</li>
+						</ul>
+				        <h3>Software Achievements</h3>
+						<ul>
+		        				<li>Implement IR remote control capabilities.</li>
+							<li>Create cyclable modes, including manual, stimulus detection, music with dancing, and music without dancing.</li>
+							<li>Upgraded the MP3 player feature by adding play/pause, next song, and previous song buttons.</li>
+							<li>Write pose estimation code that can determine which hand is waving.</li>
+						</ul>
+				</footer>
+				  
+				<footer class="major container medium">
+					<h2>Final Stretch - Demo Day!</h2>
+					<h3>Mechanical Achievements</h3>
+						<ul>
+							<li>Pivoted to wire and fabric for shell material</li>
+							<li>Body fully built, fully stable</li>
+						</ul>
+				  	<h3>Electrical Achievements</h3>
+					        <ul>
+						        <li>Final mechanical-electrical integration.</li>
+							<li>Get all electrical components secured in place.</li>
+					        </ul>
+				        <h3>Software Achievements</h3>
+				      		<ul>
+						        <li>Move code to a virtual environment.</li>
+							<li>Work on the website.</li>
+		      				</ul>
+				</footer>
 	
-		    <footer class="major container medium">
+		    		<footer class="major container medium">
 					<h3>Budget Breakdown</h3>
 					<p>You can view the exact components we purchased and used by visiting our `Budget Breakdown` page.</p>
 					<ul class="actions special">
@@ -122,7 +139,7 @@
 						<li><a href="demonstration.html" class="button">Watch now</a></li>
 					</ul>
 				</footer>
-	  </div>  
+	  		</div>  
 <!-- Footer -->
 			<div id="footer">
 				<div class="container medium">
