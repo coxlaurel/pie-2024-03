@@ -20,20 +20,81 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="mechanical.html">Mechanical</a></li>
-          <li class="nav-item"><a class="nav-link" href="software.html">Software</a></li>
+          <li class="nav-item"><a class="nav-link" href="electrical.html">Electrical</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- software Section -->
-  <section class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">software Components</h2>
-      <p>This page includes details about wiring, circuits, and schematics used in the project.</p>
-      <img src="assets/software-diagram.png" alt="software Diagram" class="img-fluid">
+  <div class="container mt-5">
+
+    <!-- Software Overview -->
+    <div class="component-section">
+      <h2 class="section-header">Software Overview</h2>
+      <p>This section covers the software systems integrated into the project, including the <b>Jarvis Voice Assistant</b> and the software for controlling the <b>OLED Display</b>.</p>
     </div>
-  </section>
+
+    <!-- Jarvis Voice Assistant Sub-section -->
+    <div class="sub-section">
+      <h3 class="section-header">Jarvis Voice Assistant</h3>
+      <p class="component-description">The Jarvis Voice Assistant is a speech-based interface that allows users to interact with the system using natural language commands. It processes speech input and responds with voice feedback. This system is built using [mention any frameworks, tools, or APIs used].</p>
+
+      <!-- Demo Section (You can embed a demo or link to a live demo) -->
+      <div>
+        <h4>Live Demo</h4>
+        <p>To try the Jarvis Voice Assistant, visit [insert demo link] or watch the video below:</p>
+        <iframe src="https://drive.google.com/file/d/1GSHS7nrs8M97hFoHRUOKQQFlNNM8B3bp/preview" width="640" height="480" allow="autoplay"></iframe>
+      </div>
+
+      <p class="component-description">The voice assistant can perform various tasks such as:</p>
+      <ul>
+        <li>Turning on/off the system</li>
+        <li>Responding to queries</li>
+        <li>Executing commands related to other system components(open/close helmet, take photo/video)</li>
+        <li>describe surroundings</li>
+      </ul>
+
+      <h4>Code Example</h4>
+      <pre>
+        <code>
+          # Example of voice recognition in Python using SpeechRecognition library
+          import speech_recognition as sr
+
+          recognizer = sr.Recognizer()
+
+          with sr.Microphone() as source:
+              print("Say something!")
+              audio = recognizer.listen(source)
+              command = recognizer.recognize_google(audio)
+              print(f"You said: {command}")
+        </code>
+      </pre>
+    </div>
+
+    <!-- OLED Display Sub-section -->
+    <div class="sub-section">
+      <h3 class="section-header">OLED Display</h3>
+      <p class="component-description">The OLED display is used to show real-time data and feedback. The software driving the OLED display takes information from various sensors or processes and displays relevant data such as system status, user input, and any other necessary feedback.</p>
+
+      <p class="component-description">The display is controlled using [mention library or protocol, e.g., I2C, Adafruit library]. The displayed information is dynamically updated based on system inputs, and different screens are shown based on the task or user interaction.</p>
+
+      <!-- Demo Section (You can embed a demo or link to a live demo) -->
+      <div>
+        <h4>Live Demo</h4>
+        <p>To check out the OLED Display functionality, watch the video below:</p>
+        <iframe src="https://drive.google.com/file/d/15SKZTPu-l58MjHm5SLJDsam5UvqBKlhX/preview" width="640" height="480" allow="autoplay"></iframe>      </div>
+
+      <p class="component-description">Example of OLED display usage:</p>
+      <ul>
+        <li>Display system status (On/Off)</li>
+        <li>Show real-time data from sensors</li>
+        <li>Display user input or commands</li>
+      </ul>
+    </div>
+
+  </div>
+
 
   <!-- Footer -->
   <footer class="text-center py-4 bg-dark text-light">
