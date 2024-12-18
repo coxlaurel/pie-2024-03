@@ -35,9 +35,20 @@
 
 	  		<div id=main>
 				<header class="major container">
-<!-- 					<a href="https://github.com/atealeaf/portal_turret"><img src=https://logos-world.net/wp-content/uploads/2020/11/GitHub-Symbol.png alt="GitHub" class="logo"/></a>
- -->					<h2><a href="https://github.com/atealeaf/portal_turret">Github</a></h2>
+					<h2>To control the various sensors, motors, and other system components on the 
+					Portal Turret, we used Python to code the firmware and software.</h2>
+					<ul class="actions special">
+						<li><a href="https://github.com/atealeaf/portal_turret" class="button">GitHub</a></li>
+					</ul>
 				</header>
+
+				<footer>
+					<h2>Concept</h2>
+					<p>Our ideas included moving the motors and play audio depending on the values the various 
+					sensors read and which mode the Portal Turret was on. To do this, we had to initialize the 
+					firmware, create functions to read each sensor's output, and write software that would trigger 
+					some kind of output depending on what signals were given.</p>
+				</footer>
 				
 				<footer class="major container medium">
 					<h2>Firmware</h2>
@@ -123,7 +134,7 @@
 					<b>sounds_acceleratio()</b>: Determines if the acceleration is below a certain threshold. 
 					In this case, it is detecting whether the Portal Turret is picked up. If it is and playing 
 					a sound is not on cooldown, audio is played.
-					<br>
+					<br><br>
 
 					<h3>`ir_receiver.py`</h3>
 					This file contains functions that set up the IR remote control and allow signals sent to be 
@@ -134,7 +145,7 @@
 					<b>initialize_ir()</b>: Initializes the IR remote control.
 					<br>
 					<b>read_ir</b>: Reads signals from the IR client.
-					<br>
+					<br><br>
 
 					<h3>`main.py`</h3>
 					This file contains the main loop that will check the states of various components and respond to 
@@ -149,7 +160,7 @@
 					<br>
 					<b>handle_ir_signals()</b>: Reads the IR signal sent and executes an action depending on the signal 
 					received.
-					<br>
+					<br><br>
 					
 					<h3>`move_servos.py`</h3>
 					This file controls servo movement using PWM. TThe libraries used are `RPi.GPIO` and `time`.
@@ -159,14 +170,14 @@
 					<br>
 					<b>servo_backward()</b>: Moves the servo backward 45 degrees, waits for a specified time, and then 
 					moves back to its original position.
-					<br>
+					<br><br>
 
 					<h3>`move_wings.py`</h3>
 					This file includes a function that controls motor movement using the L293D motor driver. It uses 
 					the libraries `RPi.GPIO` and `time`.
 					<br>
 					<b>move_motors</b>: Moves the wings in or out with a motor.
-					<br>
+					<br><br>
 
 					<h3>`play_music.py`</h3>
 					This file contains the class `PlayMusic`, which is an object to play music similarly to how an MP3 
@@ -179,7 +190,7 @@
 					<br>
 					<b>PlayMusic</b>: A class to play music on the Raspberry Pi. To work, it needs to have a `music` 
 					folder which contains `.wav`, `.mp3`, or `.ogg` files.
-					<br>
+					<br><br>
 
 					<h3>`play_sounds.py`</h3>
 					This file contains the class `PlaySounds`, which is an object to play sounds. The class stores 
@@ -192,7 +203,7 @@
 					<b>PlaySounds</b>: A class to play sounds on the Raspberry Pi. To work, it needs to have a `sounds` 
 					folder, which contains subfolders that contain the sound files. The subfolders should be made 
 					according to sound category (e.g. sounds that play when turned on, turned off, etc.). 
-					<br>
+					<br><br>
 
 					<h3>`sound_sensing.py`</h3>
 					This file contains functions to detect sound and respond accordingly. There are various libraries 
