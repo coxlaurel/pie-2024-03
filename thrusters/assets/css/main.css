@@ -2776,17 +2776,25 @@ input[type="radio"]:focus+label:before {
 }
 
 .image.fit {
-	display: block;
-	margin: 2.5rem 0;
 	width: 100%;
+	display: block;
+}
+
+.image.fit.gallery {
+	height: 200px;
+	overflow: hidden;
 }
 
 .image.fit:first-child {
 	margin-top: 0;
 }
 
+
 .image.fit img {
 	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
 }
 
 .image.main {
