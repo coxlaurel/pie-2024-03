@@ -2761,6 +2761,8 @@ input[type="radio"]:focus+label:before {
 .image.left img,
 .image.right img {
 	width: 100%;
+	height: 400px;
+	overflow: hidden;
 }
 
 .image.left {
