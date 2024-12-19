@@ -2785,6 +2785,14 @@ input[type="radio"]:focus+label:before {
 	overflow: hidden;
 }
 
+.image.fit.system {
+	height: 500px;
+	overflow: hidden;
+	border: #b3b7bb;
+	border-style: solid;
+	border-width: 0.1px;
+}
+
 .image.fit:first-child {
 	margin-top: 0;
 }
@@ -3409,7 +3417,7 @@ table.alt tbody tr td {
 	width: 100%;
 	height: 100%;
 	background-color: #212931;
-	background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/bg.jpg");
+	background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/bg.jpeg");
 	background-size: auto, auto, 100% auto;
 	background-position: center, center, top center;
 	background-repeat: repeat, no-repeat, no-repeat;
@@ -3977,96 +3985,27 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 	text-align: center;
 }
 
-#main>.post {
-	padding: 8rem 8rem 6rem 8rem;
-}
-
-#main>.post header.major>.date {
-	margin-top: -2rem;
-}
-
-#main>.post header.major>h1,
-#main>.post header.major h2 {
-	font-size: 4rem;
-	line-height: 1.1;
-	margin: 0 0 2rem 0;
-}
-
-#main>.post.featured {
-	text-align: center;
-}
-
-@media screen and (max-width: 1280px) {
-
-	#main>.post {
-		padding: 6rem 4rem 4rem 4rem;
-	}
-
-}
-
-@media screen and (max-width: 736px) {
-
-	#main>.post {
-		padding: 4rem 2rem 2rem 2rem;
-	}
-
-	#main>.post header.major>.date {
-		margin-top: -1rem;
-		margin-bottom: 2rem;
-	}
-
-	#main>.post header.major>h1,
-	#main>.post header.major h2 {
-		font-size: 2.5rem;
-		line-height: 1.2;
-		margin: 0 0 1.5rem 0;
-	}
-
-}
-
 #main>.posts {
-	display: -moz-flex;
-	display: -webkit-flex;
-	display: -ms-flex;
 	display: flex;
-	-moz-flex-wrap: wrap;
-	-webkit-flex-wrap: wrap;
-	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	-moz-align-items: -moz-stretch;
-	-webkit-align-items: -webkit-stretch;
-	-ms-align-items: -ms-stretch;
 	align-items: stretch;
 	text-align: center;
 	width: 100%;
 	padding: 0;
+	justify-content: center;
+	/* This centers the posts */
 }
 
 #main>.posts>* {
-	-moz-flex-shrink: 1;
-	-webkit-flex-shrink: 1;
-	-ms-flex-shrink: 1;
 	flex-shrink: 1;
-	-moz-flex-grow: 0;
-	-webkit-flex-grow: 0;
-	-ms-flex-grow: 0;
 	flex-grow: 0;
-}
-
-#main>.posts>* {
-	width: 50%;
-}
-
-#main>.posts>* {
+	width: 75%;
+	/* Set the width to 75% for a narrower column */
 	padding: 4rem;
-	width: 50%;
+	/* Adjust padding as needed */
 }
 
 #main>.posts>article {
-	border-color: #eeeeee;
-	border-left-width: 2px;
-	border-style: solid;
-	border-top-width: 2px;
 	text-align: center;
 }
 
@@ -4082,28 +4021,22 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 	border-top-width: 0;
 }
 
+/* For smaller screens */
 @media screen and (max-width: 980px) {
-
 	#main>.posts>* {
-		width: 50%;
-	}
-
-	#main>.posts>* {
+		width: 75%;
+		/* Ensures 75% width on medium screens */
 		padding: 2.5rem;
-		width: 50%;
+		/* Adjust padding as needed */
 	}
-
 }
 
 @media screen and (max-width: 736px) {
-
 	#main>.posts>* {
-		width: 100%;
-	}
-
-	#main>.posts>* {
+		width: 75%;
+		/* Ensures 75% width on mobile */
 		padding: 2rem;
-		width: 100%;
+		/* Adjust padding as needed */
 	}
 
 	#main>.posts>article:nth-child(2n - 1) {
@@ -4127,8 +4060,9 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 		margin-left: auto;
 		margin-right: auto;
 	}
-
 }
+
+
 
 @media screen and (max-width: 736px) {
 
