@@ -3805,7 +3805,7 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 /* Nav */
 
 #nav {
-	color: #ffffff;
+	color: #000000;
 	display: -moz-flex;
 	display: -webkit-flex;
 	display: -ms-flex;
@@ -3814,7 +3814,7 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 	-webkit-transition: -webkit-transform 1s ease, opacity 1s ease;
 	-ms-transition: -ms-transform 1s ease, opacity 1s ease;
 	transition: transform 1s ease, opacity 1s ease;
-	background: rgba(255, 255, 255, 0.175);
+	background: rgba(255, 255, 255, 0.5);
 	height: 4rem;
 	line-height: 4rem;
 	margin: -4rem auto 0 auto;
@@ -3849,7 +3849,7 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 }
 
 #nav a {
-	color: #ffffff;
+	color: #000000;
 	border-bottom-color: rgba(255, 255, 255, 0.5);
 }
 
