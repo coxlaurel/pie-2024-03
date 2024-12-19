@@ -47,46 +47,60 @@
                 </header>
 
                 <!-- Text stuff -->
-                <p> The electrical system of our reaction control system consists of 4 main elements: A microcontroller,
-                    an Inertial Measurement Unit (IMU), 4 relay modules, and 4 solenoid valves.
-                    For our microcontroller, we opted to use an ESP32 Development Board. From its 3.3V output, we power
-                    our IMU
-                    and relays. Based on the IMU data, the firmware on the ESP32 sends a signal to the relays indicating
-                    them to close.
-                    From there, the 'common' pin of the relays is tied to 12V and the solenoid valve is the load.
+                <p>
+                    The software system for Ghost Thrusters is responsible for controlling the balance and stability of the system using a PID-based approach. It incorporates multiple thrusters, each programmed to respond dynamically to changes in orientation and velocity. The system's architecture ensures precision adjustments to maintain desired angles and mitigate external disturbances.
                 </p>
-                <h3>Circuit Diagram</h2>
 
-                    <span class="image fit"><img src="images/circuit_diagram.jpeg" alt="" /></span>
+                <h3>Key Features</h3>
+                <ul>
+                    <li>PID-based thrust control for maintaining target pitch and roll.</li>
+                    <li>Dynamic counter-thrust to correct overcompensation.</li>
+                    <li>Modular code design for extensibility and debugging.</li>
+                </ul>
 
-                    <h3>Challenges</h2>
-                        <p>
-                            We encountered several challenges during the implementation of our electrical system. One of
-                            which was that our IMU
-                            was resetting at seemingly random times. We determined by probing its power pins with an
-                            oscilliscope that this was due to
-                            interference on the power line. This makes sense, especially considering our usage of
-                            solenoid valves, which are big inductors
-                            that can cause EMI and back EMF. To solve this problem, our first step was to add flyback
-                            diodes across the solenoid valves to prevent
-                            unwanted voltage spikes when the current suddenly changes. While this definitley a necessary
-                            addition, it did not totally resolve our problems.
+                <h3>How It Works</h3>
+                <p>
+                    The control system operates by calculating the error between the desired orientation (setpoint) and the current orientation of the system. Using a PID (Proportional-Integral-Derivative) controller, it computes the necessary thrust adjustments for each thruster to minimize this error. The incorporation of velocity feedback ensures that the system accounts for dynamic changes, reducing overshoot and avoiding oscillations. By adapting thrust based on real-time velocity and position, the system achieves smoother and more precise corrections.
+                </p>
+                <p>
+                    Earlier approaches relied solely on angular error without factoring in velocity, leading to frequent overcompensation and instability. This resulted in jerky movements and slower stabilization times. The current design leverages velocity to predict system behavior and apply counter-thrust only when necessary, achieving a more fluid and efficient balance. Additionally, the use of dynamic thresholds and damping factors further reduces unnecessary thruster activity, enhancing the overall performance and responsiveness of the system.
+                </p>
 
-                            Next, we added a small inductor across the common ground of the 3.3V supply and the 12V
-                            supply to filter out any potential offset. We additionally
-                            added a 100 uF capacitor in parallel with the IMU's power and ground to absorb or compensate
-                            for any sudden voltage changes. This solved our problem.
-                        </p>
-                        <p>
-                            Another challenge we encountered was that when we had pressurized air in our tanks, the
-                            solenoid valves would not all open. Initially we thought that
-                            this must have been a blockage in the tubing, however what tipped us off that this was a
-                            power issue was that when the pressure in the tanks was lowered,
-                            both valves would function and allow air to flow. So, we determined that at higher
-                            pressures, the valves needed a higher current supplied in order to open.
-                            In retrospect, this was a simple issue to fix, all we had to do was raise the current limit
-                            on our power supply. However, it was tough to diagnose since we
-                            were not even sure which system was causing problems!</p>
+                <h3>Code Snippet</h3>
+                <pre><code>
+        class Thruster {
+        private:
+            int pin;
+            float previousError = 0;
+            PIDController pidController;
+
+        public:
+            Thruster(int pin) : pin(pin), pidController() {
+                pinMode(pin, OUTPUT);
+            }
+            int getPin() const { return pin; }
+            int thrust(float setpoint, float currentAngle, float currentVelocity, bool positive) {
+                float error = abs(setpoint) - abs(currentAngle);
+                float output = abs(pidController.calculate(setpoint, currentAngle, kp, ki, kd));
+                if (abs(error) > threshold && ...) return output;
+                else return 0;
+            }
+        };
+                </code></pre>
+
+                <h3>Challenges</h3>
+                <p>
+                    Implementing a real-time control system presented challenges such as tuning PID parameters for optimal response and ensuring precise synchronization of multiple thrusters. Additionally, managing counter-thrust logic to prevent oscillations required extensive testing and debugging.
+                </p>
+
+                <h3>Future Improvements</h3>
+                <ul>
+                    <li>Enhance counter-thrust logic for faster stabilization.</li>
+                    <li>Implement auto adjustment logic for adaptive PID parameter tuning.</li>
+                    <li>Optimize code efficiency for faster response times.</li>
+                </ul>
+            </section>
+        </div>
 
 
                         <!-- Scripts -->
