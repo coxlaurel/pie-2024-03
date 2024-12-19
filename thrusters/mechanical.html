@@ -47,56 +47,66 @@
                 </header>
 
                 <!-- Text stuff -->
-                <p> The electrical system of our reaction control system consists of 4 main elements: A microcontroller,
-                    an Inertial Measurement Unit (IMU), 4 relay modules, and 4 solenoid valves.
-                    For our microcontroller, we opted to use an ESP32 Development Board. From its 3.3V output, we power
-                    our IMU
-                    and relays. Based on the IMU data, the firmware on the ESP32 sends a signal to the relays indicating
-                    them to close.
-                    From there, the 'common' pin of the relays is tied to 12V and the solenoid valve is the load.
+                <p> The mechanical system of our project consists of a mechanical design segment, and a fluids segment.
+                    The mechanical design segment of the drone contains a compact 3D printed “brain”, which contains
+                    attachment points for all the electrical components, and 4 carbon fiber tubes, which act as the
+                    moment arms for thrust stabilization. The fluids segment of the drone consists of 2 two-liter bottle
+                    pressure vessels and 4 air-propelling nozzles, integrated with PTFE tubing.
+
                 </p>
-                <h3>Circuit Diagram</h2>
-
-                    <span class="image fit"><img src="images/circuit_diagram.jpeg" alt="" /></span>
-
-                    <h3>Challenges</h2>
-                        <p>
-                            We encountered several challenges during the implementation of our electrical system. One of
-                            which was that our IMU
-                            was resetting at seemingly random times. We determined by probing its power pins with an
-                            oscilliscope that this was due to
-                            interference on the power line. This makes sense, especially considering our usage of
-                            solenoid valves, which are big inductors
-                            that can cause EMI and back EMF. To solve this problem, our first step was to add flyback
-                            diodes across the solenoid valves to prevent
-                            unwanted voltage spikes when the current suddenly changes. While this definitley a necessary
-                            addition, it did not totally resolve our problems.
-
-                            Next, we added a small inductor across the common ground of the 3.3V supply and the 12V
-                            supply to filter out any potential offset. We additionally
-                            added a 100 uF capacitor in parallel with the IMU's power and ground to absorb or compensate
-                            for any sudden voltage changes. This solved our problem.
-                        </p>
-                        <p>
-                            Another challenge we encountered was that when we had pressurized air in our tanks, the
-                            solenoid valves would not all open. Initially we thought that
-                            this must have been a blockage in the tubing, however what tipped us off that this was a
-                            power issue was that when the pressure in the tanks was lowered,
-                            both valves would function and allow air to flow. So, we determined that at higher
-                            pressures, the valves needed a higher current supplied in order to open.
-                            In retrospect, this was a simple issue to fix, all we had to do was raise the current limit
-                            on our power supply. However, it was tough to diagnose since we
-                            were not even sure which system was causing problems!</p>
+                <p> Because aesthetic appeal was an important requirement for our project, the “brain” and nozzles were
+                    designed to seamlessly integrate the mechanical design and fluids segments. Gas flow out of the air
+                    tanks is passed through the carbon fiber tubes via internal tubing, and is ultimately expelled
+                    through the 2mm nozzle orifice, all of which are held to the carbon fiber tubes with friction
+                    screws. Importantly, the tanks are pressurized to 60 psi, but the drone system is run at 40 psi to
+                    ensure a more accurate control loop and air conservation. As we were not able to include an onboard
+                    regulator to regulate 40 psi in time, we ended up running the drone directly from the air
+                    compressor.
 
 
-                        <!-- Scripts -->
-                        <script src="assets/js/jquery.min.js"></script>
-                        <script src="assets/js/jquery.scrollex.min.js"></script>
-                        <script src="assets/js/jquery.scrolly.min.js"></script>
-                        <script src="assets/js/browser.min.js"></script>
-                        <script src="assets/js/breakpoints.min.js"></script>
-                        <script src="assets/js/util.js"></script>
-                        <script src="assets/js/main.js"></script>
+                </p>
+                <h2>Circuit Diagram</h2>
+
+                <span class="image fit"><img src="images/circuit_diagram.jpeg" alt="" /></span>
+
+                <h3>Challenges</h3>
+                <p>
+                    WA key mechanical challenge we encountered was leakage throughout the fluid system. For
+                    example, initial iterations of the pressure vessels were not able to hold pressure for an
+                    extended amount of time, despite standard anti-leak protocols (sealing o-rings, teflon
+                    around the disconnects). A reliable solution to this problem was found through more accurate
+                    connections between the 3D printed bottle cap and disconnects. Specifically, ¼” NPT threads
+                    were modeled directly on the bottle cap, rather than tapped, which resulted in less internal
+                    damage to the bottle cap and a more robust fluid system.
+
+                </p>
+                <h3>Challenges</h3>
+                <p>
+                    WA key mechanical challenge we encountered was leakage throughout the fluid system. For
+                    example, initial iterations of the pressure vessels were not able to hold pressure for
+                    an
+                    extended amount of time, despite standard anti-leak protocols (sealing o-rings, teflon
+                    around the disconnects). A reliable solution to this problem was found through more
+                    accurate
+                    connections between the 3D printed bottle cap and disconnects. Specifically, ¼” NPT
+                    threads
+                    were modeled directly on the bottle cap, rather than tapped, which resulted in less
+                    internal
+                    damage to the bottle cap and a more robust fluid system.
+
+                </p>
+            </section>
+        </div>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
 
 </body>
 
