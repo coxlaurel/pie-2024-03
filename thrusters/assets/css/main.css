@@ -2785,6 +2785,12 @@ input[type="radio"]:focus+label:before {
 	overflow: hidden;
 }
 
+.image.fit.demo {
+	height: 500px;
+	overflow: hidden;
+	margin-bottom: 50px;
+}
+
 .image.fit.system {
 	height: 500px;
 	overflow: hidden;
