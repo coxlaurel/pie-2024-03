@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../cube_cad.png" />
+    <title>Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .hamburger-menu {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 50;
+        cursor: pointer;
+      }
+      .menu-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 40;
+      }
+      .menu-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .menu-overlay a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.5rem;
+        margin: 1rem 0;
+        transition: color 0.3s ease;
+      }
+      .menu-overlay a:hover {
+        color: gray;
+      }
+      /* Modal styles */
+        /* Modal styles */
+  .modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 60;
+  }
+  .modal.active {
+    display: flex;
+  }
+  .modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
+  }
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 70;
+  }
+    </style>
+  </head>
+  <body class="font-sans">
+    <a href="../index.html" class="absolute top-4 left-4 z-50">
+      <p class="text-white text-lg md:text-2xl mt-4">The Cube</p>
+      <!-- <img
+        src="images/home.jpg"
+        alt="Home"
+        class="w-20 h-20 hover:opacity-75 transition-opacity"
+      /> -->
+    </a>
+
+    <!-- Hamburger Menu -->
+    <div id="hamburger" class="hamburger-menu absolute top-4">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-8 w-8 text-white"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4 6h16M4 12h16m-7 6h7"
+        />
+      </svg>
+    </div>
+
+    <!-- Menu Overlay -->
+    <div id="menu" class="menu-overlay">
+      <a href="../index.html">Home</a>
+      <a href="system-overview.html">System Overview</a>
+      <a href="our-journey.html">Our Journey</a>
+      <a href="bill-of-materials.html">Bill of Materials</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="mechanical-design.html">Mechanical Design</a>
+      <a href="firmware-design.html">Firmware Design</a>
+      <a href="electrical-design.html">Electrical Design</a>
+    </div>
+
+    <!-- Header Section with Background Image -->
+    <div
+      class="relative h-96 bg-cover bg-center"
+      style="background-image: url('../images/cube/cube_02.jpeg')"
+    >
+      <div
+        class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center"
+      >
+        <h1 class="text-white text-4xl font-bold">Gallery</h1>
+      </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="py-12 bg-gray-100">
+      <div
+        class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+      >
+        <!-- Gallery Items -->
+        <!-- Video Items -->
+        <video
+          src="../videos/video_01.mov"
+          class="modal-content cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'video')"
+          muted
+        ></video>
+        <video
+          src="../videos/video_02.mov"
+          class="modal-content cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'video')"
+          muted
+        ></video>
+
+        <img
+          src="../images/cube/cube_01.jpeg"
+          alt="Cube Image 1"
+          class="cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'image')"
+        />
+        <img
+          src="../images/cube/cube_02.jpeg"
+          alt="Cube Image 2"
+          class="cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'image')"
+        />
+        <img
+          src="../images/cube/cube_03.jpeg"
+          alt="Cube Image 3"
+          class="cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'image')"
+        />
+        <img
+          src="../images/cube/cube_04.jpeg"
+          alt="Cube Image 4"
+          class="cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'image')"
+        />
+        <!-- <img
+          src="../images/cube/cube_05.jpeg"
+          alt="Cube Image 5"
+          class="cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'image')"
+        /> -->
+        <img
+          src="../images/cube/cube_06.jpeg"
+          alt="Cube Image 6"
+          class="cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'image')"
+        />
+        <img
+          src="../images/cube/cube_07.jpeg"
+          alt="Cube Image 7"
+          class="cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'image')"
+        />
+        <img
+          src="../images/cube/cube_08.jpeg"
+          alt="Cube Image 8"
+          class="cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'image')"
+        />
+        <img
+          src="../images/cube/cube_09.jpeg"
+          alt="Cube Image 9"
+          class="cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'image')"
+        />
+        <img
+          src="../images/cube/cube_10.jpeg"
+          alt="Cube Image 10"
+          class="cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'image')"
+        />
+        <img
+          src="../images/cube/cube_11.jpeg"
+          alt="Cube Image 11"
+          class="cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'image')"
+        />
+        <img
+          src="../images/cube/cube_12.jpeg"
+          alt="Cube Image 11"
+          class="cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'image')"
+        />
+        <img
+          src="../images/cube/cube_13.jpeg"
+          alt="Cube Image 11"
+          class="cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'image')"
+        />
+        <img
+          src="../images/cube/cube_14.jpeg"
+          alt="Cube Image 11"
+          class="cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'image')"
+        />
+        <img
+          src="../images/cube/cube_15.jpeg"
+          alt="Cube Image 11"
+          class="cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'image')"
+        />
+        <img
+          src="../images/cube/cube_16.jpeg"
+          alt="Cube Image 11"
+          class="cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'image')"
+        />
+        <img
+          src="../images/cube/cube_17.jpeg"
+          alt="Cube Image 11"
+          class="cursor-pointer rounded-lg shadow-lg hover:opacity-90"
+          onclick="openModal(this, 'image')"
+        />
+      </div>
+    </div>
+
+    
+    <!-- Modal -->
+    <div id="imageModal" class="modal" onclick="closeModal(event)">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img src="" alt="Fullscreen Content" id="modalImage" class="modal-content" />
+        <video
+          id="modalVideo"
+          class="modal-content"
+          controls
+          style="display: none;"
+        ></video>
+      </div>
+  
+      <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Links Section -->
+            <div>
+              <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+              <div class="grid grid-cols-2 gap-4">
+                <ul class="space-y-2">
+                  <li><a href="index.html" class="hover:underline">Home</a></li>
+                  <li>
+                    <a href="system-overview.html" class="hover:underline"
+                      >System Overview</a
+                    >
+                  </li>
+                  <li>
+                    <a href="our-journey.html" class="hover:underline"
+                      >Our Journey</a
+                    >
+                  </li>
+                  <li>
+                    <a href="bill-of-materials.html" class="hover:underline"
+                      >Bill of Materials</a
+                    >
+                  </li>
+                </ul>
+                <ul class="space-y-2">
+                  <li>
+                    <a href="gallery.html" class="hover:underline">Gallery</a>
+                  </li>
+                  <li>
+                    <a href="mechanical-design.html" class="hover:underline"
+                      >Mechanical Design</a
+                    >
+                  </li>
+                  <li>
+                    <a href="firmware-design.html" class="hover:underline"
+                      >Firmware Design</a
+                    >
+                  </li>
+                  <li>
+                    <a href="electrical-design.html" class="hover:underline"
+                      >Electrical Design</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- About Section -->
+            <div>
+              <h3 class="text-lg font-bold mb-4">About</h3>
+              <p class="text-sm">
+                The Cube project showcases our efforts to create a self-balancing
+                cube using mechanical, electrical, and software integration. Learn
+                more by exploring the pages above.
+              </p>
+            </div>
+            <!-- Acknowledgments Section -->
+            <div>
+              <h3 class="text-lg font-bold mb-4">Acknowledgments</h3>
+              <p class="text-sm">
+                Special thanks to our PIE instructors.
+              </p>
+            </div>
+          </div>
+          <!-- Footer Bottom -->
+          <div class="mt-6 border-t border-gray-700 pt-4 text-center">
+            <p class="text-sm">
+              &copy; 2024 The Cube Project. Licensed under the
+              <a href="https://opensource.org/licenses/MIT" class="hover:underline text-blue-400" target="_blank">MIT License</a>.
+            </p>
+          </div>
+        </div>
+      </footer>
+      
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const menu = document.getElementById("menu");
+  
+        // Toggle the menu when the hamburger icon is clicked
+        hamburger.addEventListener("click", () => {
+          menu.classList.toggle("active");
+        });
+  
+        // Close the menu when a link is clicked
+        menu.addEventListener("click", (event) => {
+          if (event.target.tagName === "A") {
+            menu.classList.remove("active");
+          }
+        });
+  
+        // Modal functionality
+        const modal = document.getElementById("imageModal");
+        const modalImage = document.getElementById("modalImage");
+        const modalVideo = document.getElementById("modalVideo");
+  
+        function openModal(media, type) {
+          if (type === "image") {
+            modalImage.src = media.src;
+            modalImage.style.display = "block";
+            modalVideo.style.display = "none";
+          } else if (type === "video") {
+            modalVideo.src = media.src;
+            modalVideo.style.display = "block";
+            modalImage.style.display = "none";
+          }
+          modal.classList.add("active");
+        }
+  
+        function closeModal(event) {
+          if (event.target === modal || event.target.classList.contains("modal-close")) {
+            modal.classList.remove("active");
+            modalImage.src = "";
+            modalVideo.src = "";
+          }
+        }
+      </script>
+  </body>
+</html>

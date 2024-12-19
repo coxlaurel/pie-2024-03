@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Journey</title>
+    <link rel="icon" type="image/png" href="../cube_cad.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom transition for smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      .hamburger-menu {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 50;
+        cursor: pointer;
+      }
+      .menu-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 40;
+      }
+      .menu-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .menu-overlay a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.5rem;
+        margin: 1rem 0;
+        transition: color 0.3s ease;
+      }
+      .menu-overlay a:hover {
+        color: gray;
+      }
+    </style>
+  </head>
+  <body class="font-sans">
+    <a href="../index.html" class="absolute top-4 left-4 z-50">
+      <p class="text-white text-lg md:text-2xl mt-4">The Cube</p>
+      <!-- <img
+        src="images/home.jpg"
+        alt="Home"
+        class="w-20 h-20 hover:opacity-75 transition-opacity"
+      /> -->
+    </a>
+
+    <!-- Hamburger Menu -->
+    <div id="hamburger" class="hamburger-menu absolute top-4">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-8 w-8 text-white"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4 6h16M4 12h16m-7 6h7"
+        />
+      </svg>
+    </div>
+
+    <!-- Menu Overlay -->
+    <div id="menu" class="menu-overlay">
+      <a href="../index.html">Home</a>
+      <a href="system-overview.html">System Overview</a>
+      <a href="our-journey.html">Our Journey</a>
+      <a href="bill-of-materials.html">Bill of Materials</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="mechanical-design.html">Mechanical Design</a>
+      <a href="firmware-design.html">Firmware Design</a>
+      <a href="electrical-design.html">Electrical Design</a>
+    </div>
+
+    <!-- Header Section with Background Image -->
+    <div
+      class="relative h-96 bg-cover bg-center"
+      style="background-image: url('../images/cube/cube_02.jpeg')"
+    >
+      <div
+        class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center"
+      >
+        <h1 class="text-white text-4xl font-bold">Our Journey</h1>
+      </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="py-12 bg-gray-100">
+      <div class="container mx-auto px-6 text-center">
+        <h2
+          class="text-3xl font-bold text-gray-800 mt-6 mb-4 border-b-2 border-gray-300"
+        >
+          Introduction:
+        </h2>
+        <p class="text-lg">
+          This project was organized through three individual sprints. In each
+          sprint we aimed to improve our project on an electrical, mechanical,
+          and firmware basis. We mapped our project journey below, in our sprint
+          organization format.
+        </p>
+        <p class="my-4"></p>
+
+        <h2
+          class="text-3xl font-bold text-gray-800 mt-6 mb-4 border-b-2 border-gray-300"
+        >
+          Sprint 1:
+        </h2>
+        <strong>Overall: </strong>
+        <p class="text-lg">
+          In sprint review 1, we created an iteration of an inverted pendulum,
+          made our first electrical schematic, created the software
+          architecture, learned control basics, started to create a timeline of
+          the project, and understood team dynamics. This is what we
+          demonstrated during sprint review 1→ IMG_3088.MOV
+        </p>
+
+        <!-- Image with Caption -->
+        <figure class="mt-8 flex flex-col items-center">
+          <div class="image-container">
+            <img
+              src="../images/our_journey/inverted_pendulum.png"
+              alt="Inverted Pendulum"
+              style="width: 100%; max-width: 800px; height: auto"
+            />
+          </div>
+          <figcaption class="mt-4 text-sm text-gray-700">
+            Figure 1: This is the initial inverted pendulum we used to learn
+            about controls
+          </figcaption>
+        </figure>
+        <p class="my-4"></p>
+        <p class="my-4"></p>
+        <strong>Team Organization: </strong>
+        <p class="text-lg">
+          Sprint review 1 was the time when our team was still finding out how
+          to scope and organize our project. We decided to set up a trello board
+          for team organization and divided up our team into firmware/electrical
+          (Ishan, Ahan, Nividh) and mechanical (Anthony and Cian). We set up
+          milestones we wanted to hit, and based on if we hit those we’d make
+          our project harder or easier.
+        </p>
+        <p class="my-4"></p>
+        <strong>Electrical: </strong>
+        <p class="text-lg">
+          Our goal final electrical system at the culmination of sprint review 1
+          looked like this:
+        </p>
+        <!-- Image with Caption -->
+        <figure class="mt-8 flex flex-col items-center">
+          <div class="image-container">
+            <img
+              src="../images/our_journey/initial_electrical_schematic.png"
+              alt="Initial Electrical Schematic"
+              style="width: 100%; max-width: 800px; height: auto"
+            />
+          </div>
+          <figcaption class="mt-4 text-sm text-gray-700">
+            Figure 2: Initial Electrical Schematic
+          </figcaption>
+        </figure>
+        <p class="my-4"></p>
+        <p class="my-4"></p>
+        <p class="text-lg">
+          During our initial sprint review, we created a complete electrical
+          schematic to identify the exact components we needed. At that time, we
+          planned to use electronic speed controllers (ESCs), but we later
+          decided not to include them in the final cube. This change meant we
+          also had to switch to a different type of motor, which led to
+          significant revisions in our original design. Despite this, the
+          fundamental approach remained sound: the Arduino would provide PWM
+          signals to control the motor speed, while the IMU would supply
+          accelerometer and gyroscope data for the PID loop. The system would
+          still draw power from a 12V LiPo battery. In the demo we showed during
+          the sprint review, the setup consisted of just one ESC and one motor,
+          with everything else unchanged. The Arduino’s PWM output determined
+          the flywheel’s speed, and the IMU’s sensor readings were integrated
+          into the control logic as planned.
+        </p>
+        <p class="my-4"></p>
+        <strong>Firmware: </strong>
+        <p class="text-lg">
+          For Sprint 1, we used relatively basic Arduino C++ code to control the
+          ESC which controls a brushless motor as a servo using the Servo
+          library. We first tested whether or not our motors had enough torque
+          to rotate an inverted pendulum from rest to the opposite side. Since
+          this was successful, we believed we could use the motor to balance the
+          inverted pendulum at a setpoint. Thus, we calibrated our IMU and used
+          accelerometer data to attempt to oscillate about the center setpoint.
+          However, since the IMU was mounted to the same panel as the flywheel,
+          we faced vibrations that introduced noise in the accelerometer data.
+          At this point, we started to realize how difficult working with the
+          IMU was going to be
+        </p>
+        <p class="my-4"></p>
+        <strong>Mechanical Design: </strong>
+        <p class="text-lg">
+          In Sprint 1, the mechanical team created a simple inverted pendulum to
+          allow the software and electrical team to test code and electronics.
+          This inverted pendulum was essentially a test bed for electronics and
+          code while the mechanical team worked on creating the first MVP of the
+          cube. On the fabrication side, we opted for laser cut fiberboard and
+          acrylic. We created a basic flywheel with a circle of fiberboard with
+          a ring of bolts and nuts around the outside. This flywheel was around
+          the same weight and size as the flywheels we used in the prototype and
+          final cubes. The base it was mounted on also had small walls on either
+          side of the pendulum to prevent it from falling too far out of its
+          unstable equilibrium position. This way the user doesn’t need to hold
+          the pendulum in equilibrium while testing code.
+        </p>
+        <p class="my-4"></p>
+        <h2
+          class="text-3xl font-bold text-gray-800 mt-6 mb-4 border-b-2 border-gray-300"
+        >
+          Sprint 2:
+        </h2>
+
+        <strong>Mechanical: </strong>
+
+        <p class="text-lg">
+          For sprint 2 the mechanical team was in a technical sense ahead, but
+          we couldn’t let that slow down our progress. We designed and sized out
+          initial versions of the cube dimensions using eucaboard. This material
+          was chosen due to its relative abundance, and for its ease of
+          manufacturing using a laser cutter. This facilitated rapid
+          prototyping, and allowed us to experiment with different methods of
+          attaching side plates together, electrical mounting, motor mounting
+          and aesthetics. The overall assembly was pressfit with box joints.
+          From rapid prototyping the mechanical team made critical design
+          decisions such as having the final cube made out of metal as much as
+          possible, seamless fitment between panels, and the ability for the
+          cube to look like a fully enclosed metal box.
+        </p>
+        <p class="my-4"></p>
+
+        <strong>Electrical: </strong>
+        <p class="text-lg">
+          For Sprint Review 2, our team implemented the schematic that we had
+          designed using the parts we had on hand to attempt to balance the
+          Eucaboard cube. We spent a lot of time on integration at this point.
+          For example, we soldered the power wires from the ESC to the XT60
+          connector on the LiPo battery, and decided to power the Arduino using
+          a 5V output from the ESC. Much of the electrical system remained the
+          same from Sprint Review 1 to Sprint Review 2, and overall we didn’t
+          get as far as we expected due to the motor issues we were dealing with
+          specifically since the motors couldn’t switch directions quick enough.
+        </p>
+        <p class="my-4"></p>
+
+        <!-- Image with Caption -->
+        <figure class="mt-8 flex flex-col items-center">
+          <div class="image-container">
+            <img
+              src="../images/our_journey/sprint2_flow.png"
+              alt="Flow Diagram"
+              style="width: 100%; max-width: 800px; height: auto"
+            />
+          </div>
+          <figcaption class="mt-4 text-sm text-gray-700">
+            Figure 3: Flow Diagram for Sprint 2
+          </figcaption>
+        </figure>
+        <p class="my-4"></p>
+
+        <strong>Firmware: </strong>
+        <p class="text-lg">
+          For Sprint Review 2, for the Eucaboard cube, we wrote a function to
+          calibrate/reset the ESC, and implemented the PID controller. We then
+          attempted to tune the PID controller to return a value for the PWM
+          output from the Arduino and used serial output to view the error our
+          IMU was detecting and the PWM output.Finally, we tried to prevent
+          possible errors by constraining the output to a valid PWM range and
+          using a Kalman filter. However, since the motors couldn’t switch
+          direction quick enough, tuning the PID loop was pretty much
+          impossible.
+        </p>
+        <p class="my-4"></p>
+
+        <h2
+          class="text-3xl font-bold text-gray-800 mt-6 mb-4 border-b-2 border-gray-300"
+        >
+          Sprint 3:
+        </h2>
+
+        <!-- Image with Caption -->
+        <figure class="mt-8 flex flex-col items-center">
+          <div class="image-container">
+            <img
+              src="../images/our_journey/cubes.png"
+              alt="Cubes"
+              style="width: 100%; max-width: 800px; height: auto"
+            />
+          </div>
+          <figcaption class="mt-4 text-sm text-gray-700">
+            Figure 4: Our Final Cubes
+          </figcaption>
+        </figure>
+        <p class="my-4"></p>
+
+        <strong>Mechanical: </strong>
+
+        <p class="text-lg">
+          For sprint 3 the mechanical team was still much farther ahead compared
+          to electrical and firmware, so the entire team decided to have a
+          secondary fall back plan if balancing the metal cube didn’t seem
+          feasible. A 3D printed version, constructed from PLA would serve as
+          our main cube where we would test on. Key considerations were factored
+          in when designing this 3D printed version, the ability for any key
+          structural piece (ie. sideplates, flywheels, etc.) to be machined with
+          metal and for each piece to have concrete manufacturing steps. Extra
+          mounting holes were added in case our stretch goal of balancing on a
+          corner was feasible.
+        </p>
+        <p class="my-4"></p>
+
+        <p class="text-lg">
+          Lightweighting of plates was determined based on critical mounting
+          points, topology studies in solidworks based on maximal motor torque
+          exerted on mounting points, and optimization of best stiffness to mass
+          ratio. For topology study the chosen material was 6061 AL, as it only
+          made sense to be lightweight on the metal version, and the design
+          would still apply for the 3D printed version. [Show solidworks
+          topology study]
+        </p>
+        <p class="my-4"></p>
+
+        <!-- Image with Caption -->
+        <figure class="mt-8 flex flex-col items-center">
+          <div class="image-container">
+            <img
+              src="../images/our_journey/lightweighting.png"
+              alt="Topology Studies"
+              style="width: 100%; max-width: 800px; height: auto"
+            />
+          </div>
+          <figcaption class="mt-4 text-sm text-gray-700">
+            Figure 5: Topology studies for the plates
+          </figcaption>
+        </figure>
+        <p class="my-4"></p>
+
+        <p class="text-lg">
+          To address the mechanical’s sprint review 2 design decisions of
+          seamless fitment, corner brackets were designed for each of the cube’s
+          corners. These corner brackets were 3D printed using PLA and used 4-40
+          heat-set inserts. Iterations were needed to finalize heat set insert
+          tolerances and promote the ease of installation. [Show corner brackets
+          and iterations]
+        </p>
+        <p class="my-4"></p>
+
+        <p class="text-lg">
+          To mount our breadboard and electronics a 3D printed mounting plate
+          was attached to the 3 sides of the plate. With the 3D printed version
+          of the box IMU placement wasn’t finalized so placement would be
+          determined with hand tooling.
+        </p>
+        <p class="my-4"></p>
+
+        <p class="text-lg">
+          The metal version of the cube was very similar to the 3D printed
+          version, as the 3D printed version was designed with the intent of
+          being able to be easily manufactured. Each plate started off with ⅛”
+          thick 6061 AL sheets, these sheets would then be waterjet revealing
+          mounting holes, lightweighting patterns and base geometry. [Show
+          slidedeck of manufacturing (waterjet), and final pieces]
+        </p>
+        <p class="my-4"></p>
+
+        <p class="text-lg">
+          Brass standoffs were machined on a lathe and allowed for spacing for
+          our waterjet motor mounting plates. [Image of brass standoffs]
+        </p>
+        <p class="my-4"></p>
+
+        <p class="text-lg">
+          Steel flywheels would be used on the metal cube instead of aluminum
+          due to the metal cube’s increase of weight. Steel is naturally 3 times
+          denser than aluminum so it was naturally the first choice when wanting
+          to increase moment of inertia. Aluminum flywheels were used on the 3D
+          printed cube.
+        </p>
+        <p class="my-4"></p>
+
+        <p class="text-lg">
+          The main challenge in designing a cube with seamless fitment was the
+          corners as each edge would need to be chamfered at a 45 degree at the
+          very tip and any imperfection would result in improper alignment of
+          the final assembly. This would be remedied through the usage of a bolt
+          down milling plate, with locating features precisely defined on the
+          waterjet. Each side could be easily rotated without losing tolerance.
+          Conversational programming of a manual mill was used to optimize the
+          machining process.
+        </p>
+        <p class="my-4"></p>
+
+        <p class="text-lg">
+          With a system experiencing a lot of vibration due to motor
+          oscillation, positive locking was needed on critical components. A
+          combination of nylock nuts and spring washers were used to mitigate
+          the effects of vibration.
+        </p>
+        <p class="my-4"></p>
+
+        <p class="text-lg">
+          In terms of aesthetics, every mounting hole was countersunk and press
+          fit 3D printed stubs were used on existing holes to allow for small
+          magnets to attach due to aluminum’s non-ferric nature. Thin galvanized
+          steel plates were chosen due to its corrosion resistant coating while
+          retaining ferric abilities. These steel plates would be used to
+          transform our cube into a simple metal box. [Image of fully covered
+          metal box]
+        </p>
+        <p class="my-4"></p>
+
+        <strong>Electrical: </strong>
+
+        <p class="text-lg">
+          Prior to Sprint Review 3, our Nidec motors had arrived. These had
+          built-in drive, so no external motor drive circuit such as an
+          electronic speed controller (ESC) would be required. They could also
+          now switch directions quickly so more progress could be made in
+          comparison to Sprint Review 2. Thus, we focused on integrating the
+          Nidec motor, IMU, an Arduino Nano into the 3D printed cube. This is
+          how the new schematic looked:
+        </p>
+        <p class="my-4"></p>
+
+        <!-- Image with Caption -->
+        <figure class="mt-8 flex flex-col items-center">
+          <div class="image-container">
+            <img
+              src="../images/our_journey/final_schematic.png"
+              alt="Final Electrical Schematic"
+              style="width: 100%; max-width: 800px; height: auto"
+            />
+          </div>
+          <figcaption class="mt-4 text-sm text-gray-700">
+            Figure 6: Final Electrical Schematic
+          </figcaption>
+        </figure>
+        <p class="my-4"></p>
+
+        <p class="text-lg">
+          We ended up using a 12V 5A laptop charger connected to our motor using
+          a 12V DC barrel connector instead of the LiPo battery so that we
+          didn’t have to cyclically drain and charge our battery during the
+          extensive testing phase. For the time being we decided to power the
+          Arduino Nano through the USB 2.0 cable type A/B since we needed Serial
+          communication anyways. Figuring out the wiring for our Nidec motors
+          ended up being a much larger problem than we predicted. The motor
+          sellers didn’t provide a datasheet, so we found one online:
+        </p>
+        <p class="my-4"></p>
+
+        <p class="text-lg">
+          However, the pin arrangement actually ended up being backwards for the
+          motors we had bought. What was also heavily misleading was the fact
+          that on the connector, V-/GND was blue in color while V+ was purple.
+          On the other hand, Channels A and B were black and red respectively
+          which intuitively makes no sense. We noticed this before actually
+          powering any motors, so no damage was dealt.
+        </p>
+        <p class="my-4"></p>
+
+        <strong>Firmware: </strong>
+
+        <p class="text-lg">
+          Sprint 3 from a firmware perspective mainly involved tuning the PID
+          loop for the 3D printed cube. We tested out the Zielger-Nichols
+          method, but because our system was in unstable equilibrium, it wasn’t
+          really useful. We also used a complementary filter using both
+          accelerometer and gyroscope data to get a more accurate angle value
+          for a better error estimate. We then created and analyzed graphs
+          displaying our error, proportional, integral, derivative, and output
+          PWM values in order to better understand how to adjust our PID
+          coefficients. One example is this graph:
+        </p>
+        <p class="my-4"></p>
+
+        <!-- Image with Caption -->
+        <figure class="mt-8 flex flex-col items-center">
+          <div class="image-container">
+            <img
+              src="../images/our_journey/pid_tuning.png"
+              alt="PID Tuning Graph"
+              style="width: 100%; max-width: 800px; height: auto"
+            />
+          </div>
+          <figcaption class="mt-4 text-sm text-gray-700">
+            Figure 7: Graph used for PID Tuning
+          </figcaption>
+        </figure>
+        <p class="my-4"></p>
+
+        <p class="text-lg">
+          As shown in the above graph, after about 5 seconds of balancing about
+          the setpoint, our IMU data would experience drift and the error would
+          start to constantly increase. We learned how to deal with this problem
+          following feedback received in our Sprint 3 Review.
+        </p>
+        <p class="my-4"></p>
+
+        <h2
+          class="text-3xl font-bold text-gray-800 mt-6 mb-4 border-b-2 border-gray-300"
+        >
+          Leading to Demo Day:
+        </h2>
+
+        <p class="text-lg">
+          After finishing up all the mechanical and electrical work by the end
+          of sprint three, we focused entirely on PID tuning, filtering IMU
+          measurements, and finalizing our firmware in the weeks leading up to
+          Demo Day. During this time, we fully integrated the system and got
+          everything working together.
+        </p>
+        <p class="my-4"></p>
+
+        <p class="text-lg">
+          One of the biggest challenges we faced was solving the drift issue
+          that was preventing our cube from balancing. In sprint three, we were
+          using a complementary filter, however since this was heavily dependent
+          on the gyroscope input (which drifted) to function we needed to pivot.
+          So, we switched to the Madgwick filter using the Arduino IDE's
+          Madgwick library. This change made a big difference—it helped us
+          filter out the drift and finally get the IMU readings stable enough to
+          work with. However, to make this filter effective, we had to
+          reposition the IMU. Previously, the cube was rotating around the yaw
+          axis, and the Madgiwick filter would’ve required factoring in
+          magnetometer data to correct the drift. However, this would likely
+          cause issues due to the electromagnetic field created by the brushless
+          motor. Instead, by moving the IMU so the cube rotated around the pitch
+          axis, we solved the problem.
+        </p>
+        <p class="my-4"></p>
+
+        <p class="text-lg">
+          Once the filtering was sorted, we dove into tuning the PID values. We
+          used a mix of the Ziegler-Nichols method and trial-and-error to dial
+          it in. Another problem we faced was that we weren’t sending outputs to
+          the motor quick enough for it to correct errors. This was solved by
+          implementing a timer-driven execution loop and stopped serial
+          printing. Thus, we optimized our output transmission and control.
+          After getting everything working on our plastic cube prototype, we
+          re-tuned our constants for the metal cube and unconstrained the PWM
+          outputs. With the math and control strategies implemented in the
+          firmware, we tested and tweaked until the metal cube finally balanced.
+        </p>
+        <p class="my-4"></p>
+
+        <!-- Image with Caption -->
+        <figure class="mt-8 flex flex-col items-center">
+          <div class="image-container">
+            <img
+              src="../images/electrical_schematic.png"
+              alt="Interactive Map"
+              style="width: 100%; max-width: 800px; height: auto"
+            />
+          </div>
+          <figcaption class="mt-4 text-sm text-gray-700">
+            Figure 1: Electrical schematic showing the connections between
+            components.
+          </figcaption>
+        </figure>
+        <p class="my-4"></p>
+      </div>
+    </div>
+    <footer class="bg-gray-800 text-white py-6">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Links Section -->
+          <div>
+            <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <ul class="space-y-2">
+                <li><a href="index.html" class="hover:underline">Home</a></li>
+                <li>
+                  <a href="system-overview.html" class="hover:underline"
+                    >System Overview</a
+                  >
+                </li>
+                <li>
+                  <a href="our-journey.html" class="hover:underline"
+                    >Our Journey</a
+                  >
+                </li>
+                <li>
+                  <a href="bill-of-materials.html" class="hover:underline"
+                    >Bill of Materials</a
+                  >
+                </li>
+              </ul>
+              <ul class="space-y-2">
+                <li>
+                  <a href="gallery.html" class="hover:underline">Gallery</a>
+                </li>
+                <li>
+                  <a href="mechanical-design.html" class="hover:underline"
+                    >Mechanical Design</a
+                  >
+                </li>
+                <li>
+                  <a href="firmware-design.html" class="hover:underline"
+                    >Firmware Design</a
+                  >
+                </li>
+                <li>
+                  <a href="electrical-design.html" class="hover:underline"
+                    >Electrical Design</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- About Section -->
+          <div>
+            <h3 class="text-lg font-bold mb-4">About</h3>
+            <p class="text-sm">
+              The Cube project showcases our efforts to create a self-balancing
+              cube using mechanical, electrical, and software integration. Learn
+              more by exploring the pages above.
+            </p>
+          </div>
+          <!-- Acknowledgments Section -->
+          <div>
+            <h3 class="text-lg font-bold mb-4">Acknowledgments</h3>
+            <p class="text-sm">
+              Special thanks to our PIE instructors.
+            </p>
+          </div>
+        </div>
+        <!-- Footer Bottom -->
+        <div class="mt-6 border-t border-gray-700 pt-4 text-center">
+          <p class="text-sm">
+            &copy; 2024 The Cube Project. Licensed under the
+            <a href="https://opensource.org/licenses/MIT" class="hover:underline text-blue-400" target="_blank">MIT License</a>.
+          </p>
+        </div>
+      </div>
+    </footer>
+    
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const menu = document.getElementById("menu");
+
+      // Toggle the menu when the hamburger icon is clicked
+      hamburger.addEventListener("click", () => {
+        menu.classList.toggle("active");
+      });
+
+      // Close the menu when a link is clicked
+      menu.addEventListener("click", (event) => {
+        if (event.target.tagName === "A") {
+          menu.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
+</html>
