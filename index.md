@@ -18,7 +18,7 @@ Click on a link below to visit the website for that team's project.
 
 [Vending Machine](https://olincollege.github.io/pie-2024-03/vending-machine)
 
-[Boat](https://olincollege.github.io/pie-2024-03/boat)
+[Boat](https://olincollege.github.io/pie-2024-03/boat/boat.html)
 
 [Olin Slot Machine](https://olincollege.github.io/pie-2024-03/olin-slot-machine)
 
