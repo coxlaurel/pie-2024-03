@@ -38,7 +38,11 @@
     <!-- Jarvis Voice Assistant Sub-section -->
     <div class="sub-section">
       <h3 class="section-header">Jarvis Voice Assistant</h3>
-      <p class="component-description">The Jarvis Voice Assistant is a speech-based interface that allows users to interact with the system using natural language commands. It processes speech input and responds with voice feedback. This system is built using [mention any frameworks, tools, or APIs used].</p>
+      <p class="component-description">The Jarvis Voice Assistant is a speech-based interface that allows users to interact with the system using natural language commands. It processes speech input and responds with voice feedback. For speech-to-text (STT), we used OpenAI's Whisper Large V3 Turbo model on Groq paired
+        with the Python SpeechRecognition module, which allowed for continuous and seemless audio input. Next, we used OpenAI's ChatGPT API to describe images and answer general queries; we wanted to ensure that these responses would not get in the way of our hard-coded audio commands like "Jarvis, activate" or "Jarvis, open helmet", 
+        so we defaulted any other query that didn't sound like our audio commands to plug into ChatGPT. Finally for text-to-speech (TTS), we used two methods: to mimick Jarvis's voice from the Iron Man movies, we chose a speaker for our TTS on <a href="ttsmp3.com">ttsmp3.com</a> which had a British English male voice option, Brian. We recordered 
+      the majority of our sound bytes as mp3 files from there. Additioanlly, we used Google's TTS Python module, gTTS, to for the OpenAI output. To play any of our audio files, we relied on the pydub Python module that allowed us to play audio files like .mp3's and BytesIO from the io Python module that allowed us to handle binary data streams. Finally, we 
+    used the Python serial module to send and receive data with the Arduino. </p>
 
       <!-- Demo Section (You can embed a demo or link to a live demo) -->
       <div>
@@ -51,7 +55,7 @@
       <ul>
         <li>Turning on/off the system</li>
         <li>Responding to queries</li>
-        <li>Executing commands related to other system components(open/close helmet, take photo/video)</li>
+        <li>Executing commands related to other system components(oopen/close helmet, take photo/video)</li>
         <li>Describe surroundings in images</li>
       </ul>
 
