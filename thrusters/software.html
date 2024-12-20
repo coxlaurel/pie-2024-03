@@ -48,25 +48,38 @@
 
                 <!-- Text stuff -->
                 <p>
-                    The software system for Ghost Thrusters is responsible for controlling the balance and stability of the system using a PID-based approach. It incorporates multiple thrusters, each programmed to respond dynamically to changes in orientation and velocity. The system's architecture ensures precision adjustments to maintain desired angles and mitigate external disturbances.
+                    The software system for Ghost Thrusters is responsible for controlling the balance and stability of
+                    the system using a PID-based approach. It incorporates multiple thrusters, each programmed to
+                    respond dynamically to changes in orientation and velocity. The system's architecture ensures
+                    precision adjustments to maintain desired angles and mitigate external disturbances.
                 </p>
 
-                <h3>Key Features</h3>
+                <h2>Key Features</h2>
                 <ul>
                     <li>PID-based thrust control for maintaining target pitch and roll.</li>
                     <li>Dynamic counter-thrust to correct overcompensation.</li>
                     <li>Modular code design for extensibility and debugging.</li>
                 </ul>
 
-                <h3>How It Works</h3>
+                <h2>How It Works</h2>
                 <p>
-                    The control system operates by calculating the error between the desired orientation (setpoint) and the current orientation of the system. Using a PID (Proportional-Integral-Derivative) controller, it computes the necessary thrust adjustments for each thruster to minimize this error. The incorporation of velocity feedback ensures that the system accounts for dynamic changes, reducing overshoot and avoiding oscillations. By adapting thrust based on real-time velocity and position, the system achieves smoother and more precise corrections.
+                    The control system operates by calculating the error between the desired orientation (setpoint) and
+                    the current orientation of the system. Using a PID (Proportional-Integral-Derivative) controller, it
+                    computes the necessary thrust adjustments for each thruster to minimize this error. The
+                    incorporation of velocity feedback ensures that the system accounts for dynamic changes, reducing
+                    overshoot and avoiding oscillations. By adapting thrust based on real-time velocity and position,
+                    the system achieves smoother and more precise corrections.
                 </p>
                 <p>
-                    Earlier approaches relied solely on angular error without factoring in velocity, leading to frequent overcompensation and instability. This resulted in jerky movements and slower stabilization times. The current design leverages velocity to predict system behavior and apply counter-thrust only when necessary, achieving a more fluid and efficient balance. Additionally, the use of dynamic thresholds and damping factors further reduces unnecessary thruster activity, enhancing the overall performance and responsiveness of the system.
+                    Earlier approaches relied solely on angular error without factoring in velocity, leading to frequent
+                    overcompensation and instability. This resulted in jerky movements and slower stabilization times.
+                    The current design leverages velocity to predict system behavior and apply counter-thrust only when
+                    necessary, achieving a more fluid and efficient balance. Additionally, the use of dynamic thresholds
+                    and damping factors further reduces unnecessary thruster activity, enhancing the overall performance
+                    and responsiveness of the system.
                 </p>
 
-                <h3>Code Snippet</h3>
+                <h2>Code Snippet</h2>
                 <pre><code>
         class Thruster {
         private:
@@ -88,12 +101,22 @@
         };
                 </code></pre>
 
-                <h3>Challenges</h3>
+                <h2>Link to Source Code</h2>
                 <p>
-                    Implementing a real-time control system presented challenges such as tuning PID parameters for optimal response and ensuring precise synchronization of multiple thrusters. Additionally, managing counter-thrust logic to prevent oscillations required extensive testing and debugging.
+                    You can find the source code for this project on our <a
+                        href="https://github.com/Rixhee/gas-thruster-stabilization" target="_blank">GitHub
+                        repository</a>.
                 </p>
 
-                <h3>Future Improvements</h3>
+
+                <h2>Challenges</h2>
+                <p>
+                    Implementing a real-time control system presented challenges such as tuning PID parameters for
+                    optimal response and ensuring precise synchronization of multiple thrusters. Additionally, managing
+                    counter-thrust logic to prevent oscillations required extensive testing and debugging.
+                </p>
+
+                <h2>Future Improvements</h2>
                 <ul>
                     <li>Enhance counter-thrust logic for faster stabilization.</li>
                     <li>Implement auto adjustment logic for adaptive PID parameter tuning.</li>
@@ -103,14 +126,14 @@
         </div>
 
 
-                        <!-- Scripts -->
-                        <script src="assets/js/jquery.min.js"></script>
-                        <script src="assets/js/jquery.scrollex.min.js"></script>
-                        <script src="assets/js/jquery.scrolly.min.js"></script>
-                        <script src="assets/js/browser.min.js"></script>
-                        <script src="assets/js/breakpoints.min.js"></script>
-                        <script src="assets/js/util.js"></script>
-                        <script src="assets/js/main.js"></script>
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
 
 </body>
 
