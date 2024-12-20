@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<!--
+	Escape Velocity by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>simulation</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+            <section id="header" class="wrapper" style="background: url('images/Hero_shot.jpg') no-repeat center center; background-size: cover; padding: 20px; text-align: center;min-height: 500px;" >
+
+                <!-- Logo -->
+                    <div id="logo" style="position: relative; top: -70px;">
+                        <h1><a href="index.html"style = "color:white">Thorondor</a></h1>
+                        <p style = "color:white;font-size: 16pt;font-weight: bold;">An RC Bicopter Built in 6 Weeks</p>
+                    </div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li>
+									<a href="#">Systems</a>
+									<ul>
+										<li><a href="mechanical.html">Mechanical</a></li>
+										<li></li><a href="software.html">Software</a></li>
+										<li><a href="electrial.html">Electrical</a></li>
+										<li class = "current"></li><a href="simulation.html">Simulation</a></li>
+									</ul>
+								</li>
+								<li><a href="budget.html">Budget&Bom</a></li>
+								<li><a href="team.html">Meet the Team</a></li>
+							</ul>
+						</nav>
+
+				</section>
+
+				<div id="main" class="wrapper style3">
+					<div class="title">Simulation</div>
+					<div class="container">
+                        <div id="content">
+								<article class="box post">                            
+									<header class="style1">
+										<p style="color:white";>
+                                                All Simulink Models are Available on Github: 
+                                                <a href="https://github.com/Rshah2067/Thorondor" target="_blank">
+                                                    <i class="fab fa-github"></i>
+                                                </a>
+                                            </p>
+                                    </header>
+									<header class="style2">
+										<p style="color:white";>
+                                            Our simulation section provides a detailed approach to creating rudimentary models of bi-copter dynamics in Simulink using 
+                                            corresponding equations of motion. The goal was to ultimately validate the idea that we could linearly combine control corrections 
+                                            in 2 axes for small corrections to achieve a stabilized hover. This process begins with single-axis testing for roll and pitch and 
+                                            gradually advances to more complex two-axis testing, ensuring a systematic understanding of the vehicle's behavior under different 
+                                            conditions.                                           
+									</header>
+							</div>
+
+					</div>
+				</div>
+                <div id="main" class="wrapper style1">
+                    <div class="title">Single-Axis Roll Testing: </div>
+					<div class="container">
+                        <div id="content">
+								<article class="box post">
+									<header class="style2">
+                                        <a href="#" class="image featured" style= "border: none;">
+                                            <img src="images/simulation/simulink1.png" alt="" />
+                                        </a>    
+										<p style="color:white">
+                                            The initial phase involved testing the bi-copter's dynamics along one axis, where we wanted to learn how the system behaves in a simplified scenario. 
+                                            For example, creating a roll-only model using a 3DOF dynamics block helped in developing a basic controller of the vehicle's behavior, where we realized
+                                            that only using P and I in our control loop created an undamped system, resulting in us implementing a PD controller. We validated our model by testing our Ironbird in a gimble
+                                        </p>
+                                        </header>
+
+                                        <video autoplay muted loop playsinline>
+                                            <source src="videos/roll-failure.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+
+							</div>
+
+					</div>
+
+				</div>
+                <div id="main" class="wrapper style2">
+                    <div class="title">Two Axis Testing</div>
+					<div class="container">
+                        <div id="content">
+                            <a href="#" class="image featured">
+                                <img src="images/simulation/simulink2.png" alt="" />
+                            </a>
+                            <article class="box post">
+                                <header class="style2">
+                                    <p style="color:#484d55">
+                                        Once single-axis testing is complete, we extend the model to include two axes of motion with a 6DOF dynamics block,
+                                         incorporating more complex behaviors that must be accounted for by the controller. This stage tests the interactions
+                                          between different axes, allowing for a comprehensive evaluation of control strategies and overall system performance.
+                                           Through this model, we were able to get a rough idea about how linearly combining pitch and roll corrections would work. 
+                                           However, we were unable to tune the system relatively well in Simulink, nor get useful PID tuning values from the model 
+                                           as it was mostly used for as a proof of concept for control mixing methods. 
+                                    </p>
+                                </header>
+                        </div>
+                            <a href="#" class="image featured">
+                                <img src="images/simulation/plot.png" alt="" />
+                            </a>
+                            <caption>
+                                    Yellow signal is roll in degrees, blue signal is pitch in degrees. Desired angle was set to 0 degrees. You can observe how simultaneously
+                                 in different axes, the system was able to achieve desired orientation. 
+                            </caption>
+
+
+					</div>
+				</div>
+
+				<section id="footer" class="wrapper">
+					<div id="copyright">
+						<ul>
+							<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							<li>
+								Our GitHub: 
+								<a href="https://github.com/Rshah2067/Thorondor" target="_blank">
+									<i class="fab fa-github"></i> Visit GitHub
+								</a>
+							</li>
+						</ul>
+					</div>
+				</section>
+	<!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
