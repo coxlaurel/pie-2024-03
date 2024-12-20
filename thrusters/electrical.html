@@ -47,7 +47,7 @@
                 </header>
 
                 <!-- Text stuff -->
-                <p> The electrical system of our reaction control system consists of 4 main elements: A microcontroller,
+                <p> The electrical system of our project consists of 4 main elements: A microcontroller,
                     an Inertial Measurement Unit (IMU), 4 relay modules, and 4 solenoid valves.
                     For our microcontroller, we opted to use an ESP32 Development Board. From its 3.3V output, we power
                     our IMU
@@ -62,29 +62,28 @@
                 <h2>Challenges</h2>
                 <p>
                     We encountered several challenges during the implementation of our electrical system. One of
-                    which was that our IMU
-                    was resetting at seemingly random times. We determined by probing its power pins with an
-                    oscilliscope that this was due to
-                    interference on the power line. This makes sense, especially considering our usage of
+                    these challenges was that our IMU would reset at seemingly random times. We determined, by 
+                    probing its power pins with an oscilliscope, that this was due to
+                    interference on the power line. This makes sense considering our usage of
                     solenoid valves, which are big inductors
                     that can cause EMI and back EMF. To solve this problem, our first step was to add flyback
                     diodes across the solenoid valves to prevent
-                    unwanted voltage spikes when the current suddenly changes. While this definitley a necessary
+                    unwanted voltage spikes with sudden current changes. While this definitely a necessary
                     addition, it did not totally resolve our problems.
 
                     Next, we added a small inductor across the common ground of the 3.3V supply and the 12V
                     supply to filter out any potential offset. We additionally
-                    added a 100 uF capacitor in parallel with the IMU's power and ground to absorb or compensate
-                    for any sudden voltage changes. This solved our problem.
+                    added a 100 uF capacitor in parallel with the IMU's power and ground to compensate
+                    for any sudden voltage changes. This solved our IMU reset problem.
                 </p>
                 <p>
                     Another challenge we encountered was that when we had pressurized air in our tanks, the
                     solenoid valves would not all open. Initially we thought that
-                    this must have been a blockage in the tubing, however what tipped us off that this was a
+                    this must have been due to a blockage in the tubing. However, what tipped us off that this was a
                     power issue was that when the pressure in the tanks was lowered,
                     both valves would function and allow air to flow. So, we determined that at higher
                     pressures, the valves needed a higher current supplied in order to open.
-                    In retrospect, this was a simple issue to fix, all we had to do was raise the current limit
+                    In retrospect, this was a simple issue to fix, as all we had to do was raise the current limit
                     on our power supply. However, it was tough to diagnose since we
                     were not even sure which system was causing problems!
                 </p>
