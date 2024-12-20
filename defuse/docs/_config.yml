@@ -9,7 +9,7 @@ yaml_front_matter: true
 
 nav:
   - name: Home
-    link: /defuse-the-situation
+    link: /defuse
   - name: About
     link: about
     subitems:
