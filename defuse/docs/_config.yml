@@ -9,7 +9,7 @@ yaml_front_matter: true
 
 nav:
   - name: Home
-    link: /defuse
+    link: /pie-2024-03/defuse
   - name: About
     link: about
     subitems:
