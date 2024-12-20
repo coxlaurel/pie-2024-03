@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principles of Integrated Engineering (PIE) Fall 2024 Project</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>        
+</head>
+<body>
+
+  <header>
+    <h1>Principles of Integrated Engineering (PIE) Fall 2024 Project</h1>
+    <nav>
+      <ul>
+        <li><a href="#homepage">Homepage</a></li>
+        <li><a href="#budget-breakdown">Budget Breakdown</a></li>
+        <li><a href="#data-energy-flow">Data and Energy Flow</a></li>
+        <li><a href="#electrical-software">Electrical and Software</a></li>
+        <li><a href="#mechanical">Mechanical</a></li>
+        <li><a href="#prototype">Prototype</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+
+<section id="homepage">
+    <h2>Homepage (High-Level Overview)</h2>
+    <h3>Project Title</h3>
+    <blockquote>Autonomous GPS-Guided Boat Navigation System</blockquote>
+    
+    <h3>Team Members</h3>
+    <ul>
+        <li><strong>Belle See and Sage Gilbert-Diamond</strong> - Electrical/Software Design</li>
+        <li><strong>Filip Kypriotis, Jade Campbell and Zac Adeboye</strong> - Mechanical Design</li>
+        <li><strong>Everyone</strong> - Testing and Integration</li>
+    </ul>
+
+    <h3>Project Summary</h3>
+    <p>This project focuses on building an autonomous boat navigation system using GPS and ESC motor controls. The boat calculates its heading and adjusts its path based on location data to navigate through predefined waypoints.</p>
+
+    <h3>Final Product Showcase</h3>
+    <div class="image-container">
+        <img src="Images/Boat.jpg" alt="Final Product Image">
+        <img src="Images/Boat_whole.png" alt="CAD of Final Boat">
+    </div>
+    <h3>Final Product Showcase</h3>
+    <div class="video-container">
+      <iframe 
+        width="640" 
+        height="360" 
+        src="https://www.youtube.com/embed/WoMyw6ldScI" 
+        title="Final Product Video"
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+</section>
+
+<hr>
+
+<section id="budget-breakdown">
+    <h2>Budget Breakdown</h2>
+
+    <h3>Overview</h3>
+    <p>Summary of how the $250 budget was allocated.</p>
+
+    <h3>Table of Components</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Component</th>
+                <th>Description</th>
+                <th>Link</th>
+                <th>Unit Cost</th>
+                <th>Units</th>
+                <th>Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Compass</td>
+                <td>Compass Module</td>
+                <td><a href="https://www.amazon.com/dp/B0855TZV1J">Amazon Link</a></td>
+                <td>$7.99</td>
+                <td>1</td>
+                <td>$7.99</td>
+            </tr>
+            <tr>
+                <td>GPS</td>
+                <td>GPS Module</td>
+                <td><a href="https://www.amazon.com/dp/B084MK8BS2">Amazon Link</a></td>
+                <td>$12.99</td>
+                <td>1</td>
+                <td>$12.99</td>
+            </tr>
+            <tr>
+                <td>Foam Blocks</td>
+                <td>-</td>
+                <td><a href="https://www.amazon.com/dp/B008HV11DE">Amazon Link</a></td>
+                <td>$39.99</td>
+                <td>1</td>
+                <td>$39.99</td>
+            </tr>
+            <tr>
+                <td>Thermal Paste</td>
+                <td>-</td>
+                <td><a href="https://www.amazon.com/dp/B0795DP124">Amazon Link</a></td>
+                <td>$6.99</td>
+                <td>1</td>
+                <td>$6.99</td>
+            </tr>
+            <tr>
+                <td>Super Glue</td>
+                <td>-</td>
+                <td><a href="https://www.amazon.com/dp/B00C32ME6G">Amazon Link</a></td>
+                <td>$12.59</td>
+                <td>1</td>
+                <td>$12.59</td>
+            </tr>
+            <tr>
+                <td>Motor</td>
+                <td>VGEBY1 F2838-350KV</td>
+                <td><a href="https://www.amazon.com/dp/B08LN1MJ7X">Amazon Link</a></td>
+                <td>$26.69</td>
+                <td>2</td>
+                <td>$53.38</td>
+            </tr>
+            <tr>
+                <td>ESC</td>
+                <td>30A ESC</td>
+                <td><a href="https://www.amazon.com/dp/B071GRSFBD">Amazon Link</a></td>
+                <td>$16.99</td>
+                <td>2</td>
+                <td>$33.98</td>
+            </tr>
+            <tr>
+                <td>Battery</td>
+                <td>-</td>
+                <td><a href="https://www.amazon.com/dp/B08R72ZF6N">Amazon Link</a></td>
+                <td>$29.22</td>
+                <td>1</td>
+                <td>$29.22</td>
+            </tr>
+            <tr>
+                <td>Arduino</td>
+                <td>Arduino Uno R3</td>
+                <td><a href="https://www.amazon.com/dp/B01EWOE0UU">Amazon Link</a></td>
+                <td>$16.99</td>
+                <td>1</td>
+                <td>$16.99</td>
+            </tr>
+            <tr>
+                <td>20ft Cable</td>
+                <td>USB-B to USB-C Cable</td>
+                <td><a href="https://www.amazon.com/dp/B0C2BNQVSF">Amazon Link</a></td>
+                <td>$8.96</td>
+                <td>1</td>
+                <td>$8.96</td>
+            </tr>
+            <tr>
+                <td>RC Controller</td>
+                <td>RC Controller</td>
+                <td>N/A (Provided by a teacher)</td>
+                <td>$59.90</td>
+                <td>1</td>
+                <td>$0.00</td>
+            </tr>
+        </tbody>
+    </table>
+    <p><strong>Total Cost: $223.08</strong></p>
+
+    <div class="key-notes">
+        <h3>Key Notes</h3>
+        <ul>
+            <li>The compass was broken, so the project adapted by relying solely on GPS data.</li>
+            <li>Components like foam and glue were used for the physical assembly.</li>
+        </ul>
+    </div>
+</section>
+
+<hr>
+
+<section id="data-energy-flow">
+  <h2>Data and Energy Flow</h2>
+
+  <h3>Data and Energy Flow Diagram</h3>
+  <img src="Images\Data_energy_flow_diagram.png" alt="Data and Energy Flow Diagram">
+
+  <h3>Explanation</h3>
+  <p>
+      This diagram illustrates the interaction between the data and energy systems in the boat. 
+      User inputs waypoints, which are processed by the Arduino Uno, acting as the central controller.
+      The GPS module provides real-time location data to the Arduino Uno, which calculates the current and target headings.
+      Based on this information, the Arduino sends motor speed and direction signals (via PWM) to the ESCs controlling the brushless motors. 
+      The energy flow highlights the power distribution from the batteries to the individual components, ensuring consistent operation.
+  </p>
+</section>
+
+
+<hr>
+
+<section id="electrical-software">
+    <h2>Evolution of the Code and Circuit Design</h2>
+    
+    <h3>Code Evolution</h3>
+    <ol>
+        <li>
+            <strong>Initial Logic:</strong>
+            <ul>
+                <li>Movement was determined by the boat’s position relative to the final destination.</li>
+                <li>If the boat moved past the destination on either latitude or longitude, it would switch direction (left/right).</li>
+                <li><em>Issue:</em> This caused the boat to take inefficient routes.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Second Iteration:</strong>
+            <ul>
+                <li>Tracked previous and current coordinates to calculate if the boat was moving closer to the destination along latitude or longitude.</li>
+                <li>Flipped direction if the boat got further away.</li>
+                <li><em>Issue:</em> The boat failed to account for situations where it faced the wrong direction entirely.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Final Iteration:</strong>
+            <ul>
+                <li>Calculated the current heading (based on previous and current coordinates) and compared it to the target heading (current to destination coordinates).</li>
+                <li>If the heading deviated beyond 45 degrees, the boat corrected its course.</li>
+                <li>Added logic to switch direction based on proximity to the target.</li>
+                <li>Removed waypoints logic since heading logic was precise enough</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3>Final Code Design Elements</h3>
+    <br />
+    <p><strong>Code Repository:</strong> <a href="https://github.com/bellesea/boat/">GitHub Link</a></p>
+    <br />
+    <ul>
+        <li>Initial delay of 2 min to allow user to row into the water and place the boat.</li>
+        <li>Saves the starting coordinates when it is placed in the water.</li>
+        <li>Runs a navigation cycle every 5 seconds:
+            <ol>
+                <li>Calculates whether the current boat is further away from the destination by longitude or latitude.</li>
+                <li>Taking the coordinate that is the result from above, checks if it is moving closer or further away along this coordinate.</li>
+                <li>If it's moving further away, turn 90 degrees left/right depending on it's relative location.</li>
+                <li>Adjusts heading by turning left/right if it deviates beyond 30 degrees of the target heading.</li>
+                <li>Checks distance to destination (in meters) </li>
+            </ol>
+        </li>
+        <li>Within 15 meters of the final destination, turn in a circle for 20 seconds and update the destination coordinates to return to the start point.</li>
+        <li>Stops when it reaches it's starting destination.</li>
+    </ul>
+
+    <h3>Troubleshooting Errors</h3>
+    <ol>
+        <li>
+            <strong>Unreliable GPS Connection:</strong>
+            <ul><li>Solved by soldering wires to stabilize the GPS signal.</li></ul>
+        </li>
+        <li>
+            <strong>Broken Compass:</strong>
+            <ul><li>Adapted navigation logic to use GPS data only by calculating the boat’s heading from current and previous positions.</li></ul>
+        </li>
+        <li>
+            <strong>Overflow Issues:</strong>
+            <ul><li>GPS stopped sending updates when variables were initialized within the main loop. Moved initialization outside the loop to resolve this.</li></ul>
+        </li>
+        <li>
+            <strong>Drift:</strong>
+            <ul><li>Used heading calculations between current and previous positions to detect drift and correct the course.</li></ul>
+        </li>
+        <li>
+          <strong>Motors not responsive:</strong>
+          <ul><li>Set motor speed to zero at the start of the set-up code before giving the motors its actual speed.</li></ul>
+        </li>
+    </ol>
+
+    <hr>
+
+    <h2>Detailed Design Descriptions</h2>
+    <h3>Firmware Design</h3>
+    <h4>Dependencies</h4>
+    <ul>
+        <li><strong>SoftwareSerial:</strong> Read data from the GPS module (<a href="https://docs.arduino.cc/learn/built-in-libraries/software-serial/">Docs</a>)</li>
+        <li><strong>TinyGPS++:</strong> For parsing GPS data (<a href="https://github.com/mikalhart/TinyGPSPlus">Library</a>)</li>
+        <li><strong>PWMServo:</strong> For motor control (<a href="https://reference.arduino.cc/reference/en/libraries/pwmservo/">Library</a>)</li>
+    </ul>
+    <p><strong>Code Repository:</strong> <a href="https://github.com/bellesea/boat">GitHub Link</a></p>
+    <h3>Circuit Design</h3>
+    <p>The circuit has always stayed the same since it’s a simple design where we just plug into established circuit elements such as an ESC and a GPS module.</p>
+
+    <h3>System Diagrams</h3>
+    <h4>Circuit Design</h4>
+    <p><strong>Description:</strong> The circuit connects GPS and ESC components to the Arduino.</p>
+    <ul>
+        <li><strong>Connections:</strong>
+            <ul>
+                <li><strong>ESCs:</strong> Connected to <strong>Digital Pins 9 and 10</strong> for PWM motor control.</li>
+                <li><strong>GPS Module:</strong> RXD connected to <strong>Digital Pin 3</strong>, TXD to <strong>Digital Pin 4</strong>.</li>
+            </ul>
+        </li>
+    </ul>
+    <p><strong>Diagram:</strong></p>
+    <img src="Images/ELECDESIGN.png" alt="Circuit Diagram">
+</section>
+
+<hr>
+
+<section id="mechanical">
+    <h2>Mechanical Aspects</h2>
+  
+    <article id="boat-hulls">
+      <h3>Boat Hulls</h3>
+      <p><strong>Design Concepts:</strong></p>
+      <ul>
+        <li>
+          Hull dimensions were determined using formulas from
+          <a href="https://www.catamaransite.com/reference/catamaran_hull_design_formulas/" target="_blank">
+            Catamaran Hull Design Formulas
+          </a>.
+        </li>
+        <li>MATLAB was used to compile these formulas, ensuring the calculated dimensions achieved proper buoyancy and stability.</li>
+      </ul>
+      <div class="image-container">
+        <img src="Images/Hull1.png" alt="Boat Hull 1">
+        <img src="Images/Hull2.png" alt="Boat Hull 2">
+        <img src="Images/Hull3.png" alt="Boat Hull 3">
+      </div>
+      <p><strong>Fabrication Process:</strong></p>
+      <ol>
+        <li>1-inch foam layers were glued together with wood glue.</li>
+        <li>The glued foam blocks were CNC-milled into shape based on the validated dimensions.</li>
+        <li>Final finishing included sanding, coating with fiberglass and epoxy for waterproofing, and spray-painting for durability and aesthetics.</li>
+      </ol>
+      <div class="image-container">
+        <img src="Images/CNCHULL.png" alt="CNC Hull Fabrication">
+      </div>
+    </article>
+  
+    <article id="thrust-system">
+      <h3>Thrust System</h3>
+      <p><strong>Design Goals:</strong></p>
+      <ul>
+        <li>Ensure motors deliver adequate propulsion for navigating currents and waypoints.</li>
+        <li>Protect motors from debris (e.g., seaweed and branches) while maintaining efficiency.</li>
+      </ul>
+      <p><strong>Implementation Details:</strong></p>
+      <ul>
+        <li>CAD files from a BlueROV thruster were modified to fit the brushless motor dimensions.</li>
+        <li>Caps were added to both ends of the motor to prevent debris intake, minimizing operational issues during testing.</li>
+        <li>Motors were secured to the hulls using custom 3D-printed mounts, reinforced with epoxy and super glue for stability.</li>
+      </ul>
+      <div class="image-container">
+        <img src="Images/Thruster_1.png" alt="Thruster 1">
+        <img src="Images/Thruster_2.png" alt="Thruster 2">
+      </div>
+    </article>
+  
+    <article id="waterproofing">
+      <h3>Waterproofing</h3>
+      <p><strong>Hull Waterproofing:</strong></p>
+      <ul>
+        <li>The foam hulls were coated with fiberglass and epoxy for structural integrity and waterproofing.</li>
+        <li>Spray paint provided an additional layer of protection against water infiltration.</li>
+      </ul>
+      <p><strong>Electrical Housing Waterproofing:</strong></p>
+      <ul>
+        <li>The platform housing electrical components was spackled, sanded, and painted to create a water-resistant enclosure.</li>
+        <li>The lid design included tight tolerances to block water splashes while remaining removable for maintenance and upgrades.</li>
+      </ul>
+      <div class="image-container">
+        <img src="Images/Platform_1.png" alt="Electrical Housing Platform">
+        <img src="Images\Platform.jpg" alt="Electrical Housing Platform">
+        <img src="Images\Platform_with_elec.jpg" alt="Electrical Housing Platform">
+      </div>
+    </article>
+  
+    <article id="motor-selection">
+      <h3>Motor Selection</h3>
+      <p><strong>Considered Options:</strong></p>
+      <ul>
+        <li>Motors specifically designed for underwater applications were evaluated but rejected due to extended delivery times.</li>
+        <li>Brushless motors were selected for their high torque-to-speed ratio, critical for consistent thrust in aquatic environments.</li>
+      </ul>
+      <p><strong>Selection Rationale:</strong></p>
+      <p>The VGEBY1 brushless motors demonstrated sufficient torque and durability during external testing, such as their ability to handle high-stress scenarios like drone crashes.</p>
+    </article>
+  
+    <article id="esc-coolers">
+      <h3>ESC Coolers</h3>
+      <p><strong>Design and Fabrication:</strong></p>
+      <ul>
+        <li>The ESC coolers were modeled after PC cooling systems, leveraging the boat’s motion to pass water through cooling channels.</li>
+        <li>Aluminum stock was machined into radiator-like channels, mounted to the ESCs using thermal paste and glue.</li>
+      </ul>
+      <p><strong>Passive Cooling Operation:</strong></p>
+      <ul>
+        <li>As the boat moves, water is channeled through tubing into the ESC cooler, dissipating heat without additional power requirements.</li>
+      </ul>
+      <div class="image-container">
+        <img src="Images/ESC_cooler1.png" alt="ESC Cooler 1">
+        <img src="Images/ESC_cooler2.png" alt="ESC Cooler 2">
+        <img src="Images\ESC_cooler.jpg"  alt="ESC Cooler">
+      </div>
+    </article>
+  
+    <article id="subsystem-relationships">
+      <h3>Subsystem Relationships</h3>
+      <p>The mechanical, electrical, and software components work together to achieve the boat's autonomous functionality:</p>
+      <ol>
+        <li><strong>Motor Mounts and ESCs:</strong> Motors are securely mounted to the hulls using 3D-printed brackets reinforced with epoxy and super glue. Each motor is powered by an ESC, which receives PWM signals from the Arduino to control speed and direction.</li>
+        <li><strong>Electrical Housing Platform:</strong> Protects electrical components like the Arduino and ESCs while allowing for clean wiring connections to motors and sensors.</li>
+        <li><strong>Boat Hulls and Waterproofing:</strong> Provides buoyancy and structural support while maintaining watertight integrity with fiberglass and epoxy coatings.</li>
+        <li><strong>Software Integration:</strong> The Arduino reads GPS data, calculates headings, and adjusts motor PWM signals to ensure real-time course corrections.</li>
+      </ol>
+    </article>
+
+    <article id="Battery-selection">
+        <h3>Battery Selection</h3>
+        <p><strong>Considered Options:</strong></p>
+        <ul>
+          <li>Motors specifically designed for underwater applications were evaluated but rejected due to extended delivery times.</li>
+          <li>Brushless motors were selected for their high torque-to-speed ratio, critical for consistent thrust in aquatic environments.</li>
+        </ul>
+        <p><strong>Selection Rationale:</strong></p>
+        <p>The VGEBY1 brushless motors demonstrated sufficient torque and durability during external testing, such as their ability to handle high-stress scenarios like drone crashes.</p>
+      
+        <h4>Mathematical Justification for Choosing OVONIC 3S Lipo Battery</h4>
+        <p><strong>Motor Specifications:</strong></p>
+        <ul>
+          <li><strong>KV (RPM/V):</strong> 650</li>
+          <li><strong>Number of Cells (Lipo):</strong> 3-6S</li>
+          <li><strong>Max Continuous Current (A):</strong> 39A</li>
+          <li><strong>Max Continuous Power (W):</strong> 865W</li>
+          <li><strong>Internal Resistance:</strong> 0.011Ω</li>
+        </ul>
+        <p><strong>Battery Specifications:</strong></p>
+        <ul>
+          <li><strong>Voltage (V):</strong> 11.1V (3S)</li>
+          <li><strong>Capacity (mAh):</strong> 2200mAh</li>
+          <li><strong>Discharge Rate (C):</strong> 35C (Burst 70C)</li>
+        </ul>
+      
+        <p><strong>Step-by-Step Justification:</strong></p>
+        <ol>
+          <li><strong>Voltage Compatibility:</strong>
+            <p>The motor can handle 3-6S Lipo batteries. A 3S battery has a nominal voltage of 11.1V, which is within the motor's operating range. This ensures that the motor will run efficiently without being over or under-powered.</p>
+          </li>
+          <li><strong>Current Draw:</strong>
+            <p>The battery’s continuous discharge capability is calculated as follows:</p>
+            <p>\[
+              I_{\text{max}} = \text{Capacity} \times \text{Discharge Rate} = 2.2 \, \text{Ah} \times 35 \, \text{C} = 77 \, \text{A}
+            \]</p>
+            <p>The motor requires a maximum continuous current of \( 39 \, \text{A} \), and the battery can provide up to \( 77 \, \text{A} \), which is sufficient.</p>
+          </li>
+          <li><strong>Power Requirements:</strong>
+            <p>The current required to provide \( 865 \, \text{W} \) of power at \( 11.1 \, \text{V} \) is:</p>
+            <p>\[
+              I = \frac{P}{V} = \frac{865 \, \text{W}}{11.1 \, \text{V}} \approx 78 \, \text{A}
+            \]</p>
+            <p>The battery’s burst capacity allows handling such current bursts:</p>
+            <p>\[
+              I_{\text{burst}} = 2.2 \, \text{Ah} \times 70 \, \text{C} = 154 \, \text{A}
+            \]</p>
+          </li>
+          <li><strong>Internal Resistance:</strong>
+            <p>Voltage drop due to internal resistance is given by:</p>
+            <p>\[
+              V_{\text{drop}} = I \times R = 39 \, \text{A} \times 0.011 \, \Omega = 0.429 \, \text{V}
+            \]</p>
+            <p>The actual voltage available to the motor is:</p>
+            <p>\[
+              V_{\text{actual}} = 11.1 \, \text{V} - 0.429 \, \text{V} \approx 10.671 \, \text{V}
+            \]</p>
+            <p>This minimal drop ensures efficient power delivery.</p>
+          </li>
+        </ol>
+      
+        <p><strong>Conclusion:</strong></p>
+        <p>The OVONIC 3S Lipo Battery 35C (Burst 70C) 2200mAh 11.1V meets and exceeds the motor's current and power requirements while also providing sufficient voltage and low internal resistance for efficient operation. This makes it an appropriate and reliable choice for powering your motor.</p>
+      </article>
+      
+      
+  </section>
+  
+
+<hr>
+
+<section id="prototype">
+    <h2>Prototype</h2>
+    
+    <p>
+      Before constructing the final autonomous GPS-guided boat, we developed a working prototype to test and configure our code, electrical systems, and overall functionality. The prototype allowed us to identify potential issues and refine our design for optimal performance. 
+    </p>
+    
+    <h3>Materials and Construction</h3>
+    <p>
+      The prototype was constructed using accessible and cost-effective materials while still incorporating key components to simulate real-world conditions.
+    </p>
+    <ul>
+      <li><strong>Hulls:</strong> The hulls were made from PVC tubes cut in half lengthwise, providing a lightweight, buoyant structure.</li>
+      <li><strong>Electronics Housing:</strong>
+        <ul>
+          <li>An acrylic box was laser-cut and assembled using acrylic glue for rigidity and electrical tape for sealing.</li>
+          <li>As an added precaution, the electronic components inside the acrylic box were placed within a Ziploc bag to ensure protection against water ingress.</li>
+        </ul>
+      </li>
+      <li><strong>Platform:</strong> A flat platform made from 1/4-inch plywood was mounted on the hulls, providing a stable surface for the acrylic box and other components.</li>
+    </ul>
+  
+    <h3>Key Features</h3>
+    <p>
+      The prototype incorporated the following real components to mimic the final design:
+    </p>
+    <ul>
+      <li>Brushless motors and ESCs to test thrust and propulsion control.</li>
+      <li>OVONIC 3S Lipo battery to evaluate power delivery and capacity.</li>
+      <li>GPS module for navigation logic and heading determination.</li>
+      <li>Arduino microcontroller for implementing and debugging the control algorithms.</li>
+    </ul>
+  
+    <h3>Purpose and Testing</h3>
+    <p>
+      The prototype served as a critical tool for testing the following systems:
+    </p>
+    <ul>
+      <li><strong>Code Configuration:</strong> The prototype allowed us to evaluate and refine our navigation algorithms, ensuring the boat could calculate headings, correct drift, and approach waypoints effectively.</li>
+      <li><strong>Power and Propulsion:</strong> By using the real motors and battery, we confirmed that the power system met the operational requirements and could handle continuous operation without overheating or significant voltage drops.</li>
+      <li><strong>Waterproofing:</strong> The sealed acrylic box and additional Ziploc bag protection ensured that no water reached the sensitive electronics during extended testing in water.</li>
+    </ul>
+  
+    <h3>Learnings and Refinements</h3>
+    <p>
+      The prototype revealed several insights that informed our final design:
+    </p>
+    <ul>
+      <li>The PVC hulls provided sufficient buoyancy, confirming the feasibility of our dual-hull approach.</li>
+      <li>Waterproofing with electrical tape was not as reliable as anticipated, leading us to adopt fiberglass and epoxy for the final design.</li>
+      <li>Placement of the GPS module on the acrylic platform minimized interference and improved data accuracy.</li>
+      <li>The Ziploc bag provided excellent secondary protection, which we plan to incorporate into future iterations for redundancy.</li>
+    </ul>
+  
+    <h3>Prototype Gallery</h3>
+    <div class="image-container">
+      <img src="Images\prototype_2.jpg" alt="Prototype Hulls">
+      <img src="Images\acrylicbox.jpg" alt="Acrylic Box Construction">
+      <img src="Images\prototype.jpg" alt="Prototype Testing">
+    </div>
+  
+    <h3>Video Demonstration</h3>
+  <p>Watch a demonstration of the prototype in action:</p>
+  <a href="videos/IMG_2369.mp4" class="video-link">Watch Prototype Video</a>
+
+  </section>
+  
+
+</body>
+</html>
