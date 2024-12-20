@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Electrical Design Overview</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+                <nav id="menu">
+                    <h2>Menu</h2>
+                    <ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="team.html">Team</a></li>
+						<li><a href="demo.html">Demo</a></li>
+						<li><a href="progress.html">Progress</a></li>
+						<li><a href="mechanical.html">Mechanical</a></li>
+						<li><a href="electrical.html">Electrical</a></li>
+						<li><a href="software.html">Software</a></li>
+						<li><a href="budget.html">Bill of Materials</a></li>
+						<!-- <li><a href="elements.html">Elements</a></li> -->
+                    </ul>
+                </nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Electrical Design Overview</h1>
+							<span class="image"><img src="images/full_circuit.jpg" alt="Full Circuit Diagram" style="max-width: 50%; height: auto;"/></span>
+                            <p>All electrical components in our project are powered by an Arduino Uno connected to a power distribution.</p>
+                            <h2>Clock Puzzle</h2>
+							<span class="image"><img src="images/clock_circuit.jpg" alt="Clock Circuit Diagram" style="max-width: 50%; height: auto;"/></span>
+							<p>On the underside of the clock and top plate is a reed switch. When the minute hand of the clock is placed above it, the switch activates. A servo motor attached to the clock’s hexshaft will then move the rotate the clock to reveal the next puzzle.</p>
+                            <h2>Key Box</h2>
+							<span class="image"><img src="images/key_circuit.png" alt="Key Box Circuit Diagram" style="max-width: 50%; height: auto;"/></span>
+							<p>The pie lattice on the second puzzle has many false buttons. The three correct buttons however, each have a push button underneath them that is connected to the main circuit. When all three of these buttons are pressed at the same time, a relay activates, causing the solenoid to push the key box out.</p>
+						</div>
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+    				<ul class="copyright">
+        				<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+    				</ul>
+				</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

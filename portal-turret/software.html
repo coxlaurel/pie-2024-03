@@ -1,0 +1,337 @@
+<!DOCTYPE HTML>
+<!--
+	Directive by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>AABC Portal Turret | Software</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+  <body class="is-preload">
+	  
+	  	<nav>
+			<ul class="navbar">
+		        	<li><a href="index.html">Home</a></li>
+				  <li><a href="timeline.html">Timeline</a></li>
+		        	<li><a href="mechanical.html">Mechanical</a></li>
+				<li><a href="electrical.html">Electrical</a></li>
+				<li><a href="software.html">Software</a></li>
+				<li><a href="data_flow_diagram.html">Data Flow Diagram</a></li>
+		        	<li><a href="budget.html">Budget Breakdown</a></li>
+		           	<li><a href="demonstration.html">Demonstration</a></li>
+		        </ul>
+	  	</nav>
+
+		<!-- Header -->
+			<div id="header">
+				<a href="index.html"><img src="images/turret_eye.png" alt="Your Logo" class="logo" /></a>
+				<h1>Software and Firmware</h1>
+				<p>The programming done to bring the Portal Turret to life.</a>
+			</div>
+
+	  		<div id=main>
+				<header class="major container">
+					<h2>To control the various sensors, motors, and other system components on the 
+					Portal Turret, we used Python to code the firmware and software.</h2>
+					<br>
+					<ul class="actions special">
+						<li><a href="https://github.com/atealeaf/portal_turret" class="button">GitHub</a></li>
+					</ul>
+				</header>
+
+				<footer class="major container medium">
+					<h2>Concept</h2>
+					<p>Our ideas included moving the motors and play audio depending on the values the various 
+					sensors read and which mode the Portal Turret was on. To do this, we had to initialize the 
+					firmware, create functions to read each sensor's output, and write software that would trigger 
+					some kind of output depending on what signals were given.</p>
+				</footer>
+				
+				<footer class="major container medium">
+					<h2>Firmware</h2>
+					<p>The firmware is designed to manage the various components in the circuit. 
+					These components will be connected to various pins on the Raspberry Pi 4, 
+					which acts as a central processing unit for the whole system.</p>
+
+					<h3>System Initialization</h3>
+					<p>Upon startup, the firmware will initialize different components, setting up
+					the necessary GPIO pins, I2C communication, and Bluetooth connections. The GPIO set 
+					up configures the GPIO pins for the input and output system components.
+					The GPIO inputs include the sensors (accelerometer, sound sensing module, camera, IR 
+					receiver, and button) and the GPIO ouputs include motors (DC and servo motors) and LEDs.
+					The I2C set up intializes the I2C bus for communication with the PCF8591 ADC/DAC and 
+					the LSM303AGR accelerometer/magnetometer. The Bluetooth set up establishes a connection 
+					with the Bluetooth speaker, allowing audio to be played as an output.</p>
+
+					<h3>Accelerometer/Magnetometer (LSM303AGR)</h3>
+					<p>The firmware reads acceleration data from LSM303AGR to monitor the movement of the 
+					Portal Turret. It uses I2C to read acceleration and magnetic field data. In this case, it 
+					can detect when the Portal Turret is picked up or moved. If movement is detected, certain 
+					actions, such as motor movement or audio output, are performed. To get the acceleration 
+					data, functions in `acceleration.py` are called. It uses the `board`, `busio`, 
+					`adafruit_lis2mdl`, and `adafruit_lsm303_accel` libraries to work.</p>
+
+					<h3>IR Receiver</h3>
+					<p>The IR receiver listens for signals from the IR remote control. It is connected to 
+					GPIO17, which can be modified in `/boot/firmware/config.txt`. Each button on the IR remote 
+					control is mapped to an IR code via the `lircd.conf`, located in `/etc/lirc/lircd.conf`. 
+					To receive IR codes, the `lirc` library is used. The functions to receive the signals are 
+					located in `ir_receiver.py`.</p>
+
+					<h3>Sound Sensing Module</h3>
+					<p>The sound sensing module includes the sound sensor itself and a PCF8591 ADC/DAC. Ambient 
+					sound levels will be read by the sound sensor and then sent to the PCF8591 ADC/DAC, which 
+					wil then convert the analog output into a digital value. The sound sensing module is connected 
+					to the PCF8591 ADC/DAC, which is connected to SDA1 I2C and SCL1 I2C. Execeeding a certain 
+					sound level will trigger an output action, such as playing sound or moving the motors. The 
+					`sound_sensing.py` file contains functions to read the sound level. To work, it uses the 
+					`adafruit_pcf8591`, `board`, `busio`, and `RPi.GPIO` libraries.</p>
+					
+					<h3>DC Motor Control</h3>
+					<p>The firmware controls the 9V Motor motor through the L293D motor driver using PWM. PWM 
+					signals are sent from the Raspberry Pi to the L293D motor driver to control the speed and 
+					direction of the motor. The motors are controlled via functions contained in 
+					`move_wings.py`, which uses the `RPi.GPIO` library. The motor is connected to GPIO23, 24, 
+					and 25, with GPIO23 and 24 telling the motor which direction to spin and GPIO25 controlling 
+					whether the motor is on or not.</p>
+
+					<h3>Servo Control</h3>
+					<p>The firmware manages two SG90 servos which rotate the wings of the Portal Turret. PWM 
+					are generated to control the angle of rotation of each servo. The firmware defines the 
+					pulse width corresponding to the desired angle. The right servo is connected to GPIO16, 
+					and the left servo is connected to GPIO18. The file `move_servos.py` contain the 
+					functions used to move the servos. It uses the `RPi.GPIO` library.</p>
+
+					<h3>Button Input Handling</h3>
+					<p>The button is a manual input method primarily used for testing and troubleshooting. It
+					is connected to GPIO4. The pin detects state changes from `HIGH` to `LOW` when pressed. </p>
+
+					<h3>Main Loop and Event Handling</h3>
+					<p>The firmware operates within a main loop that continously checks the state of various 
+					components and responds to events. The main loop includes polling the IR receiver for 
+					incoming codes and reading sensor values. It also handles events by executing corresponding 
+					actions, such as moving the motors or servos or playing audio. The main loop also tracks the 
+					mode the Portal Turret is in, which dictates which sensor inputs are read and what outputs 
+					can be given. This main loop is contained in `main.py`.</p>
+				</footer>
+
+				<footer class="major container medium">
+					<h2>Software</h2>
+					<p>The software is designed to take the various inputs to determine the state of the Portal 
+					Turret. Listed below are the various Python files used and a short description of what they do.</p>
+
+					<h3>`acceleration.py`</h3>
+					This file contains functions that read the acceleration and magnetism via the LSM303AGR. There 
+					is also a function that dictates the type of output depending on the values read. There are 
+					various libraries used, including `board`, `busio`, `adafruit_lis2mdl`, `adafruit_lsm303_accel`, 
+					and `time`.
+					<br>
+					<b>get_acceleration()</b>: Gets the acceleration and magnetism read by the gyroscope.
+					<br>
+					<b>sounds_acceleratio()</b>: Determines if the acceleration is below a certain threshold. 
+					In this case, it is detecting whether the Portal Turret is picked up. If it is and playing 
+					a sound is not on cooldown, audio is played.
+					<br><br>
+
+					<h3>`ir_receiver.py`</h3>
+					This file contains functions that set up the IR remote control and allow signals sent to be 
+					read by the Raspberry Pi. Note that this requires LIRC to be set up on the Raspberry Pi before 
+					use, which includes installing `LIRC` and setting up the appropriate configs. It uses the 
+					`lirc` library.
+					<br>
+					<b>initialize_ir()</b>: Initializes the IR remote control.
+					<br>
+					<b>read_ir()</b>: Reads signals from the IR client.
+					<br><br>
+
+					<h3>`main.py`</h3>
+					This file contains the main loop that will check the states of various components and respond to 
+					events. While running, it will set the Portal Turret to a specific mode depending on which button 
+					on the IR remote control is pressed. Depending on the mode, different buttons will elicit different 
+					outputs. There are four main modes: stimulus detection, play music while dancing, play music 
+					without dancing, and manual mode. There are various libraries used, including `os`, `sys`, `time`, 
+					`threading`, `RPi.GPIO`, and `queue`. Classes and functions from other files are imported as well, 
+					including `PlaySounds` from `play_sounds.py`, `PlayMusic` from `play_music.py`, `initialize_ir()` 
+					and `read_ir()` from `ir_receiver.py`, `sounds_acceleration()` from `sound_sensing.py`, 
+					`move_motors()` from `move_wings.py`, and `servo_backward()` and `servo_forward()` from `move_servos.py`.
+					<br>
+					<b>handle_ir_signals()</b>: Reads the IR signal sent and executes an action depending on the signal 
+					received.
+					<br><br>
+					
+					<h3>`move_servos.py`</h3>
+					This file controls servo movement using PWM. TThe libraries used are `RPi.GPIO` and `time`.
+					<br>
+					<b>servo_forward()</b>: Moves the servo forward 45 degrees, waits for a specified time, and then 
+					moves back to its original position.
+					<br>
+					<b>servo_backward()</b>: Moves the servo backward 45 degrees, waits for a specified time, and then 
+					moves back to its original position.
+					<br><br>
+
+					<h3>`move_wings.py`</h3>
+					This file includes a function that controls motor movement using the L293D motor driver. It uses 
+					the libraries `RPi.GPIO` and `time`.
+					<br>
+					<b>move_motors</b>: Moves the wings in or out with a motor.
+					<br><br>
+
+					<h3>`play_music.py`</h3>
+					This file contains the class `PlayMusic`, which is an object to play music similarly to how an MP3 
+					player would work. The class stores music files and plays them when commanded, even allowing the 
+					Portal Turret to dance with the music. This class contains many functions, including 
+					`get_music_files()`, `dance_to_song()`, `cycle_songs_button()`, `get_song_length()`, and 
+					`ir_play()`. There are various libraries used, including `os`, `glob`, `RPi.GPIO`, `time`, 
+					`audioplayer`, `threading`, and `mutagen`. It also imports functions from other files, such as 
+					`read_sound()` from `sound_sensing.py` and `read_ir()` from `ir_receiver.py`.
+					<br>
+					<b>PlayMusic</b>: A class to play music on the Raspberry Pi. To work, it needs to have a `music` 
+					folder which contains `.wav`, `.mp3`, or `.ogg` files.
+					<br><br>
+
+					<h3>`play_sounds.py`</h3>
+					This file contains the class `PlaySounds`, which is an object to play sounds. The class stores 
+					sound files and folders and plays them when commanded, even allowing motor movement alongside the 
+					audio output. This class contains many functions, including `directory_folders()`, `play()`, 
+					`play_sound()`, and `play_on_press()`. There are various libraries used, including `random`, 
+					`os`, `sys`, `glob`, `RPi.GPIO`, and `playsound`. Additionally, it imports `move_motors` from 
+					`move_wings.py`.
+					<br>
+					<b>PlaySounds</b>: A class to play sounds on the Raspberry Pi. To work, it needs to have a `sounds` 
+					folder, which contains subfolders that contain the sound files. The subfolders should be made 
+					according to sound category (e.g. sounds that play when turned on, turned off, etc.). 
+					<br><br>
+
+					<h3>`sound_sensing.py`</h3>
+					This file contains functions to detect sound and respond accordingly. There are various libraries 
+					used, including `adafruit_pcf8591.pcf8591`, `board`, `busio`, `RPi.GPIO`, and `time`. Additionally, 
+					the function `move_motors()` is imported from `move_wings.py`.
+					<br>
+					<b>sense_sound()</b>: Set up the sound sensing module, which includes the sound sensor and ADC.
+					<br>
+					<b>read_sound()</b>: Reads the sound values from the sensor. Depending on the threshold vaue and 
+					the flags used, different actions will be performed (e.g. triggering motor movement or audio to 
+					be played).
+
+				</footer>
+
+				<footer class="major container medium">
+					<h2>Dependencies</h3>
+					<h3>Raspberry Pi</h3>
+					<p>For this project, we used a Raspberry Pi 4 Model B with the Raspberry Pi OS (64-bit).</p>
+					<h3>LIRC</h3>
+					<p>For IR remote control functionality, we used LIRC. It will need to be properly installed and 
+					configured for it to work. To set up LIRC, visit their website 
+						<a href="https://www.lirc.org/" target="_blank">here</a>.</p>
+					<h3>Python</h3>
+					<p>The version of Python must be >= 3.7</p>
+					<h3>Python Libraries</h3>
+					<p>The following libraries were used to code the firmware and software: 
+					`board==1.0 `, `busio==0.7.0`, `adafruit_lis2mdl==3.0.0`, `adafruit_lsm303_accel==3.0.0`, `lirc`, 
+					`adafruit_pcf8591==1.0.19`, `RPi.GPIO==0.7.0`, `audioplayer==0.6`, `mutagen==1.47.0`, 
+					`playsound==1.3.0`, `time`, `os`, `sys`, `threading`, `queue`, `glob`, and `random`. The libraries 
+					without versions are part of the standard Python library.
+					</p>
+
+				<footer class="major container medium">
+					<h3>Subsystems</h3>
+					<p>Take a deeper look into the different subsystems present in the Portal Turret.</p>
+					<ul class="actions special">
+						<li><a href="mechanical.html" class="button">Mechanical</a></li>
+					</ul>
+					<ul class="actions special">
+						<li><a href="electrical.html" class="button">Electrical</a></li>
+					</ul>
+				</footer>
+				
+				<footer class="major container medium">
+					<h3>Data Flow Diagram</h3>
+					<p>View the data flow diagram, which depicts energy and data flow between system components.</p>
+					<ul class="actions special">
+						<li><a href="data_flow_diagram.html" class="button">View Data Flow Diagram</a></li>
+					</ul>
+				</footer>
+
+				<footer class="major container medium">
+					<h3>Budget Breakdown</h3>
+					<p>We were allocated $250 USD to complete this project. See more details below.</p>
+					<ul class="actions special">
+						<li><a href="budget.html" class="button">View budget breakdown</a></li>
+					</ul>
+				</footer>
+
+				<footer class="major container medium">
+					<h3>A demonstration of the turret</h3>
+					<p>Watch the Portal Turret replica in action, featuring lively music, dynamic movement, responsive stimulus detection, and more.</p>
+					<ul class="actions special">	
+						<li><a href="demonstration.html" class="button">Watch now</a></li>
+					</ul>
+				</footer>
+
+			</div>
+<!-- Footer -->
+			<div id="footer">
+				<div class="container medium">
+
+					<header class="major last">
+						<h2>Our Team</h2>
+					</header>
+
+					<p>Created by students of the Olin College of Engineering class of 2027.</p>
+
+					<div class="team-members">
+				            <div class="member">
+				                <img src="images/ariel.png" alt="Member 1" />
+				                <h3>Ariel Chen</h3>
+				                <p>Engineering: Robotics<br>
+						Software</p>
+						    
+				            </div>
+				            <div class="member">
+				                <img src="images/audrey.JPG" alt="Member 2" />
+				                <h3>Audrey Ip</h3>
+				                <p>ECE<br>
+						Electrical/Software</p>
+				            </div>
+				            <div class="member">
+				                <img src="images/becca.png" alt="Member 3" />
+				                <h3>Becca Cramer</h3>
+				                <p>Mechanical Engineering<br>
+						Mechanical</p>
+				            </div>
+				            <div class="member">
+				                <img src="images/caterina.png" alt="Member 4" />
+				                <h3>Caterina Cirone</h3>
+				                <p>Mechanical Engineering<br>
+						Mechanical/Software</p>
+				            </div>
+				        </div>
+
+					<ul class="icons">
+						<li><a href="mechanical.html" class="icon solid fa-cogs"><span class="label">Mechanical</span></a></li>
+						<li><a href="electrical.html" class="icon solid fa-bolt"><span class="label">Electrical</span></a></li>
+						<li><a href="software.html" class="icon solid fa-code"><span class="label">Software</span></a></li>
+						<li><a href="demonstration.html" class="icon solid fa-play-circle"><span class="label">Github</span></a></li>
+						<li><a href="https://github.com/atealeaf/portal_turret" class="icon fa-github"><span class="label">Github</span></a></li>
+					</ul>
+
+					<ul class="copyright">
+						<li>&copy; PIE. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+				</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

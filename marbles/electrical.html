@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Electrical - Losing our Marbles</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <main>
+        <div id="homepage-box">
+            <div id="homepage-box-content">
+                <div id="homepage-header">
+                    <div id="header-logo">
+                        <img src="./imgs/logo.png" alt="logo" id="logo">
+                    </div>
+                    <div id="spacer"></div>
+                    <div id="header-nav">
+                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="system.html" class="nav-link">System</a>
+                        <a href="mechanical.html" class="nav-link">Mechanical</a>
+                        <a href="electrical.html" class="nav-link">Electrical</a>
+                        <a href="software.html" class="nav-link">Software</a>
+                        <a href="sprint1.html" class="nav-link">Sprint 1</a>
+                        <a href="sprint2.html" class="nav-link">Sprint 2</a>
+                        <a href="sprint3.html" class="nav-link">Sprint 3</a>
+                        <a href="budget.html" class="nav-link">Budget</a>
+                        <a href="team.html" class="nav-link">Team</a>
+                    </div>
+                </div>
+
+                <div class="centered-heading">
+                    <h1>Electrical System</h1>
+                </div>
+
+                <div class="blended-text-section">
+                    <p>
+                        The electrical system provides the foundation for the operation of the entire project, integrating power distribution, signal processing, and hardware interfacing. Designed in KiCad, the system is built with robust connections, voltage regulation, and control pathways.
+                    </p>
+                </div>
+
+                <div class="centered-image-wrapper">
+                    <div class="shapes-container">
+                        <div class="shape" data-size="200" data-position-x="900" data-position-y="-50" opacity="1.0"></div>
+                        <div class="shape" data-size="400" data-position-x="700" data-position-y="200" opacity="0.33"></div>
+                        <div class="shape" data-size="600" data-position-x="50" data-position-y="-50" opacity="0.66"></div>
+                    </div>
+                    <img src="./imgs/Final - Circuit Schematic.jpg" alt="Circuit Schematic" class="centered-image">
+                </div>
+
+                <div class="centered-heading">
+                    <h2>Power Distribution</h2>
+                </div>
+
+                <div class="blended-text-section">
+                    <p>
+                        The power distribution system ensures consistent voltage and current delivery to all components. A 16V power source is used, regulated down to 5V and 3.3V where necessary. Key components include:
+                    </p>
+                    <ul>
+                        <ul>A 16V power source.</li>
+                        <ul>A DC-DC step-down converter for efficient conversion to 5V and 3.3V for low-power peripherals.</li>
+                    </ul>
+                </div>
+
+                <div class="centered-heading">
+                    <h2>Microcontroller and Peripheral Connections</h2>
+                </div>
+
+                <div class="blended-text-section">
+                    <p>
+                        The Arduino Uno is the core of the electrical system, interfacing with multiple peripherals:
+                    </p>
+                    <ul>
+                        <ul>The TCS34725 color sensor communicates using I2C for marble color detection.</li>
+                        <ul>Servo motors are controlled via PWM signals, enabling precise marble sorting.</li>
+                        <ul>A relay module manages high-power components such as the DC motor for the lift system and the solenoid.</li>
+                    </ul>
+                </div>
+
+                <div class="side-by-side-images">
+                    <div class="image-with-caption">
+                        <div class="image-container">
+                            <img src="./imgs/tcs34725-full.jpg" alt="TCS34725 Color Sensor" class="side-image">
+                        </div>
+                        <p class="image-caption">TCS34725 Color Sensor</p>
+                    </div>
+                    <div class="image-with-caption">
+                        <div class="image-container">
+                            <img src="./imgs/servo.jpg" alt="Servo Motor Connections" class="side-image">
+                        </div>
+                        <p class="image-caption">Servo Motor Connections</p>
+                    </div>
+                </div>
+
+                <div class="centered-heading">
+                    <h2>Wiring and Layout</h2>
+                </div>
+
+                <div class="blended-text-section">
+                    <p>
+                        The wiring layout emphasizes organization and reliability. Wires are grouped and routed to minimize interference. The KiCad schematic was translated into a physical layout with:
+                    </p>
+                    <ul>
+                        <ul>Color-coded wires for easy identification of power, ground, and signal lines.</li>
+                        <ul>Custom PCB for compact integration of voltage regulation and relay control.</li>
+                        <ul>Screw terminals to secure connections for high-current components.</li>
+                    </ul>
+                </div>
+
+                <div id="homepage-footer">
+                    <div class="footer-content">
+                        <nav class="footer-nav">
+                            <a href="system.html" class="footer-link">System</a>
+                            <a href="mechanical.html" class="footer-link">Mechanical</a>
+                            <a href="electrical.html" class="footer-link">Electrical</a>
+                            <a href="software.html" class="footer-link">Software</a>
+                            <a href="sprint1.html" class="footer-link">Sprint 1</a>
+                            <a href="sprint2.html" class="footer-link">Sprint 2</a>
+                            <a href="sprint3.html" class="footer-link">Sprint 3</a>
+                            <a href="budget.html" class="footer-link">Budget</a>
+                            <a href="team.html" class="footer-link">Team</a>
+                        </nav>
+                        <p class="footer-text">
+                            &copy; 2024 Losing Our Marbles | All rights reserved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>

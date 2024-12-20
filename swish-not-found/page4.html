@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html  >
+<head>
+  <!-- Site made with Mobirise Website Builder v5.9.18, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.9.18, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/basketball-128x128.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>Software Design</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/parallax/jarallax.css">
+  <link rel="stylesheet" href="assets/animatecss/animate.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=uwAzHv"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=uwAzHv" type="text/css">
+
+  
+  
+  
+</head>
+<body>
+  
+  <section data-bs-version="5.1" class="menu menu2 cid-uwXna0Sw0x" once="menu" id="menu2-i">
+    
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="navbar-brand">
+                
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-7" href="index.html">404: Swish Not Found</a></span>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="index.html">Overview</a></li><li class="nav-item dropdown"><a class="nav-link link text-black text-primary dropdown-toggle display-4" href="page1.html" data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Design</a><div class="dropdown-menu" aria-labelledby="dropdown-102"><a class="text-black text-primary dropdown-item display-4" href="page1.html">Mechanical</a><a class="text-black text-primary show dropdown-item display-4" href="page2.html">Electrical</a><a class="text-black text-primary show dropdown-item display-4" href="page3.html">Firmware</a><a class="text-black text-primary show dropdown-item display-4" href="page4.html">Software</a></div></li>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="page5.html">Process</a></li>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="page6.html">Bill of Materials</a>
+                    </li><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="page7.html">Gallery</a></li><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="index.html#clients02-9">Team</a></li></ul>
+                
+                
+            </div>
+        </div>
+    </nav>
+</section>
+
+<section data-bs-version="5.1" class="content4 cid-ux4dTuKUW0 mbr-parallax-background" id="content4-17">
+    
+
+    
+    <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(53, 53, 53);">
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="title col-md-12 col-lg-11">
+                <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-1">
+                    <strong>Software Design</strong></h3>
+                
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="content4 cid-ux4DewJnbU" id="content4-1i">
+    
+
+    
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="title col-md-12 col-lg-10">
+                <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2">
+                    <strong>Overview</strong></h3>
+                
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="content5 cid-ux4DgjttgV" id="content5-1j">
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-10">
+                
+                
+                <p class="mbr-text mbr-fonts-style display-7">
+                    The software manages all scanning, ball processing, and trajectory prediction. Everything was written in Python using a variety of libraries. Due to the processing limitations of a Raspberry Pi and real-time speed demands, this code was designed to run on a laptop running Linux. The code is written in four main files with a plotting file for debugging. There is the main script to run the program, the BallScanner class, to manage the Kinect connection and the processing, and two processing libraries. The architecture section provides a more descriptive overview of the files, and the processing pipeline section explains how the ball is processed and trajectory is fit.<br></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="content14 cid-ux8tMzppzw" id="content14-1l">
+    
+
+    
+    
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-10">
+                    <h3 class="mbr-section-title mbr-fonts-style mb-4 display-5">
+                        External Software Dependencies:</h3>
+                <ul class="list mbr-fonts-style display-7">
+                    <li><a href="https://github.com/r9y9/pylibfreenect2" class="text-primary" target="_blank"><strong>PyLibFreenect2</strong></a><br>Manages connection to Xbox Kinect One and does basic processing of Kinect data</li>
+                    <li><strong>OpenCV (cv2)</strong><br>Image processing for ball detection</li>
+                    <li><strong>Pandas</strong><br>Store and process point data</li>
+                    <li><strong>NumPy</strong><br>Store and process point data for sphere fitting, trajectory prediction, and general processing</li>
+                    <li><strong>Scikit-learn<br></strong>Process 3D point cloud data into clusters</li><li><strong>Matplotlib<br></strong><span style="font-size: 1.2rem;">Visualize point cloud data and interactive calibration</span><strong style="font-size: 1.2rem;">&nbsp;</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="info1 cid-ux8zdC2oLq mbr-parallax-background" id="info1-1m">
+    
+
+    
+    <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(53, 53, 53);"></div>
+    <div class="align-center container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <h3 class="mbr-section-title mb-4 mbr-fonts-style display-1">
+                    <strong>It is open source!</strong></h3>
+                
+                <div class="mbr-section-btn"><a class="btn btn-primary display-4" href="https://github.com/olincollege/404-swish-not-found" target="_blank">Github&nbsp;Repository with Source Code</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="tabs content18 cid-ux4yKgGzJd" id="tabs1-1h">
+
+    
+
+    
+    
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <h3 class="mbr-section-title mb-0 mbr-fonts-style display-2">
+                    <strong>Architecture</strong></h3>
+                
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-12 col-md-8">
+                <ul class="nav nav-tabs mb-4" role="tablist">
+                    <li class="nav-item first mbr-fonts-style"><a class="nav-link mbr-fonts-style show active display-7" role="tab" data-toggle="tab" data-bs-toggle="tab" href="#tabs1-1h_tab0" aria-selected="true"><strong>Run Scanner</strong></a></li>
+                    <li class="nav-item"><a class="nav-link mbr-fonts-style active display-7" role="tab" data-toggle="tab" data-bs-toggle="tab" href="#tabs1-1h_tab1" aria-selected="true"><strong>BallScanner Class</strong></a></li>
+                    <li class="nav-item"><a class="nav-link mbr-fonts-style active display-7" role="tab" data-toggle="tab" data-bs-toggle="tab" href="#tabs1-1h_tab2" aria-selected="true"><strong>Ball Process Lib</strong></a></li>
+                    <li class="nav-item"><a class="nav-link mbr-fonts-style active display-7" role="tab" data-toggle="tab" data-bs-toggle="tab" href="#tabs1-1h_tab3" aria-selected="true"><strong>Calibration Lib</strong></a></li>
+                    <li class="nav-item"><a class="nav-link mbr-fonts-style active display-7" role="tab" data-toggle="tab" data-bs-toggle="tab" href="#tabs1-1h_tab4" aria-selected="true"><strong>Plot</strong></a></li>
+                    
+                </ul>
+                <div class="tab-content">
+                    <div id="tab1" class="tab-pane in active" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="mbr-text mbr-fonts-style display-7">
+                                    The Run Scanner script is the script that brings everything together. It connects to the Arduino over a Serial connection, initializes a BallScanner object, gets scans, and sends coordinates to the Arduino when the trajectory is predicted.&nbsp;</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab2" class="tab-pane" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="mbr-text mbr-fonts-style display-7">
+                                    The BallScanner class does the core of the processing. It uses the <a href="https://github.com/r9y9/pylibfreenect2" class="text-primary" target="_blank">PyLibFreenect2</a>&nbsp;python library to connect to the Xbox Kinect. With this connection, it reads the scans, processes them into image and point cloud information, uses the Ball Process Library and Calibration Library to predict the trajectory, and converts it to the hoop's coordinate system.&nbsp;<br><br>When initializing the class, there are three options. The first is whether or not to save the trajectory histories when the BallScanner is closed. The second is whether to calibrate from scratch upon initialization or pull from the calibration file. Finally, you can set whether or not it will reset the trajectories after inactivity to prepare for a new scan.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab3" class="tab-pane" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="mbr-text mbr-fonts-style display-7">
+                                    The Ball Process Library manages all ball processing. It finds the ball from point cloud data, fits a sphere to it, and calculates trajectories.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab4" class="tab-pane" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="mbr-text mbr-fonts-style display-7">
+                                    The calibration library manages the initial calibration for the basketball hoop depth and coordinate system. It prompts the user using Matplotlib to select a rectangle and returns those coordinates and points.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab5" class="tab-pane" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="mbr-text mbr-fonts-style display-7">
+                                    The plotting script enables 3D visualization of the reference scan, predicted trajectories, mid-trajectory points, and the fitted spheres. Each option can be toggled on and off at the bottom of the script. This script is designed to work with the saved data when the BallScanner's save history option is turned on.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="content4 cid-ux4yuZIqIR" id="content4-1g">
+    
+
+    
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="title col-md-12 col-lg-10">
+                <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2"><strong>Processing Pipeline</strong></h3>
+                
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="image2 cid-ux4hKWIrtW" id="image2-18">
+    
+
+    
+    
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-4">
+                <div class="image-wrapper">
+                    <img src="assets/images/ref-image-512x424.png" alt="Mobirise Website Builder">
+                    <p class="mbr-description mbr-fonts-style mt-2 align-center display-4">Example Reference Image</p>
+                </div>
+            </div>
+            <div class="col-12 col-lg">
+                <div class="text-wrapper">
+                    <h3 class="mbr-section-title mbr-fonts-style mb-3 display-5"><strong>Initial Setup and Calibration</strong></h3>
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        The system begins by capturing a reference image and point scan as baseline data. It then either loads pre-existing calibration data for depth and hoop positioning or guides the user through a calibration process to establish the reference frame coordinates.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="image1 cid-ux4iqS4ZvR" id="image1-1a">
+    
+
+    
+    
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-4">
+                <div class="image-wrapper">
+                    <img src="assets/images/73-mask-512x424.png" alt="Mobirise Website Builder">
+                    <p class="mbr-description mbr-fonts-style pt-2 align-center display-4">
+                    Ball Mask</p>
+                </div>
+            </div>
+            <div class="col-12 col-lg">
+                <div class="text-wrapper">
+                    <h3 class="mbr-section-title mbr-fonts-style mb-3 display-5"><strong>Image Processing and Registration</strong></h3>
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        The <a href="https://github.com/r9y9/pylibfreenect2" class="text-primary" target="_blank">PyLibFreenect2</a> library provides RGB image and infrared (IR) data streams from the Kinect, which are precisely aligned and registered. The system then compares the current frame against the reference image to create a mask highlighting changed pixels, enabling accurate motion detection.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="image2 cid-ux4jhxcuqC" id="image2-1c">
+    
+
+    
+    
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-5">
+                <div class="image-wrapper">
+                    <img src="assets/images/point-cloud-696x555.png" alt="Mobirise Website Builder">
+                    <p class="mbr-description mbr-fonts-style mt-2 align-center display-4">Plot of 3D point cloud data</p>
+                </div>
+            </div>
+            <div class="col-12 col-lg">
+                <div class="text-wrapper">
+                    <h3 class="mbr-section-title mbr-fonts-style mb-3 display-5"><strong>3D Point Cloud Generation</strong></h3>
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        Using the _calculate_depth method, the system projects the masked 2D pixel coordinates into three-dimensional space. This process creates an RGB point cloud containing the (x, y, z) coordinates of all detected changes, effectively isolating moving objects in 3D space.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="image1 cid-ux4jgHkR7l" id="image1-1b">
+    
+
+    
+    
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-5">
+                <div class="image-wrapper">
+                    <img src="assets/images/sphere-fit-886x771.png" alt="Mobirise Website Builder">
+                    <p class="mbr-description mbr-fonts-style pt-2 align-center display-4">
+                    Sphere Fitting to Ball Point Cloud</p>
+                </div>
+            </div>
+            <div class="col-12 col-lg">
+                <div class="text-wrapper">
+                    <h3 class="mbr-section-title mbr-fonts-style mb-3 display-5"><strong>Ball Detection and Clustering</strong></h3>
+                    <p class="mbr-text mbr-fonts-style display-7">The DBSCAN algorithm analyzes the point cloud to identify distinct clusters of points. The system selects the most isolated cluster (comparing against the reference scan) and verifies its orange color to confirm it's the basketball. Once confirmed, a sphere-fitting algorithm determines the ball's center coordinates.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="image2 cid-ux4jjlVU58" id="image2-1d">
+    
+
+    
+    
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-5">
+                <div class="image-wrapper">
+                    <img src="assets/images/trajectory-696x586.png" alt="Mobirise Website Builder">
+                    <p class="mbr-description mbr-fonts-style mt-2 align-center display-4">
+                        Predicted Ball Trajectory</p>
+                </div>
+            </div>
+            <div class="col-12 col-lg">
+                <div class="text-wrapper">
+                    <h3 class="mbr-section-title mbr-fonts-style mb-3 display-5"><strong>Trajectory Analysis and Prediction</strong></h3>
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        Early in the trajectory (≤5 points), the system calculates velocity components and applies kinematic equations to predict the ball's path. Later in the trajectory (&gt;5 points), it employs regression analysis, fitting linear functions to the&nbsp;x/y coordinates and quadratic to the z coordinates, to model the ball's trajectory.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="image1 cid-ux4jk1P58h" id="image1-1e">
+    
+
+    
+    
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-4">
+                <div class="image-wrapper">
+                    <img src="assets/images/img-411-696x833.jpg" alt="Mobirise Website Builder">
+                    <p class="mbr-description mbr-fonts-style pt-2 align-center display-4">Math to Convert Coordinate Frames</p>
+                </div>
+            </div>
+            <div class="col-12 col-lg">
+                <div class="text-wrapper">
+                    <h3 class="mbr-section-title mbr-fonts-style mb-3 display-5"><strong>Landing Position Calculation</strong></h3>
+                    <p class="mbr-text mbr-fonts-style display-7">Using the fitted trajectory equations, the system calculates the time when the ball will reach the hoop's y-coordinate. This information, combined with the trajectory equations, determines the predicted landing location, which is then transformed into the hoop's coordinate frame.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="image2 cid-ux4k51QgH1" id="image2-1f">
+    
+
+    
+    
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-4">
+                <div class="image-wrapper">
+                    <img src="assets/images/img-9e9469a3090f-1-696x655.jpg" alt="Mobirise Website Builder">
+                    <p class="mbr-description mbr-fonts-style mt-2 align-center display-4">
+                        Motor Actuation to the Ball</p>
+                </div>
+            </div>
+            <div class="col-12 col-lg">
+                <div class="text-wrapper">
+                    <h3 class="mbr-section-title mbr-fonts-style mb-3 display-5"><strong>Action Trigger and Reset</strong></h3>
+                    <p class="mbr-text mbr-fonts-style display-7">
+                         The system accumulates trajectory data and, once it has collected four consistent trajectories showing the ball landing within the target frame, sends the coordinate data to an Arduino for motor actuation. If the ball passes the hoop or if 7 seconds elapse without new trajectory data, the system automatically resets to prepare for the next shot.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="footer3 cid-uwXna1mMnE mbr-reveal" once="footers" id="footer3-j">
+
+    
+
+    
+
+    <div class="container">
+        <div class="row align-center mbr-white">
+            <div class="row row-links">
+                <ul class="foot-menu">
+                    
+                    
+                    
+                    
+                    
+                <li class="foot-menu-item mbr-fonts-style display-7"><a href="index.html" class="text-primary">Overview</a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="page1.html" class="text-primary">Mechanical</a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="page2.html" class="text-primary">Electrical</a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="page3.html" class="text-primary">Firmware</a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="page4.html" class="text-primary">Software</a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="page5.html" class="text-primary">Process</a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="page6.html" class="text-primary">Bill of Materials</a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="page6.html" class="text-primary">Gallery</a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="index.html#clients02-9" class="text-primary">Team</a></li></ul>
+            </div>
+            
+            <div class="row row-copirayt">
+                <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+                    © Copyright 404: Swish Not Found. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+</section><section class="display-7" style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 4rem;"><a href="https://mobiri.se/3642853" style="flex: 1 1;height: 4rem;position: absolute;width: 100%;z-index: 1;"><img alt="" style="height: 4rem;" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a><p style="margin: 0;text-align: center;" class="display-7">&#8204;</p><a style="z-index:1" href="https://mobirise.com/builder/ai-website-builder.html">Free AI Website Builder</a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/parallax/jarallax.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/theme/js/script.js"></script>  
+  
+  
+  <input name="animation" type="hidden">
+  </body>
+</html>

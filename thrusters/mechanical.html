@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Ghost Thrusters</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- wrapper -->
+    <div id="wrapper">
+
+        <!-- header -->
+        <header id="header">
+            <a href="index.html" class="logo">thrusters</a>
+        </header>
+
+        <!-- nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="index.html">overview</a></li>
+                <li class="active"><a href="system.html">our system</a></li>
+                <li><a href="sprints.html">sprints</a></li>
+                <li><a href="bom.html">bill of materials</a></li>
+                <li><a href="gallery.html">gallery</a></li>
+                <li><a href="team.html">team</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://github.com/rixhee/gas-thruster-stabilization" class="icon brands fa-github"><span
+                            class="label">github</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- Post -->
+            <section class="post">
+                <header class="major">
+                    <h1>Mechanical System</h1>
+                </header>
+
+                <!-- Text stuff -->
+                <p> The mechanical system of our project consists of a mechanical design segment, and a fluids segment.
+                    The mechanical design segment of the drone contains a compact 3D printed “brain”, which contains
+                    attachment points for all the electrical components, and 4 carbon fiber tubes, which act as the
+                    moment arms for thrust stabilization. The fluids segment of the drone consists of 2 two-liter bottle
+                    pressure vessels and 4 air-propelling nozzles, integrated with PTFE tubing.
+
+                </p>
+                <p> Because aesthetic appeal was an important requirement for our project, the “brain” and nozzles were
+                    designed to seamlessly integrate the mechanical design and fluids segments. Gas flow out of the air
+                    tanks is passed through the carbon fiber tubes via internal tubing, and is ultimately expelled
+                    through the 2mm nozzle orifice, all of which are held to the carbon fiber tubes with friction
+                    screws. Importantly, the tanks are pressurized to 60 psi, but the drone system is run at 40 psi to
+                    ensure a more accurate control loop and air conservation. As we were not able to include an onboard
+                    regulator to regulate 40 psi in time, we ended up running the drone directly from the air
+                    compressor. We've included a graph of tank pressure vs. time below to show our realistic airtime for
+                    the final unregulated system.
+
+
+                </p>
+                <h2>Mechanical Milestones</h2>
+                <p>
+                    Initially, our mechanical system served as a testbed for electrical and software. To achieve this,
+                    we designed
+                    a simple seesaw mechanism, while simultaneously iterating on possible 4 thruster designs for the
+                    future.
+                </p>
+
+                <!-- add pic4.jpeg (gallery), initial_sketch.png -->
+
+                <div class="box alt">
+                    <div class="row gtr-50 gtr-uniform">
+                        <div class="col-6"><span class="image fit system"><img
+                                    src="images/system/mechanical/seesaw.jpeg" alt="" /></span>
+                        </div>
+                        <div class="col-6"><span class="image fit system"><img
+                                    src="images/system/mechanical/initial_sketch.jpg" alt="" /></span>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    Our final mechanical system consists of only a few designed parts, shown below. The left CAD image
+                    shows
+                    the "brain" of our drone, while the right CAD image shows the final nozzle design.
+                </p>
+
+                <!-- add charith cad, nozzle_2mm.png-->
+                <div class="box alt">
+                    <div class="row gtr-50 gtr-uniform">
+                        <div class="col-6"><span class="image fit system"><img src="images/system/mechanical/cad.jpg"
+                                    alt="" /></span>
+                        </div>
+                        <div class="col-6"><span class="image fit system"><img
+                                    src="images/system/mechanical/nozzle_2mm_final.PNG" alt="" /></span>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    If we were to continue this project, an important improvement, as mentioned above, would be to
+                    include
+                    onboard pressure regulation. To demonstrate why, we've included a graph of tank pressure vs. time
+                    below
+                    to show our realistic airtime for the final unregulated system. Note the exponential decay of
+                    pressure!
+                </p>
+
+                <!-- flow_rate.png-->
+
+                <div class="box alt">
+                    <div><span class="image fit"><img src="images/system/mechanical/flow_rate.png" alt="" /></span>
+                    </div>
+                </div>
+
+                <h2>Challenges</h2>
+                <p>
+                    A key mechanical challenge we encountered was leakage throughout the fluid system. For
+                    example, initial iterations of the pressure vessels were not able to hold pressure for an
+                    extended amount of time, despite standard anti-leak protocols (sealing o-rings, teflon
+                    around the disconnects). A reliable solution to this problem was found through more accurate
+                    connections between the 3D printed bottle cap and disconnects. Specifically, ¼” NPT threads
+                    were modeled directly on the bottle cap, rather than tapped, which resulted in less internal
+                    damage to the bottle cap and a more robust, leak-free system.
+
+                </p>
+                <h2>Future Improvements</h2>
+                <ul>
+                    <li>Onboard pressure regulation</li>
+                    <li>Flight capability with propellers</li>
+                    <li>Nozzle characterization</li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
+
+</body>
+
+</html>

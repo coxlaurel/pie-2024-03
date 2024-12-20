@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Ghost Thrusters</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- wrapper -->
+    <div id="wrapper">
+
+        <!-- header -->
+        <header id="header">
+            <a href="index.html" class="logo">thrusters</a>
+        </header>
+
+        <!-- nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="index.html">overview</a></li>
+                <li><a href="system.html">our system</a></li>
+                <li class="active"><a href="sprints.html">sprints</a></li>
+                <li><a href="bom.html">bill of materials</a></li>
+                <li><a href="gallery.html">gallery</a></li>
+                <li><a href="team.html">team</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://github.com/rixhee/gas-thruster-stabilization" class="icon brands fa-github"><span
+                            class="label">github</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- Post -->
+            <section class="post">
+
+                <header class="major">
+                    <h1>Sprint 2</h1>
+                </header>
+
+                <p>
+                    In the second sprint, we began designing the four-thruster drone in SolidWorks. This involved
+                    determining the optimal placement for the IMU and the prototype board, where all the circuitry would
+                    be mounted. Additionally, we redesigned the bottle caps for the air tanks, using plastic Fanta
+                    bottles,
+                    which proved effective in preventing gas leaks.
+                </p>
+
+                <div class="box alt">
+                    <div class="row gtr-50 gtr-uniform">
+                        <div class="col-6"><span class="image fit"><img src="images/sprint2/caddy.png" alt="" /></span>
+                        </div>
+                        <div class="col-6"><span class="image fit"><img src="images/sprint2/cap.png" alt="" /></span>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    Once the design was complete, we sourced carbon fiber tubes, which we cut and used as arms to mount
+                    the thrusters. We then attached the valves, relays, and the IMU to the structure, ensuring secure
+                    placement for optimal functionality.
+                </p>
+
+                <div class="box alt">
+                    <div><span class="image fit system"><img src="images/sprint2/drone.png" alt="" /></span> </div>
+                </div>
+
+                <p>
+                    Electrically, we spent significant time debugging the issue of the Arduino resetting, using an
+                    oscilloscope for diagnosis. We discovered that the flyback voltage was too high, so we added a large
+                    inductor and capacitor across the ground and power lines of the relays to filter out voltage
+                    fluctuations. After addressing this issue, we proceeded to integrate the remaining two relays and
+                    valves for the four-thruster setup.
+                </p>
+
+                <iframe class="image fit demo"
+                    src="https://drive.google.com/file/d/1IuTrkzUKVJ81s0llteb42-oCTPvpQH-d/preview"
+                    title="Reaction Control System Demonstration" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <p>
+                    In terms of software, we developed a Python simulation to test the PID control loops for the four
+                    thrusters. This simulation not only focused on stabilizing the drone but also on enabling it to
+                    orient and maintain a specific angle. It allowed us to identify potential issues and fine-tune the
+                    PID parameters, significantly speeding up the development process and ensuring a smooth integration
+                    of all components. </p>
+
+
+                <iframe class="image fit demo"
+                    src="https://drive.google.com/file/d/1tFq1Sxw_QKvmaXZ7i_EuQyFgjzJGKaqM/preview"
+                    title="Reaction Control System Demonstration" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <p>
+                    As we move into sprint 3, our goal is to enhance the robustness of our circuitry by transitioning
+                    from a proto board to a more permanent setup, soldering all components in place. We will then focus
+                    on testing the software, fine-tuning the PID parameters to account for real-world factors, and
+                    applying these adjustments to the actual 4-thruster jig. Additionally, we plan to develop a test
+                    setup to suspend the drone, enabling us to better evaluate its performance and stability in a
+                    controlled environment.
+                </p>
+
+            </section>
+
+        </div>
+
+        <!-- Copyright -->
+        <div id="copyright">
+            <ul>
+                <li>&copy; Ghost Thrusters</li>
+                <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        function showModal(imageSrc, alt) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
+            captionText.innerHTML = alt; // add alt text to caption
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>

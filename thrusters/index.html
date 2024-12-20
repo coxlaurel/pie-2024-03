@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Ghost Thrusters</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper" class="fade-in">
+
+		<!-- Intro -->
+		<div id="intro">
+			<h1>Ghost Thrusters</h1>
+			<p>A reaction-control system for drone stabilization</p>
+			<ul class="actions">
+				<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+			</ul>
+		</div>
+
+		<!-- Header -->
+		<header id="header">
+			<a href="index.html" class="logo">Thrusters</a>
+		</header>
+
+		<!-- Nav -->
+		<nav id="nav">
+			<ul class="links">
+				<li class="active"><a href="index.html">Overview</a></li>
+				<li><a href="system.html">Our System</a></li>
+				<li><a href="sprints.html">Sprints</a></li>
+				<li><a href="bom.html">Bill of Materials</a></li>
+				<li><a href="gallery.html">Gallery</a></li>
+				<li><a href="team.html">Team</a></li>
+			</ul>
+			<ul class="icons">
+				<li><a href="https://github.com/Rixhee/gas-thruster-stabilization" class="icon brands fa-github"><span
+							class="label">GitHub</span></a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<!-- Project Overview -->
+			<article class="post featured">
+				<header class="major">
+					<h2>Project Overview</h2>
+					<p>Ghost Thrusters is the final project for class 'principles of integrated engineering (PIE)' aimed
+						at developing a self-stabilizing drone using a
+						reaction-control system.</p>
+				</header>
+				<p>
+					The goal of this project is to create a drone capable of maintaining its equilibrium position during
+					flight through the use of pressurized air thrusters. Our focus was primarily on the stabilization
+					capabilities, so we designed a non-flight-capable drone that, when suspended in the air by strings,
+					self-adjusts its position. This approach allowed us to concentrate on the balance and control
+					systems without the added complexity of flight, providing a solid foundation for future development.
+				</p>
+				<p>
+					The development process involved a combination of electrical, mechanical, and software systems, each
+					contributing to the drone's ability to stabilize itself. The electrical system was built around an
+					ESP32 microcontroller, which interfaced with relays and solenoid valves to control the thrusters. An
+					Inertial Measurement Unit (IMU) was integrated to measure the drone's orientation and speed,
+					providing real-time data critical for stabilization. On the mechanical side, we designed the
+					structure of the drone to support the thrusters and accounted for the physics required to produce
+					the precise amount of thrust needed for balance. This involved calculating forces and understanding
+					the dynamics of airflow from the thrusters.
+				</p>
+				<p>
+					In the software domain, we developed code to parse IMU readings using I2C communication and
+					implemented PID control loops. These loops processed the IMU data to adjust thrust and
+					counter-thrust, ensuring the drone maintained its equilibrium. Before constructing the four-thruster
+					jig, we simulated the entire system in Python to test and refine the code. The simulation helped us
+					identify potential issues and fine-tune the PID parameters, accelerating the development process and
+					ensuring smooth integration of all components.
+				</p>
+				<p>
+					By integrating the electrical, mechanical, and software systems, we created a cohesive prototype.
+					The ESP32 controlled the relays and valves, while the IMU provided orientation data to adjust the
+					thrusters. The mechanical design ensured proper thrust positioning, and Python simulations validated
+					the code. This integration allowed the drone to stabilize itself when suspended in the air.
+				</p>
+			</article>
+
+			<section>
+				<header class="major">
+					<h1>System Diagram</h1>
+				</header>
+				<div class="box alt">
+					<div><span class="image fit"><img src="images/system-diagram.png" alt="" /></span> </div>
+				</div>
+			</section>
+
+		</div>
+
+		<!-- Copyright -->
+		<div id="copyright">
+			<ul>
+				<li>&copy; Ghost Thrusters</li>
+				<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<!--
+	Directive by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>AABC Portal Turret | Mechanical</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+  <body class="is-preload">
+
+	  	<nav>
+			<ul class="navbar">
+		        	<li><a href="index.html">Home</a></li>
+				  <li><a href="timeline.html">Timeline</a></li>
+		        	<li><a href="mechanical.html">Mechanical</a></li>
+				<li><a href="electrical.html">Electrical</a></li>
+				<li><a href="software.html">Software</a></li>
+				<li><a href="data_flow_diagram.html">Data Flow Diagram</a></li>
+		        	<li><a href="budget.html">Budget Breakdown</a></li>
+		           	<li><a href="demonstration.html">Demonstration</a></li>
+		        </ul>
+	  	</nav>
+
+		<!-- Header -->
+			<div id="header">
+				<a href="index.html"><img src="images/turret_eye.png" alt="Your Logo" class="logo" /></a>
+				<h1>Mechanical</h1>
+				<p>How the Portal Turret is able to move and hold itself up.</a>
+			</div>
+	<!--Body-->
+	  <div id="main">
+				
+		<footer class="major container medium">
+		  <h2>Idea Generation</h2>
+		  <p>When coming up with an idea of how to build and mechanically design the functions of the Turret, the Mechanical team decided we wanted two main functions:<br>
+		  <ul>
+			  <li align="center">The wings to move in and out</li>
+			  <li align="center">The wings to spin at the ends</li>
+		  </ul>
+	  	To have the wings spin at the ends, we knew we would need two <b>servos</b> at the end of whatever held up our wings. Particularly, the TowerPro SG90 Servo.<br> 
+			<img src="images/servo.png" alt="Wing Servo" height="250" border="3" hspace="6"/> <br>
+		  After some prototyping and sketching, the Mechanical team settled on a <b>rack and pinion system</b> to drive the wings moving in and out.<br>
+			<img src="images/linkage.png" alt="Linkage" height="300" border="3" hspace="6"/>
+			<img src="images/panto.png" alt="Panto" height="300" border="3" hspace="6"/>
+			<img src="images/racksketch.png" alt="Decided Sketch" height="300" border="3" hspace="6"/> <br>
+	  	</p>
+		</footer>
+		<footer class="major container medium">
+		<h2>Rack and Pinion Development</h2>
+			<p>
+				The rack-and-pinion system is powered by a DC motor at the center, spinning a gear to bring out two toothed components in opposite directions.<br>
+				<img src="images/rackpinion.png" alt="rack_and_pinion_" height="300" border="3" hspace="6"/> <br>
+				At the ends of these racks are two servos, designed to tilt the wings back and forth. These two components bring the entire mechanical system to have the wings go:
+				<ul>
+					<li>Back-and-forth horizontally</li>
+					<li>Tilted towards and away from the user</li>
+				</ul>
+			</p>
+		</footer>
+		  <footer class="major container medium">
+			<h2>Chassis Development</h2>
+			<p>
+				The chassis for the Portal Turret had to have 3 main functions:
+				<ul>
+					<li>Look like the Portal Turret (including the oval body and 3 legs)</li>
+					<li>House all electrical components within the shell</li>
+					<li>Not fail under stress!</li>
+				</ul>
+				With this information in mind, we decided that the chassis itself would need to be laser-cut with 1/8" wood.<br>
+				The main body (the oval) houses 3 separate shelves.
+			<ul>
+				<li>The bottom shelf houses the Raspberry Pi, central breadboard, and speaker system.</li>
+				<img src="images/bottomshelf.png" alt="Bottom Shelf" height="300" border="3" hspace="6"/>
+				<li>The middle shelf holds the rack-and-pinion system and infrared sensor.</li>
+				<img src="images/middleshelf.png" alt="Middle Shelf" height="300" border="3" hspace="6"/>
+				<li>The top shelf mostly serves its purpose as a means to hold the top curve of the oval together.</li>
+				<img src="images/topshelf.png" alt="Top Shelf" height="300" border="3" hspace="6"/>
+			</ul>
+				To hold up the body, there are 3 legs made of 1/4" wood supported by 3D printed feet with rubber bottoms. Beneath the bottom shelf of the chassis is a 1/4" base, as well.
+				<img src="images/leg.png" alt="Leg" height="300" border="3" hspace="6"/>	
+			</p>
+		</footer>
+		  <footer class="major container medium">
+			  <h2>Shell Development</h2>
+			  <p>
+				  One of the biggest challenges for the mechanical team was determining what material the shell would need to be made of. The shell itself would need to be able to
+				  <ol>
+					  <li align="left">Keep the aesthetic look of the Portal Turret.</li>
+					  <li align="left">Be lightweight as not to affect the durability of the chassis and legs.</li>
+				  </ol>
+			  	  The team initially decided on using foam due to its lightweight nature. However, it proved to be difficult to fabricate and thus difficult to alter in the case of the turret needing to be reshaped. Additionally, it caused a lot of bending stress on the racks, creating an issue of the gear stopping and not being able to bring the wings back in.<br>
+			  	  <img src="images/foam.png" alt="Foam Shell" height="300" border="3" hspace="6"/> <br>
+			  It was thus that the team quickly shifted over to using mesh and fabric to create the shell. It was a lot more moldable, easier to attach to the servos, and much more lightweight, creating less stress on the rack-and-pinion system. To cover the chassis, we used (admittedly funky) blue and orange fabric, as it was fairly light and on-theme with <i>Portal</i>'s portal colors.<br>
+			  <img src="images/chicken_wire.png" alt="Chicken Wire" height="300" border="3" hspace="6"/>
+			  <img src="images/sewing.png" alt="Sewing" height="300" border="3" hspace="6"/>
+		  </p>
+		  </footer>
+		  <footer class="major container medium">
+			  <h2>Final CAD Render</h2>
+			  <img src="images/turret_render_front.JPG" alt="Render1" height="500" border="3" hspace="6"/>
+			   <img src="images/render_turret_side.png" alt="Render2" height="500" border="3" hspace="6"/>
+		  </footer>
+		  <footer class="major container medium">
+					<h3>Subsystems</h3>
+					<p>Take a deeper look into the different subsystems present in the Portal Turret.</p>
+					<ul class="actions special">
+						<li><a href="electrical.html" class="button">Electrical</a></li>
+					</ul>
+					<ul class="actions special">
+						<li><a href="software.html" class="button">Software</a></li>
+					</ul>
+				</footer>
+
+		  <footer class="major container medium">
+					<h3>Data Flow Diagram</h3>
+					<p>View the data flow diagram, which depicts energy and data flow between system components.</p>
+					<ul class="actions special">
+						<li><a href="data_flow_diagram.html" class="button">View Data Flow Diagram</a></li>
+					</ul>
+				</footer>
+
+		  
+		    <footer class="major container medium">
+					<h3>Budget Breakdown</h3>
+					<p>You can view the exact materials and components we purchased and used by visiting our `Budget Breakdown` page.</p>
+					<ul class="actions special">
+						<li><a href="budget.html" class="button">View budget breakdown</a></li>
+					</ul>
+				</footer>
+
+				<footer class="major container medium">
+					<h3>A demonstration of the turret</h3>
+					<p>Watch the Portal Turret replica in action, featuring lively music, dynamic movement, responsive stimulus detection, and more.</p>
+					<ul class="actions special">
+						<li><a href="demonstration.html" class="button">Watch now</a></li>
+					</ul>
+				</footer>
+	  </div>  
+<!-- Footer -->
+			<div id="footer">
+				<div class="container medium">
+
+					<header class="major last">
+						<h2>Our Team</h2>
+					</header>
+
+					<p>Created by students of the Olin College of Engineering Class of 2027.</p>
+
+					<div class="team-members">
+				            <div class="member">
+				                <img src="images/ariel.png" alt="Member 1" />
+				                <h3>Ariel Chen</h3>
+				                <p>Engineering: Robotics<br>
+						Software</p>
+						    
+				            </div>
+				            <div class="member">
+				                <img src="images/audrey.JPG" alt="Member 2" />
+				                <h3>Audrey Ip</h3>
+				                <p>ECE<br>
+						Electrical/Software</p>
+				            </div>
+				            <div class="member">
+				                <img src="images/becca.png" alt="Member 3" />
+				                <h3>Becca Cramer</h3>
+				                <p>Mechanical Engineering<br>
+						Mechanical</p>
+				            </div>
+				            <div class="member">
+				                <img src="images/caterina.png" alt="Member 4" />
+				                <h3>Caterina Cirone</h3>
+				                <p>Mechanical Engineering<br>
+						Mechanical/Software</p>
+				            </div>
+				        </div>
+
+					<ul class="icons">
+						<li><a href="mechanical.html" class="icon solid fa-cogs"><span class="label">Mechanical</span></a></li>
+						<li><a href="electrical.html" class="icon solid fa-bolt"><span class="label">Electrical</span></a></li>
+						<li><a href="software.html" class="icon solid fa-code"><span class="label">Software</span></a></li>
+						<li><a href="demonstration.html" class="icon solid fa-play-circle"><span class="label">Github</span></a></li>
+						<li><a href="https://github.com/atealeaf/portal_turret" class="icon fa-github"><span class="label">Github</span></a></li>
+					</ul>
+
+					<ul class="copyright">
+						<li>&copy; PIE. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+
+				</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

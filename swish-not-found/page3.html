@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html  >
+<head>
+  <!-- Site made with Mobirise Website Builder v5.9.18, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.9.18, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/basketball-128x128.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>Firmware Design</title>
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/parallax/jarallax.css">
+  <link rel="stylesheet" href="assets/animatecss/animate.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=ktbRrf"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=ktbRrf" type="text/css">
+
+  
+  
+  
+</head>
+<body>
+  
+  <section data-bs-version="5.1" class="menu menu2 cid-uwXn8tJf4e" once="menu" id="menu2-f">
+    
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="navbar-brand">
+                
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-7" href="index.html">404: Swish Not Found</a></span>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="index.html">Overview</a></li><li class="nav-item dropdown"><a class="nav-link link text-black text-primary dropdown-toggle display-4" href="page1.html" data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Design</a><div class="dropdown-menu" aria-labelledby="dropdown-102"><a class="text-black text-primary dropdown-item display-4" href="page1.html">Mechanical</a><a class="text-black text-primary show dropdown-item display-4" href="page2.html">Electrical</a><a class="text-black text-primary show dropdown-item display-4" href="page3.html">Firmware</a><a class="text-black text-primary show dropdown-item display-4" href="page4.html">Software</a></div></li>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="page5.html">Process</a></li>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="page6.html">Bill of Materials</a>
+                    </li><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="page7.html">Gallery</a></li><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="index.html#clients02-9">Team</a></li></ul>
+                
+                
+            </div>
+        </div>
+    </nav>
+</section>
+
+<section data-bs-version="5.1" class="content4 cid-uxa0jbUXrm mbr-parallax-background" id="content4-2g">
+    
+
+    
+    <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(35, 35, 35);">
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="title col-md-12 col-lg-10">
+                <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-1">
+                    <strong>Firmware Design</strong></h3>
+                
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="video5 cid-uxabTeF8bI" id="video5-2r">
+    
+
+    
+    
+    <div class="container">
+        <div class="title-wrapper mb-5">
+            
+        </div>
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-6 video-block">
+                <div class="video-wrapper"><iframe class="mbr-embedded-video" src="https://youtube.com/embed/kvRayFouFBc?si=5Jb8ViOrCoH2H5Ij&amp;loop=1" width="1280" height="720" frameborder="0" allowfullscreen></iframe></div>
+                <p class="mbr-description pt-2 mbr-fonts-style display-4">
+                    Point to Actuation Code</p>
+            </div>
+            <div class="col-12 col-lg">
+                <div class="text-wrapper">
+                    <h3 class="mbr-section-subtitle mbr-fonts-style mb-3 display-2">
+                        <strong>Overview</strong></h3>
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        The firmware, developed using the Arduino IDE with the <a href="https://docs.arduino.cc/libraries/accelstepper/" class="text-primary" target="_blank">AccelStepper</a> library, manages precise motor actuation based on target coordinates. It calculates cable lengths, translates them into motor steps, and ensures synchronized motion to keep the board within the frame boundaries. Key functions like setCurrentPosition and calculateLengths enable accurate control, while a structured pipeline handles initialization, coordinate input, and smooth movement execution.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="content14 cid-uxa2M4nDVB" id="content14-2j">
+    
+
+    
+    
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-10">
+                    <h3 class="mbr-section-title mbr-fonts-style mb-4 display-5">
+                        External Firmware Dependencies:<br></h3>
+                <ul class="list mbr-fonts-style display-7">
+                    <li><strong style="font-size: 1.2rem;"><a href="https://docs.arduino.cc/libraries/accelstepper/" class="text-primary" target="_blank"><b>AccelStepper</b></a><br></strong>Arduino library for controlling stepper motors.</li><li><strong>MultiStepper (subsection of multi stepper)</strong><br>Arduino library for synchronized control of multiple steppers.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="content5 cid-uxa44oP2bu" id="content5-2k">
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-10">
+                
+                
+                <p class="mbr-text mbr-fonts-style display-7">
+                    Detailed descriptions of their methods can be found at:&nbsp;<a href="https://hackaday.io/project/183279-accelstepper-the-missing-manual/details" class="text-primary" target="_blank">https://hackaday.io/project/183279-accelstepper-the-missing-manual/details</a>. Here is a description of the key functions from the AccelStepper and MultiStepper libraries.<br></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="tabs content18 cid-uxa54hePsa" id="tabs1-2l">
+
+    
+
+    
+    
+    <div class="container-fluid">
+        
+        <div class="row justify-content-center mt-4">
+            <div class="col-12 col-md-8">
+                <ul class="nav nav-tabs mb-4" role="tablist">
+                    <li class="nav-item first mbr-fonts-style"><a class="nav-link mbr-fonts-style show active display-7" role="tab" data-toggle="tab" data-bs-toggle="tab" href="#tabs1-2l_tab0" aria-selected="true">setCurrentPosition<br></a></li>
+                    <li class="nav-item"><a class="nav-link mbr-fonts-style active display-7" role="tab" data-toggle="tab" data-bs-toggle="tab" href="#tabs1-2l_tab1" aria-selected="true">calculateLengths<br></a></li>
+                    <li class="nav-item"><a class="nav-link mbr-fonts-style active display-7" role="tab" data-toggle="tab" data-bs-toggle="tab" href="#tabs1-2l_tab2" aria-selected="true">runSpeedToPosition<br></a></li>
+                    
+                    
+                    
+                </ul>
+                <div class="tab-content">
+                    <div id="tab1" class="tab-pane in active" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="mbr-text mbr-fonts-style display-7">
+                                    Sets the current position of a stepper motor in steps. Used in setup to define the initial positions of the motors.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab2" class="tab-pane" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="mbr-text mbr-fonts-style display-7">Computes the target step positions for each motor to move the board to a specific (x,y) coordinate. Takes targetX and targetY as inputs, and uses the pythagorean theorem to calculate the cable length from each motor to the target position, considering the dimensions of the board.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab3" class="tab-pane" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="mbr-text mbr-fonts-style display-7">
+                                    Moves the motors to their specified target positions at a constant speed. Handles acceleration and deceleration as motors approach their targets, preventing overshooting.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="info1 cid-uxabjkSHSK mbr-parallax-background" id="info1-2q">
+    
+
+    
+    <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(0, 0, 0);"></div>
+    <div class="align-center container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <h3 class="mbr-section-title mb-4 mbr-fonts-style display-1">
+                    <strong>It is open source!</strong></h3>
+                
+                <div class="mbr-section-btn"><a class="btn btn-primary display-4" href="https://github.com/olincollege/404-swish-not-found" target="_blank">Github&nbsp;Repository with Source Code</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="content4 cid-uxa81lWE7s" id="content4-2n">
+    
+
+    
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="title col-md-12 col-lg-10">
+                <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2">
+                    <strong>Firmware Pipeline</strong></h3>
+                
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="image3 cid-uxacc1jqiJ" id="image3-2s">
+    
+
+    
+    
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+                <div class="image-wrapper">
+                    <img src="assets/images/firmare-1600x498.jpg" alt="Mobirise Website Builder">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="features20 cid-uxa86aZLYq" id="features20-2o">
+
+    
+
+    
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-9">
+                <div class="card-wrapper pb-4">
+                    <div class="card-box align-center">
+                        <h4 class="card-title mbr-fonts-style mb-4 display-5">
+                            <strong>Initialization</strong>
+                        </h4>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-8">
+                <div class="item mbr-flex">
+                    <div class="icon-box">
+                        <span class="step-number mbr-fonts-style display-5">1</span>
+                    </div>
+                    <div class="text-box">
+                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7"><strong>Initialize Motors</strong></h4>
+                        <h5 class="icon-text mbr-black mbr-fonts-style display-4">Stepper motors are defined and added to a Multistepper object for synchronized motion</h5>
+                    </div>
+                </div>
+                <div class="item mbr-flex">
+                    <div class="icon-box">
+                        <span class="step-number mbr-fonts-style display-5">2</span>
+                    </div>
+                    <div class="text-box">
+                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7">
+                            <strong>Set Max Speed</strong></h4>
+                        <h5 class="icon-text mbr-black mbr-fonts-style display-4">Maximum speed is set for all motors to 3000 steps per seconds</h5>
+                    </div>
+                </div>
+                <div class="item mbr-flex last">
+                    <div class="icon-box">
+                        <span class="step-number mbr-fonts-style display-5">3</span>
+                    </div>
+                    <div class="text-box">
+                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7">
+                            <strong>Zero Motors</strong></h4>
+                        <h5 class="icon-text mbr-black mbr-fonts-style display-4">Motors are zeroed by setting their initial positions (in steps) corresponding to their starting locations)</h5>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="features20 cid-uxa9c8jRfX" id="features20-2p">
+
+    
+
+    
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-9">
+                <div class="card-wrapper pb-4">
+                    <div class="card-box align-center">
+                        <h4 class="card-title mbr-fonts-style mb-4 display-5"><strong>Point to Actuation</strong></h4>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-8">
+                <div class="item mbr-flex">
+                    <div class="icon-box">
+                        <span class="step-number mbr-fonts-style display-5">1</span>
+                    </div>
+                    <div class="text-box">
+                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7"><strong>Monitor Serial</strong></h4>
+                        <h5 class="icon-text mbr-black mbr-fonts-style display-4">Continuously check for coordinate input from the serial monitor</h5>
+                    </div>
+                </div>
+                <div class="item mbr-flex">
+                    <div class="icon-box">
+                        <span class="step-number mbr-fonts-style display-5">2</span>
+                    </div>
+                    <div class="text-box">
+                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7">
+                            <strong>Constrain Coordinates</strong></h4>
+                        <h5 class="icon-text mbr-black mbr-fonts-style display-4">Validates and constrains the target coordinates to keep the board within the frame’s boundaries</h5>
+                    </div>
+                </div>
+                <div class="item mbr-flex">
+                    <div class="icon-box">
+                        <span class="step-number mbr-fonts-style display-5">3</span>
+                    </div>
+                    <div class="text-box">
+                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7"><strong>Calculate Cable Lengths</strong></h4>
+                        <h5 class="icon-text mbr-black mbr-fonts-style display-4">Calculate the lengths of the cable required for each motor based on the target coordinates using the Pythagorean theorem.</h5>
+                    </div>
+                </div>
+                <div class="item mbr-flex">
+                    <div class="icon-box">
+                        <span class="step-number mbr-fonts-style display-5">4</span>
+                    </div>
+                    <div class="text-box">
+                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7">
+                            <strong>Convert to Steps</strong></h4>
+                        <h5 class="icon-text mbr-black mbr-fonts-style display-4">Convert the cable lengths to motor steps using a pre-configured steps-to-inch ratio</h5>
+                    </div>
+                </div>
+                <div class="item mbr-flex">
+                    <div class="icon-box">
+                        <span class="step-number mbr-fonts-style display-5">5</span>
+                    </div>
+                    <div class="text-box">
+                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7">
+                            <strong>Motor Actuation</strong></h4>
+                        <h5 class="icon-text mbr-black mbr-fonts-style display-4">Move the motors synchronously to the calculated cable lengths<div><br></div></h5>
+                    </div>
+                </div>
+                <div class="item mbr-flex">
+                    <div class="icon-box">
+                        <span class="step-number mbr-fonts-style display-5">6</span>
+                    </div>
+                    <div class="text-box">
+                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7"><strong>Pause</strong></h4>
+                        <h5 class="icon-text mbr-black mbr-fonts-style display-4"><div>Pause for 2 seconds at target position</div></h5>
+                    </div>
+                </div>
+                <div class="item mbr-flex">
+                    <div class="icon-box">
+                        <span class="step-number mbr-fonts-style display-5">7</span>
+                    </div>
+                    <div class="text-box">
+                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7"><strong>Calculate Cable Lengths</strong></h4>
+                        <h5 class="icon-text mbr-black mbr-fonts-style display-4">Calculate the step positions for the motors to move the board to the center of the frame</h5>
+                    </div>
+                </div>
+                <div class="item mbr-flex last">
+                    <div class="icon-box">
+                        <span class="step-number mbr-fonts-style display-5">8</span>
+                    </div>
+                    <div class="text-box">
+                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7">
+                            <strong>Recenter Actuation</strong></h4>
+                        <h5 class="icon-text mbr-black mbr-fonts-style display-4">Move the motors synchronously to the center position</h5>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="footer3 cid-uwXn8u2BVn mbr-reveal" once="footers" id="footer3-g">
+
+    
+
+    
+
+    <div class="container">
+        <div class="row align-center mbr-white">
+            <div class="row row-links">
+                <ul class="foot-menu">
+                    
+                    
+                    
+                    
+                    
+                <li class="foot-menu-item mbr-fonts-style display-7"><a href="index.html" class="text-primary">Overview</a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="page1.html" class="text-primary">Mechanical</a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="page2.html" class="text-primary">Electrical</a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="page3.html" class="text-primary">Firmware</a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="page4.html" class="text-primary">Software</a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="page5.html" class="text-primary">Process</a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="page6.html" class="text-primary">Bill of Materials</a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="page6.html" class="text-primary">Gallery</a></li><li class="foot-menu-item mbr-fonts-style display-7"><a href="index.html#clients02-9" class="text-primary">Team</a></li></ul>
+            </div>
+            
+            <div class="row row-copirayt">
+                <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+                    © Copyright 404: Swish Not Found. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+</section><section class="display-7" style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 4rem;"><a href="https://mobiri.se/3642853" style="flex: 1 1;height: 4rem;position: absolute;width: 100%;z-index: 1;"><img alt="" style="height: 4rem;" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a><p style="margin: 0;text-align: center;" class="display-7">&#8204;</p><a style="z-index:1" href="https://mobirise.com"> Website Builder Software</a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/parallax/jarallax.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/playervimeo/vimeo_player.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/theme/js/script.js"></script>  
+  
+  
+  <input name="animation" type="hidden">
+  </body>
+</html>

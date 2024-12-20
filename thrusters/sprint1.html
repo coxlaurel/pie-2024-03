@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Ghost Thrusters</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- wrapper -->
+    <div id="wrapper">
+
+        <!-- header -->
+        <header id="header">
+            <a href="index.html" class="logo">thrusters</a>
+        </header>
+
+        <!-- nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="index.html">overview</a></li>
+                <li><a href="system.html">our system</a></li>
+                <li class="active"><a href="sprints.html">sprints</a></li>
+                <li><a href="bom.html">bill of materials</a></li>
+                <li><a href="gallery.html">gallery</a></li>
+                <li><a href="team.html">team</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://github.com/rixhee/gas-thruster-stabilization" class="icon brands fa-github"><span
+                            class="label">github</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- Post -->
+            <section class="post">
+
+                <header class="major">
+                    <h1>Sprint 1</h1>
+                </header>
+
+                <p>
+                    In the first sprint of our drone development project, our team focused on exploring the concept of a
+                    self-balancing drone. This process began with researching the topic, which involved watching
+                    instructional videos and reading about the control theory underlying such systems. With a stronger
+                    grasp of the concept, we proceeded to create initial sketches to visualize and refine the drone's
+                    design.
+                </p>
+
+                <div class="box alt">
+                    <div class="row gtr-50 gtr-uniform">
+                        <div class="col-6"><span class="image fit"><img src="images/sprint1/sketch1.png"
+                                    alt="" /></span>
+                        </div>
+                        <div class="col-6"><span class="image fit"><img src="images/sprint1/sketch2.png"
+                                    alt="" /></span>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    The next step involved planning the testing of the electronics and software while determining a way
+                    to start with a simple design and gradually build up to the final drone. Initially, we envisioned
+                    creating a pendulum setup with a single thruster. However, as we explored the complexities of
+                    achieving balance with just one thruster, we opted for a simpler approach: a seesaw mechanism with
+                    two thrusters positioned at opposite ends.
+                </p>
+
+                <div class="box alt">
+                    <div><span class="image fit system"><img src="images/sprint1/seesaw.jpeg" alt="" /></span> </div>
+                </div>
+
+                <p>
+                    To integrate the thrusters into the system, we designed a circuit featuring an Arduino board that
+                    controlled two relays connected to solenoid valves. The valves were used to regulate the thrusters,
+                    enabling the seesaw to achieve balance. To detect the orientation of the seesaw, we utilized an
+                    Inertial Measurement Unit (MPU6050), which combines both an accelerometer and a gyroscope.
+
+
+                </p>
+
+                <div class="box alt">
+                    <div><span class="image fit system"><img src="images/sprint1/test-jig.jpeg" alt="" /></span> </div>
+                </div>
+
+                <p>
+                    Finally, we developed code to process the values received from the IMU via the I2C interface and
+                    implemented a basic PID controller to balance the seesaw. The controller initially used only the
+                    angle data to determine which thruster to activate. The final PID implementation controlled the
+                    duration each thruster remained active to achieve precise balance.
+                </p>
+
+                <iframe class="image fit demo"
+                    src="https://drive.google.com/file/d/1YrV5Hx67yauHFsMnurWTSiD5PHRPp90a/preview"
+                    title="Reaction Control System Demonstration" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+                <p>
+                    As we move forward, our next steps involve transitioning from the current two-thruster seesaw design
+                    to a more complex four-thruster configuration. This development will build upon the insights and
+                    experiences gained during this sprint. Additionally, we plan to address an electrical issue where
+                    the Arduino board resets when the valves are toggled too quickly. This problem might be caused by
+                    flyback voltage or electromagnetic interference (EMF) noise generated by the valves or relays.
+                </p>
+
+            </section>
+
+        </div>
+
+
+
+        <!-- Copyright -->
+        <div id="copyright">
+            <ul>
+                <li>&copy; Ghost Thrusters</li>
+                <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

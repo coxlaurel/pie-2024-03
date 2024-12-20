@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Sprint Progress</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+                <nav id="menu">
+                    <h2>Menu</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="demo.html">Demo</a></li>
+                        <li><a href="progress.html">Progress</a></li>
+                        <li><a href="mechanical.html">Mechanical</a></li>
+                        <li><a href="electrical.html">Electrical</a></li>
+                        <li><a href="software.html">Software</a></li>
+                        <li><a href="budget.html">Bill of Materials</a></li>
+                        <!-- <li><a href="elements.html">Elements</a></li> -->
+                    </ul>
+                </nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Sprint Progress</h1>
+                            <h2>Sprint 1</h2>
+							<div class="box alt">
+								<div class="row gtr-uniform">
+									<div class="col-4"><span class="image fit"><img src="images/clock_sprint1.jpg" alt="Clock Sprint 1" /></span></div>
+									<div class="col-4"><span class="image fit"><img src="images/maze_sprint1.png" alt="Maze Code Test Sprint 1" /></span></div>
+									<div class="col-4"><span class="image fit"><img src="images/key_sprint1.jpg" alt="Key Box Sprint 1" /></span></div>
+									<div class="col-4"><span class="image fit"><img src="images/code_sprint1.png" alt="Key Code Sprint 1" /></span></div>
+								</div>
+							</div>
+							<p>We initially planned on having 3 puzzles in our box. Our goal for sprint two was to get a protoype of each puzzle working individually so we could work on integration in Sprint 2. Our first puzzle is a clock. When user moves the hands to the correct time (3:14), a servo will spin the clock out of the way to reveal the next puzzle. For Sprint 1, we were able to get a working script to turn the servo when a button was pressed. We planned to use a reed switch in the final version, but used a button as a place holder while waiting for it to be shipped. Since the puzzle on its own is very top heavy, we planned to create supports for the servo and clock face so everything would stay upright.</p>
+                            <p>For our second puzzle, we originally planned to have a maze. This maze would have a pie-shaped peg the user would have to drag to certain locations inside the maze, when it got to each location a strip of copper tape on the moveable piece would complete a circuit. After the peg hits each location in the correct order, the user would be able to move on to the next puzzle. In sprint 1, one of the incomplete circuits was made and it was tested with the copper tape to make sure our arduino script would detect whether or not the circuit was open or closed.</p>
+							<p>For our third and final puzzle, we planned to have a key board of lettered buttons. When the user holds the "P", "I", and "E" buttons at the same time, a solenoid will push a small box upward. This box will contain the user's prize for completing our puzzle box. For sprint 1 we were able to get a prototype made and test an initial version of the script to activate the solenoid. We found that the arduino alone wouldn't be able to power both the servo and the solenoid so we ordered a relay module, power block distribution, and a DC voltage converter.</p>
+
+							<h2>Sprint 2</h2>
+							<div class="box alt">
+								<div class="row gtr-uniform">
+									<div class="col-4"><span class="image fit"><img src="images/front_sprint2.jpg" alt="Front View Sprint 2" /></span></div>
+									<div class="col-4"><span class="image fit"><img src="images/back_sprint2.jpg" alt="Back View Sprint 2" /></span></div>
+									<div class="col-4"><span class="image fit"><img src="images/clock_sprint2.jpg" alt="Clock Sprint 2" /></span></div>
+									<div class="col-4"><span class="image fit"><img src="images/pie_sprint2.jpg" alt="Key Box Sprint 2" /></span></div>
+									<div class="col-4"><span class="image fit"><img src="images/elec_sprint2.jpg" alt="Key Code Sprint 2" /></span></div>
+								</div>
+							</div>
+							<span class="video">
+								<iframe width="560" height="315" src="https://www.youtube.com/embed/MaqTCiOfS8Q?si=WgMLh5ahUgY2uJ3G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+							</span>
+							<p>At the end of Sprint 1, we decided to re-scope our project and cut out the maze puzzle. Doing so allowed for easier integration and greatly decreased the required diameter of our puzzle. It also meant we could have a more polished final product.</p>
+							<p> This would For Sprint 2, our main goal was integration. We consolidated our separate pieces of code into one script, electrical components onto one circuit, and integrated our mechanical prototypes together. The clock was re-cut and rastered to have roman numerals. The reed switch was delivered in time for Sprint 2, so it was placed underneath the time 3:14 on the clock so that it'd be activated when the magnet attached to the minuite hand hovers over it. The key board was remade to look like a lattice pie, with the red filling being the lettered keys to press. The relay, power distribution, and voltage converter also arrived which meant the arduino would now have enough current to activate the solenoid. Since there was empy space under the latticed pie, we housed our main circuit and electrical components there. We fabricated a round cage to hold the two puzzles together. It has a plate on top that the clock sits on so that it stays flat and upright when it opens to reveal the pie. After putting everything together adn debugging our code, we tested our puzzle and it worked!</p>
+							
+							<h2>Sprint 3</h2>
+							<div class="box alt">
+								<div class="row gtr-uniform">
+									<div class="col-4"><span class="image fit"><img src="images/pie_crust.jpg" alt="Clock Sprint 1" /></span></div>
+									<div class="col-4"><span class="image fit"><img src="images/open_photo.jpg" alt="Maze Code Test Sprint 1" /></span></div>
+									<div class="col-4"><span class="image fit"><img src="images/box.jpg" alt="Key Box Sprint 1" /></span></div>
+									<div class="col-4"><span class="image fit"><img src="images/main_photo.jpg" alt="Key Code Sprint 1" /></span></div>
+								</div>
+							</div>
+							<p>For Sprint 3, our main goal was to beautify our puzzle box. We wanted it to look like a pie sitting on a table. Underneath the clock puzzle, we glued a pie tin made of cardboard and a 3D printed pie crust to the outer cage. To hide our electrical components we added white cloth under the pie tin. This covered our electrical components (while still provideing easy access) and made it look like our pie was resting on a a table. Finally, we decided to award the user with a pie for completing the puzzle. The pie would be held in a locked wodden box. The key would be hidden in the box in the second puzzle.</p>
+							<p>To add a narrative aspect to our puzzle box, users will find the following poem when they approach our box: </p>
+							<h3>Quest for Pie</h3>
+							<p>On the first of two demo days you came to see <br />
+							PIE projects, Hooray! Gorgeous, complete! <br />
+							In addition of course, you sought some kind of treat... <br />
+							But this pie has no filling... <br />
+							Where could it be?</p>
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+    				<ul class="copyright">
+        				<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+    				</ul>
+				</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../cube_cad.png" />
+    <title>Mechanical Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom transition for smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      .hamburger-menu {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 50;
+        cursor: pointer;
+      }
+      .menu-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 40;
+      }
+      .menu-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .menu-overlay a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.5rem;
+        margin: 1rem 0;
+        transition: color 0.3s ease;
+      }
+      .menu-overlay a:hover {
+        color: gray;
+      }
+    </style>
+  </head>
+  <body class="font-sans">
+    <a href="../index.html" class="absolute top-4 left-4 z-50">
+      <p class="text-white text-lg md:text-2xl mt-4">The Cube</p>
+      <!-- <img
+        src="images/home.jpg"
+        alt="Home"
+        class="w-20 h-20 hover:opacity-75 transition-opacity"
+      /> -->
+    </a>
+
+    <!-- Hamburger Menu -->
+    <div id="hamburger" class="hamburger-menu absolute top-4">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-8 w-8 text-white"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4 6h16M4 12h16m-7 6h7"
+        />
+      </svg>
+    </div>
+
+    <!-- Menu Overlay -->
+    <div id="menu" class="menu-overlay">
+      <a href="../index.html">Home</a>
+      <a href="system-overview.html">System Overview</a>
+      <a href="our-journey.html">Our Journey</a>
+      <a href="bill-of-materials.html">Bill of Materials</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="mechanical-design.html">Mechanical Design</a>
+      <a href="firmware-design.html">Firmware Design</a>
+      <a href="electrical-design.html">Electrical Design</a>
+    </div>
+
+    <!-- Header Section with Background Image -->
+    <div
+      class="relative h-96 bg-cover bg-center"
+      style="background-image: url('../images/cube/cube_02.jpeg')"
+    >
+      <div
+        class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center"
+      >
+        <h1 class="text-white text-4xl font-bold">Mechanical Design</h1>
+      </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="py-12 bg-gray-100">
+      <div class="container mx-auto px-6 text-center">
+        <p class="my-4"></p>
+        <p class="text-lg">
+          Our final mechanical system consists of 6, 6061 Aluminum plates joined
+          together with miter joints and custom 3D printed brackets. This main
+          structure allows not only for easy assembly but also seamless fitment.
+          All holes are countersunk to facilitate flatness across all cube faces
+          and for aesthetics.
+        </p>
+
+        <p class="my-4"></p>
+        <p class="text-lg">
+          Overall size of the cube is largely based on motor position, and has
+          been optimized to make our system as compact as possible. All parts
+          are primarily waterjet for simplicity and for its free usage to
+          students at Olin. Motor mounting standoffs are manually lathed out.
+          Steel flywheels are used due to its increased density allowing for
+          more space efficient increase of its moment of inertia. The 3D printed
+          brackets are designed to be low profile and have seen multiple
+          iterations based on testing with different heat-set inserts and
+          assembly feedback. In the center of the cube is 3D printed, it houses
+          the core electronics and ensures proper and rigid mounting of our IMU.
+          Press fit 3D printed stubs that utilize pre-existing mounting holes
+          for manufacturing are used. These allow for magnets to be mounted
+          which would allow for modular sideplates to be mounted onto the cubes
+          without obstructing overall aesthetics.
+        </p>
+
+        <p class="my-4"></p>
+        <p class="text-lg">
+          <a
+            href="https://drive.google.com/drive/folders/10VOWvUV2Zs8tRAwfS4ROcRT-5AtFcGEh?usp=sharing
+"
+            >Click here for the final CAD file.</a
+          >
+        </p>
+
+        <p class="my-4"></p>
+
+        <!DOCTYPE html>
+        <html lang="en">
+          <head>
+            <meta charset="UTF-8" />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1.0"
+            />
+            <title>Cube Interaction</title>
+          </head>
+          <body>
+            <script
+              type="module"
+              src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+            ></script>
+            <model-viewer
+              src="../Cube.glb"
+              alt="3D CAD Model"
+              auto-rotate
+              camera-controls
+              style="width: 100%; height: 500px"
+            >
+            </model-viewer>
+          </body>
+        </html>
+      </div>
+    </div>
+    <footer class="bg-gray-800 text-white py-6">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Links Section -->
+          <div>
+            <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <ul class="space-y-2">
+                <li><a href="index.html" class="hover:underline">Home</a></li>
+                <li>
+                  <a href="system-overview.html" class="hover:underline"
+                    >System Overview</a
+                  >
+                </li>
+                <li>
+                  <a href="our-journey.html" class="hover:underline"
+                    >Our Journey</a
+                  >
+                </li>
+                <li>
+                  <a href="bill-of-materials.html" class="hover:underline"
+                    >Bill of Materials</a
+                  >
+                </li>
+              </ul>
+              <ul class="space-y-2">
+                <li>
+                  <a href="gallery.html" class="hover:underline">Gallery</a>
+                </li>
+                <li>
+                  <a href="mechanical-design.html" class="hover:underline"
+                    >Mechanical Design</a
+                  >
+                </li>
+                <li>
+                  <a href="firmware-design.html" class="hover:underline"
+                    >Firmware Design</a
+                  >
+                </li>
+                <li>
+                  <a href="electrical-design.html" class="hover:underline"
+                    >Electrical Design</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- About Section -->
+          <div>
+            <h3 class="text-lg font-bold mb-4">About</h3>
+            <p class="text-sm">
+              The Cube project showcases our efforts to create a self-balancing
+              cube using mechanical, electrical, and software integration. Learn
+              more by exploring the pages above.
+            </p>
+          </div>
+          <!-- Acknowledgments Section -->
+          <div>
+            <h3 class="text-lg font-bold mb-4">Acknowledgments</h3>
+            <p class="text-sm">Special thanks to our PIE instructors.</p>
+          </div>
+        </div>
+        <!-- Footer Bottom -->
+        <div class="mt-6 border-t border-gray-700 pt-4 text-center">
+          <p class="text-sm">
+            &copy; 2024 The Cube Project. Licensed under the
+            <a
+              href="https://opensource.org/licenses/MIT"
+              class="hover:underline text-blue-400"
+              target="_blank"
+              >MIT License</a
+            >.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const menu = document.getElementById("menu");
+
+      // Toggle the menu when the hamburger icon is clicked
+      hamburger.addEventListener("click", () => {
+        menu.classList.toggle("active");
+      });
+
+      // Close the menu when a link is clicked
+      menu.addEventListener("click", (event) => {
+        if (event.target.tagName === "A") {
+          menu.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<!--
+	Directive by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>AABC Portal Turret | Electrical</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+  <body class="is-preload">
+	  
+	  	<nav>
+			<ul class="navbar">
+		        	<li><a href="index.html">Home</a></li>
+				  <li><a href="timeline.html">Timeline</a></li>
+		        	<li><a href="mechanical.html">Mechanical</a></li>
+				<li><a href="electrical.html">Electrical</a></li>
+				<li><a href="software.html">Software</a></li>
+				<li><a href="data_flow_diagram.html">Data Flow Diagram</a></li>
+		        	<li><a href="budget.html">Budget Breakdown</a></li>
+		           	<li><a href="demonstration.html">Demonstration</a></li>
+		        </ul>
+	  	</nav>
+
+		<!-- Header -->
+			<div id="header">
+				<a href="index.html"><img src="images/turret_eye.png" alt="Your Logo" class="logo" /></a>
+				<h1>Electrical</h1>
+				<p>The electrical work and features in the Portal Turret replica.</a>
+			</div>
+<!-- Main -->
+	  		<div id=main>
+				
+				<header class="major container medium">
+					<h2>The circuit contains various sensors to respond to external stimulus and motors to control movement.</h2>
+				</header>	
+
+				<footer class="major container medium">
+					<h2>Concept</h2>
+					<p>When deciding which features to include in the Portal Turret, we discussed various features, of which only 
+					some of them we continued with. These features include music and sound playing, cyclable modes via a remote 
+					control, detecting when it is moved, and noise detection. Over the course of the project, additional features 
+					were added.</p>
+
+				</footer>
+
+				<footer class="major container medium">
+					<h2>Circuit Diagram</h2>
+					<img src="images/circuit_diagram.png" alt="Circuit Diagram" class="responsive-image">
+					<p>The circuit contains the following components: an accelerometer/magnetometer, an IR receiver, a sound sensing module, 
+					a PCF8591 ADC/DAC module, a 9V DC motor, a L293D motor driver, two 9g SG90 servos, and a button. Additionally, a speaker 
+					is connected to the Raspberry Pi via Bluetooth so audio can be played, and an IR remote control can be used to send IR 
+					codes to the IR receiver.</p>
+					<br>
+					<h3>Accelerometer</h3>
+					<img src="https://cdn-daily-blog.adafruitdaily.com/uploads/2019/08/82019LSM303AGR.png" alt="LSM303AGR" class="responsive-image">
+					<p> The accelerometer/magnetometer used is the LSM303AGR 3-axis accelerometer and 3-axis magnetometer. This measures the 
+					acceleration forces and magnetic field strength in three dimensions. In this case, it is only being used to measure the 
+					acceleration of the Portal Turret so it can detect when is picked up or moved around.
+					<br>
+					The LSM303AGR is connected to a 3.3V source, ground, SDA1 I2C, and SCL2 I2C.</p>
+					<br>
+					<h3>IR Receiver</h3>
+					<img src="https://docs.sunfounder.com/projects/sensorkit-v2-pi/en/latest/_images/image13.png" alt="Sunfounder IR Receiver" class="responsive-image">
+					<p> The IR receiver can receive signals from an IR remote control. When buttons are pressed on the remote, an IR code is 
+					transmitted, which the IR receiver reads and sends to the Raspberry Pi. From there, the code is processed to trigger some sort 
+					of output response.
+					<br>
+					The IR receiver is connected to a 3.3V power source, ground, and GPIO17.</p>
+					<br>
+					<h3>Sound Sensing</h3>
+					<img src="https://docs.sunfounder.com/projects/sensorkit-v2-arduino/en/latest/_images/image29.png" alt="Sunfounder Sound Sensing Module" class="responsive-image">
+					<img src="https://docs.sunfounder.com/projects/umsk/en/latest/_images/10_pcf8591_module.png" alt="Sunfounder PCF8591 ADC/DAC" class="responsive-image">
+					<p>To read the intensity of nearby sounds, two components are necessary: the sound sensing module and the PCF8951 ADC/DAC Module. 
+					The sound sensing module outputs analog values, with a lower number corresponding to a louder noise. However, the Raspberry Pi 4 
+					Model B does not built-in analog capabilities, making it unable to directly read the values outpuuted by the sound sensor. The 
+					PCF8951 ADC/DAC helps address this limitation, as it converts the analog signal the sound sensor outputs into a digital one that 
+					the Raspberry Pi can read. Both of these components come from Sunfounder.
+					<br>
+					The sound sensor is connected to a 3.3V source, ground, and the PCF8591 ADC/DAC while the PCF8591 is connected to 
+					the sound sensor, a 3.3V source, ground, SDA1 I2C, and SCL1 I2C. The `SIG` pin of the sound sensor is fed into the `AIN3` pin of 
+					the PCF8591 ADC/DAC.</p>
+					<br>
+					<h3>DC Motors</h3>
+					<img src="https://einstronic.com/wp-content/uploads/2021/03/TT-Motor-Yellow-Wheel-Motor-5.jpg" alt="9V DC Motors" class="responsive-image">
+					<p>To move the motors, two components are necessary: the 9V DC motor and the L293D Motor Driver. The Raspberry Pi 4 Model B can only 
+					supply a limited amount of current (16-20 mA per pin) and voltage (5V), which would not be able to successfully the power the 9V DC 
+					Motors. Attempting to power the motors via the Raspberry Pi could cause damage to it. The L293D motor drive helps address these limitations. 
+					It handles higher currents (around 600 mA per channel), allows for bidirectional movement of the motors, tolerates higher voltage (up to 36V), 
+					provides protection features that safeguard the Raspberry Pi from voltage spikes, and supports up to two motors concurrently. The L293D 
+					requires an external voltage sources, so a 9V battery was connected to it. When connected to the Raspberry Pi through the GPIO pins, the 
+					user can send signals to the driver to control the motor's speed and direction. The L293D motor driver also features PWM control, allowing 
+					for speed control of the motors.
+					<br>
+					The L293D has 16 different pins, with 8 pins dedicated to powering and control each motor. Pins 1 and 2 are the enable pins for controlling 
+					the operation of the two motor channels; pins 2, 7, 10, and 15 are the input pins that control the rotation direction of the motor; pins 3, 6, 
+					11, and 14 are the output pins connected to the motors; pins 4, 5, 12, and 13 are the ground pins; and pins 8 and 16 are the pins connected 
+					to the voltage source. In this case, pin 1 is connected to GPIO25, pin 2 is connected to GPIO24, pin 3 is connected to the ground terminal of 
+					the 9V DC motor, pins 4 and 12 are connected to ground terminal of the 9V battery, pin 6 is connected to the positive power supply of the 9V 
+					DC motor, pin 7 is connected to GPIO23, and pins 8 and 16 are connected to the positive power supply of the 9V battery.
+					</p>
+					<br>
+					<h3>Servos</h3>
+					<img src="https://www.ecatronix.com/wp-content/uploads/2019/08/A024.jpg" alt="TowerPro 9g SG90 Servos" class="responsive-image">
+					<p>The two servos used in the circuit are TowerPro 9g SG90 Servos. These servos are controlled with PWM signals, which determine the angle of 
+					rotation. These servos are attached to the ends of the rack in the rack-and-pinion system and are responsible for moving the wings forward and 
+					backwards
+					<br>
+					The servos are each connected to a 5V source and ground. The left servo is connected to GPIO18 whereas the right serov is connected to GPIO16.
+					</p>
+					<br>
+					<h3>Button</h3>
+					<img src="https://market.samm.com/electronic-button-components-samm-424-25-B.png" alt="Button" class="responsive-image">
+					<p>The button is primarily used for testing and troubleshooting purposes when the IR remote control is not being used. When the button is pressed, 
+					it closes the internal switch, allowing power to flow to the connected pin. This action pulls the pin's state to `HIGH,` which can be detected by the 
+					Raspberry Pi. To do this, a pull-down resistor is used, as the pin is designed to detect changes from its default state of `LOW` to `HIGH`. With this 
+					in mind, a resistor value of 1kΩ was chosen.
+					<br>
+					The button is connected to a 3.3V source and GPIO4. There is a 1kΩ resistor between the voltage source and the button.
+					</p>
+					<br>
+					<h3>Other Components</h3>
+					<img src="https://www.jbl.com.br/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw5e99813c/JBL_Go2_Hero_Midnight_Black-1605x1605px.png" alt="JBL Go 2 Speaker" class="responsive-image">
+					<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.1AjqCY37Nbaei4VcSFxtUAHaHa%26pid%3DApi&f=1&ipt=901827147b736e4414af1440969de080e743d539295e927558b8c20b63b773a3&ipo=images" alt="Sunfounder IR Remote Control" class="responsive-image">
+					<p>The components listed above are all directly connected to the circuit, but there are some other components that need to be mentioned. There 
+					is a speaker connected to the Raspberry Pi 4 Model B via Bluetooth, which allows for audio to be played as an output. There is also an IR remote 
+					control as mentioned before, which can send codes to the IR receiver to trigger some sort of output.</p>
+				</footer>
+
+
+				<footer class="major container medium">
+					<h2>The Built Circuit</h2>
+					<img src="images/irl_circuit.jpg" alt="The Built Circuit" class="responsive-image">
+				</footer>
+
+				<footer class="major container medium">
+					<h3>Subsystems</h3>
+					<p>Take a deeper look into the different subsystems present in the Portal Turret.</p>
+					<ul class="actions special">
+						<li><a href="mechanical.html" class="button">Mechanical</a></li>
+					</ul>
+					<ul class="actions special">
+						<li><a href="software.html" class="button">Software</a></li>
+					</ul>
+				</footer>
+
+				<footer class="major container medium">
+					<h3>Data Flow Diagram</h3>
+					<p>View the data flow diagram, which depicts energy and data flow between system components.</p>
+					<ul class="actions special">
+						<li><a href="data_flow_diagram.html" class="button">View Data Flow Diagram</a></li>
+					</ul>
+				</footer>
+
+				<footer class="major container medium">
+					<h3>Budget Breakdown</h3>
+					<p>You can view the exact components we purchased and used by visiting our `Budget Breakdown` page.</p>
+					<ul class="actions special">
+						<li><a href="budget.html" class="button">View budget breakdown</a></li>
+					</ul>
+				</footer>
+
+				<footer class="major container medium">
+					<h3>A demonstration of the turret</h3>
+					<p>Watch the Portal Turret replica in action, featuring lively music, dynamic movement, responsive stimulus detection, and more.</p>
+					<ul class="actions special">
+						<li><a href="demonstration.html" class="button">Watch now</a></li>
+					</ul>
+				</footer>
+
+			</div>
+<!-- Footer -->
+			<div id="footer">
+				<div class="container medium">
+
+					<header class="major last">
+						<h2>Our Team</h2>
+					</header>
+
+					<p>Created by students of the Olin College of Engineering class of 2027.</p>
+
+					<div class="team-members">
+				            <div class="member">
+				                <img src="images/ariel.png" alt="Member 1" />
+				                <h3>Ariel Chen</h3>
+				                <p>Engineering: Robotics<br>
+						Software</p>
+						    
+				            </div>
+				            <div class="member">
+				                <img src="images/audrey.JPG" alt="Member 2" />
+				                <h3>Audrey Ip</h3>
+				                <p>ECE<br>
+						Electrical/Software</p>
+				            </div>
+				            <div class="member">
+				                <img src="images/becca.png" alt="Member 3" />
+				                <h3>Becca Cramer</h3>
+				                <p>Mechanical Engineering<br>
+						Mechanical</p>
+				            </div>
+				            <div class="member">
+				                <img src="images/caterina.png" alt="Member 4" />
+				                <h3>Caterina Cirone</h3>
+				                <p>Mechanical Engineering<br>
+						Mechanical/Software</p>
+				            </div>
+				        </div>
+
+					<ul class="icons">
+						<li><a href="mechanical.html" class="icon solid fa-cogs"><span class="label">Mechanical</span></a></li>
+						<li><a href="electrical.html" class="icon solid fa-bolt"><span class="label">Electrical</span></a></li>
+						<li><a href="software.html" class="icon solid fa-code"><span class="label">Software</span></a></li>
+						<li><a href="demonstration.html" class="icon solid fa-play-circle"><span class="label">Github</span></a></li>
+						<li><a href="https://github.com/atealeaf/portal_turret" class="icon fa-github"><span class="label">Github</span></a></li>
+					</ul>
+
+					<ul class="copyright">
+						<li>&copy; PIE. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+				</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

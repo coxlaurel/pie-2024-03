@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ironman Project</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Ironman Project</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#summary">Summary</a></li>
+          <li class="nav-item"><a class="nav-link" href="#budget">Budget</a></li>
+          <li class="nav-item"><a class="nav-link" href="#diagrams">Diagrams</a></li>
+          <li class="nav-item"><a class="nav-link" href="electrical.html">Electrical</a></li>
+          <li class="nav-item"><a class="nav-link" href="firmware.html">Firmware</a></li>
+          <li class="nav-item"><a class="nav-link" href="mechanical.html">Mechanical</a></li>
+          <li class="nav-item"><a class="nav-link" href="software.html">Software</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero text-center text-light">
+    <div class="container position-relative h-100 d-flex flex-column justify-content-center align-items-center">
+      <h1 class="display-4 typing-text">Welcome to the Ironman Project</h1>
+      <p class="lead">Building a futuristic system inspired by Tony Stark.</p>
+      <a href="#summary" class="btn btn-primary btn-lg">Learn More</a>
+    </div>
+    <div class="arc-reactor-wrapper">
+      <div class="arc-reactor"></div>
+    </div>
+  </header>
+  
+  
+
+  <!-- Summary Section -->
+  <section id="summary" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Project Summary</h2>
+      <p class="text-center">This project was inspired by the Iron Man’s helmet and its AI voice assistant, Jarvis. 
+        This project is an integration of software, electrical, and mechanical subsystems. 
+        We recreated a functioning helmet with built-in Jarvis AI and AR capabilities. 
+        We focused on having a high fidelity aesthetics to closely resemble the one from the Iron Man movie mechanically with all of the fictional helmet's main features. 
+        We also made sure the helmet has adjustable features to fit everyone.
+    </p>
+    </div>
+  </section>
+
+  <!-- Budget Section -->
+  <section id="budget" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Budget Tracking</h2>
+      <p class="text-center">Track the project's expenses and funding allocation.</p>
+      <div class="text-center">
+        <img src="assets/images/budget-sheet.png" alt="Energy Flow Diagram" class="img-fluid">
+      </div>
+    </div>
+  </section>
+
+  <!-- Diagram Section -->
+  <section id="diagrams" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Diagrams</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Energy Flow Diagram</h3>
+          <img src="assets/images/energy-flow-diagram.png" alt="Energy Flow Diagram" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+          <h3>System Diagram</h3>
+          <img src="assets/images/system-diagram.png" alt="System Diagram" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-4 bg-dark text-light">
+    <p>&copy; 2024 Ironman Project. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Design - Super Spot</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Design</h1>
+						<p>Details about the different designs that come together to make Spot. </p>
+					</header>
+
+                <!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="#overview" class="active">Overview</a></li>
+							<li><a href="#software">Software</a></li>
+							<li><a href="#firmware">Firmware</a></li>
+							<li><a href="#electrical">Electrical</a></li>
+							<li><a href="#mechanical">Mechanical</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Overview -->
+							<section id="overview" class="main">
+								<span class="image main"><img src="images/dataflow.png" alt="" /></span>
+								<p>Data and energy flow diagram</p>
+							</section>
+						
+						<!-- Software -->
+						<section id="software" class="main">
+							<span class="image main"><img src="images/design/software.png" alt="" /></span>
+							<h2>Software</h2>
+							<p>
+								Repo: <a href="https://github.com/karismoon/spot-dog">https://github.com/karismoon/spot-dog</a><br><br>
+
+								The software for the robotic dog is a lightweight, single-page web application that acts as the primary interface for voice-command control. It leverages modern web technologies to recognize keywords via the browser’s Speech Recognition API and sends commands directly to the Arduino R4 through HTTP requests.<br>
+
+								<p>
+									<b>Website Development</b><br><br>
+									Design and Features:<br>
+									The website is a single-page application designed to be intuitive and responsive. It includes:<br>
+									<ul>
+										<li><b>Keyword Recognition:</b> A speech-to-text feature powered by the Web Speech API (specifically, SpeechRecognition).</li>
+										<li><b>Command Execution:</b> Recognized keywords are matched against a predefined command set and sent to the robotic dog via HTTP requests.</li>
+										<li><b>Status Indicators:</b> The page dynamically updates the recognition status (e.g., “Listening” or “Not Listening”) and displays the last recognized keyword.</li>
+									</ul>
+
+									Frontend Technologies:<br>
+									<ul>
+										<li><b>HTML:</b> For structuring the content.</li>
+										<li><b>CSS:</b> For styling the page, ensuring a clean and modern look.</li>
+										<li><b>JavaScript:</b> For implementing the voice recognition and HTTP command logic.</li>
+									</ul>
+
+									Speech Recognition:<br>
+									The website uses the SpeechRecognition API to listen for user input. It recognizes predefined keywords such as <i>forward</i>, <i>sit</i>, <i>lay</i>, and <i>paw</i>. Once a keyword is recognized, it is mapped to a corresponding HTTP command and sent to the Arduino R4’s web server.<br><br>
+									
+									<b>Server Hosting on Arduino R4:</b><br>
+									The Arduino R4 operates as a web server, hosting an endpoint for each command. These endpoints are accessed by the webpage via HTTP GET requests. For example:
+									<ul>
+										<li><b>Command /forward:</b> Moves the robot forward.</li>
+										<li><b>Command /sit:</b> Executes the sitting gesture.</li>
+									</ul>
+									The Arduino R4 processes the commands received from the webpage and performs the corresponding actions.<br><br><br>
+
+									<b>External Dependencies</b><br>
+									The webpage relies on the following built-in browser features:
+									<ul>
+										<li><b>SpeechRecognition API:</b> Enables voice-to-text conversion.</li>
+										<li><b>Fetch API:</b> Sends HTTP requests to the Arduino R4.</li>
+									</ul>
+									Since the webpage uses only browser-native features, no additional external libraries or frameworks are required.<br><br>
+
+									<b>Source Code</b><br>
+									The complete source code for the webpage and the Arduino R4 firmware is available on <a href="https://github.com/karismoon/spot-dog">GitHub</a>.<br><br>
+
+									<b>Deployment Instructions</b><br>
+									<b>Arduino R4 Setup</b><br>
+									<ul>
+										<li>Load the firmware onto the Arduino R4 and ensure the web server is running.</li>
+										<li>Connect the Arduino R4 to the same network as the device accessing the webpage. (We used a phone hotspot to ensure a 2.4G connection).</li>
+									</ul>
+									<b>Hosting the Webpage</b><br>
+									<ul>
+										<li>The webpage can be opened locally on any device (given the device is on the same network) with a modern web browser.</li>
+									</ul>
+									<b>Testing</b><br>
+									<ul>
+										<li>Open the webpage in a browser.</li>
+										<li>Click "Start Listening" and speak a command (e.g., "forward" or "sit").</li>
+										<li>Observe the robotic dog’s response to ensure proper execution.</li>
+									</ul>
+									This simple, effective software solution ensures seamless communication between the user and the robotic dog through an interactive voice-command interface.
+								</p>
+							</p>
+						</section>	
+
+                        <!-- Firmware -->
+							<section id="firmware" class="main">
+								<span class="image main"><img src="images/design/firmware.png" alt="" /></span>
+								<h2>Firmware</h2>
+								<p>
+									Repo: <a href="https://github.com/karismoon/spot-dog">https://github.com/karismoon/spot-dog</a><br><br>
+
+									The firmware is designed to manage the various components of the system, which includes controlling DC motors, servos, and a relay while enabling WiFi-based remote communication. The central microcontroller used for this system is an Arduino R4, which acts as the main processing unit and supports wireless functionality.<br><br>
+									
+									System Initialization:<br>
+									Upon startup, the firmware initializes all components, including needed Digital/Analog pins, I2C communication, servo motors, and WiFi connectivity.<br>
+									<ul>
+										<li>
+											<b>GPIO Setup:</b><br>
+											The relay is connected to GPIO2, configured as an output. The relay is initially set to HIGH, ensuring the connected device is off at startup.
+										</li>
+										<li><b>I2C Setup:</b><br>
+											The Adafruit Motor Shield, connected via I2C, is initialized to control up to four DC motors. The Adafruit_MotorShield library handles the communication.
+										</li>
+										<li>
+											<b>Servo Setup:</b><br>
+											Five servos are connected to specific pins (0–4) and are initialized to their default positions using the Servo library. Each servo corresponds to a specific movement or component of the robotic system.
+										</li>
+										<li>
+											<b>WiFi Setup:</b><br>
+											The Arduino connects to a predefined WiFi network using the SSID and password. Once connected, the IP address is displayed via serial, and an HTTP server is started to handle remote commands.
+										</li>
+									</ul>
+									
+									WiFi Server and Command Handling:<br>
+									The firmware includes a web server running on port 80 to handle HTTP GET requests.<br>
+									<ul>
+										<li>
+											<b>Client Communication:</b><br>
+											Incoming HTTP requests are parsed to extract commands. Based on the URL, corresponding functions are called to control motors, servos, or the relay.										</li>
+										<li>
+											<b>Command Examples:</b><br>
+											<ul>
+												<li>/on: Move forward.</li>
+												<li>/off: Stop movement.</li>
+												<li>/backward: Move backward.</li>
+												<li>/left or /right: Turn in the specified direction.</li>
+												<li>/sit, /lay, /nod, etc.: Execute predefined servo movements for robotic behaviors.</li>
+											</ul>
+										</li>
+									</ul>
+									
+									DC Motor Control:<br>
+									The firmware controls four DC motors connected to the Adafruit Motor Shield.
+									<ul>
+										<li>
+											<b>Direction and Speed Control:</b><br>
+											Each motor can run forward or backward using the run(FORWARD) and run(BACKWARD) commands. The speed is adjusted using the setSpeed() function, which takes a value between 0 and 255.
+										</li>
+										<li>
+											<b>Combined Movements:</b><br>
+											Motors are controlled in coordination to achieve various movements such as forward motion, backward motion, or turning.
+										</li>
+									</ul>
+									
+									Servo Motor Control:<br>
+									Five servo motors control various robotic parts, including limbs and a neck mechanism.
+									<ul>
+										<li>
+											<b>Default Positions:</b><br>
+											The stand() and neck() functions set servos to their default positions (e.g., 90°).
+										</li>
+										<li>
+											<b>Predefined Movements:</b><br>
+											Functions like sit(), paw(), hail(), and nod() control servos to perform specific actions. These functions use for-loops to gradually change servo angles, ensuring smooth movements.
+										</li>
+									</ul>
+									
+									Proximity-Based Behavior:<br>
+									The heel() function uses the WiFi signal strength (RSSI) to determine proximity to the user. If the signal is weaker than a specified threshold, the system moves forward until the desired proximity is achieved.<br>
+									
+									Main Loop and Event Handling:<br>
+									The loop() function continuously runs the webServer() function to listen for and respond to incoming commands.<br>
+									<ul>
+										<li>
+											<b>Polling and Timeout:</b><br>
+											The firmware continuously checks for connected clients. If no data is received within a predefined timeout, the client connection is closed.
+										</li>
+										<li>
+											<b>Dynamic Response:</b><br>
+											Commands from the server trigger corresponding actions, such as adjusting motor speeds or executing servo movements.
+										</li>
+									</ul>
+									This firmware efficiently integrates WiFi connectivity with motor and servo control to provide a responsive and flexible robotic platform. The modular design allows easy addition of new commands and behaviors.
+								</p>
+							</section>
+
+                        <!-- Electrical -->
+							<section id="electrical" class="main">
+								<span class="image main"><img src="images/legs.png" alt="" /></span>
+								<h2>Electrical</h2>
+								<p>Overall Design: <br>
+								The circuit contains various sensors to respond to external stimuli and motors to control movement. Primarily, we take input via voice commands (data taken through an iPhone and sent via server to the arduino) and via the HC-SR04 ultrasonic sensor. These data inputs control a combination of the ten motors spread throughout the body of SuperSpot. The full data flow and power diagram can be seen below. <br>
+								Let's look at the various components of this system individually as we travel through the path of a voice command. <br> <br>
+								<span class="image left"><img src="images/design/electrical/phone.png" alt=""/></span> 
+								Component 1: Mobile Phone <br>
+								For our project, we primarily used Sam’s phone for this purpose. When the arduino was powered on, it would constantly search for the hotspot powered by a mobile phone and connect to it. This is because our arduino requires a 2.4G connection rather than the standard 5G connection on most modern routers. Once connected, the arduino would host a virtual server that would listen for different server endpoints. On our iPhone, we would run a voice recognition program designed in HTML that would then send those endpoints as commands were given. <br> <br>
+								<span class="image right"><img src="images/design/electrical/arduino.png" alt="" /></span>
+								Component 2: Arduino R4 with Wifi and Bluetooth. <br>
+								Our arduino is the brains of the system. It connects to wifi, hosts a server that listens for commands sent from the phone, and controls the rest of the system accordingly. It directly controls the HR-SC04 sensor and the six servo motors. It also interfaces with the motor shield to control the other four gear motors used for the wheels. <br> <br>
+								<span class="image left"><img src="images/design/electrical/motor_shield.png" alt=""/></span> 
+								Component 3: Adafruit Motor Shield <br>
+								The Adafruit Motor Shield is responsible for controlling the gear motors that drive the wheels. It simplifies the process of managing multiple DC motors by providing an easy interface for the Arduino. The shield supports up to four DC motors or two stepper motors and integrates seamlessly with the Arduino via an I2C connection. In our project, we used the motor shield to control the four gear motors powering the wheels, allowing us to adjust speed, direction, and movement precision. The shield also includes built-in motor drivers, making it possible to handle higher power outputs while protecting the Arduino from overcurrent. <br> <br>
+								<span class="image right"><img src="images/design/electrical/battery.png" alt="" /></span>
+								Component 4: Rechargeable Battery: <br>
+								Our rechargeable battery is a 12v lithium ion battery capable of outputting up to 1A. It directly powered the motor shield and arduino with a 12v connection, but was stepped down to 5v to provide power to the stepper motors. <br> <br>
+								<span class="image left"><img src="images/design/electrical/motors.png" alt=""/></span> <br> <br> <br> <br> <br> <br> <br> 
+								Component 5: Motors <br>
+								We used two different types of motors: <br>	
+								Gear motors (left): The gear motors powered the wheels of SuperSpot, providing mobility. These DC motors interfaced directly with the motor shield for easy control. <br>
+								Stepper motors (right): The stepper motors powered the shoulder, neck, and jaw joints of SuperSpot. They were powered by a 5v connection from the battery and controlled through the digital pins of the arduino. <br> <br>
+								<span class="image right"><img src="images/design/electrical/hcsr04.png" alt="" /></span>
+								Component 6: HC-SR04 Ultrasonic Sensor <br>
+								The HC-SR04 ultrasonic sensor was mounted on the front of Superspot and interfaced directly with the arduino: it was powered by the 5v pin, and the trig and echo pins were connected to the analog pins. It was used as the “eyes” of SuperSpot, allowing it to sense the ball, as well as other obstacles, depending on the voice command given.  <br> <br>
+								
+								The full circuit, mess and all, is shown below:
+								<div class="col-4"><img src="images/design/electrical/full_circuit.png" alt="" /></div>
+								</p> 
+
+							</section>
+                        
+                        <!-- Mechanical -->
+							<section id="mechanical" class="main">
+								<span class="image main"><img src="images/stand3.png" alt="" /></span>
+								<h2>Mechanical</h2>
+								<p>
+									<b>Overview: </b><br>
+									The mechanical components of SuperSpot can be divided up into 5 parts: legs, body, head/neck, jaw, and the ball. These components were all iterated on thoroughly during our sprints and integrated together to create the final design of SuperSpot. <br> <br>
+									<b>Brief sprint goals: </b><br>
+									<span class="image left"><img src="images/design/mechanical/sprint1.png" alt=""/></span> 
+									Sprint 1: <br>
+									Our goal for Sprint 1 was to create a simple skeleton of the dog body/chassis that would allow us to test electrical components and motors. This skeleton was constructed out of ¼” fiberboard, with each “leg” secured to a central base via T-nut joints. We attached a DC motor and wheel to the end of each wooden leg to act as the feet of the dog, activating the ability for the base to be mobile. <br> <br>
+									<br> <br>
+									<span class="image right"><img src="images/design/mechanical/sprint2.2.png" alt="" /></span>
+									Sprint 2: <br>
+									During sprint 2, we started the journey of developing a body and legs that actually resembled a dog. After testing our motors in sprint 1, we decided to order new DC motors due to poor motor performance, and this helped SuperSpot start to drive faster and straighter! We started modeling prototypes of individual leg casings and a central torso that would hold most components. This sprint taught us the strength of filleting parts due to some failed 3D printed leg casings and the importance of time management/collaboration. <br> <br>
+									<div class="box alt">
+										<div class="row gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/sprint2.png" alt="" /></span></div>
+											<div class="col-4"><video width="320" controls>
+												<source src="images/design/mechanical/sprint2vid.mp4" type="video/mp4">
+											  Your browser does not support the video tag.
+											  </video></div>
+										</div>
+									</div>
+									Sprint 3: <br>
+									Sprint 3 is where everything started coming together! In this sprint, we refined and then integrated several individually developed systems and components of our dog. <br> <br>
+									<div class="box alt">
+										<div class="row gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/sprint3.1.png" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/sprint3.2.png" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/sprint3.3.png" alt="" /></span></div>
+										</div>
+									</div>
+									
+									<b>Legs: </b><br>
+									The legs of SuperSpot were specifically designed to achieve the following goals: <br>
+									<ul>
+										<li>Protect and house the motors controlling the feet</li>
+										<li>Allow for movement and geometry to enact commands such as sit, lay down, and paw</li>
+										<li>Securely attach to the main body via shoulder joints</li>
+									</ul>
+									Each of the legs were designed in two parts that could be secured together via snap joints and screw holes. These legs were 3D printed out of white PLA as an efficient form of manufacturing the unique geometry of the casing. The inside of the legs are hollow, specifically designed to screw fit a DC motor located near the foot of each leg. The shaft of the motor extends through a hole on the outside of the leg casing, which drives a wheel that acts as the dog’s feet and is its main mode of transportation. <br>
+									These legs were designed at a 30 degree angle. This allows the shoulder joints to move the back legs forwards geometrically so that SuperSpot can be in a seated position without interfering with the front legs. <br>
+									Additionally, each leg casing has small holes at the base of the shoulder to allow for wires to travel from the motors of the feet into the torso, where it gets powered. <br>
+									<div class="box alt">
+										<div class="row gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/legs1.png" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/legs2.png" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/legs3.png" alt="" /></span></div>
+										</div>
+									</div>
+									During Sprint 1 we encountered challenges with the motors on the legs. The motors were very unreliable. They operated inconsistently at low speeds, they would fail on carpet, and frequently they would simply stall or stop working out of the blue. Verbal commands like “spin”, “heel”, and any movement instruction were difficult to test and refine because of the variability in performance. <br>
+									We looked into purchasing better motors, but there were some constraints. The sprint 1 design uses four motors (one for each leg) with a right-angle gearbox. The gearbox transmits power perpendicular to the orientation of the motor. This was very convenient because we could directly drive the wheels and the profile fit well in the anticipated form factor of the dog leg. <br>
+									The new motors needed to be right-angle motors in order to fit our design, which severely limited our options. Higher end motors with the right-angle gearbox – especially those geared for torque over speed – ran upwards of $15 apiece. All four motors together would cost $70-$80 with shipping. Given our limited budget these prices were prohibitive. <br>
+									We considered several alternative designs such as driving the legs jointly (which would reduce the number of motors needed), indirectly driving the legs (to allow for more flexibility in mounting and the type of motor), using small motors, designing our own gearboxes, and more. Unfortunately, none of the alternatives were especially viable with our space, budget, time restrictions, and priorities. <br>
+									We settled on buying new versions of the same motors. The original motors we used were a couple of years old, so we anticipated improved performance from brand new motors of the same model. The new motors did improve the reliability and performance of SuperSpot. However, being relatively cheap and of the same model, they did share some of the issues of the original motors. <br>
+									The leg casings taught us about designing with 3D printing in mind. The initial prints of the leg casings failed. Parts of the print detached because the thin walls were not appropriately connected to one another. In addition, the thin walls of the casing introduced warping and made it difficult to align the two halves of the casing properly. On the second iteration we filleted several connections for added strength which worked very well. Additionally, on the first round of prints we figured out the optimal orientation of the part for printing, so we modified the design to avoid needless supports. Designing with our method of manufacturing in mind was a very valuable lesson. It also emphasized the importance of time management and collaboration to allow smooth handling of hiccups.<br> <br>
+									
+									<b>Body: </b><br>
+									The torso of SuperSpot houses all of the electrical components , including:
+									<ul>
+										<li>Arduino Uno R4 + (3?) motor shields, directing power to all of the motors and servos</li>
+										<li>5 MG996R Servos that control all 4 legs at the shoulder joint, and one that controls the neck</li>
+										<li>An ultrasonic distance sensor to allow it to detect the ball</li>
+										<li>12V rechargeable lithium battery</li>
+									</ul>
+									The casing was also manufactured via 3D printing with PLA, which allowed for us to create custom servo placements and holes for the ultrasonic sensor. The torso is split into two parts horizontally, secured by snap fit joints to allow for easy access to the electronics. <br>
+									The 4 servos that served as shoulder joints were important for SuperSpot to be able to complete some of the voice commands, such as sit, lay down, or paw. Each servo was attached to the side of the torso and the ends of the legs were securely screwed into the shaft of the servo, actuating the movement of the entire leg. The base of the neck is stationed at the center of the torso, driven by another servo. This allowed SuperSpot to follow commands such as nodding or to pick up the ball. <br> <br>
+									<div class="box alt">
+										<div class="row gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/body1.png" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/body2.png" alt="" /></span></div>
+										</div>
+									</div>
+									
+									<b>Head/neck: </b><br>
+									The neck of the dog was designed to be both lightweight and functional, allowing for efficient wiring between the head and the body. It consists of a cylindrical structure that connects to the head, tapering into a flat prism to optimize space within the body. Mounted to stands attached to the bottom of the body, the neck rotates from the center of the torso, maintaining a consistent distance from the front chest for more natural movement. To complement this, the head is positioned at an angle that ensures it moves naturally as the neck rotates. The 3D model of the head is based on a real dog’s anatomy, yet it was designed geometrically to align with the body’s aesthetic and functional complexity. It houses a mini servo, precisely aligned with the jaw's rotation axis, enabling controlled movement. Additionally, the head is equipped with magnets, allowing it to pick up a ball, further enhancing the robot’s interaction capabilities.<br><br>
+
+									<b>Jaw: </b><br>
+									<ul>
+										<li>Designed to be light, shaped so that it could rotate 35 degrees freely along the jaw hinge, driven by a mini servo in the dog head.</li>
+										<li>Changed design to be flatter and less L shaped for improved mobility</li>
+										<li>Changed to be flat on button for better grip / clamping</li>
+									</ul><br>
+
+									<b>Ball: </b><br>
+									Audrey: I designed and fabricated the ball for the dog to play fetch with. The ball had the following constraints:<br>
+									<ul>
+										<li>Must be able to be thrown</li>
+										<li>Must be able to right itself such that the toy lands in the same position each time it is thrown</li>
+										<li>Must be able to be picked up by SuperSpot</li>
+									</ul>
+									<div class="box alt">
+										<div class="row gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/ball1.png" alt="" /></span></div>
+											<p>Fig. 1: Dog ball model 1 CAD assembly <br>(pictured with dimpled plastic material render for realism)</p>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/ball2.png" alt="" /></span></div>
+											<p>Fig. 2: Dog ball model 1 CAD assembly <br>with hidden lines visible. Here it is apparent <br>how the two halves of the ball are affixed with carefully toleranced slots.</p>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/ball3.png" alt="" /></span></div>
+											<p>Fig. 3: Bottom half of dog ball model 1 <br>(pictured with dimpled plastic material render for realism)</p>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/ball4.png" alt="" /></span></div>
+											<p>Fig. 4: Top half of dog ball model 1 <br>(pictured with dimpled plastic material render for realism)
+											</p>
+										</div>
+									</div>
+									This design was developed with a 30 degree overhang from the horizontal (parallel to the floor). This matched how the jaw was originally intended to actuate. After attaching the jaw, we realized it was not realistic to get that range of motion, so a new iteration of the ball was developed. This one had the added constraints:<br>
+									<ul>
+										<li>Needs to align with the new jaw angle (23.5 degrees)</li>
+										<li>Due to the orientation of how the dog’s head is attached to the neck, the angle is no longer parallel to the ground</li>
+										<li>Must be small enough to fit inside the jaw (44mm)</li>
+										<li>Must be small enough such that the jaw did not hit the ball in it’s most downright position (41mm)</li>
+									</ul>
+									<div class="box alt">
+										<div class="row gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/ball5.png" alt="" /></span></div>
+											<p>Fig. 5: Dog ball model 2 CAD assembly <br>(rendered with dimpled plastic material for realism)</p>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/ball6.png" alt="" /></span></div>
+											<p>Fig. 6: Bottom half of dog ball model 2 (pictured with dimpled plastic render)</p>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/ball7.png" alt="" /></span></div>
+											<p>Fig. 7: Top half of dog ball model 2 (pictured with dimpled plastic render)</p>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/ball8.png" alt="" /></span></div>
+											<p>Fig. 8: Assembly of dog ball model 2 (hidden lines visible to show toleranced slotting)</p>
+										</div>
+									</div>
+									Iteration 2 was printed on TPU so that it was more dog-like and could be thrown easier. The ball would be filled with sand and topped with a thick layer of hot glue to prevent it from sliding around within the bottom cavity of the ball. Then, the ball would be lined with magnetic tape on the underside of the overhang to connect to magnets in the dog’s jaw. Finally, the ball would also be topped with magnets to connect to the top jaw of the dog. <br>
+									Model 2 of the dog ball was printed. It was then I realized I had made a fatal error. While I’d assumed it was best to ensure the ball would not obstruct the jaw in its most downright position (41mm), that came at the cost of arguably the most important criteria for the ball: it needs to be tall enough to be detected by the ultrasonic sensor (60mm) in order to execute the fetch algorithm. So, I made a valiant effort to reprint the ball scaled 135%. I made the rather unfortunate discovery that there was not a single SD card or SD card reader not corrupted in the entire print farm. Our team made the collective decision to use the first model of the ball for demo day.<br>
+								</p>
+							</section>
+					</div>
+
+				<!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">&copy; <a href="https://github.com/karismoon/pie-2024-03">Team Super Spot, Olin College of Engineering Principles of Integrated Engineering 2024.</a> 
+						Design: <a href="https://twitter.com/ajlkn">@ajlkn</a> for <a href="https://html5up.net">HTML5 UP</a>.</br>
+                        by Audrey Renaud, Sam Wisnoski, Luca Odio, Shauna Sperou, and Karis Moon.
+                    </p>
+                </footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
