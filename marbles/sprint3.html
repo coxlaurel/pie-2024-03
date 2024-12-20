@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
+    <title>Sprint 3 - Losing our Marbles</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
   </head>
@@ -18,6 +18,7 @@
                     </div>
                     <div id="spacer"></div>
                     <div id="header-nav">
+                        <a href="index.html" class="nav-link">Home</a>
                         <a href="system.html" class="nav-link">System</a>
                         <a href="mechanical.html" class="nav-link">Mechanical</a>
                         <a href="electrical.html" class="nav-link">Electrical</a>
@@ -85,8 +86,8 @@
 
                 <div class="centered-text-section">
                     <p>
-                        We reached this goal by creating two ways for users to input images: uploading a picture to compress into 8x8 pixels, and drawing an 8x8 pixel image. We created a Python script that turned a picture into a compressed image for the marble machine to create with its eight-by-eight pixels and the six marble colors. This script communicated using serial with the Arduino program to create the chosen image. We also made a graphical user interface in Processing for users to draw an 8x8 pixel image to be made by the marble machine. Due to time constraints, this program didn’t directly communicate with the Arduino program, instead, it required the user to copy and paste code of their drawing from the Processing serial monitor into the Arduino program. 
-Beyond this goal, we also updated the Arduino program so that the marble lift mechanism would be synced with the rest of the system. Specifically, the lift only turns on when the color sensor doesn’t see a marble so that the marble pathway doesn’t get jammed from having too many marbles. Additionally, we ordered more marbles so the machine could draw images that were mostly one color, but decided not to use these marbles because they had more variation (in size and color), causing the color sensing 
+                        We reached this goal by creating two ways for users to input images: uploading a picture to compress into 8x8 pixels, and drawing an 8x8 pixel image. We created a Python script that turned a picture into a compressed image for the marble machine to create with its eight-by-eight pixels and the six marble colors. This script communicated using serial with the Arduino program to create the chosen image. We also made a graphical user interface in Processing for users to draw an 8x8 pixel image to be made by the marble machine. This program didn’t directly communicate with the Arduino program, instead, it required the user to copy and paste code of their drawing from the Processing serial monitor into the Arduino program. 
+Beyond this goal, we also updated the Arduino program so that the marble lift mechanism would be synced with the rest of the system. Additionally, we ordered more marbles so the machine could draw images that were mostly one color, but decided not to use these marbles because they had more variation (in size and color), causing the color sensing 
                     </p>
                 </div>
                 
