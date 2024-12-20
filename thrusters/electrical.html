@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Ghost Thrusters</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- wrapper -->
+    <div id="wrapper">
+
+        <!-- header -->
+        <header id="header">
+            <a href="index.html" class="logo">thrusters</a>
+        </header>
+
+        <!-- nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="index.html">overview</a></li>
+                <li class="active"><a href="system.html">our system</a></li>
+                <li><a href="sprints.html">sprints</a></li>
+                <li><a href="bom.html">bill of materials</a></li>
+                <li><a href="gallery.html">gallery</a></li>
+                <li><a href="team.html">team</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://github.com/rixhee/gas-thruster-stabilization" class="icon brands fa-github"><span
+                            class="label">github</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- Post -->
+            <section class="post">
+                <header class="major">
+                    <h1>Electrical System</h1>
+                </header>
+
+                <!-- Text stuff -->
+                <!-- Text and Photo Sections -->
+
+                <!-- Microcontroller Section -->
+                <p>
+                    The electrical system of our project consists of four main elements: a microcontroller, an Inertial
+                    Measurement Unit (IMU), four relay modules, and four solenoid valves.
+                </p>
+
+                <h2>Components</h2>
+
+                <p>
+                    <b>Microcontroller:</b> For our microcontroller, we opted to use an ESP32 Development Board. It
+                    serves as the central hub, processing data and controlling other components. The ESP32's 3.3V output
+                    powers key components in our system.
+                </p>
+
+                <div class="box alt">
+                    <div><span class="image fit system"><img src="images/system/electrical/esp32.jpg" alt="" /></span>
+                    </div>
+                </div>
+
+                <!-- IMU Section -->
+                <p>
+                    <b>Inertial Measurement Unit (IMU):</b> We used the MPU6050, with both a gyroscope and
+                    accelerometer, that collects orientation data necessary for stabilization. It is powered directly
+                    from the ESP32, ensuring seamless data communication over the I2C protocol.
+                </p>
+
+                <div class="box alt">
+                    <div><span class="image fit system"><img src="images/system/electrical/imu.jpg" alt="" /></span>
+                    </div>
+                </div>
+
+                <!-- Relay Modules Section -->
+                <p>
+                    <b>Relay Modules:</b> Four relays are used to control the solenoid valves. Based on signals from the
+                    ESP32, the relays close their circuits to actuate the valves. The relays are powered from the 3.3V
+                    output of the ESP32.
+                </p>
+                <div class="box alt">
+                    <div><span class="image fit system"><img src="images/system/electrical/relay.png" alt="" /></span>
+                    </div>
+                </div>
+
+                <!-- Solenoid Valves Section -->
+                <p>
+                    <b>Solenoid Valves:</b> The solenoid valves regulate the pressurized air from the thrusters. Each
+                    valve is connected to a relay, with the relay's 'common' pin tied to a 12V power supply. The valves
+                    act as the load in this circuit, ensuring controlled airflow for stabilization.
+                </p>
+
+                <div class="box alt">
+                    <div><span class="image fit"><img src="images/system/electrical/valve.png" alt="" /></span>
+                    </div>
+                </div>
+
+                <h2>Circuit Diagram</h2>
+
+                <span class="image fit"><img src="images/system/electrical/circuit_diagram.jpeg" alt="" /></span>
+
+                <h2 style="margin-top: 30px;">Challenges</h2>
+                <p>
+                    We encountered several challenges during the implementation of our electrical system. One of
+                    these challenges was that our IMU would reset at seemingly random times. We determined, by
+                    probing its power pins with an oscilliscope, that this was due to
+                    interference on the power line. This makes sense considering our usage of
+                    solenoid valves, which are big inductors
+                    that can cause EMI and back EMF. To solve this problem, our first step was to add flyback
+                    diodes across the solenoid valves to prevent
+                    unwanted voltage spikes with sudden current changes. While this definitely a necessary
+                    addition, it did not totally resolve our problems.
+
+                    Next, we added a small inductor across the common ground of the 3.3V supply and the 12V
+                    supply to filter out any potential offset. We additionally
+                    added a 100 uF capacitor in parallel with the IMU's power and ground to compensate
+                    for any sudden voltage changes. This solved our IMU reset problem.
+                </p>
+                <p>
+                    Another challenge we encountered was that when we had pressurized air in our tanks, the
+                    solenoid valves would not all open. Initially we thought that
+                    this must have been due to a blockage in the tubing. However, what tipped us off that this was a
+                    power issue was that when the pressure in the tanks was lowered,
+                    both valves would function and allow air to flow. So, we determined that at higher
+                    pressures, the valves needed a higher current supplied in order to open.
+                    In retrospect, this was a simple issue to fix, as all we had to do was raise the current limit
+                    on our power supply. However, it was tough to diagnose since we
+                    were not even sure which system was causing problems!
+                </p>
+            </section>
+        </div>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
+
+</body>
+
+</html>

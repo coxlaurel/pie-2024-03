@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Ghost Thrusters</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- wrapper -->
+    <div id="wrapper">
+
+        <!-- header -->
+        <header id="header">
+            <a href="index.html" class="logo">thrusters</a>
+        </header>
+
+        <!-- nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="index.html">overview</a></li>
+                <li class="active"><a href="system.html">our system</a></li>
+                <li><a href="sprints.html">sprints</a></li>
+                <li><a href="bom.html">bill of materials</a></li>
+                <li><a href="gallery.html">gallery</a></li>
+                <li><a href="team.html">team</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://github.com/rixhee/gas-thruster-stabilization" class="icon brands fa-github"><span
+                            class="label">github</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- Post -->
+            <section class="post">
+                <header class="major">
+                    <h1>Software System</h1>
+                </header>
+
+                <!-- Text stuff -->
+                <p>
+                    The software system for Ghost Thrusters is responsible for controlling the balance and stability of
+                    the system using a PID-based approach. It incorporates multiple thrusters, each programmed to
+                    respond dynamically to changes in orientation and velocity. The system's architecture ensures
+                    precision adjustments to maintain desired angles and mitigate external disturbances.
+                </p>
+
+                <h2>Key Features</h2>
+                <ul>
+                    <li>PID-based thrust control for maintaining target pitch and roll.</li>
+                    <li>Dynamic counter-thrust to correct overcompensation.</li>
+                    <li>Modular code design for extensibility and debugging.</li>
+                </ul>
+
+                <h2>How It Works</h2>
+                <p>
+                    The control system operates by calculating the error between the desired orientation (setpoint) and
+                    the current orientation of the system. Using a PID (Proportional-Integral-Derivative) controller, it
+                    computes the necessary thrust adjustments for each thruster to minimize this error. The
+                    incorporation of velocity feedback ensures that the system accounts for dynamic changes, reducing
+                    overshoot and avoiding oscillations. By adapting thrust based on real-time velocity and position,
+                    the system achieves smoother and more precise corrections.
+                </p>
+                <p>
+                    Earlier approaches relied solely on angular error without factoring in velocity, leading to frequent
+                    overcompensation and instability. This resulted in jerky movements and slower stabilization times.
+                    The current design leverages velocity to predict system behavior and apply counter-thrust only when
+                    necessary, achieving a more fluid and efficient balance. Additionally, the use of dynamic thresholds
+                    and damping factors further reduces unnecessary thruster activity, enhancing the overall performance
+                    and responsiveness of the system.
+                </p>
+
+                <h2>Code Snippet</h2>
+                <pre><code>
+        class Thruster {
+        private:
+            int pin;
+            float previousError = 0;
+            PIDController pidController;
+
+        public:
+            Thruster(int pin) : pin(pin), pidController() {
+                pinMode(pin, OUTPUT);
+            }
+            int getPin() const { return pin; }
+            int thrust(float setpoint, float currentAngle, float currentVelocity, bool positive) {
+                float error = abs(setpoint) - abs(currentAngle);
+                float output = abs(pidController.calculate(setpoint, currentAngle, kp, ki, kd));
+                if (abs(error) > threshold && ...) return output;
+                else return 0;
+            }
+        };
+                </code></pre>
+
+                <h2>Link to Source Code</h2>
+                <p>
+                    You can find the source code for this project on our <a
+                        href="https://github.com/Rixhee/gas-thruster-stabilization" target="_blank">GitHub
+                        repository</a>.
+                </p>
+
+                <h2>Dependencies</h2>
+                <p>
+                    Below are the dependencies required for running the simulation:
+                </p>
+                <ul>
+                    <li><strong>numpy</strong>: For numerical computations</li>
+                    <li><strong>dash</strong>: Web application framework for creating interactive user interfaces</li>
+                    <li><strong>dash.dependencies</strong>: For managing user interactions in Dash apps</li>
+                    <li><strong>plotly</strong>: For creating interactive plots and visualizations</li>
+                </ul>
+
+                <h2>Challenges</h2>
+                <p>
+                    Implementing a real-time control system presented challenges such as tuning PID parameters for
+                    optimal response and ensuring precise synchronization of multiple thrusters. Additionally, managing
+                    counter-thrust logic to prevent oscillations required extensive testing and debugging.
+                </p>
+
+                <h2>Future Improvements</h2>
+                <ul>
+                    <li>Enhance counter-thrust logic for faster stabilization.</li>
+                    <li>Implement auto adjustment logic for adaptive PID parameter tuning.</li>
+                    <li>Optimize code efficiency for faster response times.</li>
+                </ul>
+            </section>
+        </div>
+
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

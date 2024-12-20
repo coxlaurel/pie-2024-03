@@ -1,2 +1,2 @@
-# team-page-template
-this template gives you a starting point for Olin courses such as PIE or UXD that have teams making project sites
+# Ghost Thrusters
+This is the project website for our self stabilizing, reaction control system drone.

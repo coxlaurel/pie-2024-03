@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Ghost Thrusters</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- wrapper -->
+    <div id="wrapper">
+
+        <!-- header -->
+        <header id="header">
+            <a href="index.html" class="logo">thrusters</a>
+        </header>
+
+        <!-- nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="index.html">overview</a></li>
+                <li><a href="system.html">our system</a></li>
+                <li class="active"><a href="sprints.html">sprints</a></li>
+                <li><a href="bom.html">bill of materials</a></li>
+                <li><a href="gallery.html">gallery</a></li>
+                <li><a href="team.html">team</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://github.com/rixhee/gas-thruster-stabilization" class="icon brands fa-github"><span
+                            class="label">github</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- Post -->
+            <section class="post">
+
+                <header class="major">
+                    <h1>Sprint 3</h1>
+                </header>
+
+                <p>
+                    In the third sprint, we successfully completed the electrical and firmware integration of the gas
+                    thruster reaction control system. This involved mapping out a diagram of connection placements on
+                    the proto board, soldering down electrical components to the proto board, and integrating the
+                    electrical
+                    system to the existing 4 thruster mechanical system.
+                </p>
+
+                <!-- gallery pic17, harness diagram-->
+
+                <div class="box alt">
+                    <div class="row gtr-50 gtr-uniform">
+                        <div class="col-6"><span class="image fit"><img src="images/sprint3/drone.jpeg" alt="" /></span>
+                        </div>
+                        <div class="col-6"><span class="image fit"><img src="images/sprint3/harness_diagram.jpg"
+                                    alt="" /></span>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    The final mechanical milestone for sprint 3 included the design of an air tank holder, allowing both
+                    air tanks to be easily integrated with the rest of the mechanical system, while simultaneously
+                    staying
+                    as light as possible.
+                </p>
+
+                <!-- bottle_holder.PNG -->
+                <div class="box alt">
+                    <div><span class="image fit system"><img src="images/sprint3/bottle_holder.PNG" alt="" /></span>
+                    </div>
+                </div>
+
+                <p>
+                    A few electrical issues came up during initial tests of the 4 thruster system. We witnessed a
+                    phenomenon
+                    where the solenoid valves would only open at lower tank pressures, which we hypothesized was due to
+                    blockage of the tubing system. Eventually, we figured out that the solenoid valves were not getting
+                    enough
+                    current to open at higher pressures. Luckily, the simple fix was to increase the current limit on
+                    the power
+                    supply!
+                </p>
+
+                <!-- tanks.png-->
+
+                <div class="box alt">
+                    <div><span class="image fit system"><img src="images/sprint3/tanks.png" alt="" /></span>
+                    </div>
+                </div>
+
+                <p>
+                    Much of the software work for sprint 3 included tuning the 4 thruster PID loop and adding in a
+                    velocity component to
+                    achieve smoother balancing.
+
+                    Ultimately, by the end of sprint 3, we achieved our initial minimum viable product (MVP), as the
+                    drone was able to stabilize
+                    itself. If we were to continue work on the project, we'd want to make the drone more "flight ready".
+                    This would entail
+                    adding batteries as a portable power system, adding propellers as a lift mechanism, and including
+                    onboard pressure regulation
+                    to maximize airtime.
+
+                    All of us learned a lot in this project, and are happy with what we ended up creating!
+                </p>
+
+            </section>
+
+        </div>
+
+        <!-- Copyright -->
+        <div id="copyright">
+            <ul>
+                <li>&copy; Ghost Thrusters</li>
+                <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        function showModal(imageSrc, alt) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
+            captionText.innerHTML = alt; // add alt text to caption
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>
