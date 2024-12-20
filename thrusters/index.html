@@ -52,36 +52,49 @@
 			<article class="post featured">
 				<header class="major">
 					<h2>Project Overview</h2>
-					<p>Ghost Thrusters is a PIE project aimed at developing a self-stabilizing drone using a
+					<p>Ghost Thrusters is the final project for class 'principles of integrated engineering (PIE)' aimed
+						at developing a self-stabilizing drone using a
 						reaction-control system.</p>
 				</header>
 				<p>
 					The goal of this project is to create a drone capable of maintaining its equilibrium position during
-					flight through
-					the use of pressurized air thrusters. Our focus was the stablization capabilities, so we designed a
-					non-flight capable
-					drone that when suspended in the air by strings, self adjusts its position.
+					flight through the use of pressurized air thrusters. Our focus was primarily on the stabilization
+					capabilities, so we designed a non-flight-capable drone that, when suspended in the air by strings,
+					self-adjusts its position. This approach allowed us to concentrate on the balance and control
+					systems without the added complexity of flight, providing a solid foundation for future development.
 				</p>
 				<p>
-					Throughout the development process, we have successfully integrated an Inertial Measurement Unit
-					(IMU) into our prototype. This integration
-					allows for real-time monitoring of the drone's orientation, providing crucial data for achieving
-					dynamic balance. Our testing phase has
-					demonstrated significant progress, showcasing the ability of our drone to adjust thrust based on
-					angular displacement effectively.
+					The development process involved a combination of electrical, mechanical, and software systems, each
+					contributing to the drone's ability to stabilize itself. The electrical system was built around an
+					ESP32 microcontroller, which interfaced with relays and solenoid valves to control the thrusters. An
+					Inertial Measurement Unit (IMU) was integrated to measure the drone's orientation and speed,
+					providing real-time data critical for stabilization. On the mechanical side, we designed the
+					structure of the drone to support the thrusters and accounted for the physics required to produce
+					the precise amount of thrust needed for balance. This involved calculating forces and understanding
+					the dynamics of airflow from the thrusters.
 				</p>
 				<p>
-					We successfully implemented a system made up of mechanical, electrical, firmware, and software
-					components to reach our goal, as well
-					as develop different methods of testing the different system elements.
+					In the software domain, we developed code to parse IMU readings using I2C communication and
+					implemented PID control loops. These loops processed the IMU data to adjust thrust and
+					counter-thrust, ensuring the drone maintained its equilibrium. Before constructing the four-thruster
+					jig, we simulated the entire system in Python to test and refine the code. The simulation helped us
+					identify potential issues and fine-tune the PID parameters, accelerating the development process and
+					ensuring smooth integration of all components.
+				</p>
+				<p>
+					By integrating the electrical, mechanical, and software systems, we created a cohesive prototype.
+					The ESP32 controlled the relays and valves, while the IMU provided orientation data to adjust the
+					thrusters. The mechanical design ensured proper thrust positioning, and Python simulations validated
+					the code. This integration allowed the drone to stabilize itself when suspended in the air.
 				</p>
 			</article>
 
 			<section>
-				<div style="text-align:center;">
-					<img src="images/system-diagram.png" alt="Project overview diagram"
-						style="max-width:100%; height:auto;">
-					<p>Diagram illustrating the Ghost Thrusters system interactions</p>
+				<header class="major">
+					<h1>System Diagram</h1>
+				</header>
+				<div class="box alt">
+					<div><span class="image fit"><img src="images/system-diagram.png" alt="" /></span> </div>
 				</div>
 			</section>
 
