@@ -46,8 +46,71 @@
 						
 						<!-- Software -->
 						<section id="software" class="main">
-							<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
+							<span class="image main"><img src="images/design/software.png" alt="" /></span>
 							<h2>Software</h2>
+							<p>
+								Repo: <a href="https://github.com/karismoon/spot-dog">https://github.com/karismoon/spot-dog</a><br><br>
+
+								The software for the robotic dog is a lightweight, single-page web application that acts as the primary interface for voice-command control. It leverages modern web technologies to recognize keywords via the browser’s Speech Recognition API and sends commands directly to the Arduino R4 through HTTP requests.<br>
+
+								<p>
+									<b>Website Development</b><br><br>
+									Design and Features:<br>
+									The website is a single-page application designed to be intuitive and responsive. It includes:<br>
+									<ul>
+										<li><b>Keyword Recognition:</b> A speech-to-text feature powered by the Web Speech API (specifically, SpeechRecognition).</li>
+										<li><b>Command Execution:</b> Recognized keywords are matched against a predefined command set and sent to the robotic dog via HTTP requests.</li>
+										<li><b>Status Indicators:</b> The page dynamically updates the recognition status (e.g., “Listening” or “Not Listening”) and displays the last recognized keyword.</li>
+									</ul>
+
+									Frontend Technologies:<br>
+									<ul>
+										<li><b>HTML:</b> For structuring the content.</li>
+										<li><b>CSS:</b> For styling the page, ensuring a clean and modern look.</li>
+										<li><b>JavaScript:</b> For implementing the voice recognition and HTTP command logic.</li>
+									</ul>
+
+									Speech Recognition:<br>
+									The website uses the SpeechRecognition API to listen for user input. It recognizes predefined keywords such as <i>forward</i>, <i>sit</i>, <i>lay</i>, and <i>paw</i>. Once a keyword is recognized, it is mapped to a corresponding HTTP command and sent to the Arduino R4’s web server.<br><br>
+									
+									<b>Server Hosting on Arduino R4:</b><br>
+									The Arduino R4 operates as a web server, hosting an endpoint for each command. These endpoints are accessed by the webpage via HTTP GET requests. For example:
+									<ul>
+										<li><b>Command /forward:</b> Moves the robot forward.</li>
+										<li><b>Command /sit:</b> Executes the sitting gesture.</li>
+									</ul>
+									The Arduino R4 processes the commands received from the webpage and performs the corresponding actions.<br><br><br>
+
+									<b>External Dependencies</b><br>
+									The webpage relies on the following built-in browser features:
+									<ul>
+										<li><b>SpeechRecognition API:</b> Enables voice-to-text conversion.</li>
+										<li><b>Fetch API:</b> Sends HTTP requests to the Arduino R4.</li>
+									</ul>
+									Since the webpage uses only browser-native features, no additional external libraries or frameworks are required.<br><br>
+
+									<b>Source Code</b><br>
+									The complete source code for the webpage and the Arduino R4 firmware is available on <a href="https://github.com/karismoon/spot-dog">GitHub</a>.<br><br>
+
+									<b>Deployment Instructions</b><br>
+									<b>Arduino R4 Setup</b><br>
+									<ul>
+										<li>Load the firmware onto the Arduino R4 and ensure the web server is running.</li>
+										<li>Connect the Arduino R4 to the same network as the device accessing the webpage. (We used a phone hotspot to ensure a 2.4G connection).</li>
+									</ul>
+									<b>Hosting the Webpage</b><br>
+									<ul>
+										<li>The webpage can be opened locally on any device (given the device is on the same network) with a modern web browser.</li>
+									</ul>
+									<b>Testing</b><br>
+									<ul>
+										<li>Open the webpage in a browser.</li>
+										<li>Click "Start Listening" and speak a command (e.g., "forward" or "sit").</li>
+										<li>Observe the robotic dog’s response to ensure proper execution.</li>
+									</ul>
+									This simple, effective software solution ensures seamless communication between the user and the robotic dog through an interactive voice-command interface.
+								</p>
+							</p>
 						</section>	
 
                         <!-- Firmware -->
@@ -57,7 +120,6 @@
 								<p>
 									Repo: <a href="https://github.com/karismoon/spot-dog">https://github.com/karismoon/spot-dog</a><br><br>
 
-									<b>Firmware</b><br>
 									The firmware is designed to manage the various components of the system, which includes controlling DC motors, servos, and a relay while enabling WiFi-based remote communication. The central microcontroller used for this system is an Arduino R4, which acts as the main processing unit and supports wireless functionality.<br><br>
 									
 									System Initialization:<br>
