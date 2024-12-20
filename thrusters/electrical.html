@@ -47,22 +47,70 @@
                 </header>
 
                 <!-- Text stuff -->
-                <p> The electrical system of our project consists of 4 main elements: A microcontroller,
-                    an Inertial Measurement Unit (IMU), 4 relay modules, and 4 solenoid valves.
-                    For our microcontroller, we opted to use an ESP32 Development Board. From its 3.3V output, we power
-                    our IMU
-                    and relays. Based on the IMU data, the firmware on the ESP32 sends a signal to the relays indicating
-                    them to close.
-                    From there, the 'common' pin of the relays is tied to 12V and the solenoid valve is the load.
+                <!-- Text and Photo Sections -->
+
+                <!-- Microcontroller Section -->
+                <p>
+                    The electrical system of our project consists of four main elements: a microcontroller, an Inertial
+                    Measurement Unit (IMU), four relay modules, and four solenoid valves.
                 </p>
+
+                <h2>Components</h2>
+
+                <p>
+                    <b>Microcontroller:</b> For our microcontroller, we opted to use an ESP32 Development Board. It
+                    serves as the central hub, processing data and controlling other components. The ESP32's 3.3V output
+                    powers key components in our system.
+                </p>
+
+                <div class="box alt">
+                    <div><span class="image fit system"><img src="images/system/electrical/esp32.jpg" alt="" /></span>
+                    </div>
+                </div>
+
+                <!-- IMU Section -->
+                <p>
+                    <b>Inertial Measurement Unit (IMU):</b> We used the MPU6050, with both a gyroscope and
+                    accelerometer, that collects orientation data necessary for stabilization. It is powered directly
+                    from the ESP32, ensuring seamless data communication over the I2C protocol.
+                </p>
+
+                <div class="box alt">
+                    <div><span class="image fit system"><img src="images/system/electrical/imu.jpg" alt="" /></span>
+                    </div>
+                </div>
+
+                <!-- Relay Modules Section -->
+                <p>
+                    <b>Relay Modules:</b> Four relays are used to control the solenoid valves. Based on signals from the
+                    ESP32, the relays close their circuits to actuate the valves. The relays are powered from the 3.3V
+                    output of the ESP32.
+                </p>
+                <div class="box alt">
+                    <div><span class="image fit system"><img src="images/system/electrical/relay.png" alt="" /></span>
+                    </div>
+                </div>
+
+                <!-- Solenoid Valves Section -->
+                <p>
+                    <b>Solenoid Valves:</b> The solenoid valves regulate the pressurized air from the thrusters. Each
+                    valve is connected to a relay, with the relay's 'common' pin tied to a 12V power supply. The valves
+                    act as the load in this circuit, ensuring controlled airflow for stabilization.
+                </p>
+
+                <div class="box alt">
+                    <div><span class="image fit"><img src="images/system/electrical/valve.png" alt="" /></span>
+                    </div>
+                </div>
+
                 <h2>Circuit Diagram</h2>
 
                 <span class="image fit"><img src="images/system/electrical/circuit_diagram.jpeg" alt="" /></span>
 
-                <h2>Challenges</h2>
+                <h2 style="margin-top: 30px;">Challenges</h2>
                 <p>
                     We encountered several challenges during the implementation of our electrical system. One of
-                    these challenges was that our IMU would reset at seemingly random times. We determined, by 
+                    these challenges was that our IMU would reset at seemingly random times. We determined, by
                     probing its power pins with an oscilliscope, that this was due to
                     interference on the power line. This makes sense considering our usage of
                     solenoid valves, which are big inductors
