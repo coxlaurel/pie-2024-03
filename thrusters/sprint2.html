@@ -9,55 +9,6 @@
     <noscript>
         <link rel="stylesheet" href="assets/css/noscript.css" />
     </noscript>
-    <style>
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 9999; /* High z-index to ensure it’s on top */
-            padding-top: 100px; /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0); /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
-        }
-        
-        .modal-content {
-            margin: auto;
-            display: block;
-            width: auto;
-            max-width: 700px; /* Maximum width for the image */
-        }
-        
-        .close {
-            position: absolute;
-            top: 15px; /* Positioning of the close button */
-            right: 35px;
-            color: white; /* Color of close button */
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        
-        .close:hover,
-        .close:focus {
-            color: #ccc; /* Color change on hover */
-            text-decoration: none;
-            cursor: pointer; /* Cursor styling */
-        }
-        
-        #caption {
-            margin: auto;
-            display: block;
-            text-align: center;
-            color: #ccc; /* Color of caption */
-            padding: 10px 0; /* Padding */
-            width: 100%; /* Full width for caption */
-            max-width: 700px; /* Maximum width for caption */
-        }
-    </style>
 </head>
 
 <body class="is-preload">
@@ -91,82 +42,76 @@
             <!-- Post -->
             <section class="post">
 
-                <h3>Sprint 2 Overview</h3>
+                <header class="major">
+                    <h1>Sprint 2</h1>
+                </header>
 
                 <p>
-                    In Sprint 2 of our drone development project, we successfully completed the full mechanical assembly of the gas thruster reaction control system, 
-                    which is essential for stabilizing our drone using compressed air. This sprint involved the integration of various key components that 
-                    included disconnects, fittings, and tubing. Additionally, we incorporated a compressor 
-                    and a regulating valve to effectively manage the pressurized air, culminating in a carefully designed propelling nozzle.
+                    In the second sprint, we began designing the four-thruster drone in SolidWorks. This involved
+                    determining the optimal placement for the IMU and the prototype board, where all the circuitry would
+                    be mounted. Additionally, we redesigned the bottle caps for the air tanks, using plastic Fanta
+                    bottles,
+                    which proved effective in preventing gas leaks.
                 </p>
 
-                <!-- Placeholder for completed drone image -->
-                <div style="text-align:center;">
-                    <div style="display:inline-block; margin: 5px; border: 1px solid lightgray; padding: 5px; background: #E0E0E0;">
-                        <p style="font-size: small; margin: 0;">3D CAD of drone</p>
-                        <img src="images/sprint2/caddy.png" alt="Caddy" onclick="showModal(this.src, this.alt)" style="width: 350px; height: 400px; cursor: pointer;">
+                <div class="box alt">
+                    <div class="row gtr-50 gtr-uniform">
+                        <div class="col-6"><span class="image fit"><img src="images/sprint2/caddy.png" alt="" /></span>
+                        </div>
+                        <div class="col-6"><span class="image fit"><img src="images/sprint2/cap.png" alt="" /></span>
+                        </div>
                     </div>
-                    <div style="display:inline-block; margin: 5px; border: 1px solid lightgray; padding: 5px; background: #E0E0E0;">
-                        <p style="font-size: small; margin: 0;">Drone</p>
-                        <img src="images/sprint2/drone.png" alt="Drone" onclick="showModal(this.src, this.alt)" style="width: 350px; height: 400px; cursor: pointer;">
-                    </div>
-                    <div style="display:inline-block; margin: 5px; border: 1px solid lightgray; padding: 5px; background: #E0E0E0;">
-                        <p style="font-size: small; margin: 0;">Nozzle Design</p>
-                        <img src="images/sprint2/part.png" alt="Part" onclick="showModal(this.src, this.alt)" style="width: 350px; height: 400px; cursor: pointer;">
-                    </div>
-                    <p>Mechanical assembly of the gas thruster reaction control system on the drone</p>
                 </div>
 
                 <p>
-                    We additionally ran breadboard tests on a 4-relay system to ensure the functionaility before beginning intergration onto the un-changeable
-                    prototyping board.
+                    Once the design was complete, we sourced carbon fiber tubes, which we cut and used as arms to mount
+                    the thrusters. We then attached the valves, relays, and the IMU to the structure, ensuring secure
+                    placement for optimal functionality.
                 </p>
 
-                <!-- Placeholder for four-thruster drone simulation video -->
-                <div style="text-align:center;">
-                    <iframe src="https://drive.google.com/file/d/1IuTrkzUKVJ81s0llteb42-oCTPvpQH-d/preview" width="640" height="480" allow="autoplay"></iframe>
-                    <p>Video of breadboard test</p>
+                <div class="box alt">
+                    <div><span class="image fit system"><img src="images/sprint2/drone.png" alt="" /></span> </div>
                 </div>
 
-                
                 <p>
-                    Our final goal is to implement four thrusters on a stationary drone. If the drone is perturbed from its stable position, the Inertial 
-                    Measurement Unit (IMU) will detect the change, and the microcontroller will command the thrusters to respond accordingly to maintain stability. 
-                    In preparation for this, our next priorities for Sprint 2 included testing the controller software and starting to electrically integrate 
-                    the new four-thruster system. 
-                </p>
-                
-                <p>
-                    To further validate our firmware design choices before finalizing the electrical integration, we created a simulation that 
-                    tests various parameters for the control system. This allows us to ensure robustness and reliability in our drone's stability and response mechanisms.
+                    Electrically, we spent significant time debugging the issue of the Arduino resetting, using an
+                    oscilloscope for diagnosis. We discovered that the flyback voltage was too high, so we added a large
+                    inductor and capacitor across the ground and power lines of the relays to filter out voltage
+                    fluctuations. After addressing this issue, we proceeded to integrate the remaining two relays and
+                    valves for the four-thruster setup.
                 </p>
 
-                <!-- Seesaw simulation video -->
-                <div style="text-align:center;">
-                    <iframe src="https://drive.google.com/file/d/1NVuoQn-9b8QGc_UsUf5ONPqwBanEhQ3Z/preview" width="640" height="480" allow="autoplay"></iframe>
-                    <p>Seesaw simulation</p>
-                </div>
-                
-                <!-- Placeholder for four-thruster drone simulation video -->
-                <div style="text-align:center;">
-                    <iframe src="https://drive.google.com/file/d/1tFq1Sxw_QKvmaXZ7i_EuQyFgjzJGKaqM/preview" width="640" height="480" allow="autoplay"></iframe>
-                    <p>Four-thruster drone simulation showcasing stabilization in action</p>
-                </div>
-                
+                <iframe class="image fit demo"
+                    src="https://drive.google.com/file/d/1IuTrkzUKVJ81s0llteb42-oCTPvpQH-d/preview"
+                    title="Reaction Control System Demonstration" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
                 <p>
-                    As we move forward, we are excited to refine our design, enhance functionality, and ensure that our four-thruster drone achieves the 
-                    stabilization capabilities required for our final demonstration.
+                    In terms of software, we developed a Python simulation to test the PID control loops for the four
+                    thrusters. This simulation not only focused on stabilizing the drone but also on enabling it to
+                    orient and maintain a specific angle. It allowed us to identify potential issues and fine-tune the
+                    PID parameters, significantly speeding up the development process and ensuring a smooth integration
+                    of all components. </p>
+
+
+                <iframe class="image fit demo"
+                    src="https://drive.google.com/file/d/1tFq1Sxw_QKvmaXZ7i_EuQyFgjzJGKaqM/preview"
+                    title="Reaction Control System Demonstration" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <p>
+                    As we move into sprint 3, our goal is to enhance the robustness of our circuitry by transitioning
+                    from a proto board to a more permanent setup, soldering all components in place. We will then focus
+                    on testing the software, fine-tuning the PID parameters to account for real-world factors, and
+                    applying these adjustments to the actual 4-thruster jig. Additionally, we plan to develop a test
+                    setup to suspend the drone, enabling us to better evaluate its performance and stability in a
+                    controlled environment.
                 </p>
 
             </section>
 
-        </div>
-
-        <!-- Modal Structure -->
-        <div id="myModal" class="modal">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <img class="modal-content" id="img01">
-            <div id="caption"></div>
         </div>
 
         <!-- Copyright -->
@@ -196,7 +141,7 @@
             modalImg.src = imageSrc;
             captionText.innerHTML = alt; // add alt text to caption
         }
-        
+
         function closeModal() {
             var modal = document.getElementById("myModal");
             modal.style.display = "none";
