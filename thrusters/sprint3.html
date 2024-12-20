@@ -9,73 +9,6 @@
     <noscript>
         <link rel="stylesheet" href="assets/css/noscript.css" />
     </noscript>
-    <style>
-        .modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 9999;
-            /* High z-index to ensure it’s on top */
-            padding-top: 100px;
-            /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.9);
-            /* Black w/ opacity */
-        }
-
-        .modal-content {
-            margin: auto;
-            display: block;
-            width: auto;
-            max-width: 700px;
-            /* Maximum width for the image */
-        }
-
-        .close {
-            position: absolute;
-            top: 15px;
-            /* Positioning of the close button */
-            right: 35px;
-            color: white;
-            /* Color of close button */
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #ccc;
-            /* Color change on hover */
-            text-decoration: none;
-            cursor: pointer;
-            /* Cursor styling */
-        }
-
-        #caption {
-            margin: auto;
-            display: block;
-            text-align: center;
-            color: #ccc;
-            /* Color of caption */
-            padding: 10px 0;
-            /* Padding */
-            width: 100%;
-            /* Full width for caption */
-            max-width: 700px;
-            /* Maximum width for caption */
-        }
-    </style>
 </head>
 
 <body class="is-preload">
@@ -109,87 +42,69 @@
             <!-- Post -->
             <section class="post">
 
-                <h3>Sprint 3 Overview</h3>
+                <header class="major">
+                    <h1>Sprint 3</h1>
+                </header>
 
                 <p>
-                    In Sprint 3 of our drone development project, we successfully completed the electrical and firmware
-                    integration of the gas thruster
-                    reaction control system. This involved mapping out a diagram of connection placements on the proto
-                    board, soldering down electrical
-                    components, harnessing wires around the mechanical system. We also finalized the nozzle design,
-                    selecting the one capable of
-                    the highest thrust and mounted the 2 liter bottle air tanks.
+                    In the third sprint, we successfully completed the electrical and firmware integration of the gas
+                    thruster reaction control system. This involved mapping out a diagram of connection placements on
+                    the proto board, soldering down electrical components to the proto board, and integrating the electrical
+                    system to the existing 4 thruster mechanical system.
                 </p>
 
-                <!-- Placeholder for completed drone image -->
-                <div style="text-align:center;">
-                    <div
-                        style="display:inline-block; margin: 5px; border: 1px solid lightgray; padding: 5px; background: #E0E0E0;">
-                        <p style="font-size: small; margin: 0;">Drone</p>
-                        <img src="images/sprint3.png" alt="Caddy" onclick="showModal(this.src, this.alt)"
-                            style="width: 350px; height: 400px; cursor: pointer;">
+                <!-- gallery pic17, harness diagram-->
+
+                <div class="box alt">
+                    <div class="row gtr-50 gtr-uniform">
+                        <div class="col-6"><span class="image fit"><img src="images/sprint2/caddy.png" alt="" /></span>
+                        </div>
+                        <div class="col-6"><span class="image fit"><img src="images/sprint2/cap.png" alt="" /></span>
+                        </div>
                     </div>
-                    <div
-                        style="display:inline-block; margin: 5px; border: 1px solid lightgray; padding: 5px; background: #E0E0E0;">
-                        <p style="font-size: small; margin: 0;">Initial Harness Diagram</p>
-                        <img src="images/sprint3/harness_diagram.jpg" alt="Drone"
-                            onclick="showModal(this.src, this.alt)"
-                            style="width: 350px; height: 400px; cursor: pointer;">
-                    </div>
-                    <div
-                        style="display:inline-block; margin: 5px; border: 1px solid lightgray; padding: 5px; background: #E0E0E0;">
-                        <p style="font-size: small; margin: 0;">Air Tanks</p>
-                        <img src="images/sprint3/tanks.png" alt="Part" onclick="showModal(this.src, this.alt)"
-                            style="width: 350px; height: 400px; cursor: pointer;">
-                    </div>
-                    <p>Completed assembly of the gas thruster reaction control system on the drone</p>
                 </div>
 
                 <p>
-                    To ensure the functionality of our electronics, we used the working firmware from our seesaw to
-                    test. Good thing we did so, because we
-                    discovered that at higher pressures in the tank, we needed to supply more current in order for the
-                    solenoid valves to open. This testing
-                    also revealed that our ground row was floating due to a weak connection. Also during this testing,
-                    we witnessed that we'd need to lower
-                    the thrust commands in our firmware because it was so powerful!
+                    The final mechanical milestone for sprint 3 included the design of an air tank holder, allowing both
+                    air tanks to be easily integrated with the rest of the mechanical system, while simultaneously staying
+                    as light as possible.
                 </p>
 
-                <!-- Crazy thrust video -->
-                <div style="text-align:center;">
-                    <iframe src="https://drive.google.com/file/d/1reH1MzfmjhCf50WjeOSdDbDdjcUMjR2P/preview" width="640"
-                        height="480" allow="autoplay"></iframe>
-                    <p>Test revealing very powerful thrust</p>
-                </div>
-
-
-                <p>
-                    Finally, we implemented the adaptive 4 thruster firmware, tuning the PID parameters to until we
-                    achieved smoother balancing,
-                    by moving from a thrust application solely based on angle to one that also factors in velocity.
-                </p>
-
-
-                <!-- Placeholder for final demo video -->
-                <div style="text-align:center;">
-                    <iframe src="https://drive.google.com/file/d/1NVuoQn-9b8QGc_UsUf5ONPqwBanEhQ3Z/preview" width="640"
-                        height="480" allow="autoplay"></iframe>
-                    <p>4 thruster stabilization in action</p>
+                <!-- bottle_holder.PNG -->
+                <div class="box alt">
+                    <div><span class="image fit system"><img src="images/sprint2/drone.png" alt="" /></span> </div>
                 </div>
 
                 <p>
-                    We are very excited to have finished designing our four thruster, self-stabilizing drone.
+                    A few electrical issues came up during initial tests of the 4 thruster system. We witnessed a phenomenon
+                    where the solenoid valves would only open at lower tank pressures, which we hypothesized was due to 
+                    blockage of the tubing system. Eventually, we figured out that the solenoid valves were not getting enough 
+                    current to open at higher pressures. Luckily, the simple fix was to increase the current limit on the power
+                    supply!
+                </p>
+
+                <!-- tanks.png-->
+
+                <iframe class="image fit demo"
+                    src="https://drive.google.com/file/d/1IuTrkzUKVJ81s0llteb42-oCTPvpQH-d/preview"
+                    title="Reaction Control System Demonstration" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <p>
+                    Much of the software work for sprint 3 included tuning the 4 thruster PID loop and adding in a velocity component to
+                    achieve smoother balancing.
+
+                  Ultimately, by the end of sprint 3, we achieved our initial minimum viable product (MVP), as the drone was able to stabilize
+                  itself. If we were to continue work on the project, we'd want to make the drone more "flight ready". This would entail
+                  adding batteries as a portable power system, adding propellers as a lift mechanism, and including onboard pressure regulation 
+                  to maximize airtime. 
+
+                  All of us learned a lot in this project, and are happy with what we ended up creating!
                 </p>
 
             </section>
 
-        </div>
-
-        <!-- Modal Structure -->
-        <div id="myModal" class="modal">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <img class="modal-content" id="img01">
-            <div id="caption"></div>
         </div>
 
         <!-- Copyright -->
