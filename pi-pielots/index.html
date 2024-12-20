@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<!--
+	Escape Velocity by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Thorondor</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<style>
+
+    /* General styles */
+    .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 50px 0;
+    }
+
+    .timeline::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        background-color: white;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+    }
+
+    .timeline-item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+
+    .timeline-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    /* Adjust spacing to prevent overlap */
+    .timeline-item .content {
+        background-color: grey;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 40%; /* Reduced width of the content block */
+        margin-left: 30px; /* Increased margin */
+    }
+
+    .timeline-item:nth-child(even) .content {
+        margin-left: 0;
+        margin-right: 30px;
+    }
+
+    .timeline-item .image {
+        width: 45%; /* Increased width */
+        max-width: 400px;
+        height: 250px;
+        border-radius: 10px;
+        overflow: hidden;
+		margin-left: 40px; /* Add more space on the left */
+    	margin-right: 40px; /* Add more space on the right for even items */
+		padding:0;
+		border: none; /* Ensure no border is applied */
+    	transform: translateX(80px); /* Shift images outward */
+		background: none; /* Remove background color if it appears as a border */
+    	box-shadow: none !important;
+    }
+
+    .timeline-item:nth-child(even) .image {
+        margin-left: 0px; /* Consistent margins */
+        margin-right: 40px;
+		transform: translateX(-80px); /* Shift even images outward */
+
+    }
+
+    .timeline-item .image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+		border: none !important;
+    	box-shadow: none !important;
+	    padding: 0; /* Remove any padding */
+    }
+	.timeline-item .image video {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		border: none;
+		box-shadow: none;
+		padding: 0;
+		margin: 0;
+	}
+
+    .timeline-item .date {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: white;
+        color: white;
+        padding: 10px;
+        border-radius: 50%;
+		border:none;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header" class="wrapper" style="background: url('images/Hero_shot.jpg') no-repeat center center; background-size: cover; padding: 20px; text-align: center;min-height: 500px;" >
+
+					<!-- Logo -->
+						<div id="logo" style="position: relative; top: -70px;">
+							<h1><a href="index.html"style = "color:white">Thorondor</a></h1>
+							<p style = "color:white;font-size: 16pt;font-weight: bold;">An RC Bicopter Built in 6 Weeks</p>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li class="current"><a href="index.html">Home</a></li>
+								<li>
+									<a href="#">Systems</a>
+									<ul>
+										<li><a href="mechanical.html#">Mechanical</a></li>
+										<li><a href="software.html">Software</a></li>
+										<li><a href="electrial.html">Electrical</a></li>
+										<li><a href="simulation.html">Simulation</a></li>
+									</ul>
+								</li>
+								<li><a href="budget.html">Budget&BOM</a></li>
+								<li><a href="team.html">Meet the Team</a></li>
+							</ul>
+						</nav>
+
+				</section>
+
+			<!-- Intro -->
+				<section id="intro" class="wrapper style3">
+					<div class="title">Project Overview</div>
+					<div class="container">
+						<p class="style3">Thorondor is a tiltrotor bicopter built by 5 students from the Olin College of Engineering and Babson College in 6 weeks for their
+							 Principles of Integrated Engineering Final. The project was built in 6 weeks with a budget of 250 dollars. This unique airframe was controlled 
+							 by a custom flight controller running on a Rasberry Pi Pico. The airframe was primarely constructed from carbon fiber tubes, lasercut MDF, and 3D printed parts.
+						</p>
+					<div>
+
+				</section>
+				<section id="main" class="wrapper style1">
+					<div class="title">Flight Demonstration</div>
+					<div class = "container">
+							<div class="video-container">
+								<video autoplay muted loop playsinline>
+									<source src="videos/flight.mp4" type="video/mp4">
+									Your browser does not support the video tag.
+								</video>
+							</div>
+							<caption class="style3">
+								<p style="color:white;">
+									Test Flight with a safety harness that is not in tension. The aircraft has a tether to recieve debug information from the flight controller.
+								</p>
+							<header>
+					</div>
+
+				</section>
+			<!-- Main -->
+			<section id="timeline-section" class="wrapper style3">
+				<div class="title">Timeline</div>				
+				<div class="timeline">
+					<div class="timeline-item">
+						<div class="date">1</div>
+						<div class="content">
+							<h3 style="color: white;">Thorondor Mk0</h3>
+							<p style="color: white;">For the first sprint we decided to make a ground test vehicle (ironbird) to test the acutation and control of our propellors.
+							</p>
+						</div>
+						<div class="image" style="border:none;">
+							<img src="images/timeline/ThorndorMk0.jpg" alt="Image 1">
+						</div>
+					</div>
+			
+					<div class="timeline-item">
+						<div class="date">2</div>
+						<div class="content">
+							<h3 style="color: white;">Roll Stabalization</h3>
+							<p style="color: white;"></pstyle>We chose to first work on stabalizing in the roll direction as it was the simplest axis to control,
+								 and it would give time for the Nacell actuation system to be iterated upon. After extensive tuning we were able to stabalize at a given setpoint.</p>
+						</div>
+						<div class="image" style="border:none;">
+							<video autoplay muted loop playsinline>
+								<source src="videos/rolltest.mp4" type="video/mp4">
+								Your browser does not support the video tag.
+							</video>
+						</div>
+					</div>
+			
+					<div class="timeline-item">
+						<div class="date">3</div>
+						<div class="content">
+							<h3 style="color: white;">Pitch Stabalization</h3>
+							<p style="color: white;">Achieving Pitch stabalization was far more difficult than roll stabalization due to the control
+								 not being differential, like the roll axis is. Due to our ground testing being preformed with a standard powersupply 
+								 we found ourselves frequently current limiting our motors. After lots of tuning, we were able to achieve coarse stabalization in the pitch axis.</p>
+						</div>
+						<div class="image" style="border:none;">
+							<video autoplay muted loop playsinline>
+								<source src="videos/pitchtest.mp4" type="video/mp4">
+								Your browser does not support the video tag.
+							</video>
+						</div>
+					</div>
+			
+					<div class="timeline-item">
+						<div class="date">4</div>
+						<div class="content">
+							<h3 style="color: white;">Thorondor Mk1</h3>
+							<p>Our first flight viechle included a completely redesigned nacell system and a perfboard based avionics. The design aimed to maximaze modulatity and ease of repair. However the additional mass along with faulty propellers prevented the plane from being able to take off.</p>
+						</div>
+						<div class="image" style="border:none;">
+							<img src="images/timeline/ThorondorMk1.jpg" alt="Image 4">
+						</div>
+					</div>
+			
+					<div class="timeline-item">
+						<div class="date">5</div>
+						<div class="content">
+							<h3 style="color: white;">Thorondor Mk2</h3>
+							<p>Our final flight vehicle included a fully redesigned airframe along with the correct design of propellers and was able to achieve short flights. Insuffecient computing power and not enough momentum in the pitch axis prevented the craft from being fully stable.</p>
+						</div>
+						<div class="image" style="border:none;">
+							<img src="images/timeline/ThorondorMk2.jpg" alt="Image 5">
+						</div>
+					</div>
+				</div>
+			</section>
+	
+			<!-- Footer -->
+			<section id="footer" class="wrapper">
+				<div id="copyright">
+					<ul>
+						<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>
+							Our GitHub: 
+							<a href="https://github.com/Rshah2067/Thorondor" target="_blank">
+								<i class="fab fa-github"></i> Visit GitHub
+							</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

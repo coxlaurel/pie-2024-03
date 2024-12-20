@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<!--
+	Escape Velocity by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Meet-The-Team</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header" class="wrapper" style="background: url('images/Hero_shot.jpg') no-repeat center center; background-size: cover; padding: 40px; text-align: center;min-height: 500px;" >
+
+					<!-- Logo -->
+                    <div id="logo" style="position: relative; top: -70px;">
+                        <h1><a href="index.html"style = "color:white">Thorondor</a></h1>
+                        <p style = "color:white;font-size: 16pt;font-weight: bold;">An RC Bicopter Built in 6 Weeks</p>
+                    </div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li>
+									<a href="#">Systems</a>
+									<ul>
+										<li><a href="mechanical.html">Mechanical</a></li>
+										<li><a href="software.html">Software</a></li>
+										<li class = "current"><a href="electrial.html">Electrical</a></li>
+										<li><a href="#">Simulation</a></li>
+                                    </ul>
+								</li>
+								<li><a href="budget.html">Budget&BOM</a></li>
+								<li><a href="team.html">Meet the Team</a></li>
+							</ul>
+						</nav>
+                    
+				</section>
+                <div id="main" class="wrapper style3">
+					<div class="title">Electrical Architecture</div>
+					<div class="container">
+                        <div id="content">
+								<article class="box post">
+
+									<a href="#" class="image featured" style= "border: none;">
+										<img src="images/electrical/Systemdiagram.jpg" style="width: 50%; height: auto;display: block; margin: 0 auto;" alt="" />
+									</a>
+                                    <header class="style2">
+										<p style="color:#FFF">
+                                            The Avionics is responsible for controlling and powering all actuators on the aircraft as well as recieving radio commands from the pilot. Power from the batteris
+                                            is stepped down by the ESC's for use by the microcontroller and servos. The ESC's Buck converters have a far higher efficency compared to a linear regulator
+                                            when stepping down from 14.8V battery power to 5Vs. A Rasbeery Pi-Pico microcontroller is responsible for filtering sensor data and running the flight 
+                                            controller. We chose a Pico due to it's superior preformance compared to an At-Mega powered MCU, and it's low price in comparison to other premium microcontrollers
+                                            such as the teensy. In retrospect a more power microcontroller should have been selected to ensure higher loop rates.
+									</header>
+							</div>
+
+					</div>
+				</div>
+                <div id="main" class="wrapper style1">
+                    <div class="title">BreadBoard Prototype</div>
+					<div class="container">
+                        <div id="content">
+								<article class="box post">
+                                    <a href="#" class="image featured" style= "border: none;">
+										<img src="images/electrical/breadboard.jpg" alt="" />
+									</a>
+									<header class="style2">
+										<p style="color:#FFF">
+                                           Initially a breadboard was used to prototype the electrical systems. This allowed for rapid debugging, and iteration. 
+                                           While not the prettiest, it served as a quick and dirty prototype to verify all electrical systems. It also allowed for us to experiment with
+                                           adjusting the COM of the aircraft while on the test stand.
+									</header>
+                                    
+							</div>
+
+					</div>
+
+				</div>
+                <div id="main" class="wrapper style2">
+                    <div class="title" style="color:#000000">Perfboard</div>
+					<div class="container">
+                        <div id="content">
+								<article class="box post">
+                                    <a href="#" class="image featured"style="width: 50%;display: block; margin: 0 auto;" >
+										<img src="images/electrical/FrontPerfboard.jpg" alt="" />
+									</a>
+									<header class="style2">
+										<p style="color:#000000">
+                                            For the Flight Vehicle the electronics were moved to sit on a breadboard. This signifigantly reduced the amount of connections to troubleshoot as well as the
+                                            mass and footprint of the avionics. All of the routing is on the back of the perboard. This increased the robustness of the wiring during testing, while still
+                                             allowing for debugging and modification.
+									</header>
+									<a href="#" class="image featured"style="width: 50%;display: block; margin: 0 auto;" >
+										<img src="images/electrical/BackPerfboard.jpg" alt="" />
+									</a>
+							</div>
+
+					</div>
+				</div>
+				<section id="footer" class="wrapper">
+					<div id="copyright">
+						<ul>
+							<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							<li>
+								Our GitHub: 
+								<a href="https://github.com/Rshah2067/Thorondor" target="_blank">
+									<i class="fab fa-github"></i> Visit GitHub
+								</a>
+							</li>
+						</ul>
+					</div>
+				</section>
+	<!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

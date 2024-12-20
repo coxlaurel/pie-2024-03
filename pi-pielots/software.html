@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+<!--
+	Escape Velocity by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Systems-Software</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+            <section id="header" class="wrapper" style="background: url('images/Hero_shot.jpg') no-repeat center center; background-size: cover; padding: 20px; text-align: center;min-height: 500px;" >
+
+                <!-- Logo -->
+                    <div id="logo" style="position: relative; top: -70px;">
+                        <h1><a href="index.html"style = "color:white">Thorondor</a></h1>
+                        <p style = "color:white;font-size: 16pt;font-weight: bold;">An RC Bicopter Built in 6 Weeks</p>
+                    </div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li>
+									<a href="#">Systems</a>
+									<ul>
+										<li><a href="mechanical.html">Mechanical</a></li>
+										<li class = "current"></li><a href="software.html">Software</a></li>
+										<li><a href="electrial.html">Electrical</a></li>
+										<li><a href="simulation.html">Simulation</a></li>
+									</ul>
+								</li>
+								<li><a href="budget.html">Budget&Bom</a></li>
+								<li><a href="team.html">Meet the Team</a></li>
+							</ul>
+						</nav>
+
+				</section>
+
+				<div id="main" class="wrapper style3">
+					<div class="title">Software Overview</div>
+					<div class="container">
+                        <div id="content">
+								<article class="box post">                            
+									<header class="style1">
+										<p style="color:white";>
+                                                All code can be Found at Our GitHub: 
+                                                <a href="https://github.com/Rshah2067/Thorondor" target="_blank">
+                                                    <i class="fab fa-github"></i>
+                                                </a>
+                                            </p>
+                                    </header>
+									<header class="style2">
+										<p style="color:white";>
+                                            The flight software's most important responsibility was to stabilize the aircraft. Due to the aircraft being a bi-copter, it is inherently an incredibly unstable system, being impossible to fly manually by hand. This means that the pilot needs some assistance regarding stabilization for it to be feasible to fly. 
+
+                                            There are 3 important sections to the software's architecture:     
+                                            <ol style="color:white";>
+                                                <li>Orientation Estimation </li>
+                                                <li>Transmission and Reception of PPM signal</li>
+                                                <li>PID logic and control mixing</li>
+                                            </ol>                                            
+									</header>
+							</div>
+
+					</div>
+				</div>
+                <div id="main" class="wrapper style1">
+                    <div class="title">Orientation Estimation</div>
+					<div class="container">
+                        <div id="content">
+								<article class="box post">
+									<header class="style2">
+                                        <a href="#" class="image featured" style= "border: none;">
+                                            <img src="images/software/madgewick.jpeg" alt="" />
+                                        </a>    
+                                        <caption style="color:#484d55">
+                                            <p style="color:white">
+                                                Image source: <a href="https://x-io.co.uk/downloads/madgwick_internal_report.pdf" target="_blank" style="color:#0062ff; text-decoration: none;">https://x-io.co.uk/downloads/madgwick_internal_report.pdf</a>
+                                            </p>
+                                        </caption>
+										<p style="color:white">
+                                            Raw IMU data in itself can be noisy and unreliable, making it unpractical to work with. A solution to this is sensor fusion, such as a complimentary filter, 
+                                            which combines two different sensor data sources, typically accelerometer and gyroscope, to estimate orientation or angles. It blends the high-pass filtered
+                                             gyroscope data with the low-pass filtered accelerometer data, providing a more accurate and reliable result than either sensor alone. However, with its
+                                              simplicity comes with some problems, such as noise sensitivity and gyroscope drift, which makes it less than ideal for our application. 
+                                        </p>
+                                        <p style="color:white">
+                                            On the other hand, The Madgwick filter employs a quaternion representation of orientation to describe the nature of orientations in three-dimensions and is 
+                                            not subject to the singularities associated with an Euler angle representation, allowing accelerometer and magnetometer data to be used in an analytically 
+                                            derived and optimized gradient-descent algorithm to compute the direction of the gyroscope measurement error as a quaternion derivative. Its advantages over 
+                                            the complimentary filter includes the use of a MARG sensor array, consisting of a magnetometer, accelerometer, and gyroscope, reducing drift and providing more 
+                                            precise long-term orientation estimates. Additionally, the gradient descent allows for the algorithm to constantly try to converge on the best 
+                                            solution that minimizes estimation differences from the accelerometer and magnetometer, increasing reliability. Since now we have reliable orientation data, 
+                                            we can then feed it into our control algorithm to generate responses attempting to stabilize the aircraft 
+                                        </p>
+                                        </header>
+
+							</div>
+
+					</div>
+
+				</div>
+                <div id="main" class="wrapper style2">
+                    <div class="title">Decoding PPM SIgnals</div>
+					<div class="container">
+                        <div id="content">
+                            <a href="#" class="image featured">
+                                <img src="images/software/PPM.png" alt="" />
+                            </a>
+                            <caption style="color:#484d55">
+                                <p style="color:#484d55">
+                                    Image source: <a href="https://www.researchgate.net/figure/PPM-signal-outputted-by-an-RC-receiver_fig11_327417180" target="_blank" style="color:#0062ff; text-decoration: none;">https://www.researchgate.net/figure/PPM-signal-outputted-by-an-RC-receiver_fig11_327417180</a>
+                                </p>
+                            </caption>
+								<article class="box post">
+									<header class="style2">
+										<p style="color:#484d55">
+                                            The Mictrocontroller Recieves signals from the radio as PPM(Pulse Position Modulation) signals. These signals encode information by modulating the timing 
+                                            between signal pulses. Our reciever would encode 8 channels of data, with each channel corresponding to a button or stick on the controller. Our firmware used
+                                            interrupts to capture and decode the data in the PPM signal. The intterupt triggered a flag for the microcontroller to convert the recieved channel information
+                                            into updated control inputs.
+                                        </p>
+									</header>
+							</div>
+
+					</div>
+				</div>
+                <div id="main" class="wrapper style3">
+                    <div class="title">PID Logic and Control Mixing</div>
+					<div class="container">
+                        <div id="content">
+								<article class="box post">
+                                    <a href="#" class="image featured" style= "border: none;">
+										<img src="images/software/controlscheme.jpeg" alt="" />
+									</a>
+                                    <caption style="color:#fff">
+                                        <p style="color:#fff">
+                                            Image source: <a href="https://www.mdpi.com/2075-1702/12/5/296" target="_blank" style="color:#0062ff; text-decoration: none;">https://www.mdpi.com/2075-1702/12/5/296</a>
+                                        </p>
+                                    </caption>
+									<header class="style2">
+										<p style="color:#fff">
+                                            We can control our orientation (pitch, yaw, roll) by altering motor speeds and servo angle. Roll is controlled by increasing one motor speed,
+                                             while decreasing the other by the same amount, pitch is controlled by adjusting both servo angles forward or backwards, and yaw is controlled
+                                              by adjusting both servo angles in opposite directions. In our control algorithm, we focused on stabilizing pitch and roll, as these axis were 
+                                              deemed the most unstable. This is in contrast to yaw, which can easily be adjusted by a human pilot once the aircraft is stabilized in other axes.
+                                        </p>
+									</header>
+
+                                    <header class="style2">
+                                        <p style=" color: white;">
+                                            Our controller uses PID logic for both axes, where our desired state is the angle that is translated from PPM to degrees (taken from the transmitter). 
+                                            For example, if the pilot wanted to hover, the desired angle would be 0 degrees in both pitch and roll. If there is error in an axes, 
+                                            it gets fed into the PID loop where an output signal is produced to determine motor speed or servo angle necessary to drive the aircraft to the set point 
+                                            orientation. For control mixing, even though the system is very non-linear, we would assume for small corrections in a hover, we would be able to linearly 
+                                            combine pitch and roll corrections together to output. Setting up and running simulations in Simulink was able to prove that this would work well enough for 
+                                            our case. In order to test this logic we put our Iron Bird prototype into a testing gimble. While this does not perfectly simulate the dynamics of our system
+                                            it provided a proof of concept that we could control our system in this way.
+                                        </p>
+                                    </header>
+                                    <div class="video-container">
+                                        <video autoplay muted loop playsinline>
+                                            <source src="videos/rolltest.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <video autoplay muted loop playsinline>
+                                            <source src="videos/pitchtest.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+
+							</div>
+
+					</div>
+				</div>
+				<section id="footer" class="wrapper">
+					<div id="copyright">
+						<ul>
+							<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							<li>
+								Our GitHub: 
+								<a href="https://github.com/Rshah2067/Thorondor" target="_blank">
+									<i class="fab fa-github"></i> Visit GitHub
+								</a>
+							</li>
+						</ul>
+					</div>
+				</section>
+	<!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
