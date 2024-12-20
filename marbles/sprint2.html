@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sprint 2 - Losing our Marbles</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <main>
+        <div id="homepage-box">
+            <div id="homepage-box-content">
+                <div id="homepage-header">
+                    <div id="header-logo">
+                        <img src="./imgs/logo.png" alt="logo" id="logo">
+                    </div>
+                    <div id="spacer"></div>
+                    <div id="header-nav">
+                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="system.html" class="nav-link">System</a>
+                        <a href="mechanical.html" class="nav-link">Mechanical</a>
+                        <a href="electrical.html" class="nav-link">Electrical</a>
+                        <a href="software.html" class="nav-link">Software</a>
+                        <a href="sprint1.html" class="nav-link">Sprint 1</a>
+                        <a href="sprint2.html" class="nav-link">Sprint 2</a>
+                        <a href="sprint3.html" class="nav-link">Sprint 3</a>
+                        <a href="budget.html" class="nav-link">Budget</a>
+                        <a href="team.html" class="nav-link">Team</a>
+                    </div>
+                </div>
+
+                <div class="image-text-section flipped">
+                    <div class="image-text-content">
+                        <h2>SPRINT 2 GOAL</h2>
+                        <p>
+                            How can we sense and sort the marbles into eight columns?
+                        </p>
+                    </div>
+                    <img src="./imgs/sprint2.jpg" alt="Descriptive Image" class="image-text-image">
+                </div>   
+
+                <div class="image-text-section">
+                    <img src="./imgs/Sprint 2 Project Goal.png" alt="Descriptive Image" class="image-text-image">
+                    <div class="image-text-content">
+                        <h2>MECHANICAL</h2>
+                        <p>
+                            The primary goals for the sprint were to improve team communication, finalize the marble frame design, and prototype key components such as the marble basin. 
+                        </p>
+                    </div>
+                </div>
+
+                <div class="centered-text-section">
+                    <p>
+                        During this sprint, the team improved communication by communicating across multiple platforms like Discord, iMessages, and email. The marble frame was completed this sprint, addressing size variation among marbles with test prints and finalizing an optimal diameter of 0.5875 inches. The frame transitioned from fragile square walls to rounded grooves for better stability and closer spacing, and its size was adjusted to 8x8. This was done to simplify the overall project. 
+The marble sorter was updated to match the new frame, adding sorters for extra columns and a trash chute. 
+                    </p>
+                </div>
+                <div class="image-text-section">
+                    <img src="./imgs/Prototype Basin Render.JPG" alt="Descriptive Image" class="image-text-image">
+                    <div class="image-text-content">
+                        <p>
+                            The Archimedes screw mechanism for the marble pump was prototyped and successful at moving marble from a basin into the sorter. Additionally a solenoid mounting mechanism and chute refinements were prototyped to improve color sensing. Overall the team was able to successfully meet its goals.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="image-text-section flipped">
+                    <div class="image-text-content">
+                        <h2>ELECTRICAL</h2>
+                        <p>
+                            This sprint was focused on integrating and testing the marble sorter servos for full system testing as well as circuit redesign for two seperate voltage levels.
+                        </p>
+                    </div>
+                    <img src="./imgs/sprint2-ece.jpg" alt="Descriptive Image" class="image-text-image">
+                </div>
+
+                <div class="centered-text-section">
+                    <p>
+                        A lot of this sprint was focused on the electrical mechanical integration as the amount of new pieces being created and redesigned meant that we had to integrate find the issues and then reintegrate with the new hardware. This process ended up fixing a lot of problems that had been looked over and led to a functioning mvp for the sprint 2 review. There was also consideration in this sprint to how we would be powering the system on demo day as we needed both 5v and 16v to run the system, for this sprint we decided to use the power supplys 5v fixed to power the arduino and its components and the 16v variable to power the solenoid.
+                    </p>
+                </div>
+
+                <div class="image-text-section">
+                    <div class="image-text-content">
+                        <h2>SOFTWARE</h2>
+                        <p>
+                            The software goal for this sprint was to write the program to sort marbles into 8 different columns based on their color. We aimed to integrate the color sensing and actuator (servo and solenoid) code to work on the two-column mechanical system first, then, scale up to the eight-column mechanical system.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="centered-text-section">
+                    <p>
+                        We reached this software goal by finding a more accurate method of categorizing marble colors, integrating this new color sensing code with the actuator code from sprint one, and building off this integrated program to work with the eight-column mechanical system. 
+                        We found that color categorization using RGB Euclidean distance worked almost all the time, compared to the manually made rules that were often incorrect, so we switched to using RGB Euclidean distance. With the color sensing functioning, we integrated it into our sprint one program and could sort marbles based on their color using the two-column mechanical system. We then updated the program to control three servo motors directing marbles into eight columns, and recalibrated the color sensor and servo motors. This allowed us to sort marbles by color using the eight-column mechanical system. 
+                    </p>
+                </div>
+                
+                <div id="homepage-footer">
+                    <div class="footer-content">
+                        <nav class="footer-nav">
+                            <a href="system.html" class="footer-link">System</a>
+                            <a href="mechanical.html" class="footer-link">Mechanical</a>
+                            <a href="electrical.html" class="footer-link">Electrical</a>
+                            <a href="software.html" class="footer-link">Software</a>
+                            <a href="sprint1.html" class="footer-link">Sprint 1</a>
+                            <a href="sprint2.html" class="footer-link">Sprint 2</a>
+                            <a href="sprint3.html" class="footer-link">Sprint 3</a>
+                            <a href="budget.html" class="footer-link">Budget</a>
+                            <a href="team.html" class="footer-link">Team</a>
+                        </nav>
+                        <p class="footer-text">
+                            &copy; 2024 Losing Our Marbles | All rights reserved.
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>

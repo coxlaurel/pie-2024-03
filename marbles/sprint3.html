@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sprint 3 - Losing our Marbles</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <main>
+        <div id="homepage-box">
+            <div id="homepage-box-content">
+                <div id="homepage-header">
+                    <div id="header-logo">
+                        <img src="./imgs/logo.png" alt="logo" id="logo">
+                    </div>
+                    <div id="spacer"></div>
+                    <div id="header-nav">
+                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="system.html" class="nav-link">System</a>
+                        <a href="mechanical.html" class="nav-link">Mechanical</a>
+                        <a href="electrical.html" class="nav-link">Electrical</a>
+                        <a href="software.html" class="nav-link">Software</a>
+                        <a href="sprint1.html" class="nav-link">Sprint 1</a>
+                        <a href="sprint2.html" class="nav-link">Sprint 2</a>
+                        <a href="sprint3.html" class="nav-link">Sprint 3</a>
+                        <a href="budget.html" class="nav-link">Budget</a>
+                        <a href="team.html" class="nav-link">Team</a>
+                    </div>
+                </div>
+
+                <div class="image-text-section flipped">
+                    <div class="image-text-content">
+                        <h2>SPRINT 3 GOAL</h2>
+                        <p>
+                            How can we integrate all components with each other and create a smooth-flowing marble cycle?
+                        </p>
+                    </div>
+                    <img src="./imgs/sprint3.jpg" alt="Descriptive Image" class="image-text-image">
+                </div>   
+
+                <div class="image-text-section">
+                    <img src="./imgs/Final Basin Render.JPG" alt="Descriptive Image" class="image-text-image">
+                    <div class="image-text-content">
+                        <h2>MECHANICAL</h2>
+                        <p>
+                            Our goal was to complete a sleek and durable final basin and polish our screw mechanism along with integrating the pathway to our basin
+                        </p>
+                    </div>
+                </div>
+
+                <div class="centered-text-section">
+                    <p>
+                        All of our mechanical goals were achieved during this sprint.
+                        The final basin was modeled in CAD using fasteners to see if we could obtain a clean finish. We asked the shop if our plan for putting the bin together with M2s made sense, and they agreed. We went along with laser cutting out MDF and acrylic material to obtain our box parts, and we assembled the box with M2 bolts, hex nuts, and washers. We worked closely to ensure marbles would slide toward and into the screw mechanism by designing better components that would allow that to happen.  
+                    </p>
+                </div>
+
+                <div class="image-text-section flipped">
+                    <div class="image-text-content">
+                        <h2>ELECTRICAL</h2>
+                        <p>
+                            The goal of sprint 3 for electrical was to make sure that the system was working consistantly and to finalize how we would power the system.
+                        </p>
+                    </div>
+                    <img src="./imgs/sprint3-ece.jpg" alt="Descriptive Image" class="image-text-image">
+                </div>
+
+                <div class="centered-text-section">
+                    <p>
+                        A lot of sprint 3 was spent trying to figure out how to power our system off of wall voltage. We needed 16v, 5v, and 3v at the same time for the solenoid, servos + sensor, and motor respectively. This became a huge headache and we decided to power the whole system using 16v from a power supply and use voltage step downs to create 5v and 3v channels. We also spent time rewirig component connections on a proto board to make sure less components could accidentally become unplugged
+                    </p>
+                </div>
+
+                <div class="image-text-section">
+                    <img src="./imgs/system - software - gui.png" alt="Descriptive Image" class="image-text-image">
+                    <div class="image-text-content">
+                        <h2>SOFTWARE</h2>
+                        <p>
+                            The software goal was to make the marble machine more interactive by letting users choose the pixel art the marble machine created.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="centered-text-section">
+                    <p>
+                        We reached this goal by creating two ways for users to input images: uploading a picture to compress into 8x8 pixels, and drawing an 8x8 pixel image. We created a Python script that turned a picture into a compressed image for the marble machine to create with its eight-by-eight pixels and the six marble colors. This script communicated using serial with the Arduino program to create the chosen image. We also made a graphical user interface in Processing for users to draw an 8x8 pixel image to be made by the marble machine. This program didn’t directly communicate with the Arduino program, instead, it required the user to copy and paste code of their drawing from the Processing serial monitor into the Arduino program. 
+Beyond this goal, we also updated the Arduino program so that the marble lift mechanism would be synced with the rest of the system. Additionally, we ordered more marbles so the machine could draw images that were mostly one color, but decided not to use these marbles because they had more variation (in size and color), causing the color sensing 
+                    </p>
+                </div>
+                
+                <div id="homepage-footer">
+                    <div class="footer-content">
+                        <nav class="footer-nav">
+                            <a href="system.html" class="footer-link">System</a>
+                            <a href="mechanical.html" class="footer-link">Mechanical</a>
+                            <a href="electrical.html" class="footer-link">Electrical</a>
+                            <a href="software.html" class="footer-link">Software</a>
+                            <a href="sprint1.html" class="footer-link">Sprint 1</a>
+                            <a href="sprint2.html" class="footer-link">Sprint 2</a>
+                            <a href="sprint3.html" class="footer-link">Sprint 3</a>
+                            <a href="budget.html" class="footer-link">Budget</a>
+                            <a href="team.html" class="footer-link">Team</a>
+                        </nav>
+                        <p class="footer-text">
+                            &copy; 2024 Losing Our Marbles | All rights reserved.
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
