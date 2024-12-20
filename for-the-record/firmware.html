@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Firmware Systems - FtR</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="media.html">Photos and Videos</a></li>
+							<li><a href="mechanical.html">Mechanical Description</a></li>
+							<li><a href="electrical.html">Electrical Description</a></li>
+							<li><a href="firmware.html">Firmware Description</a></li>
+							<li><a href="software.html">Software Description</a></li>
+							<li><a href="design.html">Box Design Description</a></li>
+							<li><a href="diagrams.html">System Diagrams</a></li>
+							<li><a href="materials.html">Budget and Materials</a></li>
+							<li><a href="theTeam.html">Meet the Team</a></li>
+							<li><a href="elements.html">Elements</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner" style="text-align: center;">
+							<h1>Firmware Systems Description</h1>
+							<p>In order to power the electrical systems we have and control them remotely, we are using two Arduinos. Only one of them, which has an Adafruit Motor Shield on it, is used for firmware purposes. This Arduino with the motor shield is responsible for powering the drivetrain, providing the ability to swap between 33.3 and 45 rotations per minute (rpm), and communicating the current rpm to a Matrix Portal M4, which controls the Adafruit RGB display on the inside of our box's lid.<br />
+							The rpm control is provided by a physical switch which interfaces with the Arduino and is located on the lower inside panel of the box. Next to it is another physical switch that can interrupt the power going from the Arduino to the drivetrain. The Arduino communicates information to the Matrix Portal M4 via serial connection, which results from wiring the RX and TX pins to each other on both devices and wiring their grounds together as well.<br />
+							Near the switches described above, there is a volume knob with a potentiometer underneath that connects into the sound circuit taking cartridge output to the speaker. By turning the knob and varying the resistance of that circuit component, the user can control the speaker's volume. The sound circuit is powered via an Arduino that does not have any code loaded on it.</p>
+							<a href="software.html">Please take a look at our software systems description to supplement this.</a>
+						</div>
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<section>
+							<h2>Made by Elías LDN</h2>
+							<ul class="icons">
+								<li><a href="https://github.com/elias-ldn" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/elias-ldn/" class="icon solid style2 fa-envelope"><span class="label">Linkedin</span></a></li>
+							</ul>
+						</section>
+						<ul class="copyright">
+							<li>&copy; For the record, all rights are reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
