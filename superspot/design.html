@@ -87,10 +87,131 @@
                         
                         <!-- Mechanical -->
 							<section id="mechanical" class="main">
-								<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
+								<span class="image main"><img src="images/stand3.png" alt="" /></span>
 								<h2>Mechanical</h2>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis fames ac ante ipsum primis in faucibus.</p>
-								<p>Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Consequat leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit enim turpis lorem ipsum dolor sit amet feugiat. Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet est velit quis lorem.</p>
+								<p>
+									<b>Overview: </b><br>
+									The mechanical components of SuperSpot can be divided up into 5 parts: legs, body, head/neck, jaw, and the ball. These components were all iterated on thoroughly during our sprints and integrated together to create the final design of SuperSpot. <br> <br>
+									<b>Brief sprint goals: </b><br>
+									<span class="image left"><img src="images/design/mechanical/sprint1.png" alt=""/></span> 
+									Sprint 1: <br>
+									Our goal for Sprint 1 was to create a simple skeleton of the dog body/chassis that would allow us to test electrical components and motors. This skeleton was constructed out of ¼” fiberboard, with each “leg” secured to a central base via T-nut joints. We attached a DC motor and wheel to the end of each wooden leg to act as the feet of the dog, activating the ability for the base to be mobile. <br> <br>
+									<br> <br>
+									<span class="image right"><img src="images/design/mechanical/sprint2.2.png" alt="" /></span>
+									Sprint 2: <br>
+									During sprint 2, we started the journey of developing a body and legs that actually resembled a dog. After testing our motors in sprint 1, we decided to order new DC motors due to poor motor performance, and this helped SuperSpot start to drive faster and straighter! We started modeling prototypes of individual leg casings and a central torso that would hold most components. This sprint taught us the strength of filleting parts due to some failed 3D printed leg casings and the importance of time management/collaboration. <br> <br>
+									<div class="box alt">
+										<div class="row gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/sprint2.png" alt="" /></span></div>
+											<div class="col-4"><video width="320" controls>
+												<source src="images/design/mechanical/sprint2vid.mp4" type="video/mp4">
+											  Your browser does not support the video tag.
+											  </video></div>
+										</div>
+									</div>
+									Sprint 3: <br>
+									Sprint 3 is where everything started coming together! In this sprint, we refined and then integrated several individually developed systems and components of our dog. <br> <br>
+									<div class="box alt">
+										<div class="row gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/sprint3.1.png" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/sprint3.2.png" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/sprint3.3.png" alt="" /></span></div>
+										</div>
+									</div>
+									
+									<b>Legs: </b><br>
+									The legs of SuperSpot were specifically designed to achieve the following goals: <br>
+									<ul>
+										<li>Protect and house the motors controlling the feet</li>
+										<li>Allow for movement and geometry to enact commands such as sit, lay down, and paw</li>
+										<li>Securely attach to the main body via shoulder joints</li>
+									</ul>
+									Each of the legs were designed in two parts that could be secured together via snap joints and screw holes. These legs were 3D printed out of white PLA as an efficient form of manufacturing the unique geometry of the casing. The inside of the legs are hollow, specifically designed to screw fit a DC motor located near the foot of each leg. The shaft of the motor extends through a hole on the outside of the leg casing, which drives a wheel that acts as the dog’s feet and is its main mode of transportation. <br>
+									These legs were designed at a 30 degree angle. This allows the shoulder joints to move the back legs forwards geometrically so that SuperSpot can be in a seated position without interfering with the front legs. <br>
+									Additionally, each leg casing has small holes at the base of the shoulder to allow for wires to travel from the motors of the feet into the torso, where it gets powered. <br>
+									<div class="box alt">
+										<div class="row gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/legs1.png" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/legs2.png" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/legs3.png" alt="" /></span></div>
+										</div>
+									</div>
+									During Sprint 1 we encountered challenges with the motors on the legs. The motors were very unreliable. They operated inconsistently at low speeds, they would fail on carpet, and frequently they would simply stall or stop working out of the blue. Verbal commands like “spin”, “heel”, and any movement instruction were difficult to test and refine because of the variability in performance. <br>
+									We looked into purchasing better motors, but there were some constraints. The sprint 1 design uses four motors (one for each leg) with a right-angle gearbox. The gearbox transmits power perpendicular to the orientation of the motor. This was very convenient because we could directly drive the wheels and the profile fit well in the anticipated form factor of the dog leg. <br>
+									The new motors needed to be right-angle motors in order to fit our design, which severely limited our options. Higher end motors with the right-angle gearbox – especially those geared for torque over speed – ran upwards of $15 apiece. All four motors together would cost $70-$80 with shipping. Given our limited budget these prices were prohibitive. <br>
+									We considered several alternative designs such as driving the legs jointly (which would reduce the number of motors needed), indirectly driving the legs (to allow for more flexibility in mounting and the type of motor), using small motors, designing our own gearboxes, and more. Unfortunately, none of the alternatives were especially viable with our space, budget, time restrictions, and priorities. <br>
+									We settled on buying new versions of the same motors. The original motors we used were a couple of years old, so we anticipated improved performance from brand new motors of the same model. The new motors did improve the reliability and performance of SuperSpot. However, being relatively cheap and of the same model, they did share some of the issues of the original motors. <br>
+									The leg casings taught us about designing with 3D printing in mind. The initial prints of the leg casings failed. Parts of the print detached because the thin walls were not appropriately connected to one another. In addition, the thin walls of the casing introduced warping and made it difficult to align the two halves of the casing properly. On the second iteration we filleted several connections for added strength which worked very well. Additionally, on the first round of prints we figured out the optimal orientation of the part for printing, so we modified the design to avoid needless supports. Designing with our method of manufacturing in mind was a very valuable lesson. It also emphasized the importance of time management and collaboration to allow smooth handling of hiccups.<br> <br>
+									
+									<b>Body: </b><br>
+									The torso of SuperSpot houses all of the electrical components , including:
+									<ul>
+										<li>Arduino Uno R4 + (3?) motor shields, directing power to all of the motors and servos</li>
+										<li>5 MG996R Servos that control all 4 legs at the shoulder joint, and one that controls the neck</li>
+										<li>An ultrasonic distance sensor to allow it to detect the ball</li>
+										<li>12V rechargeable lithium battery</li>
+									</ul>
+									The casing was also manufactured via 3D printing with PLA, which allowed for us to create custom servo placements and holes for the ultrasonic sensor. The torso is split into two parts horizontally, secured by snap fit joints to allow for easy access to the electronics. <br>
+									The 4 servos that served as shoulder joints were important for SuperSpot to be able to complete some of the voice commands, such as sit, lay down, or paw. Each servo was attached to the side of the torso and the ends of the legs were securely screwed into the shaft of the servo, actuating the movement of the entire leg. The base of the neck is stationed at the center of the torso, driven by another servo. This allowed SuperSpot to follow commands such as nodding or to pick up the ball. <br> <br>
+									<div class="box alt">
+										<div class="row gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/body1.png" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/body2.png" alt="" /></span></div>
+										</div>
+									</div>
+									
+									<b>Head/neck: </b><br>
+									The neck of the dog was designed to be both lightweight and functional, allowing for efficient wiring between the head and the body. It consists of a cylindrical structure that connects to the head, tapering into a flat prism to optimize space within the body. Mounted to stands attached to the bottom of the body, the neck rotates from the center of the torso, maintaining a consistent distance from the front chest for more natural movement. To complement this, the head is positioned at an angle that ensures it moves naturally as the neck rotates. The 3D model of the head is based on a real dog’s anatomy, yet it was designed geometrically to align with the body’s aesthetic and functional complexity. It houses a mini servo, precisely aligned with the jaw's rotation axis, enabling controlled movement. Additionally, the head is equipped with magnets, allowing it to pick up a ball, further enhancing the robot’s interaction capabilities.<br><br>
+
+									<b>Jaw: </b><br>
+									<ul>
+										<li>Designed to be light, shaped so that it could rotate 35 degrees freely along the jaw hinge, driven by a mini servo in the dog head.</li>
+										<li>Changed design to be flatter and less L shaped for improved mobility</li>
+										<li>Changed to be flat on button for better grip / clamping</li>
+									</ul><br>
+
+									<b>Ball: </b><br>
+									Audrey: I designed and fabricated the ball for the dog to play fetch with. The ball had the following constraints:<br>
+									<ul>
+										<li>Must be able to be thrown</li>
+										<li>Must be able to right itself such that the toy lands in the same position each time it is thrown</li>
+										<li>Must be able to be picked up by SuperSpot</li>
+									</ul>
+									<div class="box alt">
+										<div class="row gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/ball1.png" alt="" /></span></div>
+											<p>Fig. 1: Dog ball model 1 CAD assembly <br>(pictured with dimpled plastic material render for realism)</p>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/ball2.png" alt="" /></span></div>
+											<p>Fig. 2: Dog ball model 1 CAD assembly <br>with hidden lines visible. Here it is apparent <br>how the two halves of the ball are affixed with carefully toleranced slots.</p>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/ball3.png" alt="" /></span></div>
+											<p>Fig. 3: Bottom half of dog ball model 1 <br>(pictured with dimpled plastic material render for realism)</p>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/ball4.png" alt="" /></span></div>
+											<p>Fig. 4: Top half of dog ball model 1 <br>(pictured with dimpled plastic material render for realism)
+											</p>
+										</div>
+									</div>
+									This design was developed with a 30 degree overhang from the horizontal (parallel to the floor). This matched how the jaw was originally intended to actuate. After attaching the jaw, we realized it was not realistic to get that range of motion, so a new iteration of the ball was developed. This one had the added constraints:<br>
+									<ul>
+										<li>Needs to align with the new jaw angle (23.5 degrees)</li>
+										<li>Due to the orientation of how the dog’s head is attached to the neck, the angle is no longer parallel to the ground</li>
+										<li>Must be small enough to fit inside the jaw (44mm)</li>
+										<li>Must be small enough such that the jaw did not hit the ball in it’s most downright position (41mm)</li>
+									</ul>
+									<div class="box alt">
+										<div class="row gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/ball5.png" alt="" /></span></div>
+											<p>Fig. 5: Dog ball model 2 CAD assembly <br>(rendered with dimpled plastic material for realism)</p>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/ball6.png" alt="" /></span></div>
+											<p>Fig. 6: Bottom half of dog ball model 2 (pictured with dimpled plastic render)</p>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/ball7.png" alt="" /></span></div>
+											<p>Fig. 7: Top half of dog ball model 2 (pictured with dimpled plastic render)</p>
+											<div class="col-4"><span class="image fit"><img src="images/design/mechanical/ball8.png" alt="" /></span></div>
+											<p>Fig. 8: Assembly of dog ball model 2 (hidden lines visible to show toleranced slotting)</p>
+										</div>
+									</div>
+									Iteration 2 was printed on TPU so that it was more dog-like and could be thrown easier. The ball would be filled with sand and topped with a thick layer of hot glue to prevent it from sliding around within the bottom cavity of the ball. Then, the ball would be lined with magnetic tape on the underside of the overhang to connect to magnets in the dog’s jaw. Finally, the ball would also be topped with magnets to connect to the top jaw of the dog. <br>
+									Model 2 of the dog ball was printed. It was then I realized I had made a fatal error. While I’d assumed it was best to ensure the ball would not obstruct the jaw in its most downright position (41mm), that came at the cost of arguably the most important criteria for the ball: it needs to be tall enough to be detected by the ultrasonic sensor (60mm) in order to execute the fetch algorithm. So, I made a valiant effort to reprint the ball scaled 135%. I made the rather unfortunate discovery that there was not a single SD card or SD card reader not corrupted in the entire print farm. Our team made the collective decision to use the first model of the ball for demo day.<br>
+								</p>
 							</section>
 					</div>
 
