@@ -28,7 +28,8 @@
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li><a href="#overview" class="active">Overview</a></li>
-							<li><a href="#software">Software/Firmware</a></li>
+							<li><a href="#software">Software</a></li>
+							<li><a href="#firmware">Firmware</a></li>
 							<li><a href="#electrical">Electrical</a></li>
 							<li><a href="#mechanical">Mechanical</a></li>
 						</ul>
@@ -42,13 +43,104 @@
 								<span class="image main"><img src="images/dataflow.png" alt="" /></span>
 								<p>Data and energy flow diagram</p>
 							</section>
+						
+						<!-- Software -->
+						<section id="software" class="main">
+							<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
+							<h2>Software</h2>
+						</section>	
 
-                        <!-- Software -->
-							<section id="software" class="main">
-								<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
-								<h2>Software/Firmware</h2>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis fames ac ante ipsum primis in faucibus.</p>
-								<p>Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Consequat leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit enim turpis lorem ipsum dolor sit amet feugiat. Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet est velit quis lorem.</p>
+                        <!-- Firmware -->
+							<section id="firmware" class="main">
+								<span class="image main"><img src="images/design/firmware.png" alt="" /></span>
+								<h2>Firmware</h2>
+								<p>
+									Repo: <a href="https://github.com/karismoon/spot-dog">https://github.com/karismoon/spot-dog</a><br><br>
+
+									<b>Firmware</b><br>
+									The firmware is designed to manage the various components of the system, which includes controlling DC motors, servos, and a relay while enabling WiFi-based remote communication. The central microcontroller used for this system is an Arduino R4, which acts as the main processing unit and supports wireless functionality.<br><br>
+									
+									System Initialization:<br>
+									Upon startup, the firmware initializes all components, including needed Digital/Analog pins, I2C communication, servo motors, and WiFi connectivity.<br>
+									<ul>
+										<li>
+											<b>GPIO Setup:</b><br>
+											The relay is connected to GPIO2, configured as an output. The relay is initially set to HIGH, ensuring the connected device is off at startup.
+										</li>
+										<li><b>I2C Setup:</b><br>
+											The Adafruit Motor Shield, connected via I2C, is initialized to control up to four DC motors. The Adafruit_MotorShield library handles the communication.
+										</li>
+										<li>
+											<b>Servo Setup:</b><br>
+											Five servos are connected to specific pins (0–4) and are initialized to their default positions using the Servo library. Each servo corresponds to a specific movement or component of the robotic system.
+										</li>
+										<li>
+											<b>WiFi Setup:</b><br>
+											The Arduino connects to a predefined WiFi network using the SSID and password. Once connected, the IP address is displayed via serial, and an HTTP server is started to handle remote commands.
+										</li>
+									</ul>
+									
+									WiFi Server and Command Handling:<br>
+									The firmware includes a web server running on port 80 to handle HTTP GET requests.<br>
+									<ul>
+										<li>
+											<b>Client Communication:</b><br>
+											Incoming HTTP requests are parsed to extract commands. Based on the URL, corresponding functions are called to control motors, servos, or the relay.										</li>
+										<li>
+											<b>Command Examples:</b><br>
+											<ul>
+												<li>/on: Move forward.</li>
+												<li>/off: Stop movement.</li>
+												<li>/backward: Move backward.</li>
+												<li>/left or /right: Turn in the specified direction.</li>
+												<li>/sit, /lay, /nod, etc.: Execute predefined servo movements for robotic behaviors.</li>
+											</ul>
+										</li>
+									</ul>
+									
+									DC Motor Control:<br>
+									The firmware controls four DC motors connected to the Adafruit Motor Shield.
+									<ul>
+										<li>
+											<b>Direction and Speed Control:</b><br>
+											Each motor can run forward or backward using the run(FORWARD) and run(BACKWARD) commands. The speed is adjusted using the setSpeed() function, which takes a value between 0 and 255.
+										</li>
+										<li>
+											<b>Combined Movements:</b><br>
+											Motors are controlled in coordination to achieve various movements such as forward motion, backward motion, or turning.
+										</li>
+									</ul>
+									
+									Servo Motor Control:<br>
+									Five servo motors control various robotic parts, including limbs and a neck mechanism.
+									<ul>
+										<li>
+											<b>Default Positions:</b><br>
+											The stand() and neck() functions set servos to their default positions (e.g., 90°).
+										</li>
+										<li>
+											<b>Predefined Movements:</b><br>
+											Functions like sit(), paw(), hail(), and nod() control servos to perform specific actions. These functions use for-loops to gradually change servo angles, ensuring smooth movements.
+										</li>
+									</ul>
+									
+									Proximity-Based Behavior:<br>
+									The heel() function uses the WiFi signal strength (RSSI) to determine proximity to the user. If the signal is weaker than a specified threshold, the system moves forward until the desired proximity is achieved.<br>
+									
+									Main Loop and Event Handling:<br>
+									The loop() function continuously runs the webServer() function to listen for and respond to incoming commands.<br>
+									<ul>
+										<li>
+											<b>Polling and Timeout:</b><br>
+											The firmware continuously checks for connected clients. If no data is received within a predefined timeout, the client connection is closed.
+										</li>
+										<li>
+											<b>Dynamic Response:</b><br>
+											Commands from the server trigger corresponding actions, such as adjusting motor speeds or executing servo movements.
+										</li>
+									</ul>
+									This firmware efficiently integrates WiFi connectivity with motor and servo control to provide a responsive and flexible robotic platform. The modular design allows easy addition of new commands and behaviors.
+								</p>
 							</section>
 
                         <!-- Electrical -->
