@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <main>
+        <div id="homepage-box">
+            <div id="homepage-box-content">
+                <div id="homepage-header">
+                    <div id="header-logo">
+                        <img src="./imgs/logo.png" alt="logo" id="logo">
+                    </div>
+                    <div id="spacer"></div>
+                    <div id="header-nav">
+                        <a href="system.html" class="nav-link">System</a>
+                        <a href="mechanical.html" class="nav-link">Mechanical</a>
+                        <a href="electrical.html" class="nav-link">Electrical</a>
+                        <a href="software.html" class="nav-link">Software</a>
+                        <a href="sprint1.html" class="nav-link">Sprint 1</a>
+                        <a href="sprint2.html" class="nav-link">Sprint 2</a>
+                        <a href="sprint3.html" class="nav-link">Sprint 3</a>
+                        <a href="budget.html" class="nav-link">Budget</a>
+                        <a href="team.html" class="nav-link">Team</a>
+                    </div>
+                </div>
+
+                <div class="image-text-section flipped">
+                    <div class="image-text-content">
+                        <h2>SPRINT 1 GOAL</h2>
+                        <p>
+                            In sprint one, we wanted to see if we could sense and sort the marble into two columns in an unintegrated system.
+                        </p>
+                    </div>
+                    <img src="./imgs/Sprint 1 Concept Sketch.jpg" alt="Descriptive Image" class="image-text-image">
+                </div>   
+
+                <div class="centered-text-section">
+                    <p>
+                        In this sprint we wanted to see if we could model and protoype most parts of our system in an isolated way to see if they could work on their own. We also wanted to try some simple integration into a very rudimentary version of our system with only one sorter and two paths
+                    </p>
+                </div>
+
+                <div class="image-text-section">
+                    <img src="./imgs/sprint1-mech.jpg" alt="Descriptive Image" class="image-text-image">
+                    <div class="image-text-content">
+                        <h2>MECHANICAL</h2>
+                        <p>
+                            The mechanical subteam's sprint one goal was to prototype a marble pathway, rudimentary sorting mechanism, and rudimentary marble frame.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="centered-text-section">
+                    <p>
+                        All mechanical goals were achieved during this sprint. 
+                        The first marble pathway was prototyped to allow color sensing and solenoid testing. The pathway is a chamber that allows marbles to fall into a chamber where they are color sensed and bumped over a ledge with a solenoid into a sorting mechanism and eventually frame. This first pathway did not include any front plate but had basic attachments for the color sensor and solenoid so testing could be performed. The pathway mechanism was kept separate from the sorting mechanism and frame. 
+                        A rudimentary sorting mechanism and frame were also prototyped. The sorting mechanism, operated by a rear-mounted servo, could sort two columns with accuracy and four after minor modification. This sorting mechanism was attached to a frame with two columns and allowed us to test marble sorting. Together, the sorting mechanism and frame were attached to a basic container that could hold the marbles once dropped, and the frame upright.
+                    </p>
+                </div>
+
+                <div class="image-text-section flipped">
+                    <div class="image-text-content">
+                        <h2>ELECTRICAL</h2>
+                        <p>
+                            The electrical subteam’s sprint one goal was to prototype a color sensor and solenoid mechanism. we also wanted to draw up a rudimentary wiring diagram for what we thought the system would need
+                        </p>
+                    </div>
+                    <img src="./imgs/sprint1.jpg" alt="Descriptive Image" class="image-text-image">
+                </div>
+
+                <div class="centered-text-section">
+                    <p>
+                        All electrical goals were achieved during this sprint. 
+                        The color sensor and solenoid mechanism were prototyped and tested. The color sensor was able to detect the color of the marbles and send a signal to the solenoid to bump the marble into the sorting mechanism. The color sensor was mounted to the pathway and the solenoid was mounted to the pathway as well. The solenoid was able to bump the marble into the sorting mechanism with accuracy. The color sensor was able to detect the color of the marbles with accuracy. 
+                        A rudimentary wiring diagram was also drawn up. The wiring diagram was a basic layout of what we thought the system would need to function. The diagram included the color sensor, solenoid, and servo. The diagram was used to help us understand what we needed to do to get the system to work.
+                    </p>
+                </div>
+
+                <div class="image-text-section">
+                    <div class="image-text-content">
+                        <h2>SOFTWARE</h2>
+                        <p>
+                            The software goal was to ensure each electrical component for color sensing and sorting could individually function as we intended. We broke this down into three steps: actuate the solenoid to push a marble off a ledge on command, determine the color of a marble using a color sensor, and move a servo motor to feed the marble into a different column based on the determined color of the marble.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="centered-text-section">
+                    <p>
+                        We mostly reached this software goal. We wrote two programs in the Arduino IDE: one to determine marble color using the color sensor, and another to actuate the servo motor and solenoid as if the color of the marble was known. The actuating program confirmed that the solenoid and servo motor would function as we intended, but the color sensing program made errors in determining the marble’s color – more than we believed would work for our project. The program to determine marble color was calibrated by analyzing the sensor readings of each marble color, and based on this, manually making rules to categorize future sensor readings into a known marble color. By testing the calibration, we found that the marble’s color was often incorrectly categorized. The marble color would need to be nearly perfectly categorized for the marble machine to make art, and because this did not occur, we did not fully reach our goal for color sensing. 
+                    </p>
+                </div>
+                <div id="homepage-footer">
+                    <div class="footer-content">
+                        <nav class="footer-nav">
+                            <a href="system.html" class="footer-link">System</a>
+                            <a href="mechanical.html" class="footer-link">Mechanical</a>
+                            <a href="electrical.html" class="footer-link">Electrical</a>
+                            <a href="software.html" class="footer-link">Software</a>
+                            <a href="sprint1.html" class="footer-link">Sprint 1</a>
+                            <a href="sprint2.html" class="footer-link">Sprint 2</a>
+                            <a href="sprint3.html" class="footer-link">Sprint 3</a>
+                            <a href="budget.html" class="footer-link">Budget</a>
+                            <a href="team.html" class="footer-link">Team</a>
+                        </nav>
+                        <p class="footer-text">
+                            &copy; 2024 Losing Our Marbles | All rights reserved.
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>

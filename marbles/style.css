@@ -1,0 +1,472 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Homepage box */
+#homepage-box {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+/* Centered text box styles */
+.centered-text-box {
+    max-width: 600px;
+    margin: 50px auto; /* Centers the box horizontally and adds vertical spacing */
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    color: #333;
+}
+
+.centered-text-box h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.centered-text-box p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Centered image wrapper */
+.centered-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 40px auto;
+}
+
+/* Centered image styles */
+.centered-image {
+    width: 75%;
+    height: auto;
+    border: 3px solid #333;
+    padding: 10px;
+    background-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+/* Shapes container */
+.shapes-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Base shape styles */
+.shape {
+    position: absolute;
+    background-color: rgba(128, 0, 128, 0.6); /* Default purple */
+    border-radius: 50%; /* Default to circle */
+    pointer-events: none;
+}
+
+/* Dynamically styled by attributes */
+.shape[data-size] {
+    width: calc(var(--width, 100px)); /* Default width if not specified */
+    height: calc(var(--height, 100px)); /* Default height if not specified */
+    opacity: var(--opacity, 1); /* Default opacity if not specified */
+}
+
+.shape[data-position-x] {
+    left: calc(var(--pos-x, 0px)); /* Default position if not specified */
+}
+
+.shape[data-position-y] {
+    top: calc(var(--pos-y, 0px));
+}
+
+/* Image-text section styles */
+.image-text-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+    max-width: 1200px; /* Keeps the layout constrained for larger screens */
+    gap: 20px; /* Adds space between the image and text */
+    padding: 20px;
+}
+
+/* Image in the section */
+.image-text-image {
+    flex: 1; /* Image takes up one part of the space */
+    max-width: 40%; /* Prevents the image from growing too large */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 10px; /* Optional: adds rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for emphasis */
+}
+
+/* Text content */
+.image-text-content {
+    flex: 2; /* Text takes up more space than the image */
+    text-align: left;
+    color: #333;
+    line-height: 1.6; /* Improves readability */
+}
+
+.image-text-content h2 {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    color: #111;
+}
+
+.image-text-content p {
+    font-size: 1rem;
+}
+
+/* Centered text section */
+.centered-text-section {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 800px; /* Keeps the text section readable on large screens */
+    color: #333;
+    background-color: #f9f9f9; /* Optional: light background for emphasis */
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}
+
+.centered-text-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.centered-text-section p {
+    font-size: 1rem;
+    line-height: 1.6; /* Improves readability */
+    color: #555;
+}
+
+/* Footer styles */
+#homepage-footer {
+    background-color: #111; /* Dark background for contrast */
+    color: #fff; /* White text for readability */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 20px; /* Spacing between links */
+}
+
+.footer-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #6c63ff; /* Highlight color on hover */
+}
+
+.footer-text {
+    font-size: 0.875rem;
+    margin-top: 10px;
+    color: #aaa; /* Subtle color for the copyright text */
+}
+
+/* System page specific styles */
+.system-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 40px 20px;
+}
+
+.system-image {
+    width: 80%; /* Takes up 80% of the viewport width */
+    height: auto; /* Maintains aspect ratio */
+    border: 5px solid #ccc; /* Optional: border for the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: subtle shadow */
+}
+
+/* Centered heading styles */
+.centered-heading {
+    text-align: center; /* Centers the text */
+    margin: 20px 0; /* Adds some vertical spacing */
+}
+
+.centered-heading h1 {
+    font-size: 2.5rem; /* Adjust heading size */
+    font-weight: bold;
+    color: #333; /* Dark gray for the text */
+    margin: 0; /* Remove default margin */
+}
+
+.centered-heading h2 {
+    font-size: 2.0rem; /* Adjust heading size */
+    font-weight: bold;
+    color: #333; /* Dark gray for the text */
+    margin: 0; /* Remove default margin */
+}
+
+/* Blended text section without box */
+.blended-text-section {
+    text-align: center; /* Center the text horizontally */
+    width: 100%; /* Full width */
+    margin: 20px 0; /* Add vertical spacing */
+    color: rgba(0, 0, 0, 0.7); /* Slightly transparent text to blend */
+    font-size: 1.5rem; /* Adjust font size */
+    line-height: 1.8; /* Improve readability */
+    font-weight: 400; /* Normal font weight */
+}
+
+/* Image and Text Section */
+.image-text-section-team {
+    display: flex; /* Align items in a row */
+    align-items: center; /* Vertically center content */
+    gap: 30px; /* Space between image and text */
+    padding: 20px; /* Spacing around the section */
+    max-width: 1600px; /* Limit section width */
+    margin: 40px auto; /* Center section horizontally */
+}
+
+.team-pic img {
+    width: 100%; /* Make image responsive */
+    max-width: 600px; /* Limit image width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: subtle shadow */
+}
+
+.text-container {
+    flex: 1.5; /* Allow text to take remaining space */
+}
+
+.section-heading {
+    font-size: 2rem; /* Larger heading size */
+    color: #333; /* Dark gray color */
+    margin-bottom: 10px; /* Spacing below heading */
+}
+
+.section-text {
+    font-size: 1.1rem; /* Text size */
+    line-height: 1.6; /* Improve readability */
+    color: #555; /* Slightly lighter gray */
+}
+
+/* Two-image rows */
+.image-blurb-section {
+    display: flex;
+    justify-content: center; /* Center the images horizontally */
+    gap: 120px; /* Increase space between the images */
+    margin: 60px 0; /* Add more vertical spacing between rows */
+}
+
+.image-blurb {
+    text-align: center; /* Center the image and text */
+}
+
+.image-blurb img,
+.image-blurb-center img {
+    width: 250px; /* Fixed width */
+    height: 250px; /* Fixed height */
+    object-fit: cover; /* Maintain aspect ratio and crop if necessary */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow */
+}
+
+.blurb-text {
+    margin-top: 10px; /* Space between the image and text */
+    font-size: 1rem; /* Standard font size */
+    color: #555; /* Slightly lighter text color */
+}
+
+.blurb-text-center {
+    margin-top: 10px; /* Space between the image and text */
+    font-size: 1rem; /* Standard font size */
+    color: #555; /* Slightly lighter text color */
+    max-width: 40%; /* Constrain the text to 40% of the page width */
+    margin: 0 auto; /* Center the text block horizontally */
+}
+
+/* Single centered image */
+.image-blurb-center {
+    text-align: center;
+    margin: 80px 0; /* Increase vertical spacing */
+}
+
+
+
+/* System content container */
+.budget-system-content {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center images horizontally */
+    gap: 0; /* Remove any spacing between items */
+    padding: 0; /* Remove padding around the container */
+    margin: 0 auto; /* Center the container on the page */
+}
+
+/* System images */
+.budget-system-image {
+    width: 100%; /* Images fill the full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image scales properly */
+    margin: 0; /* Remove default margin around the images */
+    padding: 0; /* Remove padding */
+    border: none; /* Ensure no border is displayed */
+}
+
+/* Side-by-side images container */
+.side-by-side-images {
+    display: flex; /* Align items in a row */
+    justify-content: center; /* Center the images horizontally */
+    align-items: flex-start; /* Align captions with the top of the images */
+    gap: 20px; /* Space between the image blocks */
+    padding: 20px 0; /* Add vertical spacing */
+}
+
+/* Individual image with caption */
+.image-with-caption {
+    text-align: center; /* Center-align the image and caption */
+    width: 500px; /* Fixed width for the container */
+    height: 500px; /* Fixed height for the container to make it square */
+    display: flex; /* Use flex to position the content */
+    flex-direction: column; /* Stack the image container and caption */
+    justify-content: flex-start; /* Ensure caption stays below the image */
+}
+
+/* Image container */
+.image-container {
+    width: 100%; /* Full width of the parent container */
+    height: 100%; /* Full height to make it square */
+    display: flex; /* Flexbox for centering the image */
+    align-items: center; /* Center the image vertically */
+    justify-content: center; /* Center the image horizontally */
+    background-color: #f4f4f4; /* Optional: Light background for empty areas */
+    overflow: hidden; /* Crop any part of the image outside the square */
+}
+
+/* Image styling */
+.side-image {
+    max-width: 100%; /* Scale the image to fit within the container */
+    max-height: 100%; /* Scale the image to fit within the container */
+    object-fit: cover; /* Ensure the image fills the space without distortion */
+}
+
+/* Caption styling */
+.image-caption {
+    margin-top: 10px; /* Space between the image and caption */
+    font-size: 1rem; /* Standard font size */
+    color: #555; /* Slightly lighter text color */
+}
+
+/* Header styles */
+/* Header styles */
+#homepage-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribute space evenly */
+    padding: 10px 20px;
+    background-color: #282c34; /* Dark background */
+    color: #fff;
+    width: 100%; /* Ensure it spans the full width */
+    box-sizing: border-box; /* Include padding in the total width */
+}
+
+#header-logo img {
+    height: 50px; /* Adjust logo size */
+}
+
+#spacer {
+    flex-grow: 1; /* Push navigation links to the right */
+}
+
+#header-nav {
+    display: flex;
+    gap: 20px; /* Space between navigation links */
+}
+
+/* Navigation links */
+.nav-link {
+    color: #fff; /* White text */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 15px; /* Add padding for button-like appearance */
+    background-color: #444; /* Button background */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.nav-link:hover {
+    background-color: #666; /* Slightly lighter background on hover */
+}
+
+.nav-link:active {
+    background-color: #555; /* Darker background on click */
+}
+
+.nav-link:visited {
+    color: #fff; /* Keep text color white */
+}
+
+/* Footer styles */
+#homepage-footer {
+    background-color: #282c34; /* Same dark background as the header */
+    color: #fff; /* White text */
+    padding: 20px 0; /* Vertical padding */
+    text-align: center; /* Center-align footer content */
+    width: 100%; /* Ensure it spans the full width */
+    box-sizing: border-box; /* Include padding in the total width */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto; /* Center the content */
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center; /* Center navigation links */
+    gap: 15px; /* Add spacing between the links */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.footer-link {
+    color: #aaa; /* Light gray text for blending into the footer */
+    text-decoration: none; /* Remove underline */
+    font-size: 1rem; /* Standard font size */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.footer-link:hover {
+    color: #fff; /* Change to white on hover for emphasis */
+}
+
+.footer-text {
+    margin-top: 10px; /* Space between the nav links and footer text */
+    font-size: 0.875rem; /* Slightly smaller text for copyright */
+    color: #aaa; /* Subtle text color */
+}

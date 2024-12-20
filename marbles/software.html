@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <main>
+        <div id="homepage-box">
+            <div id="homepage-box-content">
+                <div id="homepage-header">
+                    <div id="header-logo">
+                        <img src="./imgs/logo.png" alt="logo" id="logo">
+                    </div>
+                    <div id="spacer"></div>
+                    <div id="header-nav">
+                        <a href="system.html" class="nav-link">System</a>
+                        <a href="mechanical.html" class="nav-link">Mechanical</a>
+                        <a href="electrical.html" class="nav-link">Electrical</a>
+                        <a href="software.html" class="nav-link">Software</a>
+                        <a href="sprint1.html" class="nav-link">Sprint 1</a>
+                        <a href="sprint2.html" class="nav-link">Sprint 2</a>
+                        <a href="sprint3.html" class="nav-link">Sprint 3</a>
+                        <a href="budget.html" class="nav-link">Budget</a>
+                        <a href="team.html" class="nav-link">Team</a>
+                    </div>
+                </div>
+
+                <div class="centered-heading">
+                    <h1>Software</h1>
+                </div>
+                
+                <div class="blended-text-section">
+                    <p>
+                        The final marble machine has two software components: two applications for users to choose the pixel image created, and firmware to make the hardware create the chosen image.
+                    </p>
+                </div>
+                
+                <div class="centered-image-wrapper">
+                    <div class="shapes-container">
+                        <div class="shape" data-size="200" data-position-x="900" data-position-y="-50" opacity="1.0"></div>
+                        <div class="shape" data-size="400" data-position-x="700" data-position-y="200" opacity="0.33"></div>
+                        <div class="shape" data-size="600" data-position-x="50" data-position-y="-50" opacity="0.66"></div>
+                    </div>
+                    <img src="./imgs/system - software - overall.png" alt="Example Image" class="centered-image">
+                </div>
+
+                <div class="centered-heading">
+                    <h2>Application</h2>
+                </div>
+
+                <div class="blended-text-section">
+                    <p>
+                        The two applications are main.py and draw.pde, which are separate pathways for choosing the pixel art created. 
+                    </p>
+                    <br>
+                    <h3><b>main.py</b></h2>
+                    <p>
+                        Written in Python, this program takes the location of a png, jpg, or jpeg file from the user to be used for the main marble image. The program compresses the image down to an 8x8 grid of pixels and then for each pixel matching it to the nearest marble color equivalent. It then opens a serial connection to the arduino and sends the new image as a flattened array of integers representing the colors.
+                    </p>
+                    <br>
+                    <h3><b>draw.pde</b></h2>
+                    <p>
+                        Written in Processing, this program creates a graphical user interface for users to draw an image to be recreated using physical marbles. When run, a new window with a blank canvas appears. Users can use the paint palette to set the brush color, then click on the canvas to color a pixel. Once the drawing is finished, the user clicks the “Print Image” button, where the canvas data is printed as a 2D array to the serial monitor. The user then copies this string from the serial monitor, and pastes it in a specific line in the Arduino program. 
+                    </p>
+                </div>
+
+                <div class="side-by-side-images">
+                    <div class="image-with-caption">
+                        <div class="image-container">
+                            <img src="./imgs/Screenshot 2024-12-19 at 7.40.56 PM.png" alt="Image 1" class="side-image">
+                        </div>
+                        <p class="image-caption">output of main.py</p>
+                    </div>
+                    <div class="image-with-caption">
+                        <div class="image-container">
+                            <img src="./imgs/system - software - gui.png" alt="Image 2" class="side-image">
+                        </div>
+                        <p class="image-caption">draw.pde GUI</p>
+                    </div>
+                </div>
+
+                <div class="centered-heading">
+                    <h2>Firmware</h2>
+                </div>
+
+                <div class="blended-text-section">
+                    <p>
+                        Firmware for this project was done in the Arduino IDE. This program – called euclidean_sort_3_servo.ino – takes an image and controls the hardware to physically create it using colored marbles. It first receives an image in the form of a two-dimensional array from either main.py over serial, or draw.pde by manually adding it to the program. Then, it begins a loop that continues until the image is complete: it determines the color of the marble using the color sensor, controls the servo motor to sort this marble into the correct column when it falls, pushes the marble into the sorter using a solenoid, and brings marbles to the top using the lift if there are no more marbles at the color sensor. 
+                    </p>
+                </div>
+
+                <div class="centered-image-wrapper">
+                    <div class="shapes-container">
+                        <div class="shape" data-size="200" data-position-x="900" data-position-y="-50" opacity="1.0"></div>
+                        <div class="shape" data-size="400" data-position-x="700" data-position-y="200" opacity="0.33"></div>
+                        <div class="shape" data-size="600" data-position-x="50" data-position-y="-50" opacity="0.66"></div>
+                    </div>
+                    <img src="./imgs/tcs34725-full.jpg" alt="Example Image" class="centered-image">
+                </div>  
+
+                <div class="centered-heading">
+                    <h2>
+                        <b>
+                            Color Sensing
+                        </b>
+                    </h2>
+                </div>
+
+                <div class="blended-text-section">
+                    <p>
+                        The program connects to the TCS34725 color sensor using I2C and the Adafruit_TCS34725 Arduino library.  To determine the color of the marble, the sensor reads the red, green, blue and clear color values of the object in front of it. This sensor reading is compared to the known values from calibration using the euclideanDistance function which compares the distance between two sensor readings in the four-dimensional red, green, blue and clear color space. This comparison is done between the current sensor reading, and the calibration values for all marble colors and when the sensing location has no marbles. Then, the minValue function finds the calibration coordinate with shortest Euclidean distance to the current sensor reading – essentially determining the color of the current marble. 
+                    </p>
+                </div>
+
+                <div class="centered-image-wrapper">
+                    <div class="shapes-container">
+                        <div class="shape" data-size="200" data-position-x="900" data-position-y="-50" opacity="1.0"></div>
+                        <div class="shape" data-size="400" data-position-x="700" data-position-y="200" opacity="0.33"></div>
+                        <div class="shape" data-size="600" data-position-x="50" data-position-y="-50" opacity="0.66"></div>
+                    </div>
+                    <img src="./imgs/marbles.jpg" alt="Example Image" class="centered-image">
+                </div>  
+
+                <div class="centered-heading">
+                    <h2>
+                        <b>
+                            Marble Sorting
+                        </b>
+                    </h2>
+
+                </div>
+
+                <div class="blended-text-section">
+                    <p>
+                        Once the color of the current marble is determined, it’s sorted into a column based on the inputted image, which is in the form of an eight-by-eight two-dimensional array. If the color of the marble matches the next color needed for a column, the function servoColumn is called and rotates the servo motors to that column. If this marble color isn’t needed in any columns, the servo motors rotate to the trash chute. Additionally, because this checks columns from left to right, the left side of the marble frame is biased to be filled before the right side. After the servo motors are in position, the marble is pushed into the sorting mechanism by a solenoid being pulsed on by a relay. This drops the marble into the correct column to create the image.
+                    </p>
+                </div>
+
+
+                <div class="centered-heading">
+                    <h2>
+                        <b>
+                            Lift System
+                        </b>
+                    </h2>
+
+                </div>
+
+                <div class="blended-text-section">
+                    <p>
+                        If the sensor determines that there is no marble in front of it, the DC motor driving the lift system screw is activated using a relay. Through experimentation, we found that activating the motor for two seconds at 3V volts brought the right number of marbles up to the marble pathway – not so many that it jammed the solenoid, and not so few that the pathway quickly emptied. 
+                    </p>
+                </div>
+
+                <div class="blended-text-section">
+                    <p>
+                        On the software side, the next steps for this project are to combine the image compressing and drawing programs so the user has access to both options. We would automate more of this system by asking the user to choose an image again once the image is created with the marbles. Additionally, we could change the user input programs to run on a LCD touchscreen so that the machine can function independently from the laptop. This would allow it to live in a public space, and be more accessible to users.
+                    </p>
+                </div>
+                
+                <div id="homepage-footer">
+                    <div class="footer-content">
+                        <nav class="footer-nav">
+                            <a href="system.html" class="footer-link">System</a>
+                            <a href="mechanical.html" class="footer-link">Mechanical</a>
+                            <a href="electrical.html" class="footer-link">Electrical</a>
+                            <a href="software.html" class="footer-link">Software</a>
+                            <a href="sprint1.html" class="footer-link">Sprint 1</a>
+                            <a href="sprint2.html" class="footer-link">Sprint 2</a>
+                            <a href="sprint3.html" class="footer-link">Sprint 3</a>
+                            <a href="budget.html" class="footer-link">Budget</a>
+                            <a href="team.html" class="footer-link">Team</a>
+                        </nav>
+                        <p class="footer-text">
+                            &copy; 2024 Losing Our Marbles | All rights reserved.
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
