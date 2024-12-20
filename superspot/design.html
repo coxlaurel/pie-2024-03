@@ -39,10 +39,8 @@
 
 						<!-- Overview -->
 							<section id="overview" class="main">
-								<span class="image main"><img src="images/dataflow.jpg" alt="" /></span>
-								<h2>Overview</h2>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis fames ac ante ipsum primis in faucibus.</p>
-								<p>Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Consequat leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit enim turpis lorem ipsum dolor sit amet feugiat. Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet est velit quis lorem.</p>
+								<span class="image main"><img src="images/dataflow.png" alt="" /></span>
+								<p>Data and energy flow diagram</p>
 							</section>
 
                         <!-- Software -->
@@ -55,10 +53,36 @@
 
                         <!-- Electrical -->
 							<section id="electrical" class="main">
-								<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
+								<span class="image main"><img src="images/legs.png" alt="" /></span>
 								<h2>Electrical</h2>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis fames ac ante ipsum primis in faucibus.</p>
-								<p>Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Consequat leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit enim turpis lorem ipsum dolor sit amet feugiat. Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet est velit quis lorem.</p>
+								<p>Overall Design: <br>
+								The circuit contains various sensors to respond to external stimuli and motors to control movement. Primarily, we take input via voice commands (data taken through an iPhone and sent via server to the arduino) and via the HC-SR04 ultrasonic sensor. These data inputs control a combination of the ten motors spread throughout the body of SuperSpot. The full data flow and power diagram can be seen below. <br>
+								Let's look at the various components of this system individually as we travel through the path of a voice command. <br> <br>
+								<span class="image left"><img src="images/design/electrical/phone.png" alt=""/></span> 
+								Component 1: Mobile Phone <br>
+								For our project, we primarily used Sam’s phone for this purpose. When the arduino was powered on, it would constantly search for the hotspot powered by a mobile phone and connect to it. This is because our arduino requires a 2.4G connection rather than the standard 5G connection on most modern routers. Once connected, the arduino would host a virtual server that would listen for different server endpoints. On our iPhone, we would run a voice recognition program designed in HTML that would then send those endpoints as commands were given. <br> <br>
+								<span class="image right"><img src="images/design/electrical/arduino.png" alt="" /></span>
+								Component 2: Arduino R4 with Wifi and Bluetooth. <br>
+								Our arduino is the brains of the system. It connects to wifi, hosts a server that listens for commands sent from the phone, and controls the rest of the system accordingly. It directly controls the HR-SC04 sensor and the six servo motors. It also interfaces with the motor shield to control the other four gear motors used for the wheels. <br> <br>
+								<span class="image left"><img src="images/design/electrical/motor_shield.png" alt=""/></span> 
+								Component 3: Adafruit Motor Shield <br>
+								The Adafruit Motor Shield is responsible for controlling the gear motors that drive the wheels. It simplifies the process of managing multiple DC motors by providing an easy interface for the Arduino. The shield supports up to four DC motors or two stepper motors and integrates seamlessly with the Arduino via an I2C connection. In our project, we used the motor shield to control the four gear motors powering the wheels, allowing us to adjust speed, direction, and movement precision. The shield also includes built-in motor drivers, making it possible to handle higher power outputs while protecting the Arduino from overcurrent. <br> <br>
+								<span class="image right"><img src="images/design/electrical/battery.png" alt="" /></span>
+								Component 4: Rechargeable Battery: <br>
+								Our rechargeable battery is a 12v lithium ion battery capable of outputting up to 1A. It directly powered the motor shield and arduino with a 12v connection, but was stepped down to 5v to provide power to the stepper motors. <br> <br>
+								<span class="image left"><img src="images/design/electrical/motors.png" alt=""/></span> <br> <br> <br> <br> <br> <br> <br> 
+								Component 5: Motors <br>
+								We used two different types of motors: <br>	
+								Gear motors (left): The gear motors powered the wheels of SuperSpot, providing mobility. These DC motors interfaced directly with the motor shield for easy control. <br>
+								Stepper motors (right): The stepper motors powered the shoulder, neck, and jaw joints of SuperSpot. They were powered by a 5v connection from the battery and controlled through the digital pins of the arduino. <br> <br>
+								<span class="image right"><img src="images/design/electrical/hcsr04.png" alt="" /></span>
+								Component 6: HC-SR04 Ultrasonic Sensor <br>
+								The HC-SR04 ultrasonic sensor was mounted on the front of Superspot and interfaced directly with the arduino: it was powered by the 5v pin, and the trig and echo pins were connected to the analog pins. It was used as the “eyes” of SuperSpot, allowing it to sense the ball, as well as other obstacles, depending on the voice command given.  <br> <br>
+								
+								The full circuit, mess and all, is shown below:
+								<div class="col-4"><img src="images/design/electrical/full_circuit.png" alt="" /></div>
+								</p> 
+
 							</section>
                         
                         <!-- Mechanical -->
