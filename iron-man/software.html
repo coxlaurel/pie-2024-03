@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>software Components - Ironman Project</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Ironman Project</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="firnmware.html">Firmware</a></li>
+          <li class="nav-item"><a class="nav-link" href="mechanical.html">Mechanical</a></li>
+          <li class="nav-item"><a class="nav-link" href="electrical.html">Electrical</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- software Section -->
+  <div class="container mt-5">
+
+    <!-- Software Overview -->
+    <div class="component-section">
+      <h2 class="section-header">Software Overview</h2>
+      <p>This section covers the software systems integrated into the project, including the <b>Jarvis Voice Assistant</b> and the software for controlling the <b>OLED Display</b>.</p>
+    </div>
+
+    <!-- Jarvis Voice Assistant Sub-section -->
+    <div class="sub-section">
+      <h3 class="section-header">Jarvis Voice Assistant</h3>
+      <p class="component-description">The Jarvis Voice Assistant is a speech-based interface that allows users to interact with the system using natural language commands. It processes speech input and responds with voice feedback. For speech-to-text (STT), we used OpenAI's Whisper Large V3 Turbo model on Groq paired
+        with the Python SpeechRecognition module, which allowed for continuous and seemless audio input. Next, we used OpenAI's ChatGPT API to describe images and answer general queries; we wanted to ensure that these responses would not get in the way of our hard-coded audio commands like "Jarvis, activate" or "Jarvis, open helmet", 
+        so we defaulted any other query that didn't sound like our audio commands to plug into ChatGPT. Finally for text-to-speech (TTS), we used two methods: to mimick Jarvis's voice from the Iron Man movies, we chose a speaker for our TTS on <a href="ttsmp3.com">ttsmp3.com</a> which had a British English male voice option, Brian. We recordered 
+      the majority of our sound bytes as mp3 files from there. Additioanlly, we used Google's TTS Python module, gTTS, to for the OpenAI output. To play any of our audio files, we relied on the pydub Python module that allowed us to play audio files like .mp3's and BytesIO from the io Python module that allowed us to handle binary data streams. Finally, we 
+    used the Python serial module to send and receive data with the Arduino. </p>
+
+      <!-- Demo Section (You can embed a demo or link to a live demo) -->
+      <div>
+        <h4>Live Demo</h4>
+        <p>To try the Jarvis Voice Assistant, visit [insert demo link] or watch the video below:</p>
+        <iframe src="https://drive.google.com/file/d/1GSHS7nrs8M97hFoHRUOKQQFlNNM8B3bp/preview" width="640" height="480" allow="autoplay"></iframe>
+      </div>
+
+      <p class="component-description">The voice assistant can perform various tasks such as:</p>
+      <ul>
+        <li>Turning on/off the system</li>
+        <li>Responding to queries</li>
+        <li>Executing commands related to other system components(oopen/close helmet, take photo/video)</li>
+        <li>Describe surroundings in images</li>
+      </ul>
+
+      <h4>Code Example</h4>
+      <pre>
+        <code>
+          # Example of voice recognition in Python using SpeechRecognition library
+          import speech_recognition as sr
+
+          recognizer = sr.Recognizer()
+
+          with sr.Microphone() as source:
+              print("Say something!")
+              audio = recognizer.listen(source)
+              command = recognizer.recognize_google(audio)
+              print(f"You said: {command}")
+        </code>
+      </pre>
+    </div>
+
+    <!-- OLED Display Sub-section -->
+    <div class="sub-section">
+      <h3 class="section-header">OLED Display</h3>
+      <p class="component-description">
+        The goal of the OLED display is to show real-time data and feedback. The software driving the OLED display takes information from various sensors or processes and displays relevant data such as system status, user input, and any other necessary feedback.
+        The OLED display mimicks the Heads-Up Display (HUD) from the Iron Man movies. It was a challenge to build in the same animations as the one from the movies since our display only had a resolution of 128x32. Nevertheless, we tried to make the display as accurate 
+        as our hardware allowed.  <a href="https://randomnerdtutorials.com/guide-for-oled-display-with-arduino/">This tutorial</a> was a helpful resource in figuring out the syntax for the libraries. We also referenced their testdrawtriangle() function, but edited it a
+        bit to match our display's dimensions a bit better.
+      </p>
+
+      <p class="component-description">The display is controlled using the Adafruit_GFX.h and Adafruit_SSD1306.h>. The displayed information is dynamically updated based on system inputs, and different animations are shown based on the task or user interaction. For example,
+        upon user activation with the voice command "Jarvis activate", the display will go through a series of animations--the first one "booting up" the system with a progress bar that scales from 0 to 100%, the second displaying the text "~JARVIS ACTIVATED~" by scrolling
+        through the individual letters, and finally the third one demonstrating that the system has been fully activated by showing off the iconic Iron Man Arc Reactor logo. 
+      </p>
+      
+      <p class="component-description">With the help of the Mechanical Subteam's adjustable OLED display mount, we were able to have the display reflect off of the acrylic that covered the eye holes such that any user could see the HUD in their field of view when looking through the eye holes.
+      </p>
+      <!-- Demo Section (You can embed a demo or link to a live demo) -->
+      <div>
+        <h4>Live Demo</h4>
+        <p>To check out the OLED Display functionality, watch the video below:</p>
+        <iframe src="https://drive.google.com/file/d/15SKZTPu-l58MjHm5SLJDsam5UvqBKlhX/preview" width="640" height="480" allow="autoplay"></iframe>      </div>
+
+      <p class="component-description">Example of OLED display usage:</p>
+      <ul>
+        <li>Display system status (On/Off)</li>
+        <li>Show animation upon activation</li>
+        <li>Display user input or commands</li>
+      </ul>
+    </div>
+
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="text-center py-4 bg-dark text-light">
+    <p>&copy; 2024 Ironman Project. All rights reserved.</p>
+  </footer>
+</body>
+</html>
