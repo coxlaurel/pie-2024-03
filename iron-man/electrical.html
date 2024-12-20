@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Electrical Components - Ironman Project</title>
+  <title>Electrical Design - Ironman Project</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
@@ -19,6 +19,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="firmware.html">Firmware</a></li>
           <li class="nav-item"><a class="nav-link" href="mechanical.html">Mechanical</a></li>
           <li class="nav-item"><a class="nav-link" href="software.html">Software</a></li>
         </ul>
@@ -30,17 +31,38 @@
   <!-- Page Container -->
   <div class="container mt-5">
 
+
+    <!-- Electrical Design Overview -->
+    <div class="section-title">
+      <h2 class="section-header">Electrical Design</h2>
+      <p>This page goes over the design process for the electrical system of the project.</p>
+    </div>
+
+    <!-- Electrical System Sub-section -->
+    <div class="sub-section">
+      <h3 class="section-header">Electrical System Overview</h3>
+      <p class="system-description"> 
+        The electrical system centers around a Raspberry Pi 5 and Arduino Nano as the heart and controls of the electrical system, 
+        with multiple auxillary devices (described more below in Electrical Components) connected to them as our various Iron Man features.
+        For this electrical system, the greatest considerations did not lie in the complexity of the circuity concepts, but rather in
+        how to accomodate for a large amount of individual electrical devices while keeping power distribution manageable, as well as our system portable and resilient. 
+      </p>
+    </div>
+
     <!-- Electrical Components Overview -->
     <div class="component-section">
       <h2 class="section-header">Electrical Components Overview</h2>
-      <p>This section covers all the electrical components used in the project, including sensors, actuators, and displays, each with its own detailed description.</p>
+      <p>This section covers all the electrical devices and components used in the project, including sensors, actuators, and displays, each with its own detailed description.
+        The main consideration when specing out these components was space, since all these components needed to be able to fit on a helmet; balancing functionality, time efficiency, and
+        budget together was another big focus.
+      </p>
     </div>
 
     <!-- Touch Sensor Sub-section -->
     <div class="sub-section">
       <h3 class="section-header">Touch Sensor</h3>
       <img src="touch-sensor-image.jpg" class="component-image" alt="Touch Sensor">
-      <p class="component-description">The touch sensor is another way of detecting user input. It plays a crucial role in allowing interaction with the system without relying on the voice asisstant. We used the KeyeStudio touch sensor for this helmet. To hook up the touch sensor, we connected its V pin to the Arduino's 5V pin, G pin to the Arduino's GND, and the S pin to digital pin 3.</p>
+      <p class="component-description">The touch sensor is another way of detecting user input. It plays a crucial role in allowing interaction with the system without relying on the voice asisstant. We used the KeyeStudio touch sensor for this helmet. To hook up the touch sensor, we connected its V pin to the Nano's 5V pin, G pin to the Nano's GND, and the S pin to digital pin 3.</p>
     </div>
 
     <!-- Servos Sub-section -->
@@ -48,7 +70,7 @@
       <h3 class="section-header">Servos</h3>
       <img src="servo-image.jpg" class="component-image" alt="Servos">
       <p class="component-description">Servos are used for precise control of mechanical components, allowing for movement in response to user input or commands. In development for our first few sprints, we used small servos that struggled to lift the weight of the cantilevered mask. For the final helmet, 
-        we swapped to larger servos. These servos were crucial because of their high precision, allowing us to make sure they could actuate the mask together despite facing opposite directions. The wiring for these servos consisted of connecting its power pin to the Nano's 5V, the GND pin to the Nanos' GND, 
+        we swapped to larger servos. These servos were crucial because of their high precision, allowing us to make sure they could actuate the mask together despite facing opposite directions. The wiring for these servos consisted of connecting its power pin to the Nano's 5V, the GND pin to the Nano's shared GND, 
       and the signal pin to digital pins 6 and 7.</p>
     </div>
 
@@ -69,72 +91,81 @@
     <!-- Speaker Sub-section -->
     <div class="sub-section">
       <h3 class="section-header">Speaker</h3>
+      <p class="component-description">
+        The speaker allows the system to output sound, such as voice feedback or alerts, creating an interactive experience with audio cues.
+        Initially, we attempted to output sound through an 8 ohm speaker using PWM signals from the Raspberry Pi's GPIO pins to simulate the audio signals;
+        this came from our learning that the Raspberry Pi 5 does not have a headphone jack (unlike previous models such as the Raspberry Pi 3 and 4), and in our initial interest to
+        not spend additional budget on an external DAC (digital to analog converter) board or hat that would allow us to play audio, we decided to attempt this PWM simulation 
+        with the materials we had on hand. 
+      </p>
       <img src="assets/images/elec_s2_speaker.jpg" class="component-image" alt="Speaker">
-      <p class="component-description">The speaker allows the system to output sound, such as voice feedback or alerts, creating an interactive experience with audio cues.</p>
+      <p class="component-description">
+        The circuit above was the result of multiple iterations of circuit designing, as there were multiple aspects at play here. One, the maximum recommended rating for current draw from the GPIO pins
+        from the Raspberry Pi were quite low, around 16mA depending on the source. Two, the voltage output from the PWM GPIO pins is 3.3V. Three, given the delicate nature of the GPIO pin and the use of an inductive component,
+        it would be wise to prevent flyback current and EMF from interfering with the GPIO pin.
+
+        See work of the iterations below:
+      </p>
+      <img src="assets/images/elec_speaker_sketch.jpg" class="component-image" alt="Speaker Sketch">
+      <p class="component-description"> Ultimately, the circuit was settled with these last two variations: </p>
+      <img src="assets/images/elec_speaker_final.jpg" class="component-image" alt="Speaker Final">
+      <p class="component-description"> 
+        Unfortunately, through these iterations, and getting a rewarding output of tones playing from the speaker from the Raspberry Pi,
+        this speaker set up actually ended up not working. It ended up being that it was actually impossible to output PWM at high enough frequencies 
+        for speech on the Raspberry Pi 5, since the hardware PWM libraries required for the increased frequencies are not yet comptabile with the 5.
+      </p>
+      <p class="component-description">
+        So, we switched to using a small Bluetooth speaker, as seen in the image below next to the RasPi:
+      </p>
+      <img src="assets/images/elec_speaker_bluetooth.jpeg" class="component-image" alt="Speaker Bluetooth">
+      <p>
+        The main takeaway here was, while learning was certaintly conducted and was interesting, at times it might be more efficient to sacrifice a bit of extra budget ($9) to save hours on a non-focus feature.
+      </p>
     </div>
 
     <!-- OLED Display Sub-section -->
     <div class="sub-section">
       <h3 class="section-header">OLED Display</h3>
       <img src="oled-display-image.jpg" class="component-image" alt="OLED Display">
-      <p class="component-description">The OLED display is used to provide visual feedback to the user. It can display text, icons, or images that are important for the operation and status of the system. We wired up digital pin 5 and 5 from our Arduino Nano into the SDA and SCK pins of the OLED display respectively while providing the Nano's 5V into it's VCC pin and connecting it's GND pin to the Nano's GND.</p>
+      <p class="component-description">The OLED display is used to provide visual feedback to the user. It can display text, icons, or images that are important for the operation and status of the system. As the OLED uses I2C protocol to communicate, we wired up digital pin 4 and 5 from our Arduino Nano into the SDA and SCK pins of the OLED display respectively while providing the Nano's 5V into it's VCC pin and connecting it's GND pin to the Nano's shared GND.</p>
     </div>
 
-    <!-- Firmware Section -->
-    <div class="firmware-section">
-      <h2 class="section-header">Firmware</h2>
-      <p class="firmware-description">The firmware controls the interaction between the electrical components and the rest of the system. It is responsible for reading data from sensors, processing it, and controlling actuators like our servos. The firmware is developed in both Arduino and Python, and it manages the communication between each component and our microcontrollers (Arduino Nano, Raspbbery Pi 5).</p>
-      <p class="firmware-description">Key functionalities of the firmware include:</p>
-      <ul>
-        <li>Sensor data acquisition (e.g., touch sensor, microphone)</li>
-        <li>Control of output devices (e.g., servos, OLED display, speaker, camera)</li>
-        <li>Real-time decision-making and response handling</li>
-        <li>Communication with the system's Python-based software</li>
-      </ul>
+    <!-- Electrical Integration Overview -->
+    <div class="integration-section">
+      <h2 class="section-header">Electrical Integration Overview</h2>
+      <p class="component-description"> 
+        As mentioned above, the main challenges with this electrical system lay in designing and integrating for such a compact space,
+        while accounting for movement of the system as the user moves and the process to put the helmet on shakes the helemt around quite a bit.
+      </p>
+      <p>
+        For our initial "integration" tests, this did not play much of a factor, as our electrical system hadn't yet be contained to be inside the helmet:
+      </p>
+      <img src="assets/images/elec_initial.jpg" class="component-image" alt="Initial Integration">
+      <p class="component-description"> 
+        Before moving to fully portable, we switched from the official Raspberry Pi outlet charger to a battery pack; the reduced power supply would give us some overcurrent draw issues from the servos, which would
+        result in a Serial I/O error on the Raspberry Pi. So, we added a 9V battery to power the Nano, and thereby the servos as well, through its Vin pin.
+      </p>
+      <img src="assets/images/elec_outside.jpg" class="component-image" alt="Jarvis Inverted">
+      <p class="component-description"> 
+        Moving forward, our next step was to then test the fit of these components with the actual helmet's spacing and mounts, as seen below. These spacing and mounts had ungone a dialogue with mechanical through the project
+        of how these various components could fit, which changed quite a few times as various components were changed or added. At this point, it was necessary to create more organization of our system,
+        through mapping out the lengths of the wires in the helmet and making an initial harnessing diagram for the helmet. Additionally, we now have Wago lever connectors serving as our
+        power and ground distribution centers, which improved upon our previous bulkier and less secure mini breadboard.
+      </p>
+      <img src="assets/images/elec_harnessing_sketches.jpg" class="component-image" alt="Initial Integration">
+      <img src="assets/images/elec_helmet.jpg" class="component-image" alt="Initial Integration">
+      <p class="component-description"> 
+        From this, it was a success to see how most of our electrical components could fit within our space restrictions. However, this is when we really noticed
+        the portable and wearable aspects of the helmet affecting our electrical system, as our DuPont wires kept disconnecting as the user moved around. So, in order 
+        to organize our compact cluster of wires better, and create more reliable connections throughout our system, we further clarified the harnessing of the helmet
+        as well as locked in on the Nano pinout. This allowed us to heat shrink and sauter a select number of actual wires to the Nano's pins and the auxillary devices, 
+        which made the connections much more reliable. We also used TechFlex mesh with the display and touch sensor wires, in order to both aesthetically organize the
+        wires but also keep them braided together to preserve strength as they travel the farthest in the helmet.
 
-      <p class="firmware-description">For the majority of our components, we were able to centralize all its firmware in the JarvisArduino.ino file which we uploaded to our Arduino Nano. The Nano connected the servos, display, and touch sensor together. On the other hand, for our camera, microphone, and speaker, which were all connected to our Raspberry Pi 5 instead, we were able to abstract out much of the firmware;
-        the microphone was automatically recognized by the Raspberry Pi 5 and accepted without any additional configuration after plugging it into one of the Pi's 4 USB ports. Additionally, for the sake of audio quality, we decided to use a bluetooth speaker over a wired one. Therefore, after configuring the bluetooth once with the Pi upon setup, we could rely on the bluetooth speaker syncing whenever they were both powered on.
-        Lastly, for our PiCamera v2, we ended up using a roundabout way to program its firmware. There exists two libraries to assist in using the PiCamera v2: the libcamera and picamera2 libraries. However, after all sorts of debugging with these libraries, we could not use the standard Python syntax: 
+        Note: the duct tape is solely because the enclosure lid would not stay on.
       </p>
-      <br/>
-      <code>
-        from picamera2 import Picamera2, Preview <br/>
-        import time <br/>
-        picam2 = Picamera2() <br/>
-        camera_config = picam2.create_still_configuration(main={"size": (1920, 1080)}, lores={"size": (640, 480)}, display="lores") <br/>
-        picam2.configure(camera_config) <br/>
-        picam2.start_preview(Preview.QTGL) <br/>
-        picam2.start() <br/>
-        time.sleep(2) <br/>
-        picam2.capture_file("test.jpg") <br/>
-      </code>
-      
-      <p class="firmware-description">
-        to function properly. Instead, we used the built-in Python <a href="https://www.geeksforgeeks.org/python-subprocess-module/">subprocess module</a> to run bash commands from within our Python script--which opened the door for the semi-working libcamera Linux software. 
-        Using libcamera, we could use the libcamera-still command that can take pictures from a preview using the command line. However, we were dealing with an error on the Raspberry Pi 5 that required us to pass in the --qt flag alongside this libcamera command. Fortunately,
-        python's subprocess module has an easy way to add flags to bash commands:
-      </p>
-      <br/>
-      <code>
-        subprocess.run( 
-        [
-            "libcamera-still",
-            "-o",
-            f"images/{now:%Y-%m-%d %H:%M}.jpg",
-            "--qt",
-        ]
-        )
-      </code>
-      <p class="firmware-description">To have a better insight on other metadata we can incorporate into our images, we used the built-in Python datetime module that helps us get the current time in Python. We stored each image with the name of the time the picture was taken. Those % indicators are
-        flags that track the year, month, date, hour, and minute the photo was taken. This PiCamera firmware was baked into our Python software file, triggered by the voice assistant.
-      </p>
-      <br/>
-      <p  class="firmware-description">
-        Finally, to handle communication between our Arduino JarvisArduino.ino file and our Python jarvis_v3.py file, we used a two-way serial connection. Configuring each file to begin its serial on 9600 baud, we had the Python software file that leveraged the voice assistant print messages on the serial like "&lt;Activate Jarvis&gt;", 
-        "&lt;Open Helmet&gt;", "&lt;Close Helmet&gt;" etc. All the while, the Arduino file would be listening in on the same baud rate for any serial messages that come in. If the Arduino recognized these strings, it would update variables that would then lead to actuation of servos, displaying animations on the OLED, etc. 
-      </p>
-      
-      <p>For a deeper look at the firmware code, visit the <a href="https://github.com/olincollege/iron-man/blob/main/JarvisArduino.ino">JarvisArduino.ino file in our GitHub repository</a> to view the source code.</p>
+      <img src="assets/images/elec_harness_pinout.jpg" class="component-image" alt="Initial Integration">
+      <img src="assets/images/elec_final_harness.jpg" class="component-image" alt="Initial Integration">
     </div>
 
   </div>
