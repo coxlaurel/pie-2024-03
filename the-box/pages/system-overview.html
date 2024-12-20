@@ -99,37 +99,56 @@
           created by Mohanarajah Gajamohan, a robotics researcher at ETH Zurich.
           The goal of this project was to create a self-balancing metal cube
           that could balance on an edge.
-        </p>
-        <h3 class="text-xl font-semibold mb-2">Mechanical Design</h3>
-        <p class="text-lg mb-4">
-          To ensure robustness, we designed a cube frame capable of withstanding
-          heavy impacts while allowing for easy assembly and maintenance.
-        </p>
-        <h3 class="text-xl font-semibold mb-2">Manufacturing</h3>
-        <p class="text-lg mb-4">
-          Using precise tools like the waterjet, mill, and lathe, we ensured
-          tight tolerances to maintain structural integrity.
-        </p>
-        <h3 class="text-xl font-semibold mb-2">Electrical Integration</h3>
-        <p class="text-lg mb-4">
-          Integration involved powering the system, using Arduino Nano PWM
-          outputs, and processing IMU readings for PID tuning.
-        </p>
-        <h3 class="text-xl font-semibold mb-2">PID Loop Tuning</h3>
-        <p class="text-lg mb-4">
-          We combined the Ziegler-Nichols method and guess-and-check to tune
-          PID values for balancing.
-        </p>
-        <h3 class="text-xl font-semibold mb-2">IMU Drift Filtering</h3>
-        <p class="text-lg mb-4">
-          Drift was mitigated using startup calibration and the Madgwick filter
-          for real-time pitch corrections.
-        </p>
-        <h3 class="text-xl font-semibold mb-2">Firmware Development</h3>
-        <p class="text-lg mb-4">
-          The firmware programmed the Arduino Nano to handle IMU data,
-          implement PID corrections, and control the flywheel motor.
-        </p>
+        </p><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Mechanical Design -->
+          <div class="flex flex-col items-center">
+            <h3 class="text-xl font-semibold mb-2">Mechanical Design</h3>
+            <p class="text-lg text-center">
+              To ensure robustness, we designed a cube frame capable of withstanding heavy impacts while allowing for easy assembly and maintenance.
+            </p>
+          </div>
+        
+          <!-- Manufacturing -->
+          <div class="flex flex-col items-center">
+            <h3 class="text-xl font-semibold mb-2">Manufacturing</h3>
+            <p class="text-lg text-center">
+              Using precise tools like the waterjet, mill, and lathe, we ensured tight tolerances to maintain structural integrity.
+            </p>
+          </div>
+        
+          <!-- Electrical Integration -->
+          <div class="flex flex-col items-center">
+            <h3 class="text-xl font-semibold mb-2">Electrical Integration</h3>
+            <p class="text-lg text-center">
+              Integration involved powering the system, using Arduino Nano PWM outputs, and processing IMU readings for PID tuning.
+            </p>
+          </div>
+        
+          <!-- PID Loop Tuning -->
+          <div class="flex flex-col items-center">
+            <h3 class="text-xl font-semibold mb-2">PID Loop Tuning</h3>
+            <p class="text-lg text-center">
+              We combined the Ziegler-Nichols method and guess-and-check to tune PID values for balancing.
+            </p>
+          </div>
+        
+          <!-- IMU Drift Filtering -->
+          <div class="flex flex-col items-center">
+            <h3 class="text-xl font-semibold mb-2">IMU Drift Filtering</h3>
+            <p class="text-lg text-center">
+              Drift was mitigated using startup calibration and the Madgwick filter for real-time pitch corrections.
+            </p>
+          </div>
+        
+          <!-- Firmware Development -->
+          <div class="flex flex-col items-center">
+            <h3 class="text-xl font-semibold mb-2">Firmware Development</h3>
+            <p class="text-lg text-center">
+              The firmware programmed the Arduino Nano to handle IMU data, implement PID corrections, and control the flywheel motor.
+            </p>
+          </div>
+        </div>
+        
         <h3 class="text-xl font-semibold mb-2">Data Flow Diagram</h3>
 
       </div>
