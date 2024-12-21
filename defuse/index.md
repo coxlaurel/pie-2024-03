@@ -2,13 +2,13 @@
 title: Home
 layout: default
 filename: index.md
---- 
+---
 # Defuse the Situation
 ## PIE 2024
 ### Joshua Espinoza, Alex Mineeva, Daniel Theunissen, Charlie Mawn
 
 ## Abstract
-Defuse the Situation is a collaborative, interactive, and engaging bomb-defusal game based on the video game [Keep Talking and Nobody Explodes](https://keeptalkinggame.com/). Our goal for this game was to implement a fully integrated, physical rendition of the video game. 
+Defuse the Situation is a collaborative, interactive, and engaging bomb-defusal game based on the video game [Keep Talking and Nobody Explodes](https://keeptalkinggame.com/). Our goal for this game was to implement a fully integrated, physical rendition of the video game.
 
 ### Objectives
 We had a few goals in mind guiding us through the design of this game:
@@ -16,7 +16,24 @@ We had a few goals in mind guiding us through the design of this game:
 - Maintain replayability, so that the same person can play the game multiple times without having the same experience.
 - Create a physical model that seamlessly integrated electrical and mechanical components, while still being aesthetically pleasing.
 - Keep the whole game contained to the suitcase, making it fully transportable.
-- Keep accessibility in mind when designing, specifically for color-blind people. 
+- Keep accessibility in mind when designing, specifically for color-blind people.
+
+### Components of the Project
+
+[Project Overview](about)
+
+[About the Process](process)
+
+[Electrical](electrical)
+
+[Software](software)
+
+[Mechanical](mechanical)
+
+[About the Team](team)
+
+[Bill of Materials](bom)
+
 
 ### See it in Action
 
@@ -41,6 +58,3 @@ We had a few goals in mind guiding us through the design of this game:
 ---
 
 <img src="assets/demo_day_pic_4.jpg" alt="image" width="1000px">
-
-
-
