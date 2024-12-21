@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Software Design | VEND</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/2c5646d0e9.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="content">
+    <header>
+        <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
+        <a href="index.html">return to main page</a>
+        <h1>Software Design</h1>
+    </header>
+
+    <main>
+        <a href="https://github.com/coxlaurel/vend-pie24" class="github_block">
+            <button>
+                <p>GitHub: coxlaurel/vend-pie24</p>
+            </button>
+        </a>
+        <h2>Interface Dependencies</h2>
+        <div style="overflow-x:auto;">
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Purpose</td>
+                    <td>Link</td>
+                </tr>
+                <tr>
+                    <td>Pyserial</td>
+                    <td>serial communication</td>
+                    <td><a href="https://pypi.org/project/pyserial/">https://pypi.org/project/pyserial/</a></td>
+                </tr>
+                <tr>
+                    <td>Kivy</td>
+                    <td>GUI library</td>
+                    <td><a href="https://kivy.org/">https://kivy.org/</a></td>
+                </tr>
+            </table>
+        </div>
+        <h2>The Interface</h2>
+        <p>We initialized our GUI to automatically fit our touchscreen's window size and hide the cursor. Our interface had 3 interface screens: Insert coin, main vending buttons, and active vending. </p>
+        <div class="interface">
+            <img src="assets/images/coin.png">
+            <p>The first interface user’s interacted with was a screen that prompted user’s to insert a coin. Upon entering this screen, a function reads the serial monitor for a sensor value every 0.5 seconds. We calibrated our sensor to know when there’s a coin in front of it or not. If a coin is detected, the sensor value reads lower than the threshold we calibrated and cues the transition to the vending button interface.</p>
+        </div>
+        <div class="interface">
+            <img src="assets/images/vend.png">
+            <p>The vending button interface has 6 buttons for each vending slot. When a button is pressed, a number corresponding to the specific motor of the slot is sent through serial communication. This tells the Arduino to activate the motor and start LED light sequence. Additionally, the button press action cues the transition the the active vending screen. </p>
+        </div>
+        <div class="interface">
+            <img src="assets/images/vending.png">
+            <p>The last interface is the active vending screen. This screen shows the user that their request for an item went through and displays the amount of time it takes the motor to revolve once. After the display duration, the insert coin interface reappears – ready for the next user. </p>
+        </div>
+    </main>
+    
+    <footer>
+        <p>2024 VEND. Thanks for reading &lt;3 </p>
+    </footer>
+</body>
+</html>

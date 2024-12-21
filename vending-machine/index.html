@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vend</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/2c5646d0e9.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="content">
+    <header>
+        <h1>VEND a Vending Machine Project</h1>
+        <p><em>Olin College Principles of Integrated Engineering 2024</em></p>
+    </header>
+    
+    <main>
+        <section id="about">
+        <iframe width="100%" height="500" src="https://www.youtube.com/embed/iLBz5u8dSiQ?si=OHre0P3g3Sy6x6IR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <h2>About the machine</h2>
+        <p>We created a vending machine that, when prompted by a user by inserting a coin and selecting an item, dispenses a snack. The user interacts with the system by inserting coins and pressing buttons on a touchscreen. The system interprets that signal and selects a motor to operate, spinning a coil for one rotation, dispensing an item. LEDs signal to the user that their item is being dispensed and when to retrieve it. The item falls onto a small tray, which can be accessed by sliding a door open at the bottom of the machine. When the user opens the door, the tray slides out with their snack to be easily retrieved!</p>
+        </section>
+        
+        <section id="workings">
+        <h2>How it works</h2>
+        <div class="member_row">
+            <img src="assets/images/Flow Diagram.png" width="50%">
+            <div>
+                <p>This is a flow diagram of our vending machine. The user interacts with the machine through a touchscreen connected to a Raspberry Pi microprocessor, which sends signals to the Arduino, which in turn operates the motors and lights through a motor shield and stepper motor driver boards. The motors rotate coils that dispense items from the machine. Once, the item falls to the bottom of the machine it lands on a tray to extrudes when the door is opened.</p>
+                <p>Look at our documentation by clicking the buttons below:</p>
+            </div>
+        </div>
+        <div class="btn_row">
+            <a href="electrical.html">
+                <button>Electrical Design</button>
+            </a>
+            <a href="firmware.html">
+                <button>Firmware Design</button>
+            </a>
+            <a href="software.html">
+                <button>Software Design</button>
+            </a>
+            <a href="mechanical.html">
+                <button>Mechanical Design</button>
+            </a>
+        </div>
+        </section>
+        
+        <section id="process">
+        <h2>Process</h2>
+        <div class="process">
+            <div class="process_row">
+                <div>
+                    <h3>Sprint 1</h3>
+                    <p>In the first sprint, we constructed a sketch model made of cardboard, scrap wood, and extra resources to model how the system would interact with the items in our final product. We used motors from previous PIE projects to model the speed and power needed to operate the machine. We also sourced LEDs and prototyped code to operate them. Using our knowledge from the sketch models, we further defined our project and laid out our sprint goals. Our mechanical subteam also began designing CAD for the system.</p>
+                    <a href="https://docs.google.com/presentation/d/1-L_rZTN1dIYtjbqbCikO0EBwYNGQ-aK5oOU0bOgr6vU/edit#slide=id.g3122ab47a75_1_0" target="_blank">Sprint 1 Review - Google Slides</a>
+                </div>
+                <div>
+                    <h3>Sprint 2</h3>
+                    <p>In the second sprint, we integrated specific stepper motors and breakout boards in the system, giving us a higher degree of precision and control over the motor system. This required more voltage to power the system. The mechanical team began the physical design and assembly of the box to house the system, and fabrication. Additionally, they fabricated aluminum coils to be attached to the motors and utilized in the final product. The software team wrote the MVP code to operate the Arduino and Raspberry Pi together with a touchscreen.</p>
+                    <a href="https://docs.google.com/presentation/d/1YoiChuGUiAqfBZ3cJydTz4AvSEkb3GK4OPXFQZooV6s/edit#slide=id.g3122ab47a75_0_15" target="_blank">Sprint review 2 - Google Slides</a>
+                </div>
+            </div>
+            <div>
+                <h3>Sprint 3</h3>
+                <p>In the third sprint, we worked to integrate all the parts and attach them to the mechanical frame. In this sprint, we struggled with properly integrating the motors and ran into issues powering the Raspberry Pi effectively.</p>
+                <a href="https://docs.google.com/presentation/d/1GVvGBUqks4Q-J9WNaih-Lb_XElfYDbdlwQGtS4j60YM/edit#slide=id.g31d5feef937_0_15" target="_blank">Sprint 3 Review - Google Slides</a>
+            </div>
+        </div>
+        </section>
+
+        <section id="budget">
+        <h2>Budget + BOM</h2>
+        <p>For this project, we were given a budget of $250. We came in well below that budget by making use of scrap items found in the shops and free-cycle, and by making use of parts already owned by members of the team. We also purchased snacks to stock the vending machine with the excess budget.</p>
+        <p>Since many of our components were sourced through scrap and free-cycle, we used costs from vendors such as Amazon, Digikey, and Home Depot to estimate the cost.</p>
+        <p><i>* indicate free or pre-owned items</i></p>
+        <div style="overflow-x:auto;">
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Purpose</th>
+                    <th>Vendor</th>
+                    <th>Quantity</th>
+                    <th>Cost</th>
+                </tr>
+                <tr>
+                    <td>Arduino</td>
+                    <td>control hardware</td>
+                    <td><a href="https://www.amazon.com/Arduino-UNO-Minima-ABX00080-Connector/dp/B0C78K4CD4/ref=sr_1_3?crid=3BF54CYC87C30&dib=eyJ2IjoiMSJ9.H-6rwWJsD9wSR7fuUMLBtYmltsAEf1ilThExWntumIEhGvXsnEZrRP_PBWsB8vJLK7GVrQ9_bqu9-ZPIpW6jlVeAVzjFPK3WlWjizI9vMNXTcdI5MYH3VyxhiMUhvSM3CvR0dpHE-d1nAuxvGY3qdWtBIoZIuY6TS7SS1Ttwwu_QJ3cQ7qwuE0la62j9dFSlvHg4_8w0rum0W1CcQ6wQlU0Xpmt1cSE6B1jQmQDROWs.-5pCm2FM2nBmY5j-9c6bOhAFFwABFUPP8ttWy78ac4U&dib_tag=se&keywords=arduino+uno+4+minima+usb+type+c&qid=1734491573&sprefix=arduino+uno+4+minima+usb+type+c%2Caps%2C130&sr=8-3">Amazon</a></td>
+                    <td>1</td>
+                    <td>$19.99*</td>
+                </tr>
+                <tr>
+                    <td>Microcontroller</td>
+                    <td>handle software to hardware communication</td>
+                    <td><a href="https://www.digikey.com/en/products/detail/raspberry-pi/SC0073/8571724">Digikey</a></td>
+                    <td>1</td>
+                    <td>$35.00*</td>
+                </tr>
+                <tr>
+                    <td>Touch screen</td>
+                    <td>user interface</td>
+                    <td><a href="https://www.amazon.com/Elecrow-800x480-Interface-Supports-Raspberry/dp/B013JECYF2/ref=sr_1_1?crid=1Z2JJHU8FQKUB&dib=eyJ2IjoiMSJ9.17ydnxKPkBISj6Ift_LRfcxYAYywNlPHAHcTaJdzgjCSU12KfdlYLBavym0EUNZV7nXG3kYLkAz26b2lipQjENMXO0fvhEmiIgOQ3wWHvVUSjtlU46pO5Pp42MQsKzGtZWK5-p8O26fTo-4cFeTNWfQMyWVgi79wa6szZ6v2f07b10tqovXO8Ra1ZXC5I3AqPWPctxLN4OMDZ-X8_MG5zGnzpfbHWwnuKtglY4ZqYlQ.uiF7pIf7jFbY0BvwOp46R3jMsiyggxXg3AzciVgBcG8&dib_tag=se&keywords=Elecrow+5-inch+Resistive+Touchscreen&qid=1730568688&s=electronics&sprefix=elecrow+5-inch+resistive+touchscreen%2Celectronics%2C82&sr=1-1">Amazon</a></td>
+                    <td>1</td>
+                    <td>$41.43</td>
+                </tr>
+                <tr>
+                    <td>Motor</td>
+                    <td>sprial mechanics</td>
+                    <td><a href="https://www.adafruit.com/product/918">Adafruit</a></td>
+                    <td>6</td>
+                    <td>$38.60</td>
+                </tr>
+                <tr>
+                    <td>Motor Driver</td>
+                    <td>motor circuitry</td>
+                    <td><a href="https://www.digikey.com/en/products/detail/pololu-corporation/1182/10450403">Digikey</a></td>
+                    <td>6</td>
+                    <td>$27.90*</td>
+                </tr>
+                <tr>
+                    <td>LED Lights</td>
+                    <td>lighting</td>
+                    <td><a href="https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf">Adafruit</a></td>
+                    <td>1</td>
+                    <td>$7.31*</td>
+                </tr>
+                <tr>
+                    <td>Buck Converter</td>
+                    <td>manage voltage output</td>
+                    <td><a href="https://www.amazon.com/Seloky-Converter-Adjustable-Electronic-Stabilizer/dp/B0DBVYP91F?crid=1QVZLIOK0V0C7&dib=eyJ2IjoiMSJ9.TXxwhXnWHHA9-07eTYmM2Z5rjV7txwXg12ruWFv8QVp-D_pQbM4SlNbORCgfv2e-wKYMiD8XZz_wRiq9dw_iJtZezQhF6DGLHOQkDbL2FcUXrkP_CDvR03LrFUZxvzpmTQWzfBgCmuldZAWfuZHQhZlKmGjhFelyDhdtb7jVb_XCeqtX6p1qzw8vmMhMZOoIg5XvL3vOXCtjs6z49A25O70xCau6-uRUxWaB_aC7ugs.CNnDD5Ddg-Z9HJ_Iem02mzDjKKUexxRTlYQFox1YYeo&dib_tag=se&keywords=buck+converter&qid=1733074857&sprefix=buck+conver%2Caps%2C241&sr=8-1">Amazon</a></td>
+                    <td>1</td>
+                    <td>$7.99*</td>
+                </tr>
+                <tr>
+                    <td>RaspPi Power Supply</td>
+                    <td>power RaspberryPi</td>
+                    <td><a href="https://www.amazon.com/dp/B07CVH21NC?psc=1&ref=ppx_pop_dt_b_product_details">Amazon</a></td>
+                    <td>1</td>
+                    <td>$11.99</td>
+                </tr>
+                <tr>
+                    <td>Breadboards</td>
+                    <td>electrical circuitry</td>
+                    <td><a href="https://www.amazon.com/Breadboards-Solderless-Breadboard-Distribution-Connecting/dp/B07DL13RZH/ref=sr_1_1?crid=16SQVZMKIN3KV&dib=eyJ2IjoiMSJ9.qSRroSxKFdd8V4RwgnQiFEBXKt51WDGjoiNyQrs7yjhaj9ka9ZGQJXRoofoYwQRBpA7hFfmCrHfEJtOmH8QcVI66-Nw1zegIDOV4K1T_nFHj-W1D7DvacB_4RSIBFGvFaKR4sJ9djHm3PJyqyIh6W6t5U8_DbiWTCpkh6P-2VYpLTBoCxuYWlJUv4fVkGiFJps9j89bFF6M6c2AlvqTc6fc9dP702GrrknM-xW7xic4.42WE337yMbJBAPe3FyAZ1ku1R_kQReXwN60rMszoBbQ&dib_tag=se&keywords=breadboard&qid=1734536759&sprefix=nail+polish%2Caps%2C120&sr=8-1">Amazon</a></td>
+                    <td>1</td>
+                    <td>$8.79*</td>
+                </tr>
+                <tr>
+                    <td>Wire</td>
+                    <td>mechanical spirals</td>
+                    <td><a href="https://www.mcmaster.com/products/aluminum-round-stock/diameter~1-8/diameter~0-125/shape-type~rod-1/length~72/length~6-ft/multipurpose-6061-aluminum-rods-and-discs-7/">McMaster</a></td>
+                    <td>4</td>
+                    <td>$16.36</td>
+                </tr>
+                <tr>
+                    <td>Steel Rods</td>
+                    <td>shelf frame</td>
+                    <td><a href="https://www.mcmaster.com/products/aluminum-round-stock/diameter~1-8/diameter~0-125/shape-type~rod-1/length~72/length~6-ft/multipurpose-6061-aluminum-rods-and-discs-7/">McMaster</a></td>
+                    <td>7</td>
+                    <td>$19.53</td>
+                </tr>
+                <tr>
+                    <td>MDF Boards</td>
+                    <td>front, shelves, door, tray</td>
+                    <td>Shop/Scrap Supplied</td>
+                    <td>4</td>
+                    <td>$32.00*</td>
+                </tr>
+                <tr>
+                    <td>3/4 plywood</td>
+                    <td>sides</td>
+                    <td>Shop/Scrap Supplied</td>
+                    <td>1</td>
+                    <td>$40.00*</td>
+                </tr>
+                <tr>
+                    <td>1/2 plywood</td>
+                    <td>bottom</td>
+                    <td>Shop/Scrap Supplied</td>
+                    <td>1</td>
+                    <td>$15.00*</td>
+                </tr>
+                <tr>
+                    <td>1/8 plywood</td>
+                    <td>top</td>
+                    <td>Shop/Scrap Supplied</td>
+                    <td>1</td>
+                    <td>$5.00*</td>
+                </tr>
+
+                <tr>
+                    <td>12x1 Pine Wood</td>
+                    <td>shelves</td>
+                    <td>Shop/Scrap Supplied</td>
+                    <td>1</td>
+                    <td>$10.00*</td>
+                </tr>
+                <tr>
+                    <td>Vaneer</td>
+                    <td>fromt panel</td>
+                    <td>Shop/Scrap Supplied</td>
+                    <td>1</td>
+                    <td>$30.00*</td>
+                </tr>
+                <tr>
+                    <td>Acrylic</td>
+                    <td>front panel</td>
+                    <td>Shop/Scrap Supplied</td>
+                    <td>1</td>
+                    <td>$10.00*</td>
+                </tr>
+                <tr>
+                    <td>Screws</td>
+                    <td>fastening</td>
+                    <td>Shop/Scrap Supplied</td>
+                    <td> &lt; 20</td>
+                    <td>$5.00*</td>
+                </tr>
+                <tr>
+                    <td>Food</td>
+                    <td>stock machine</td>
+                    <td>Roche Bros</td>
+                    <td>8</td>
+                    <td>$75.81</td>
+                </tr>
+                <tr>
+                    <td><b>Total Cost:</b></td>
+                    <td class="total_cell"><b>$402.71</b></td>
+                </tr>
+                <tr>
+                    <td><b>Total Spent:</b></td>
+                    <td class="total_cell"><b>$194.82</b></td>
+                </tr>
+            </table>
+        </div>
+        </section>
+
+        <section id="team">
+        <h2>Our Team</h2>
+        <div class="team">
+            <a href="team.html">
+                <img src="assets/images/team/group.jpg">
+            </a>
+            <div>
+                <p><a href="team.html">Meet our team here!</a></p>
+            </div>
+        </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>2024 VEND. Thanks for reading &lt;3 </p>
+    </footer>
+</body>
+</html>
